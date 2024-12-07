@@ -1,9 +1,8 @@
 from collections import OrderedDict
 from pathlib import Path
-import subprocess
 
 
-MAX_AUTHORS = 1e12  # no et als in dissertation
+MAX_AUTHORS = 1e12  # no et. al.s in dissertation
 REMOVE_FIELDS = ["primaryclass", "editor"]
 
 top_lines = [
@@ -35,7 +34,7 @@ def parse_entry(entry_lines):
         if "=" in line:
             tkey, tvalue = line.split("=", 1)
             if "sqrt" in tkey:
-                entry[key.strip()] += " " + line.strip().strip(",")
+                entry[key.strip()] += " " + line.strip().strip(",")  # noqa: F823
             else:
                 key = tkey.lower()
                 value = tvalue
@@ -98,7 +97,7 @@ def process_entry(entry):
                 or "CMS-CR-" in entry["reportnumber"]
             ):
                 entry["entrytype"] = "techreport"
-                
+
         elif "CMS-DP-" in entry["key"]:
             entry["entrytype"] = "techreport"
             entry["reportnumber"] = '"' + entry["key"] + '"'
@@ -121,16 +120,16 @@ def process_entry(entry):
 
                 if "CMS-DP-" in entry["reportnumber"]:
                     entry["type"] = '"CMS Detector Performance Note"'
-                    
+
                 if "ATLAS-SOFT-PUB" in entry["reportnumber"]:
                     entry["type"] = '"ATLAS Software Public Note"'
-                    
+
                 if "ATLAS-CONF" in entry["reportnumber"]:
                     entry["type"] = '"ATLAS Conference Note"'
 
     # add quotes and curly brackets to title for correct capitalization
     title = entry["title"].strip('"{}')
-    if not "{" in title and not "}" in title:
+    if "{" not in title and "}" not in title:
         entry["title"] = f'"{{{title}}}"'
 
     return entry

@@ -23,5 +23,5 @@ Most of the details and changes needed are described in my standard model notes 
 Additional changes:
 
  - Bunch of changes to the `postprocess.py` script, `config.cfg` and `style.css` stylesheet to get the table of contents, main page, organization and some minor visuals right.
- - `pic-tabular` make4ht option for SVG tables; needed because of very complex tables which did not convert well to native HTML. 
- - 
+ - `pic-tabular` make4ht option for SVG tables; needed because of very complex tables which did not convert well to native HTML.
+ -

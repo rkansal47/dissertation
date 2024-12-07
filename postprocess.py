@@ -9,7 +9,7 @@ UNIVERSITY OF CALIFORNIA SAN DIEGO
 Experiment and Artificial Intelligence</h2></strong>
 <br>
 A dissertation submitted in partial satisfaction of the
-requirements for the degree 
+requirements for the degree
 Doctor of Philosophy
 <br>
 <br>
@@ -40,7 +40,7 @@ Frank Wuerthwein
 <br>
 <br>
 <br>
-2024  
+2024
 """
 
 
@@ -182,7 +182,7 @@ def regex_fixes(file: Path):
 
     # Apply regex to move <msub|...> tag outside of <menclose> tag
     content = re.sub(r"main.html", r"index.html", content)
-    
+
     with file.open("w") as f:
         f.write(content)
 

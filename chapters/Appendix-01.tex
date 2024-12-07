@@ -20,7 +20,7 @@ Thus, for example,
 \begin{equation}
 	\label{eq:01_poincare_commutation_derivation_example}
 	\begin{split}
-	[M_{0i}, P_j]\psi(x^\mu) 
+	[M_{0i}, P_j]\psi(x^\mu)
 		&= (-i^2)[x_0\partial_i - x_i\partial_0, \partial_j]\psi \\
 		&= [(x_0\partial_i\partial_j - x_i\partial_0\partial_j) - (\partial_j(x_0\partial_i) - \partial_j(x_i\partial_0))]\psi \\
 		&= [(x_0\partial_i\partial_j - x_i\partial_0\partial_j) - (x_0\partial_i\partial_j - \eta_{ij}\partial_0 -  x_i\partial_0\partial_j)]\psi \\
@@ -106,7 +106,7 @@ with $\tilde \phi(\cvec{p}, t)$ satisfying the simple-harmonic oscillator (SHO) 
 	(\partial_t^2 - |\cvec{p}|^2 - m^2)\tilde \phi(\cvec{p}, t) = 0 \quad \Rightarrow \quad \tilde \phi(\cvec{p}, t) \propto e^{-i\omega_p t},
 \end{equation}
 with frequency $\omega_p = \abs{\sqrt{|\cvec{p}|^2 + m^2}}$.
-Thus, 
+Thus,
 \begin{equation}
 	\label{eq:01_qft_field_kg_solutions_final}
 	\phi(\cvec x, t) = \int \frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2\omega_p}} (a(\cvec{p})e^{ip\cdot x} + a^*(\cvec{p})e^{-ip\cdot x}),
@@ -226,7 +226,7 @@ In this section, we briefly sketch \textit{canonical quantization}, a process of
 It is based on the Hamiltonian formalism, in close analogy to the quantization of classical mechanics $\rightarrow$ QM.
 The result makes manifest the connection between quantum fields and their associated particles.
 
-An alternative quantization approach not discussed here is based on the path integral formulation (see Section~\ref{sec:01_qft_classical_path_integral}). 
+An alternative quantization approach not discussed here is based on the path integral formulation (see Section~\ref{sec:01_qft_classical_path_integral}).
 As with most alternative mathematical prescriptions of the same physics, it provides useful insight into the theory and can simplify certain calculations.
 Further detail can be found, for example, in Peskin and Schroeder~\cite{Peskin:1995ev} Chapter 9.
 
@@ -297,7 +297,7 @@ Subtracting away the zero-point energy gives us
 whose commutators with the raising and lowering operators are:
 \begin{equation}
     \label{eq:01_qft_quantization_hamiltonian_commutators}
-    [H, \ophatd a] = \svecp \omega \ophatd a, \quad [H, \ophat a] = -\svecp \omega \ophat a, 
+    [H, \ophatd a] = \svecp \omega \ophatd a, \quad [H, \ophat a] = -\svecp \omega \ophat a,
 \end{equation}
 just as for a QHO.
 This tells us that given an eigenstate of $H$, $\ket{E}$, with eigenvalue $E$, $\ophatd a \ket{E}$ and $\ophat a \ket{E}$ are also eigenstates with eigenvalues $E + \svecp \omega$ and $E - \svecp \omega$, respectively:
@@ -309,7 +309,7 @@ This tells us that given an eigenstate of $H$, $\ket{E}$, with eigenvalue $E$, $
     \end{split}
 \end{equation}
 
-% To derive the Hilbert space of this theory, we first define the vacuum $\ket{0}$ as the state for which 
+% To derive the Hilbert space of this theory, we first define the vacuum $\ket{0}$ as the state for which
 % \begin{equation}
 %     \label{eq:01_qft_quantization_hamiltonian_vacuum}
 %     \ophat a \ket{0} = 0\; \forall \cvec{p} \quad \Rightarrow \quad H\ket{0} = 0.
@@ -359,7 +359,7 @@ The number of particles $n$ in a particular state of the Fock space is given by 
 \end{equation}
 Note that the number operator $N$ commutes with the Hamiltonian $H$, $[N, H] = 0$, which means particle number is conserved; however, this will not be the case for interacting theories in the next section.
 
-% Finally, observe that for our scalar field, the creation operators commute amongst themselves. 
+% Finally, observe that for our scalar field, the creation operators commute amongst themselves.
 % This means the states $\ket{\cvec{p}_1, \ldots, \cvec{p}_n}$ are symmetric under exchange of particles, and thus describe \textit{bosons}.
 
 \subsubsection{Normalization of states and wavepackets}
@@ -427,7 +427,7 @@ Finally, let us revisit and quantize the conserved charge associated with the \U
 This is saying the difference in the number of particles and antiparticles is conserved, which for a single charged particle-antiparticle pair, is equivalent to charge conservation.
 This will be more significant for interacting theories, in which $N_b$ and $N_c$ are not individually conserved but as long as the interactions retain the \UU[1] symmetry, $Q$ is.
 
-\subsubsection{Negative energy states?} 
+\subsubsection{Negative energy states?}
 
 Note that the full, time-dependent formula for the field $\psi(\cvec{x}, t)$ contains both the $e^{-ip\cdot x}\propto e^{-iEt}$ and $e^{ip\cdot x}\propto e^{iEt}$ terms.
 As single-particle plane-wave solutions to the nonrelativistic Schr\"odinger equation, these would correspond to positive and negative energy states, the latter of which does not make physical sense.\footnote{This is related to the problem Dirac faced in developing his relativistic quantum theory of the electron, except we are dealing with bosons instead of fermions, so we cannot rely on the fermionic Dirac sea ``solution''.}
@@ -465,7 +465,7 @@ The first term in the expansion is the free field term, which we ignore.\footnot
 The $n$th term after that is of order $g^n$, where $g$ is the coupling constant of the interaction term.
 Thus, this offers a prescription for calculating the S-matrix element up to any fixed order in the interaction strength.
 
-Note that $\ket{i}$ and $\ket{f}$ are particle momentum eigenstates of the free theory. 
+Note that $\ket{i}$ and $\ket{f}$ are particle momentum eigenstates of the free theory.
 We can justify this intuitively by thinking of them as the states long before and after the interaction, when the interaction term is negligible.
 Formally, there is in fact a complicated formula relating the free and interacting eigenstates; however, the proportionality factors cancel rather beautifully in the S-matrix element, allowing us to focus on only ``connected'' and ``amputated'' Feynman diagrams between the free eigenstates, defined in the next section.
 This is illustrated (literally) for the vacuum states in Peskin and Schroeder~\cite{Peskin:1995ev} Chapter 4, and justified more generally by the LSZ reduction formula.
@@ -514,12 +514,12 @@ We can avoid this by using \textit{Feynman diagrams}, and their associated rules
 
 The conventions for Feynman diagrams in this dissertation are as follows:
 \begin{enumerate}
-	\item Time and momentum always flow from left to right. 
+	\item Time and momentum always flow from left to right.
 	Thus, the left-most particles represent the initial, and the right-most the final states.
 	Momentum arrows are shown in Figure~\ref{fig:01_qft_interactions_feynman_first_order} explicitly but need not be.
 	\item Mesons are plotted as dotted and nucleons as solid lines.
 	\item Nucleon lines have arrows representing \textit{particle-flow}.
-	For external (i.e., initial or final state) nucleons they point in the direction of momentum for particles and opposite for antiparticles. 
+	For external (i.e., initial or final state) nucleons they point in the direction of momentum for particles and opposite for antiparticles.
 	Again, in general, particles need not be explicitly labeled as in in Figure~\ref{fig:01_qft_interactions_feynman_first_order} since the linestyles and particle-flow arrows suffice.
 \end{enumerate}
 
@@ -580,7 +580,7 @@ Then,
 	s = 4E^2, \quad t = -2p^2(1-\cos\theta), \quad u = -2p^2(1+\cos\theta).
 \end{equation}
 Thus, $s$ is the total energy in the COM frame squared --- hence, we usually refer to the COM energy as $\sqrt{s}$ --- while $t$ and $u$ are a measure of how much momentum is exchanged between the scattered particles.
-For example, if $\theta = 0$, both particles continue in the same direction and $t = 0$, while if $\theta = \pi$, they completely 
+For example, if $\theta = 0$, both particles continue in the same direction and $t = 0$, while if $\theta = \pi$, they completely
 reverse direction and the momentum transfer along the collision axis is maximized at $\sqrt{\abs{t}} = 2p$.
 
 
@@ -635,7 +635,7 @@ Dirac found this is possible with $4\times 4$ matrices such as
 \begin{equation}
 	\label{eq:01_qft_spinors_gamma_matrices_weyl_basis}
 	% \setlength{\arraycolsep}{8pt}
-	\gamma^0 = \begin{pmatrix} 0 & \identity \\ \identity & 0 \end{pmatrix}, \quad 
+	\gamma^0 = \begin{pmatrix} 0 & \identity \\ \identity & 0 \end{pmatrix}, \quad
 	\gamma^i = \begin{pmatrix} 0 & \sigma^i \\ -\sigma^i & 0 \end{pmatrix},
 \end{equation}
 where $\sigma^i$ are the Pauli matrices (Chapter~\ref{sec:01_symmetries_so3}).
@@ -661,7 +661,7 @@ satisfies the Lorentz algebra (Eq.~\ref{eq:01_poincare_algebra_mmunu}).
 This means $\Sigma_{\mu\nu}$ are generators of Lorentz transformations
 \begin{equation}
 	\label{eq:01_qft_spinors_spinor_lorentz_transformation}
-	S[\Lambda] = e^{\frac{1}{2}\omega^{\mu\nu}\Sigma_{\mu\nu}}, 
+	S[\Lambda] = e^{\frac{1}{2}\omega^{\mu\nu}\Sigma_{\mu\nu}},
 \end{equation}
 where $\Lambda$ is a Lorentz transformation with parameters $\omega^{\mu\nu}$, and $S[\Lambda]$ is a particular 4D representation.
 
@@ -725,15 +725,15 @@ The Dirac equation can be rewritten in the Weyl basis as two coupled equations o
 Let us define $\sigma^\mu = (\identity, \cvec{\sigma})$ and $\bar{\sigma}^\mu = (\identity, -\cvec{\sigma})$, so that
 \begin{equation}
 	\label{eq:01_qft_spinors_dirac_weyl}
-	(i\gamma^\mu\partial_\mu - m)\psi = 
-	\begin{pmatrix} 
-		-m & i\sigma^\mu\partial_\mu \\ i\bar{\sigma}^\mu\partial_\mu & -m 
+	(i\gamma^\mu\partial_\mu - m)\psi =
+	\begin{pmatrix}
+		-m & i\sigma^\mu\partial_\mu \\ i\bar{\sigma}^\mu\partial_\mu & -m
 	\end{pmatrix}
 	\begin{pmatrix} \psi_L \\ \psi_R \end{pmatrix} = 0.
 \end{equation}
-Hence, we see the mass term couples the left- and right-handed components. 
+Hence, we see the mass term couples the left- and right-handed components.
 This is why all massive fermions must exist in pairs of particles and antiparticles.
-An important special case, however, is for a neutral \textit{Majorana} fermion, where $\psi$ equals its charge conjugate $\psi^c$ (to be defined below). 
+An important special case, however, is for a neutral \textit{Majorana} fermion, where $\psi$ equals its charge conjugate $\psi^c$ (to be defined below).
 Such a particle is its own antiparticle and can have a left-handed- or right-handed-only mass term.
 As discussed in Chapter~\ref{sec:01_symmetries_poincare}, the only Majorana candidate in the SM is the right-handed neutrino.
 
@@ -916,7 +916,7 @@ They are all related to the deep connection between spin and statistics: the req
 \label{sec:01_qft_spinors_feynman}
 
 Having quantized the free Dirac field, we now discuss interactions, again focusing on small (and renormalizable) perturbations to the free theory.
-% \TODO{fix this...} As one may expect, the primary difference with respect to the complex scalar ``nucleon'' fields from Section~\ref{sec:01_qft_quantization_interactions} is 
+% \TODO{fix this...} As one may expect, the primary difference with respect to the complex scalar ``nucleon'' fields from Section~\ref{sec:01_qft_quantization_interactions} is
 We start by presenting the propagators for the Dirac field and then extending our scalar Yukawa theory from Section~\ref{sec:01_qft_interactions} to spinor ``nucleons''.
 
 \subsubsection{Propagators}
@@ -1066,7 +1066,7 @@ These mysterious ``coincidences'' --- Why did nature ``choose'' exactly the mini
 
 % Note that there is an ambiguity in our terminology related to whether these $C$, $P$, and $T$ operators are acting on particles or fields.
 % For example, the $\hat C$ particle operator acting on a left-handed electron $\ket{p, s}_{e^-_L}$ is defined to transform it to a left-handed positron $\ket{p, s}_{e^-_L}$.
-% However, the $C$ \textit{field} operator loosely transforms $\psi \rightarrow \bar\psi$, which is 
+% However, the $C$ \textit{field} operator loosely transforms $\psi \rightarrow \bar\psi$, which is
 % gives a negative charged antiparticle state $\ket{p, s}$, but acting on the field $\psi$ it gives $\bar\psi$.
 
 
@@ -1230,7 +1230,7 @@ On the other hand, despite its abstruseness, in the end with QFT we simply draw 
 
 A more poetic view is that, on top of their practicality, gauge symmetries offer a beautiful and elegant description of the fundamental forces of nature.
 It is rather amazing that we need only to require a quantum \UU[1] gauge theory, with the usual physical properties of Lorentz invariance, causality, renormalizability etc., and QED naturally falls out!
-To quote O'Raifeartaigh, ``gauge symmetry introduces all the physical radiation fields in a natural way and determines the form of their interactions, up to a few coupling constants. 
+To quote O'Raifeartaigh, ``gauge symmetry introduces all the physical radiation fields in a natural way and determines the form of their interactions, up to a few coupling constants.
 It is remarkable that this variety of physical fields, which play such different roles at the phenomenological level, are all manifestations of the same simple principle and even more remarkable that the way in which they interact with matter is prescribed in advance.''~\cite{ORaifeartaigh:1997dvq}.
 
 This universality can be extended further with the geometric view of gauge theories, which has a strong connection to general relativity (GR).

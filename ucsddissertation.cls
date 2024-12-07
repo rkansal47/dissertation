@@ -3,7 +3,7 @@
 \PassOptionsToClass{oneside,onecolumn,titlepage,letterpaper}{book}
 \DeclareOption{nocopyright}{\ucsd@copyrightfalse}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
-\ProcessOptions\relax 
+\ProcessOptions\relax
 \LoadClass{book}
 \RequirePackage{fixltx2e}
 \RequirePackage{calc}
@@ -399,7 +399,7 @@ command!}{Uh oh}}
 }
 
 \newcommand\ucsd@setuplistof[5]{%
-	\csdef{cft#2titlefont}{%	
+	\csdef{cft#2titlefont}{%
 		\csuse{phantomsection}%
 		\addcontentsline{toc}{chapter}{#3}%
 		\hfill

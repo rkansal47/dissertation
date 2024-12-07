@@ -30,10 +30,10 @@ While not a traditional ``golden channel'' (Chapter~\ref{sec:05_smhh_golden_chan
 % In particular, we showcase the development and application of an attention-based ParticleTransformer model~\cite{Qu:2022mxj} to identify boosted \hvvq jets, which has proven to be a critical component of not only this analysis, but many ongoing boosted Higgs searches in CMS.
 
 By measuring \HH production and couplings, especially in the boosted regime, the nonresonant search is also indirectly sensitive to new physics in the very high energy Higgs sector, which could manifest as deviations from SM predictions.
-To complement this, this chapter also presents a \textit{resonant} search for direct evidence of such new physics, in the form of new particles in the Higgs sector: specifically, a heavy scalar \PX which can decay into a Higgs and Higgs-like boson \PY, in the same final state (Figure~\ref{fig:05_hhbbvv}, right). 
+To complement this, this chapter also presents a \textit{resonant} search for direct evidence of such new physics, in the form of new particles in the Higgs sector: specifically, a heavy scalar \PX which can decay into a Higgs and Higgs-like boson \PY, in the same final state (Figure~\ref{fig:05_hhbbvv}, right).
 As described in Chapter~\ref{sec:05_bsmxhy}, such additions to the Higgs sector are motivated by a variety of BSM models, such as composite Higgs models, supersymmetry, and extra dimensions, to solve the matter-antimatter asymmetry and hierarchy problems.
 The \bbvv channel is particularly important for this search because for heavy \PY boson masses, assuming SM Higgs-like couplings, the \yvv decay modes are completely dominant (Figure~\ref{fig:01_sm_higgs_hbrs}).
-Hence, the \bbvv channel is expected to have the highest branching fraction. 
+Hence, the \bbvv channel is expected to have the highest branching fraction.
 The resonant search exploits the same techniques and developments as the nonresonant, but searches more broadly for excesses, or ``bumps'', in the resonant di-Higgs mass spectrum corresponding to the mass of the new particle \PX.
 
 % Together, these two searches represesnt a sensitive and innovative approach to studying the very high energy Higgs sector at the LHC, and are a testament to the power of combining advanced ML techniques with traditional experimental methods to probe the most fundamental questions in particle physics.
@@ -42,7 +42,7 @@ This chapter is organized as follows.
 Section~\ref{sec:05_analysis_strategy} outlines the analysis strategy for both searches, based on the ML techniques described in Chapter~\ref{sec:05_jet_tagging} for identifying boosted Higgs jets, before detailing the online and offline event selection for both the nonresonant and resonant searches in Section~\ref{sec:05_selection}.
 The background estimation strategy and systematic uncertainties are then described in Sections~\ref{sec:05_bgestimation} and~\ref{sec:05_hh_systematics}, respectively, followed by the Run 2 results of the nonresonant and expected results of the resonant searches in Section~\ref{sec:05_results}.
 Finally, we conclude in Section~\ref{sec:05_outlook} with a summary and outlook for boosted \HH analyses in Run 3 and the HL-LHC.
-%  identification of boosted Higgs jets using ML techniques 
+%  identification of boosted Higgs jets using ML techniques
 % , with Section~\ref{sec:05_hww_tagger} describing specifically the development and calibration of the boosted \hyvv tagger.
 % Finally, Sections~\ref{sec:05_results} and~\ref{sec:05_outlook} conclude with the Run 2 results and outlook for boosted \HH analyses in Run 3 and the HL-LHC.
 
@@ -136,20 +136,20 @@ VBF Region & ggF Region & Fail Region \\ \hline
 \multicolumn{3}{|c|}{\begin{tabular}[c]{c}
 No electrons or muons \\[3mm]
 
-$\geq 2$ AK8 jets \\ 
-$\pt > 300$\GeV (all jets) \\ 
+$\geq 2$ AK8 jets \\
+$\pt > 300$\GeV (all jets) \\
 $|\eta| < 2.4$ (all jets) \\
 $50 < \mreg < 250\GeV$ (all jets) \\
 $\TXbb > 0.8$ (at least one jet) \\[3mm]
 
 Jet assignment: \\
-\hbb: highest $\TXbb$ score \\ 
+\hbb: highest $\TXbb$ score \\
 \hvv: out of remaining jets, highest GloParT score\\
 \end{tabular}} \\
 \hline
 %  & $\TXbbbb <$ VBF \TXbb WP or $\vbfbdt <$ VBF BDT WP & \\
  & Not passing VBF selections & \\
-$\TXbbbb \geq$ VBF \TXbb WP & $\TXbbbb \geq$ ggF \TXbb WP  & $\TXbbbb <$ ggF \TXbb WP \\ 
+$\TXbbbb \geq$ VBF \TXbb WP & $\TXbbbb \geq$ ggF \TXbb WP  & $\TXbbbb <$ ggF \TXbb WP \\
 $\vbfbdt \geq$ VBF BDT WP   & $\ggfbdt \geq$ ggF BDT WP    & \\
 \hline
 \end{tabularx}
@@ -193,21 +193,21 @@ A summary of the offline selections is provided in Table~\ref{table:EvtSel-merge
 \multicolumn{2}{|c|}{Signal Region} & \multicolumn{2}{|c|}{Validation Region} \\ \hline
 
 \multicolumn{4}{|c|}{\begin{tabular}[c]{@{}c@{}}
-$\geq 2$ AK8 jets \\ 
-$\pt > 350$\GeV (all jets) \\ 
+$\geq 2$ AK8 jets \\
+$\pt > 350$\GeV (all jets) \\
 $|\eta| < 2.4$ (all jets) \\
 $\pt > 400$\GeV (jet leading in \pt) \\[3mm]
 
 Jet assignment: \\
-\hbb: highest $\TXbb$ score \\ 
+\hbb: highest $\TXbb$ score \\
 \yvv: out of remaining jets, highest $\THWW$ score\\
 \end{tabular}} \\
 \hline
 \multicolumn{2}{|c|}{$110 \leq \mregbb < 145\GeV$} & \multicolumn{2}{|c|}{$92.5 \leq \mregbb < 110\GeV$ or $145 \leq \mregbb < 162.5\GeV$} \\
 \hline
 Pass & Fail & Pass & Fail \\
-$\TXbb \geq \mathrm{HP\ WP}$ & $\TXbb < \mathrm{HP\ WP}$ & $\TXbb \geq \mathrm{HP\ WP}$ & $\TXbb < \mathrm{HP\ WP}$ \\ 
-$\THWW \geq 0.6$ & $\THWW < 0.6$ & $\THWW \geq 0.6$ & $\THWW < 0.6$ \\ 
+$\TXbb \geq \mathrm{HP\ WP}$ & $\TXbb < \mathrm{HP\ WP}$ & $\TXbb \geq \mathrm{HP\ WP}$ & $\TXbb < \mathrm{HP\ WP}$ \\
+$\THWW \geq 0.6$ & $\THWW < 0.6$ & $\THWW \geq 0.6$ & $\THWW < 0.6$ \\
 \hline
 \end{tabular}
 }
@@ -220,7 +220,7 @@ The QCD multijet background is the primary background of both searches.
 It is estimated with a data-driven approach, using the shape of the data minus other MC backgrounds, whose uncertainties are incorporated into the fit, in a control region multiplied by a polynomial transfer factor to the signal regions, whose order is determined by an $F$-test.
 This is described in more detail below.
 The parameters of the transfer factor are estimated with a simultaneous fit in the signal and fail regions.
-Other minor backgrounds include top quark and vector boson plus jets, which are estimated from MC simulation. 
+Other minor backgrounds include top quark and vector boson plus jets, which are estimated from MC simulation.
 
 Correction factors are applied to the W and Z boson samples to match the generator-level \pt distributions with those predicted by the highest available order in the perturbative expansion.
 The $\PW+$jets and $\PZ+$jets MC samples are corrected to approximately NNLO in QCD and then further reweighted to incorporate the reduction of the cross section at high \pt due to higher-order electroweak effects (EWK).
@@ -248,7 +248,7 @@ The lowest order tested is 0 for all but the nonresonant VBF region, for which w
 \label{sec:05_hh_systematics}
 
 We consider several sources of theoretical and experimental systematic uncertainties on the signal and background modelling in the signal regions, which are summarized in Table~\ref{tab:05_hh_systematics}.
-Overall, the dominant source of uncertainty on the \HH signal strength is the statistical uncertainty in the QCD multijet background estimation, driven by the limited signal region sample size. 
+Overall, the dominant source of uncertainty on the \HH signal strength is the statistical uncertainty in the QCD multijet background estimation, driven by the limited signal region sample size.
 This uncertainty has an impact on the best-fit signal strength of 50\% (38\%) relative to the overall uncertainty in the nonresonant (resonant) analyses.
 
 The uncertainties on the signal efficiency of \hbb and \hvv are also significant.
@@ -348,7 +348,7 @@ Subdominant sources considered include uncertainties related to parton distribut
 \label{sec:05_results_hh}
 
 A binned maximum likelihood-fit is performed simultaneously in the ggF, VBF, and fail regions, and the post-fit distributions are shown in Figure~\ref{fig:05_results_hh_postfit}, with QCD in the signal regions predicted using the data-driven estimate described in Section~\ref{sec:05_bgestimation}.
-Upper limits on the \HH production cross section and constraints on the \kapvv coupling at a 95\% \CL are derived based on the asymptotic formulae for the profile likelihood ratio test statistic and the \CLs criterion, as described in Chapter~\ref{sec:03_stats} and are shown in Figures~\ref{fig:05_results_hh_UL} and~\ref{fig:05_results_hh_UL_k2v}, respectively. 
+Upper limits on the \HH production cross section and constraints on the \kapvv coupling at a 95\% \CL are derived based on the asymptotic formulae for the profile likelihood ratio test statistic and the \CLs criterion, as described in Chapter~\ref{sec:03_stats} and are shown in Figures~\ref{fig:05_results_hh_UL} and~\ref{fig:05_results_hh_UL_k2v}, respectively.
 The upper limits on the SM \HH production cross section and for $\kapvv=0$ are observed (expected) to be \hhobs (\hhexp) and \cvvobs (\cvvexp) relative to the theoretical predictions, respectively.
 The coupling modifier \kapvv is observed (expected) to be constrained within \kvvobslims (\kvvexplims) at 95\% CL, which represents the second-strongest constraint by CMS to date, behind only the boosted \bbbb analysis.
 
@@ -391,7 +391,7 @@ Upper limits on the \XHY production cross section, assuming a 100\% branching fr
 \centering
 \includegraphics[width=\textwidth]{figures/05-HH/results_res/postfit_DijetMass.pdf}
 \caption[Post-background-only-fit distributions in the fully-merged category of the \VV-candidate jet regressed mass (\mregvv).]{Post-background-only-fit distributions in the fully-merged category of the \VV-candidate jet regressed mass (\mregvv) in the validation fail (bottom left), and validation pass (bottom right) regions, as well as distributions in the pass region after applying the post-fit transfer factor from the validation regions (top right), and the fail region (top left).
-The data is not shown in the pass region. 
+The data is not shown in the pass region.
 \label{fig:05_results_xhy_postfit_fm_mvv}
 }
 \end{figure}
@@ -400,7 +400,7 @@ The data is not shown in the pass region.
 \centering
 \includegraphics[width=\textwidth]{figures/05-HH/results_res/postfit_DijetMass.pdf}
 \caption[Post-background-only-fit distributions in the fully-merged category of the dijet mass (\mjj).]{Post-background-only-fit distributions in the fully-merged category of the dijet mass (\mjj) in the validation fail (bottom left), and validation pass (bottom right) regions, as well as distributions in the pass region after applying the post-fit transfer factor from the validation regions (top right), and the fail region (top left).
-The data is not shown in the pass region. 
+The data is not shown in the pass region.
 \label{fig:05_results_xhy_postfit_fm_mjj}
 }
 \end{figure}

@@ -273,7 +273,7 @@ The power of CNNs, in addition to their ease of computation, comes from their bi
 This led to CNNs leading the DL revolution in the 2010s and achieving results on par with or surpassing human performance in computer vision.
 
 Consequently, this also led to early work in HEP applying CNNs to jets and calorimeter showers.
-Jets can, in principle, be represented as images by projecting the particle constituents onto a discretized angular $\eta$-$\phi$ plane, and taking the intensity of each ``pixel'' in this grid to be a monotonically increasing function of the corresponding particle $\pt$~\cite{deOliveira:2015xxd} (Figure~\ref{fig:03_ml_jetshowerimage}, left). 
+Jets can, in principle, be represented as images by projecting the particle constituents onto a discretized angular $\eta$-$\phi$ plane, and taking the intensity of each ``pixel'' in this grid to be a monotonically increasing function of the corresponding particle $\pt$~\cite{deOliveira:2015xxd} (Figure~\ref{fig:03_ml_jetshowerimage}, left).
 Showers can similarly be represented as 3D images of the energy deposited in the calorimeter cells (Figure~\ref{fig:03_ml_jetshowerimage}, right).
 
 At the time of the work of this dissertation, such image-based models were leading the field in tasks such as jet classification~\cite{CMS:2020poo} and shower generation~\cite{ATL-SOFT-PUB-2018-001}.
@@ -317,7 +317,7 @@ ANNs and DL have shown remarkable success in a wide range of computer vision and
 However, as highlighted in the previous section, the power of DL models is often derived from architectures tuned to the inductive biases of their domains.
 
 A unique feature of physical data is its inherent physical \textit{symmetries} (see Chapter~\ref{sec:01_symmetries}), such as with respect to $\EE[3]$ and Lorentz-transformations for molecules and high-energy collisions, respectively.
-It is hence desirable to develop NN architectures that themselves are intrinsically \textit{equivariant} to the associated transformations, which can thereby be more data efficient, more easily interpretable, and perhaps ultimately more successful~\cite{thomas2018tensor}. 
+It is hence desirable to develop NN architectures that themselves are intrinsically \textit{equivariant} to the associated transformations, which can thereby be more data efficient, more easily interpretable, and perhaps ultimately more successful~\cite{thomas2018tensor}.
 
 We have already encountered some forms of equivariance: to translations in CNNs and to permutations in GNNs.
 More recently, there has been work on building equivariance to a broader set of transformations, such as the symmetries mentioned above, which will be the focus of this section.
@@ -331,54 +331,54 @@ Let us first introduce precisely what we mean by ``equivariance'', adapting a de
 
 \begin{definition}
 \label{def:06_equivariantnns_equiv}
-A feature map $f: \CX \rightarrow \CY$ is considered \textbf{equivariant} to a group of transformations $G$ if $\forall g \in G$ and some representation $\pi$ there exists a representation $\pi'$ satisfying  
+A feature map $f: \CX \rightarrow \CY$ is considered \textbf{equivariant} to a group of transformations $G$ if $\forall g \in G$ and some representation $\pi$ there exists a representation $\pi'$ satisfying
 \begin{equation}\label{eq:06_equivariantnns_equiv}
     \pi'(g)f(x) = f(\pi(g)x),
 \end{equation}
 i.e. the group operation commutes with the map $f$ (and $f$ therefore is an intertwiner).
 In this context, $f$ generally represents a NN layer.
-Another way to think about this is that each transformation by a group element $g$ on the input must correspond to a transformation by the same group element in the feature space (but with potentially different representations $\pi$ and $\pi'$). 
+Another way to think about this is that each transformation by a group element $g$ on the input must correspond to a transformation by the same group element in the feature space (but with potentially different representations $\pi$ and $\pi'$).
 \end{definition}
 
 \begin{definition}
     \textbf{Invariance} is the particular case where $\pi'$ is the trivial representation ($\pi'(g) = \identity$), wherein transformations on $x$ do not affect features at all.
 \end{definition}
 
-While for many tasks, such as classification, \textit{invariance} of the outputs is sufficient, Refs.~\cite{worrall2017harmonic, cohen2016steerable} argue that equivariance is more desirable at least in the intermediate layers, as it allows the network to learn useful information about the transformation $g$ itself. 
+While for many tasks, such as classification, \textit{invariance} of the outputs is sufficient, Refs.~\cite{worrall2017harmonic, cohen2016steerable} argue that equivariance is more desirable at least in the intermediate layers, as it allows the network to learn useful information about the transformation $g$ itself.
 
-So far, we have discussed CNNs and GNNs / transformers, which are equivariant to the $\mathrm T(N)$ group (translations in $N$ dimensions) and invariant to the $\mathrm S_N$ group (permutations of $N$ objects), respectively. 
-Next, we discuss the extension to broader symmetry groups. 
+So far, we have discussed CNNs and GNNs / transformers, which are equivariant to the $\mathrm T(N)$ group (translations in $N$ dimensions) and invariant to the $\mathrm S_N$ group (permutations of $N$ objects), respectively.
+Next, we discuss the extension to broader symmetry groups.
 
 
 \subsection{Steerable CNNs for \texorpdfstring{\EE[2]}{E(2)}-equivariance}
 \label{sec:06_equivariantnns_e2}
 
 We first describe the generalization of the translational invariance of CNNs to equivariance to not only translations, but \textit{rotations and reflections} in 2D as well; i.e, the $\EE[2]$ group.
-We make use of a general procedure, based on Refs.~\cite{cohen2016group, cohen2016steerable}, for extending 2D translational invariance ($\mathrm T(2)$) to equivariance to a group $G =  \mathrm T(2)\rtimes H$, where $\rtimes$ is the semi-direct product and $H$ is a subgroup of $G$, meaning we can induce representations of $G$, $\mathrm{Ind}^G_H$, from $H$.\footnote{See e.g. Chapter IV, p297 of Ref.~\cite{Zee:2016fuk} for induced representations of \EE[2].} 
+We make use of a general procedure, based on Refs.~\cite{cohen2016group, cohen2016steerable}, for extending 2D translational invariance ($\mathrm T(2)$) to equivariance to a group $G =  \mathrm T(2)\rtimes H$, where $\rtimes$ is the semi-direct product and $H$ is a subgroup of $G$, meaning we can induce representations of $G$, $\mathrm{Ind}^G_H$, from $H$.\footnote{See e.g. Chapter IV, p297 of Ref.~\cite{Zee:2016fuk} for induced representations of \EE[2].}
 For $G = \EE[2]$, in particular, $H = \mathrm O(2)$, the group of distance-preserving transformations in 2D; i.e., rotations and reflections.
 
 The key idea in developing a $G$-equivariant layer is to first find the set of maps $F \ni f$ which satisfy Eq.~\ref{eq:06_equivariantnns_equiv} for an element $h \in H$:
 \begin{equation}\label{eq:06_equivariantnns_equiv2}
     \ro(h)f = f\ri(h)
 \end{equation}
-where $\ro$ and $\ri$ are reps of $H$. After this, Eq.~\ref{eq:06_equivariantnns_equiv} can be automatically satisfied using 
+where $\ro$ and $\ri$ are reps of $H$. After this, Eq.~\ref{eq:06_equivariantnns_equiv} can be automatically satisfied using
 \begin{equation}
-    \pi'(g)f = \mathrm{Ind}^G_H(g)f = \ro(h)f(\ri(h^{-1})(x-t)) 
+    \pi'(g)f = \mathrm{Ind}^G_H(g)f = \ro(h)f(\ri(h^{-1})(x-t))
 \end{equation}
-where $g = th$ for some 2D translation $t \in \mathrm T(2)$. 
+where $g = th$ for some 2D translation $t \in \mathrm T(2)$.
 
-% One simple method for finding $F$ is to recognize that since Eq.~\ref{eq:06_equivariantnns_equiv2} 
+% One simple method for finding $F$ is to recognize that since Eq.~\ref{eq:06_equivariantnns_equiv2}
 Since Eq.~\ref{eq:06_equivariantnns_equiv2} is linear in $f$, we want a complete linear basis of functions that satisfy it.
-We can obtain this by restricting the convolutional filters of a standard CNN to circular harmonics~\cite{worrall2017harmonic}:\footnote{See Refs.~\cite{weiler20183d, weiler2019general} for a more rigorous derivation.}  
+We can obtain this by restricting the convolutional filters of a standard CNN to circular harmonics~\cite{worrall2017harmonic}:\footnote{See Refs.~\cite{weiler20183d, weiler2019general} for a more rigorous derivation.}
 \begin{equation}\label{eq:06_equivariantnns_circharms}
     W_m(r, \phi; R, \beta)=R(r)e^{i(m\phi + \beta)},
 \end{equation}
-where the radial component $R$ and the filter phase $\beta$ are learnable parameters. 
+where the radial component $R$ and the filter phase $\beta$ are learnable parameters.
 We can see that $m \in \mathbb Z$, these filters form a complete basis and satisfy Eq.~\ref{eq:06_equivariantnns_equiv2} under convolutions ($*$) with an image $F(r, \phi)$ rotated by $\theta$:
 \begin{equation}
     W_m * F(r, \phi + \theta) = e^{im\theta} W_m * F(r, \phi).
 \end{equation}
-Here we took $\ri$ to be the fundamental $\SO[2]$ rep acting on the image and $\ro$ to be any one of the infinite complex reps. 
+Here we took $\ri$ to be the fundamental $\SO[2]$ rep acting on the image and $\ro$ to be any one of the infinite complex reps.
 After discretizing these filters Ref.~\cite{worrall2017harmonic} demonstrates significant improvement in classification of rotated images compared to SOTA CNNs.
 Such networks are generally referred to as ``Steerable CNNs'', and, in practice, are implemented using a finite set of $N$ such circular harmonic filters, with $m \in \{0, \frac{2\pi}{N}, ..., \frac{2\pi(N-1)}{N}\}$ (and possibly their reflections), which are then pooled in a rotationally-invariant manner, as illustrated in Figure~\ref{fig:06_equivariantnns_scnn}.
 
@@ -394,34 +394,34 @@ Such networks are generally referred to as ``Steerable CNNs'', and, in practice,
 \subsection{Tensor-field networks for \texorpdfstring{\EE[3]}{E(3)}-equivariance}
 \label{sec:06_equivariantnns_e3}
 
-Steerable CNNs have been extended to $\EE[3]$-equivariance --- translations, rotations, and reflections in 3D --- as well~\cite{weiler20183d}. 
+Steerable CNNs have been extended to $\EE[3]$-equivariance --- translations, rotations, and reflections in 3D --- as well~\cite{weiler20183d}.
 However, we will discuss a slightly different approach, applied to point-cloud data.
-This approach uses ``Fourier decompositions'' of the input, feature, and output spaces into irreducible representations (irreps) of the symmetry group, and is referred to as a ``tensor-field network''~\cite{thomas2018tensor}. 
+This approach uses ``Fourier decompositions'' of the input, feature, and output spaces into irreducible representations (irreps) of the symmetry group, and is referred to as a ``tensor-field network''~\cite{thomas2018tensor}.
 In addition to their aforementioned applications to HEP, point clouds are also extremely useful representations of physical objects such as molecules and crystals, both of which are inherently $\EE[3]$ invariant.
 
 In the approach of Ref.~\cite{thomas2018tensor}, the input and intermediate network layers $f$ take the set of coordinates $\cvec{r}_a$ and features $\cvec{x}_a$ for each point $a$ in the point cloud and map them to the same set of coordinates with new learned features $\cvec{y}_a$ ($f(\cvec{r}_a,\cvec{x}_a) = (\cvec{r}_a,\cvec{y}_a)$), with an equivariant $f$ again having to satisfy Eq.~\ref{eq:06_equivariantnns_equiv}.
 If necessary, the features are aggregated at the end across all points to produce the output.
-Translation equivariance is achieved directly by requiring $f$ to only consider distances $\cvec{r}_i - \cvec{r_j}$ between points $i$ and $j$ (a global translation will not affect these). 
+Translation equivariance is achieved directly by requiring $f$ to only consider distances $\cvec{r}_i - \cvec{r_j}$ between points $i$ and $j$ (a global translation will not affect these).
 
-For rotation equivariance, first the feature vectors $\cvec{x}_a$ are decomposed according to how they transform under irreps of $\SO[3]$ --- scalars, vectors or higher order tensors (the coordinates $\cvec{r}_a$ already transform as vectors in $\mathbb R^3$ under the fundamental rep): 
+For rotation equivariance, first the feature vectors $\cvec{x}_a$ are decomposed according to how they transform under irreps of $\SO[3]$ --- scalars, vectors or higher order tensors (the coordinates $\cvec{r}_a$ already transform as vectors in $\mathbb R^3$ under the fundamental rep):
 \begin{equation}
     \mathbb R^3 \oplus \CX = \bigoplus _l R_l^{m_l}
 \end{equation}
-where the sum is performed over irreps $R_l$ (with dimension $2l+1$) and $m_l$ are the multiplicities. 
+where the sum is performed over irreps $R_l$ (with dimension $2l+1$) and $m_l$ are the multiplicities.
 Thus, each point's features and coordinates have the corresponding decomposition:
 \begin{equation}
     \cvec{r}_a \oplus \cvec{x}_a = \bigoplus _l \bigoplus _{c=1}^{m_l} V^l_{ac}
 \end{equation}
-where the $V^l_{ac}$ are tensors which transform under the $l$ irrep. 
-Similar to steerable CNNs, each of these tensors are individually acted upon by generalized convolutional filters with the form $R(r)Y^{l_f}(\hat{r})$, where $R$ is a learned radial function, $Y^l$ are the spherical harmonic tensors, and the set $l_f$ corresponds to the set of desired irreps in feature space. The spherical harmonics are directly analogous to using circular harmonics for $\EE[2]$ (except they have dimension $2l+1$) and by the same argument they satisfy Eq.~\ref{eq:06_equivariantnns_equiv}. 
+where the $V^l_{ac}$ are tensors which transform under the $l$ irrep.
+Similar to steerable CNNs, each of these tensors are individually acted upon by generalized convolutional filters with the form $R(r)Y^{l_f}(\hat{r})$, where $R$ is a learned radial function, $Y^l$ are the spherical harmonic tensors, and the set $l_f$ corresponds to the set of desired irreps in feature space. The spherical harmonics are directly analogous to using circular harmonics for $\EE[2]$ (except they have dimension $2l+1$) and by the same argument they satisfy Eq.~\ref{eq:06_equivariantnns_equiv}.
 This convolution effectively produces a tensor product representation of $\SO[3]$ $R_{l} \otimes R_{l_f}$, which is then decomposed via Clebsch-Gordan (CG) decomposition into irreps again.
 
-A useful pedagogical example is of a network taking as input a collection of point masses and outputting the inertia tensor. 
-The input features are the masses of each point, which are scalars under $\SO[3]$, and the inertia tensor transforms as the $0 \oplus 2$ representation, so we define this network to be of the type $0 \rightarrow 0 \oplus 2$. 
+A useful pedagogical example is of a network taking as input a collection of point masses and outputting the inertia tensor.
+The input features are the masses of each point, which are scalars under $\SO[3]$, and the inertia tensor transforms as the $0 \oplus 2$ representation, so we define this network to be of the type $0 \rightarrow 0 \oplus 2$.
 
-Some interesting and successful applications include classifying molecules~\cite{miller2020relevance}, predicting protein complex structures~\cite{Eismann2020HierarchicalRN}, and predicting the phonon density of states (DoS) in crystals~\cite{chen2020direct}. 
-A schematic of the architecture used for the latter is shown in Figure~\ref{fig:06_equivariantnns_dos}. 
-Different crystals are represented geometrically as point clouds in $\mathbb R^3$, with individual atoms labeled via feature vectors $\cvec{x}_a$ using mass weighted one-hot encoding. 
+Some interesting and successful applications include classifying molecules~\cite{miller2020relevance}, predicting protein complex structures~\cite{Eismann2020HierarchicalRN}, and predicting the phonon density of states (DoS) in crystals~\cite{chen2020direct}.
+A schematic of the architecture used for the latter is shown in Figure~\ref{fig:06_equivariantnns_dos}.
+Different crystals are represented geometrically as point clouds in $\mathbb R^3$, with individual atoms labeled via feature vectors $\cvec{x}_a$ using mass weighted one-hot encoding.
 After a series of convolution layers the features are summed over all points to predict 51 scalars comprising the phonon DoS.
 
 
@@ -436,7 +436,7 @@ After a series of convolution layers the features are summed over all points to 
 \subsection{Lorentz-group-equivariant networks}
 \label{sec:06_equivariantnns_lorentz}
 
-Recently there has been some success in creating Lorentz-group-equivariant networks, which are desirable for DL applications to high energy data. 
+Recently there has been some success in creating Lorentz-group-equivariant networks, which are desirable for DL applications to high energy data.
 The Lorentz group $\mathrm{O}(3, 1)$ comprises the set of linear transformations between inertial frames with coincident origins.
 Henceforth, we restrict ourselves to the special orthochronous Lorentz group $\mathrm{SO}^+(3, 1)$, which consists of all Lorentz transformations that preserve the orientation and direction of time.
 Equivariance to such transformations is a fundamental symmetry of the data collected out of high-energy particle collisions.
@@ -449,11 +449,11 @@ The general method is to:
     \item Decompose the input space into irreps of the group.
     \item Apply an equivariant mapping (satisfying Eq.~\ref{eq:06_equivariantnns_equiv}) to the feature space.
     \item Take tensor products of the irreps and CG-decompose them again into irreps.
-    \item Repeat steps 2--3 until the output layer. 
+    \item Repeat steps 2--3 until the output layer.
 \end{enumerate}
 
 The crucial difference between this and the previous networks is that the mapping is no longer via convolutional filters; instead, it is chosen to be a simple linear aggregation across the nodes of the point clouds.
-Recall from Definition~\ref{def:06_equivariantnns_equiv} that equivariant maps $f$ must be intertwiners between input and output representations, which, according to Schur's Lemma, imposes strong restrictions on both the form of a linear $f$ and its output $f(x)$. Namely: the outputs and inputs must have the same irrep decomposition (though the multiplicities are allowed to vary, akin to increasing/decreasing the ``channels'' in an image) and $f$ must be a direct sum of learned matrices acting individually on each irrep. The transformation between $f^{\mathrm{in}}$ and $f^{\mathrm{pre}}$ in Figure~\ref{fig:06_equivariantnns_equivneuron} illustrates such a mapping. 
+Recall from Definition~\ref{def:06_equivariantnns_equiv} that equivariant maps $f$ must be intertwiners between input and output representations, which, according to Schur's Lemma, imposes strong restrictions on both the form of a linear $f$ and its output $f(x)$. Namely: the outputs and inputs must have the same irrep decomposition (though the multiplicities are allowed to vary, akin to increasing/decreasing the ``channels'' in an image) and $f$ must be a direct sum of learned matrices acting individually on each irrep. The transformation between $f^{\mathrm{in}}$ and $f^{\mathrm{pre}}$ in Figure~\ref{fig:06_equivariantnns_equivneuron} illustrates such a mapping.
 
 \begin{figure}[t]
     \centering
@@ -464,15 +464,15 @@ Recall from Definition~\ref{def:06_equivariantnns_equiv} that equivariant maps $
 \end{figure}
 
 % Since this mapping is now linear, we need another way of injecting group equivariant non-linearities into the network.
-To inject non-linearities into the network, Ref.~\cite{bogatskiy2020lorentz} proposes to take tensor products between each pair of irreps after the mapping, and then perform a CG decomposition.\footnote{See Ref.~\cite{gelfand2018representations} for a detailed analysis of CG decomposition for the Lorentz group.} 
-Another freedom available to us is acting with arbitrary learned functions on any scalar irreps that result from the decomposition, since they are, by definition, Lorentz-invariants.  
+To inject non-linearities into the network, Ref.~\cite{bogatskiy2020lorentz} proposes to take tensor products between each pair of irreps after the mapping, and then perform a CG decomposition.\footnote{See Ref.~\cite{gelfand2018representations} for a detailed analysis of CG decomposition for the Lorentz group.}
+Another freedom available to us is acting with arbitrary learned functions on any scalar irreps that result from the decomposition, since they are, by definition, Lorentz-invariants.
 
 One successful application of this network has been to jet tagging:
 Ref.~\cite{bogatskiy2020lorentz} successfully applied this ``Lorentz-group network'' (LGN) to top-quark identification, demonstrating a high (92.9\%) accuracy, though they were unable to match the then-SOTA (93.8\% using the ParticleNet GNN~\cite{Qu:2019gqs}).
 
-Finally, we note that overall this is, in fact, a very general approach: applicable to any symmetry group. 
-This includes the aforementioned $\EE[2]$ and $\EE[3]$ groups as well as potentially more exotic groups such as $E_8$ or $G_2$ which also arise in physics. 
-The only group-dependent operations in such a network are the decompositions into irreps which can readily be calculated for any group (as opposed to steerable CNNs where one needs to derive group equivariant kernels/convolutional filters). 
+Finally, we note that overall this is, in fact, a very general approach: applicable to any symmetry group.
+This includes the aforementioned $\EE[2]$ and $\EE[3]$ groups as well as potentially more exotic groups such as $E_8$ or $G_2$ which also arise in physics.
+The only group-dependent operations in such a network are the decompositions into irreps which can readily be calculated for any group (as opposed to steerable CNNs where one needs to derive group equivariant kernels/convolutional filters).
 
 \subsubsection{Summary}
 \label{sec:06_equivariantnns_conclusion}
@@ -579,15 +579,15 @@ Nevertheless, they are an exciting area for exploration in future work.
 \label{sec:04_mpgan_genhep}
 
 \textit{Note: the following discussion represents the state of the field at the time of our first publications in 2021, to provide context.
-Since then, the field has evolved significantly, partly due to the work presented in this dissertation, as we discuss in Chapter~\ref{sec:04_outlook}. 
+Since then, the field has evolved significantly, partly due to the work presented in this dissertation, as we discuss in Chapter~\ref{sec:04_outlook}.
 }
 
 \subsubsection{Generative modeling in HEP}
 
 Past work in generative modeling in HEP exclusively used image-based representations for HEP data.
-The benefit of images is the ability to employ CNN-based generative models, which have been highly successful on computer vision tasks. 
-References~\cite{deOliveira:2017pjk, Paganini:2017dwg, ATL-SOFT-PUB-2018-001, ATL-SOFT-PUB-2020-006, Erdmann:2018jxd, Carminati:2020kym}, 
-for example, build upon CNN-based GANs, and Ref.~\cite{sarm} uses an autoregressive model, to output jet- and detector-data-images. 
+The benefit of images is the ability to employ CNN-based generative models, which have been highly successful on computer vision tasks.
+References~\cite{deOliveira:2017pjk, Paganini:2017dwg, ATL-SOFT-PUB-2018-001, ATL-SOFT-PUB-2020-006, Erdmann:2018jxd, Carminati:2020kym},
+for example, build upon CNN-based GANs, and Ref.~\cite{sarm} uses an autoregressive model, to output jet- and detector-data-images.
 
 However, as highlighted in Section~\ref{sec:03_ml_physics}, the high sparsity of the images can lead to training difficulties in GANs, while the irregular geometry of the data poses a challenge for CNNs which require uniform matrices.
 While these challenges can be mitigated to an extent with techniques such as batch normalization~\cite{ioffe2015batch} and using larger/more regular pixels~\cite{ATL-SOFT-PUB-2020-006}, the approach we develop avoids both issues by generating particle-cloud-representations of the data, which are inherently sparse data structures and completely flexible to the underlying geometry.
@@ -596,10 +596,10 @@ While these challenges can be mitigated to an extent with techniques such as bat
 \subsubsection{Point cloud generative modeling}
 \label{sec:04_mpgan_pcgans}
 
-% In the context of ML, jets can be represented in multiple ways. 
-% Two more spatially efficient representations are as ordered lists or unordered sets~\cite{Shlomi:2020gdn,Duarte:2020ngm} of the jet constituents and their features. 
+% In the context of ML, jets can be represented in multiple ways.
+% Two more spatially efficient representations are as ordered lists or unordered sets~\cite{Shlomi:2020gdn,Duarte:2020ngm} of the jet constituents and their features.
 % The difficulty with the former is that there is no particular preferred ordering of the particles---one would have to impose an arbitrary ordering such as by transverse momentum~\cite{Sirunyan:2020lcu}.
-% The more natural representation is the unordered set of particles in momentum space, which we refer to as a ``particle cloud.'' 
+% The more natural representation is the unordered set of particles in momentum space, which we refer to as a ``particle cloud.''
 
 \begin{figure}[ht]
     \centering
@@ -613,26 +613,26 @@ As shown in Figure~\ref{fig:03_ml_shapenet}, ShapeNet comprises point clouds der
 % This is entirely analogous to point cloud representations of 3D objects in position-space prevalent in computer vision created, for example, by sampling from 3D ShapeNet models~\cite{shapenet}.
 However, as we note next, there are important differences in the inductive biases of the two datasets.
 
-Firstly, jets have physically meaningful low- and high-level features such as particle momentum, total mass of the jet, the number of sub-jets, and $n$-particle energy correlations. 
-These physical observables are how we characterize jets, and hence are important to reproduce correctly for physics analysis applications. 
+Firstly, jets have physically meaningful low- and high-level features such as particle momentum, total mass of the jet, the number of sub-jets, and $n$-particle energy correlations.
+These physical observables are how we characterize jets, and hence are important to reproduce correctly for physics analysis applications.
 Secondly, unlike the conditional distributions of points given a particular ShapeNet object, which are identical and independent, particle distributions within jets are highly correlated, as the particles each originate from a single source.
 The independence of their constituents also means that ShapeNet-sampled point clouds can be chosen to be of a fixed cardinality, whereas this is not possible for jets, which inherently contain varying numbers of particles due to the stochastic nature of particle production.
 Indeed, the cardinality is correlated with other jets features such as the jet mass and type.
 
 \subsubsection{Baseline models from computer vision}
 
-Still, particle clouds and point clouds have similarities insomuch as they represent sets of elements in some physical space, hence we first test existing point cloud GANs as baseline comparisons on \jetnet. 
+Still, particle clouds and point clouds have similarities insomuch as they represent sets of elements in some physical space, hence we first test existing point cloud GANs as baseline comparisons on \jetnet.
 There are several published generative models in this area; however, the majority exploit inductive biases specific to their respective datasets, such as ShapeNet-based~\cite{pcgan,pointflow,discretepointflow,ShapeGF} and molecular~\cite{kohler20,simm21,gschnet} point clouds, which are not appropriate for jets.
-A more detailed discussion, including some experimental results, can be found in App.~\ref{app:04_mpgan_pcgen}. 
+A more detailed discussion, including some experimental results, can be found in App.~\ref{app:04_mpgan_pcgen}.
 
 There do exist some more general-purpose GAN models, namely r-GAN~\cite{rgan}, GraphCNN-GAN~\cite{graphcnngan}, and TreeGAN~\cite{treegan}, and we test these on \jetnet.
 r-GAN uses a fully-connected (FC) network, GraphCNN-GAN uses graph convolutions based on dynamic $k$-nn graphs in intermediate feature spaces, and TreeGAN iteratively up-samples the graphs with information passing from ancestor to descendant nodes.
 In terms of discriminators, past work has used either an FC or a PointNet~\cite{pointnet}-style network.
 Ref.~\cite{wang2020rethinking} is the first work to study point cloud discriminator design in detail and finds amongst a number of PointNet and graph convolutional models that PointNet-Mix, which uses both max- and average-pooled features, is the most performant.
 
-In Chapter~\ref{sec:04_models}, we apply the three aforementioned generators and FC and PointNet-Mix discriminators to our dataset, but find jet structure is not adequately reproduced. 
+In Chapter~\ref{sec:04_models}, we apply the three aforementioned generators and FC and PointNet-Mix discriminators to our dataset, but find jet structure is not adequately reproduced.
 GraphCNN's local convolutions make learning global structure difficult, and while the TreeGAN and FC generator + PointNet discriminator combinations are improvements, they are not able to learn multi-particle correlations, particularly for the complex top quark jets, nor deal with the variable-sized light quark jets to the extent necessary for physics applications.
-We thus aim to overcome limitations of existing GANs by designing novel generator and discriminator networks that can learn such correlations and handle variable-sized particle clouds. 
+We thus aim to overcome limitations of existing GANs by designing novel generator and discriminator networks that can learn such correlations and handle variable-sized particle clouds.
 
 \subsubsection{Acknowledgements}
 

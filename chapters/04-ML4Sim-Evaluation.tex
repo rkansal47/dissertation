@@ -6,19 +6,19 @@
 In this Part, we have discussed the development of fast DL simulators to tackle the critical problem of producing efficient and high-quality simulations in the HL-LHC.
 % As discussed in Chapter~\ref{sec:03_ml}, it is critical to develop fast simulations for HEP that can maintain the quality of current simulations.
 In particular, we have introduced the MPGAN, GAPT, and iGAPT models, the first to effectively simulate point clouds in HEP, which have demonstrated promising results in both speed and quality.
-However, for an experimental collaboration to apply one of these techniques in real data analyses, we require methods to objectively compare the performance of different simulation techniques and extensively validate the produced simulations. 
-This calls for the study and adoption of standard quantitative evaluation metrics for generative modeling in HEP. 
+However, for an experimental collaboration to apply one of these techniques in real data analyses, we require methods to objectively compare the performance of different simulation techniques and extensively validate the produced simulations.
+This calls for the study and adoption of standard quantitative evaluation metrics for generative modeling in HEP.
 
-This chapter presents the first, to our knowledge, systematic investigation of generative evaluation metrics' sensitivity to expected failure modes of generative models, and their relevance to validation and feasibility for broad adoption in HEP. 
+This chapter presents the first, to our knowledge, systematic investigation of generative evaluation metrics' sensitivity to expected failure modes of generative models, and their relevance to validation and feasibility for broad adoption in HEP.
 We study the performance of several proposed metrics from HEP and computer vision and, inspired by both domains, we develop two novel metrics we call the Fr\'echet and kernel physics distances (FPD and KPD, respectively).
 We find them to collectively have excellent sensitivity to all tested data mismodeling, as well as to satisfy practical requirements for evaluation and comparison of generative models in HEP.
 
 We conclude our experiments by recommending the adoption of FPD and KPD, along with quantifying differences in individual feature distributions using the Wasserstein 1-distance, and demonstrate their use in evaluating the MPGAN and GAPT-based models.
 Implementations for the new metrics are provided in the \jetnet library~\cite{kansal_jetnet_library}.
 
-This section is structured as follows. 
-In Section~\ref{sec:04_evaluating_metrics} we define our criteria for evaluation metrics in HEP and review existing metrics. 
-We present results on the performance of these metrics on Gaussian-distributed synthetic toy data and simulated high energy jets in Sections~\ref{sec:04_evaluating_toydata} and~\ref{sec:04_evaluating_jetdata} respectively. 
+This section is structured as follows.
+In Section~\ref{sec:04_evaluating_metrics} we define our criteria for evaluation metrics in HEP and review existing metrics.
+We present results on the performance of these metrics on Gaussian-distributed synthetic toy data and simulated high energy jets in Sections~\ref{sec:04_evaluating_toydata} and~\ref{sec:04_evaluating_jetdata} respectively.
 Based on these experiments, we provide our recommendations and concretely illustrate their application by evaluating and comparing the aforementioned models discussed in Section~\ref{sec:04_evaluating_models}.
 Finally, we conclude in Section~\ref{sec:04_evaluating_conclusion}.
 
@@ -28,28 +28,28 @@ Finally, we conclude in Section~\ref{sec:04_evaluating_conclusion}.
 
 In evaluating generative models, we aim to quantify the difference between the real and generated data distributions $\real{p}(\cvec{x})$ and $\gen{p}(\cvec{x})$ respectively, where data samples $\cvec{x} \in \mathbb{R}^d$ are typically high dimensional.
 Lacking tractable analytic distributions in general, this can be viewed as a form of two-sample goodness-of-fit (GOF) testing of the hypothesis $\real{p}(\cvec{x}) = \gen{p}(\cvec{x})$ using real and generated samples, $\{\cvec{x}_{\mathrm{real}}\}$ and $\{\cvec{x}_{\mathrm{gen}}\}$, drawn from their respective distributions.
-As illustrated in Ref.~\cite{cousins_gof}, in general, there is no ``best'' GOF test with power against all alternative hypotheses. 
+As illustrated in Ref.~\cite{cousins_gof}, in general, there is no ``best'' GOF test with power against all alternative hypotheses.
 Instead, we aim for a set of tests that collectively have power against the relevant alternatives we expect, and are practically most appropriate.
 Below, we first outline the criteria we require of our evaluation metrics, then review and discuss the suitability of possible metrics, and end with a discussion on the features to use in comparing such high-dimensional distributions, thereby motivating FPD and KPD.
 
 \subsubsection{Criteria for evaluation metrics in HEP}
 \label{sec:04_evaluating_criteria}
 
-Typical failure modes in ML generative models such as normalizing flows and autoregressive models include a lack of sharpness and smearing of low-level features, while generative adversarial networks (GANs) often suffer from ``mode collapse'', where they fail to capture the entire real distribution, only generating samples similar to a particular subset. 
+Typical failure modes in ML generative models such as normalizing flows and autoregressive models include a lack of sharpness and smearing of low-level features, while generative adversarial networks (GANs) often suffer from ``mode collapse'', where they fail to capture the entire real distribution, only generating samples similar to a particular subset.
 Therefore, with regard to the performance of generative models, we require first and foremost that the tests be sensitive to both the quality and the diversity of the generated samples.
 It is critical that these tests are multivariate as well, particularly when measuring the performance of conditional models, which learn conditional distributions given input features such as those of the incoming particle into a calorimeter or originating parton of a jet, and which will be necessary for applications to LHC simulations~\cite{Butter:2022rso}.
-Multivariate tests are required in order to capture the correlations between different features, including those on which such a model is conditioned. 
+Multivariate tests are required in order to capture the correlations between different features, including those on which such a model is conditioned.
 % note about multivariate g.o.f testing?
-Finally, it is desirable for the test's results to be interpretable to ensure trust in the simulations. 
+Finally, it is desirable for the test's results to be interpretable to ensure trust in the simulations.
 
 To facilitate a fair, objective comparison between generative models, we also require the tests to be reproducible---i.e., repeating the test on a fixed set of samples should produce the same result---and standardizable across different datasets, such that the same test can be used for multiple classes and data structures (e.g., both images and point clouds for calorimeter showers or jets).
 It is also desirable for the test to be reasonably efficient in terms of speed and computational resources, to minimize the burden on researchers evaluating their models.
 
 \subsubsection{Evaluation metrics}
-\label{sec:04_evaluating_emetrics} 
+\label{sec:04_evaluating_emetrics}
 
 Having outlined criteria for our metrics, we now discuss possible metrics and their merits and limitations.
-The traditional method for evaluating simulations in HEP is to compare physical feature distributions using one-dimensional (1D) binned projections. 
+The traditional method for evaluating simulations in HEP is to compare physical feature distributions using one-dimensional (1D) binned projections.
 This allows valuable, interpretable insight into the physics performance of these simulators.
 % , and can be quantified by measures such as the binned chi-squared ($\chi^2$) test.
 % or the unbinned Wasserstein $p$-distance ($W_p$)~\cite{wasserstein_original,villani_ot}.
@@ -57,7 +57,7 @@ However, it is intractable to extend this binned approach to multiple distributi
 Therefore, while valuable, this method is restricted to evaluating single features, losing sensitivity to correlations and conditional distributions.
 
 \paragraph{Integral probability metrics and \texorpdfstring{$f$}{f}-divergences}
-\label{sec:04_evaluating_ipmsfdivs} 
+\label{sec:04_evaluating_ipmsfdivs}
 
 To extend to multivariate distributions, we first review measures of differences between probability distributions.
 The two prevalent, almost mutually exclusive,\footnote{The total variation distance is the only nontrivial discrepancy measure that is both an IPM and an $f$-divergence~\cite[Appendix A]{sriperumbudur_empirical}; however, to our knowledge, a consistent finite-sample estimator for it does not exist (see, for example, Ref.~\cite[Section 5]{sriperumbudur_empirical}).} classes of discrepancy measures are integral probability metrics (IPMs)~\cite{muller_ipms} and $f$-divergences.
@@ -79,9 +79,9 @@ They calculate the average of the pointwise differences between the two distribu
 Like IPMs, different $f$-divergences are defined by the choice of generating function.
 Famous examples include the Kullback-Leibler (KL)~\cite{kl} and Jenson-Shannon (JS)~\cite{js_1,js_2} divergences, which are widely used in information theory to capture the expected information loss when modeling \real{p} by \gen{p} (or vice versa), as well as the Pearson $\chi^2$~\cite{pearson} divergence and related metrics~\cite{Baker:1983tu,generalization_gof,parametric}, which are ubiquitous in HEP as GOF tests.
 
-% IPMs include popular measures such as the Wasserstein 1-distance ($W_1$) ~\cite{wasserstein_original,villani_ot}, maximum mean discrepancy (MMD)~\cite{gretton_mmd}, and energy distance~\cite{rizzo_energydist}, while measures such as the Kullback--Leibler (KL)~\cite{kl}, Jenson--Shannon (JS)~\cite{js_1,js_2}, and Pearson $\chi^2$~\cite{pearson} divergences are all forms of $f$-divergences. 
+% IPMs include popular measures such as the Wasserstein 1-distance ($W_1$) ~\cite{wasserstein_original,villani_ot}, maximum mean discrepancy (MMD)~\cite{gretton_mmd}, and energy distance~\cite{rizzo_energydist}, while measures such as the Kullback--Leibler (KL)~\cite{kl}, Jenson--Shannon (JS)~\cite{js_1,js_2}, and Pearson $\chi^2$~\cite{pearson} divergences are all forms of $f$-divergences.
 % These two, almost mutually exclusive%
-% , 
+% ,
 % classes each have unique, interesting properties.
 
 Overall, $f$-divergences can be powerful measures of discrepancies, with convenient information-theoretic interpretations and the advantage of coordinate invariance.
@@ -98,9 +98,9 @@ Additionally, on the practical side, finite-sample estimation of $f$-divergences
 References~\cite{sriperumbudur_empirical, sriperumbudur_ipms} demonstrate more rigorously the efficacy of finite-sample estimation of IPMs, in comparison to the difficulty of estimating $f$-divergences.
 
 \paragraph{IPMs as evaluation metrics}
-\label{sec:04_evaluating_ipms} 
+\label{sec:04_evaluating_ipms}
 
-Having argued in their favor, we discuss specific IPMs and related measures, and their viability as evaluation metrics. 
+Having argued in their favor, we discuss specific IPMs and related measures, and their viability as evaluation metrics.
 The most famous is the Wasserstein distance~\cite{wasserstein_original,villani_ot}, as defined above.
 It is closely related to the problem of optimal transport~\cite{villani_ot}: finding the minimum ``cost'' to transport the mass of one distribution to another, when the cost associated with the transport between two points is the Euclidean distance between them.
 This metric is sensitive to both the quality and diversity of generated distributions; however, its finite-sample estimator is the optimum of a linear program---an optimization problem with linear constraints and objective~\cite{vanderbei2013linear}, which, while tractable in 1D, is biased with very poor convergence in high dimensions~\cite{ramdas_wasserstein}.
@@ -109,7 +109,7 @@ We demonstrate these characteristics empirically in Sections~\ref{sec:04_evaluat
 A related \textit{pseudometric}\footnote{This is a pseudometric because distinct distributions can have a distance of 0 if they have the same means and covariances.} is the Fr\'echet, or $W_2$, distance between Gaussian distributions fitted to the features of interest, which we generically call the Fr\'echet Gaussian distance (FGD).
 A form of this known as the Fr\'echet \textsc{Inception} distance (FID)~\cite{TTUR}, using the activations of the \textsc{Inception} v3 convolutional neural network model~\cite{inception_v3} on samples of real and generated images as its features, is currently the standard metric for evaluation in computer vision.
 The FID has been shown to be sensitive to both quality and mode collapse in generative models and is extremely efficient to compute; however, it has the drawback of assuming Gaussian distributions for its features.
-While finite-sample estimates of the FGD are biased~\cite{binkowski_demystifying}, Ref.~\cite{chong_unbiasedfid} introduces an effectively unbiased estimator \fgdinf, obtained by extrapolating from multiple finite-sample estimates to the infinite-sample value. 
+While finite-sample estimates of the FGD are biased~\cite{binkowski_demystifying}, Ref.~\cite{chong_unbiasedfid} introduces an effectively unbiased estimator \fgdinf, obtained by extrapolating from multiple finite-sample estimates to the infinite-sample value.
 
 The final IPM we discuss is the MMD~\cite{mmd}, for which $\mathcal F$ is the unit ball in an RKHS for a chosen kernel $k(x, y)$.
 Intuitively, it is the distance between the mean embeddings of the two distributions in the RKHS, and it has been demonstrated to be a powerful two-sample test~\cite{gretton_mmd, liu_deepkernels}.
@@ -134,7 +134,7 @@ We study the efficacy of both pairs of metrics for our problem in Sections~\ref{
 \paragraph{Classifier-based metrics}
 
 Finally, an alternative class of GOF tests proposed in Refs.~\cite{friedman_gof, lopez_paz_c2st, liu_deepkernels}, and most relevantly in Ref.~\cite{krause_caloflow} and the fast calorimeter simulation challenge~\cite{calochallenge} to evaluate simulated calorimeter showers, are based on binary classifiers trained between real and generated data.
-These tests have been posited to have sensitivity to both quality and diversity; however, they have significant practical and conceptual drawbacks in terms of understanding and comparing generative models. 
+These tests have been posited to have sensitivity to both quality and diversity; however, they have significant practical and conceptual drawbacks in terms of understanding and comparing generative models.
 
 First, deep neural networks (DNNs) are widely considered uninterpretable black boxes~\cite{black_box}, hence it is difficult to discern which features of the generated data the network is identifying as discrepant or compatible.
 Second, the performance of DNNs is highly dependent on both the architecture and dataset, and it is unclear how to specify a standard architecture sensitive to all possible discrepancies for all datasets.
@@ -148,10 +148,10 @@ Despite these drawbacks, we perform the classifier-based test from Refs.~\cite{k
 
 
 \subsubsection{Feature selection}
-\label{sec:04_evaluating_feature_selection} 
+\label{sec:04_evaluating_feature_selection}
 
-We end by discussing which features to select for evaluation. 
-Generally, for data such as calorimeter showers and jets, individual samples $\cvec x \in \mathbb R^d$ are extremely high dimensional, with showers and jets containing up to $\mathcal{O}(1000)$s of hits and particles respectively, each with its own set of features. 
+We end by discussing which features to select for evaluation.
+Generally, for data such as calorimeter showers and jets, individual samples $\cvec x \in \mathbb R^d$ are extremely high dimensional, with showers and jets containing up to $\mathcal{O}(1000)$s of hits and particles respectively, each with its own set of features.
 Apart from the practical challenges of comparing distributions in this $d$-dimensional case, often this full set of low-level features is not the most relevant for our downstream use case.
 
 
@@ -162,19 +162,19 @@ This approach is necessary for images, for which it is difficult to define such 
 We also tried a similar approach in Section~\ref{sec:04_mpgan} using the Fr\'echet ParticleNet distance (FPND), using the ParticleNet jet classifier to derive its features.
 However, one key insight and study of this work is that this may be unnecessary for HEP applications, as we have already developed a variety of meaningful, hand-engineered features such as jet observables~\cite{marzani_jets, larkoski2020jet, Komiske:2017aww} and shower-shape variables~\cite{baffioni_electronrecocms, atlas_photonrecoatlas}.
 Such variables may lead to a more efficient, more easily standardized, and interpretable test.
-We experiment with both types of features in Section~\ref{sec:04_evaluating_jetdata}. 
+We experiment with both types of features in Section~\ref{sec:04_evaluating_jetdata}.
 
 \section{Experiments on gaussian-distributed data}
-\label{sec:04_evaluating_toydata} 
+\label{sec:04_evaluating_toydata}
 
-As a first test and filtering of the many metrics discussed, we evaluate each metric's performance on simple 2D (mixture of) Gaussian-distributed datasets. 
-Below, we describe the specific metrics tested, the distributions we evaluate, and experimental results. 
+As a first test and filtering of the many metrics discussed, we evaluate each metric's performance on simple 2D (mixture of) Gaussian-distributed datasets.
+Below, we describe the specific metrics tested, the distributions we evaluate, and experimental results.
 
 
 \subsubsection{Metrics}
 \label{sec:04_evaluating_toydata_metrics}
 
-We test several metrics discussed in Section~\ref{sec:04_evaluating_metrics}, with implementation details provided below. 
+We test several metrics discussed in Section~\ref{sec:04_evaluating_metrics}, with implementation details provided below.
 Values are measured for different numbers of test samples, using the mean of five measurements each and their standard deviation as the error, for all metrics but \fgdinf and MMD.
 The sample size was increased until the metric was observed to have converged, or, as in the case of the Wasserstein distance and diversity and coverage, until it proved too computationally expensive.
 Timing measurements for each metric can be found in Appendix~\ref{app:04_evaluating_details}.
@@ -182,12 +182,12 @@ Timing measurements for each metric can be found in Appendix~\ref{app:04_evaluat
 
 \begin{enumerate}
     \item \textbf{Wasserstein distance} is estimated by solving the linear program described in, for example, Ref.~\cite{bertsimas_linearopt}, using the Python optimal transport library~\cite{flamary_pot}.
-    \item $\mathbf{FGD}_{\infty}$ is calculated by measuring FGD for 10 batch sizes, between a minimum batch size of 20,000 and varying maximum batch size. 
+    \item $\mathbf{FGD}_{\infty}$ is calculated by measuring FGD for 10 batch sizes, between a minimum batch size of 20,000 and varying maximum batch size.
     A linear fit is performed of the FGD as a function of the reciprocal of the batch size, and \fgdinf is defined to be the $y$ intercept---it, thus, corresponds to the infinite batch size limit.
     The error is taken to be the standard error of the intercept.
     % The FGD at each of the 10 batch sizes is measured 20 times and the average is used for the linear fit.
     This closely follows the recommendation of Ref.~\cite{chong_unbiasedfid}, except empirically we find it necessary to increase the minimum batch size from 5,000 to 20,000 and to use the average of 20 measurements at each batch size in the linear fit, in order to obtain \fgdinf intervals with $>$68\% coverage of the true value.\footnote{The tests of coverage are performed on the jet distributions described in Section~\ref{sec:04_evaluating_jetdata}, with the true FGD estimated as the FGD between batch sizes of 150,000, similar to Ref.~\cite{chong_unbiasedfid}.}
-    \item \textbf{MMD} is calculated using the unbiased quadratic time estimator defined in Ref.~\cite{gretton_mmd}. 
+    \item \textbf{MMD} is calculated using the unbiased quadratic time estimator defined in Ref.~\cite{gretton_mmd}.
     We test 3rd (as in KID) and 4th order polynomial kernels.
     We find MMD measurements to be extremely sensitive to outlier sets of samples, hence we use the median of 10 measurements each per sample size as our estimates, and half the difference between the 16th and 84th percentile as the error.
     We find empirically that this interval has 74\% coverage of the true value when testing on the true distribution.
@@ -205,7 +205,7 @@ Timing measurements for each metric can be found in Appendix~\ref{app:04_evaluat
 \end{figure*}
 
 \begingroup  % increase spacing for line with matrix in it.
-\setlength{\lineskip}{5pt} 
+\setlength{\lineskip}{5pt}
 
 We use a 2D Gaussian with 0 means and covariance matrix $\Sigma = \left(\begin{smallmatrix}
     1.00 & 0.25 \\ 0.25 & 1.00
@@ -236,9 +236,9 @@ We test the sensitivity of the above metrics to the following distortions, shown
 
 We first discuss the performance of each metric in distinguishing between two sets of samples from the truth distribution in Figure~\ref{fig:04_evaluating_toy_truth_scores}, effectively estimating the null distributions of each test statistic.
 A fourth-order polynomial kernel for MMD is shown as it proved most sensitive.
-We see that indeed \fgdinf and MMD are effectively unbiased, while the values of others depend on the sample size. 
+We see that indeed \fgdinf and MMD are effectively unbiased, while the values of others depend on the sample size.
 This is a significant drawback; even if the same number of samples is specified for each metric to mitigate the effect of the bias, as discussed in Ref.~\cite{chong_unbiasedfid}, in general there is no guarantee that the level of bias \textit{for a given sample size} is the same across different distributions.
-One possible solution is to use a sufficiently large number of samples to ensure convergence within a certain percentage of the true value. 
+One possible solution is to use a sufficiently large number of samples to ensure convergence within a certain percentage of the true value.
 However, from a practical standpoint, the Wasserstein distance quickly becomes computationally intractable beyond $\mathcal{O}(1000)$ samples, before which, as we see in Figure~\ref{fig:04_evaluating_toy_truth_scores}, it does not converge even for a two-dimensional distribution.
 Similarly, diversity and coverage require a large number of samples for convergence, which is impractical given their $\mathcal{O}(n^2)$ scaling, while precision and recall suffer from the same scaling but converge faster.
 
@@ -246,7 +246,7 @@ Similarly, diversity and coverage require a large number of samples for converge
 
 Table~\ref{tab:04_evaluating_toy_results} lists the means and errors of each metric per dataset for the largest sample size tested for each.
 A similar plot to Figure~\ref{fig:04_evaluating_toy_truth_scores} for each alternative distribution can be found in Appendix~\ref{app:04_evaluating_details}.
-A significance is also calculated for each score by assuming a Gaussian null (truth) distribution,\footnote{We note that this is not necessarily the case, particularly for the Wasserstein distance, which has a biased estimator. 
+A significance is also calculated for each score by assuming a Gaussian null (truth) distribution,\footnote{We note that this is not necessarily the case, particularly for the Wasserstein distance, which has a biased estimator.
 However, this is not a significant limitation, because, as can be seen in Table~\ref{tab:04_evaluating_toy_results}, there is rarely a significant overlap between the null and alternative distributions which would require an understanding of the shape of the former.}
 and the most significant scores per alternative distribution are highlighted in bold.
 We can infer several properties of each metric from these measurements.
@@ -257,7 +257,7 @@ We can infer several properties of each metric from these measurements.
     \caption[Values, significances, and errors of metrics, as defined in Section~\ref{sec:04_evaluating_toydata}, for each (mixture of) Gaussian distribution(s), for the largest sample size tested.]
     {Values, significances, and errors of metrics, as defined in Section~\ref{sec:04_evaluating_toydata}, for each (mixture of) Gaussian distribution(s), for the largest sample size tested.
     The most significant scores per distribution are in bold.
-    \label{tab:04_evaluating_toy_results} 
+    \label{tab:04_evaluating_toy_results}
     }
     % \adjustwidth
     \scriptsize
@@ -281,13 +281,13 @@ We also note that a fourth-order polynomial kernel, as opposed to the third-orde
 \fgdinf is, however, generally the most sensitive to other alternative distributions.
 
 Finally, we note that precision and recall are clearly sensitive to the two distributions designed to reduce quality and diversity respectively, while not sensitive to others.
-This indicates that they are valuable for diagnosing these individual failure modes but not for a rigorous evaluation or comparison. 
+This indicates that they are valuable for diagnosing these individual failure modes but not for a rigorous evaluation or comparison.
 Diversity and coverage are also sensitive to these distributions, but their relationship to quality and diversity is less clear.
 For example, the coverage is lower with the covariances multiplied by 10, when, in fact, the diversity should remain unchanged.
 We, therefore, conclude that precision and recall are the more meaningful metrics to disentangle quality and diversity, and use those going forward.
 
 \section{Experiments on jet data}
-\label{sec:04_evaluating_jetdata} 
+\label{sec:04_evaluating_jetdata}
 
 We next test the performance of the Wasserstein distance, \fgdinf, MMD, precision, and recall on high momentum gluon jets from the \jetnet dataset.
 As discussed in Section~\ref{sec:04_evaluating_metrics}, we test all metrics on two sets of features per jet: (i) physically meaningful high-level features and (ii) features derived from a pretrained classifier.
@@ -302,27 +302,27 @@ We first describe the dataset and tested distortions, and then the experimental 
 
 \begin{figure*}[ht]
     \includegraphics[width=\textwidth]{figures/04-ML4Sim/evaluating/jet_mass_dists.pdf}
-    \caption{The probability, in arbitrary units (A.U.), of the relative jet mass for truth and distorted gluon jet distributions. 
+    \caption{The probability, in arbitrary units (A.U.), of the relative jet mass for truth and distorted gluon jet distributions.
     On the left are distribution-level distortions, and on the right particle-level.}
-    \label{fig:04_evaluating_jetdists} 
+    \label{fig:04_evaluating_jetdists}
 \end{figure*}
 
 As our true distribution we use simulated gluon jets of ${\approx}1\TeV$ transverse momentum (\pt) from the \jetnet dataset (Section~\ref{sec:04_jetnet_dataset}) using the associated \jetnet library (Section~\ref{sec:06_jetnet}).
 % Details of the simulation and representation of the dataset can be found in Ref.~\cite{kansal_mpgan}.
-We again consider the three particle features: relative angular coordinates 
-$\etarel =\eta^{\mathrm{particle}} - \eta^{\mathrm{jet}}$ and 
-$\phirel =\phi^{\mathrm{particle}} - \phi^{\mathrm{jet}} \pmod{2\pi}$, and the relative transverse momentum 
+We again consider the three particle features: relative angular coordinates
+$\etarel =\eta^{\mathrm{particle}} - \eta^{\mathrm{jet}}$ and
+$\phirel =\phi^{\mathrm{particle}} - \phi^{\mathrm{jet}} \pmod{2\pi}$, and the relative transverse momentum
 $\ptrel = p_{\mathrm{T}}^{\mathrm{particle}}/p_{\mathrm{T}}^{\mathrm{jet}}$.
 To obtain alternative distributions we distort the dataset in several ways typical of the mismodeling we observe in ML generative models: lower feature resolution, systematic shifts in the features, and inability to capture the full distribution.
 
-We perform both distribution-level distortions, by reweighting the samples in jet mass to produce a mass distribution that is (i) smeared, (ii) smeared and shifted higher, and (iii) missing the tail of the distribution, as well as direct particle-level distortions, by (iv) smearing all three \phirel, \etarel, and \ptrel features, smearing the (v) \ptrel and (vi) \etarel individually, and (vii) shifting the \ptrel higher. 
+We perform both distribution-level distortions, by reweighting the samples in jet mass to produce a mass distribution that is (i) smeared, (ii) smeared and shifted higher, and (iii) missing the tail of the distribution, as well as direct particle-level distortions, by (iv) smearing all three \phirel, \etarel, and \ptrel features, smearing the (v) \ptrel and (vi) \etarel individually, and (vii) shifting the \ptrel higher.
 The effects of the distortions on the relative jet mass are shown in Figure~\ref{fig:04_evaluating_jetdists}, with further plots of different variables available in Appendix~\ref{app:04_evaluating_jet_plots}.
 
 \subsubsection{Results}
-\label{sec:04_evaluating_jetdata_results} 
+\label{sec:04_evaluating_jetdata_results}
 
 \begin{table*}[ht!]
-\caption[Values, significances, and errors of metrics for each jet distribution.]{Values, significances, and errors of metrics, as defined in Sections~\ref{sec:04_evaluating_toydata} and~\ref{sec:04_evaluating_jetdata}, for each jet distribution, for the largest sample size tested. EFP and PN refer to metrics using EFPs and ParticleNet activations as their input features, respectively. 
+\caption[Values, significances, and errors of metrics for each jet distribution.]{Values, significances, and errors of metrics, as defined in Sections~\ref{sec:04_evaluating_toydata} and~\ref{sec:04_evaluating_jetdata}, for each jet distribution, for the largest sample size tested. EFP and PN refer to metrics using EFPs and ParticleNet activations as their input features, respectively.
 The most significant scores per distribution are in bold.\label{tab:04_evaluating_jet_results}}
 \centering\resizebox{\textwidth}{!}{
     % \begin{tabular}{l|C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}}
@@ -351,7 +351,7 @@ Broadly, ParticleNet activations allow the metric to distinguish particle-level 
 We posit that including a subset of lower-level particle features in addition to EFPs could improve sensitivity to particle-level distortions, a study of which we leave to future work.
 
 Finally, the last two rows provide the AUC values for a ParticleNet classifier trained on the particle low-level features (LLF), and an FCN trained on high-level features (HLF).
-% We follow the prescription in Ref.~\cite{krause_caloflow}, and note 
+% We follow the prescription in Ref.~\cite{krause_caloflow}, and note
 We find that while both appear to be able to distinguish well the samples with particle-level distortions, they have no sensitivity to the distribution level distortions.
 
 In conclusion, we find from these experiments that \fgdinf is in fact the most sensitive metric to all distortions tested.
@@ -372,17 +372,17 @@ However, MMD on hand-engineered features---kernel physics distance (KPD) for sho
 
 We now provide a practical demonstration of the efficacy of our proposed metrics in evaluating the high-performing generative model discussed previously in this chapter: MPGAN, GAPT, GAST, and iGAPT.
 The visual comparison between the iGAPT and MPGAN models has been shown in Figure~\ref{fig:04_igapt_feature_distributions_30}, demonstrating the high performance, but also the difficulty in distinguishing visually between the two models and the real jets.
-This makes these models an effective test bench for our proposed metrics. 
+This makes these models an effective test bench for our proposed metrics.
 
 
 \begin{figure}[ht]
     \includegraphics[width=\textwidth]{figures/04-ML4Sim/evaluating/162_correlations.pdf}
     \caption{Correlations between FPD and FPND, KPD, and \wassm on 400 separate batches of 50,000 GAPT-generated jets.}
-    \label{fig:04_evaluating_correlations} 
+    \label{fig:04_evaluating_correlations}
 \end{figure}
 
 Figure~\ref{fig:04_evaluating_correlations} first shows correlation plots between FPD and FPND, KPD, and \wassm on 400 separate batches of 50,000 GAPT-generated jets.
-We observe an overall positive relationship between the metrics, as one might expect. 
+We observe an overall positive relationship between the metrics, as one might expect.
 FPD and KPD have the strongest correlation, likely because they are accessing similar information about the same set of input features.
 However, for low values, the correlation is weak between all metrics, indicating that these metrics are complementary in understanding different aspects of the model's performance.
 As noted in Section~\ref{sec:04_evaluating_jetdata}, the correlation between FPD and FPND may improve if the former were to use a subset of lower-level particle features as well.
@@ -399,28 +399,28 @@ As noted in Section~\ref{sec:04_evaluating_jetdata}, the correlation between FPD
         & Model & \wassppt ($10^{-3}$) & \wassm ($10^{-3}$) & FPD ($ 10^{-3}$) & KPD ($10^{-6}$) \\
         \midrule
         \multirow{5}{*}{Gluon (30)}
-        & Truth & $0.14 \pm 0.06$ & $0.46 \pm 0.08$ & $0.14 \pm 0.04$ & $1.8 \pm 11.9$\\ 
-        & MPGAN & $0.27 \pm 0.02$ & $0.7 \pm 0.3$ & $0.41 \pm 0.09$ & $\mathbf{0 \pm 8}$\\ 
-        & GAPT & $\mathbf{0.25 \pm 0.07}$ & $1.0 \pm 0.2$ & $0.46 \pm 0.06$ & $5 \pm 3$\\ 
-        & GAST & $0.8 \pm 0.1$ & $0.7 \pm 0.2$ & $0.40 \pm 0.05$ & $7.0 \pm 10.3$\\ 
+        & Truth & $0.14 \pm 0.06$ & $0.46 \pm 0.08$ & $0.14 \pm 0.04$ & $1.8 \pm 11.9$\\
+        & MPGAN & $0.27 \pm 0.02$ & $0.7 \pm 0.3$ & $0.41 \pm 0.09$ & $\mathbf{0 \pm 8}$\\
+        & GAPT & $\mathbf{0.25 \pm 0.07}$ & $1.0 \pm 0.2$ & $0.46 \pm 0.06$ & $5 \pm 3$\\
+        & GAST & $0.8 \pm 0.1$ & $0.7 \pm 0.2$ & $0.40 \pm 0.05$ & $7.0 \pm 10.3$\\
         & iGAPT & $0.76 \pm 0.07$ & $\mathbf{0.7 \pm 0.1}$ & $\mathbf{0.29 \pm 0.04}$ & $3 \pm 5$\\ \cline{1-6}
         \multirow{5}{*}{Light quark (30)}
-        & Truth & $0.21 \pm 0.05$ & $0.5 \pm 0.2$ & $0.09 \pm 0.03$ & $-3 \pm 3$\\ 
-        & MPGAN & $\mathbf{0.41 \pm 0.07}$ & $\mathbf{0.5 \pm 0.1}$ & $1.9 \pm 0.2$ & $\mathbf{1.7 \pm 15.1}$\\ 
-        & GAPT & $2.74 \pm 0.09$ & $2.54 \pm 0.05$ & $4.03 \pm 0.06$ & $96 \pm 9$\\ 
-        & GAST & $1.2 \pm 0.1$ & $1.8 \pm 0.2$ & $0.65 \pm 0.07$ & $27.0 \pm 11.7$\\ 
+        & Truth & $0.21 \pm 0.05$ & $0.5 \pm 0.2$ & $0.09 \pm 0.03$ & $-3 \pm 3$\\
+        & MPGAN & $\mathbf{0.41 \pm 0.07}$ & $\mathbf{0.5 \pm 0.1}$ & $1.9 \pm 0.2$ & $\mathbf{1.7 \pm 15.1}$\\
+        & GAPT & $2.74 \pm 0.09$ & $2.54 \pm 0.05$ & $4.03 \pm 0.06$ & $96 \pm 9$\\
+        & GAST & $1.2 \pm 0.1$ & $1.8 \pm 0.2$ & $0.65 \pm 0.07$ & $27.0 \pm 11.7$\\
         & iGAPT & $1.89 \pm 0.04$ & $1.2 \pm 0.3$ & $\mathbf{0.51 \pm 0.07}$ & $12 \pm 7$\\  \cline{1-6}
         \multirow{5}{*}{Top quark (30)}
-        & Truth & $0.20 \pm 0.05$ & $0.7 \pm 0.2$ & $0.07 \pm 0.03$ & $-16 \pm 2$\\ 
-        & MPGAN & $0.44 \pm 0.08$ & $\mathbf{0.5 \pm 0.1}$ & $2.8 \pm 0.2$ & $14.7 \pm 12.9$\\ 
-        & GAPT & $\mathbf{0.34 \pm 0.02}$ & $1.9 \pm 0.2$ & $0.43 \pm 0.03$ & $25.4 \pm 28.8$\\ 
-        & GAST & $1.16 \pm 0.08$ & $1.5 \pm 0.2$ & $0.30 \pm 0.05$ & $\mathbf{-2.4 \pm 17.2}$\\ 
+        & Truth & $0.20 \pm 0.05$ & $0.7 \pm 0.2$ & $0.07 \pm 0.03$ & $-16 \pm 2$\\
+        & MPGAN & $0.44 \pm 0.08$ & $\mathbf{0.5 \pm 0.1}$ & $2.8 \pm 0.2$ & $14.7 \pm 12.9$\\
+        & GAPT & $\mathbf{0.34 \pm 0.02}$ & $1.9 \pm 0.2$ & $0.43 \pm 0.03$ & $25.4 \pm 28.8$\\
+        & GAST & $1.16 \pm 0.08$ & $1.5 \pm 0.2$ & $0.30 \pm 0.05$ & $\mathbf{-2.4 \pm 17.2}$\\
         & iGAPT & $0.54 \pm 0.04$ & $0.9 \pm 0.3$ & $\mathbf{0.25 \pm 0.03}$ & $-0.6 \pm 14.1$\\  \cline{1-6}
         \multirow{4}{*}{Gluon (150)}
-        & Truth & $0.09 \pm 0.03$ & $0.7 \pm 0.2$ & $0.10 \pm 0.03$ & $0.5 \pm 10.5$\\ 
-        & GAPT & $0.77 \pm 0.03$ & $\mathbf{1.1 \pm 0.3}$ & $22.0 \pm 0.1$ & $62.5 \pm 11.1$\\ 
-        & GAST & $0.68 \pm 0.05$ & $3.7 \pm 0.3$ & $3.60 \pm 0.06$ & $\mathbf{47.7 \pm 13.8}$\\ 
-        & iGAPT & $\mathbf{0.66 \pm 0.03}$ & $4.4 \pm 0.7$ & $\mathbf{2.99 \pm 0.06}$ & $158.1 \pm 37.9$\\ 
+        & Truth & $0.09 \pm 0.03$ & $0.7 \pm 0.2$ & $0.10 \pm 0.03$ & $0.5 \pm 10.5$\\
+        & GAPT & $0.77 \pm 0.03$ & $\mathbf{1.1 \pm 0.3}$ & $22.0 \pm 0.1$ & $62.5 \pm 11.1$\\
+        & GAST & $0.68 \pm 0.05$ & $3.7 \pm 0.3$ & $3.60 \pm 0.06$ & $\mathbf{47.7 \pm 13.8}$\\
+        & iGAPT & $\mathbf{0.66 \pm 0.03}$ & $4.4 \pm 0.7$ & $\mathbf{2.99 \pm 0.06}$ & $158.1 \pm 37.9$\\
         \bottomrule
     \end{tabular}
     }
@@ -437,7 +437,7 @@ In the case of iGAPT, we note that while its \wassm, FPD and KPD scores are gene
 Secondly, evaluators are also able to define clear, quantitative criteria for model selection for their downstream tasks: for example, if comparing different simulator options, they can simply choose the model with the lowest FPD score, or if validating a faster alternative to traditional, accurate simulations, they may wish to require all scores to be compatible (e.g., significances of $<2$) with the latter, or even with LHC data itself, before adopting the model.
 
 \section{Summary}
-\label{sec:04_evaluating_conclusion} 
+\label{sec:04_evaluating_conclusion}
 
 We discussed several potential evaluation metrics for generative models in HEP, using the framework of two-sample GOF testing between real and simulated data.
 Inspired by the validation of simulations in both physics and machine learning, we introduce two new metrics, the Fr\'echet and kernel physics distances, which employ hand-engineered physical features, to compare and evaluate alternative simulators.
@@ -446,7 +446,7 @@ Practically, these metrics are efficient, reproducible, and easily standardized,
 We performed a variety of experiments using the proposed metrics on toy Gaussian-distributed and high energy jet data.
 We illustrated as well the power of these metrics to discern between state-of-the-art ML models for simulating jets: MPGAN and iGAPT.
 We find that FPD is extremely sensitive to expected distortions from ML generative models, and collectively, FPD, KPD and the Wasserstein 1-distance ($W_1$) between individual feature distributions, should successfully cover all relevant alternative generated distributions.
-Hence, we recommend the adoption of these metrics in HEP for evaluating generative models. 
+Hence, we recommend the adoption of these metrics in HEP for evaluating generative models.
 Future work may explore the specific set of physical features for jets, calorimeter showers, and beyond, to use for FPD and KPD.
 
 \subsubsection{Acknowledgements}
@@ -467,7 +467,7 @@ Both models are able to model well physical observables of jets and, crucially, 
 
 We also discussed the critical challenge of validating such models, to ensure trust in their applications in HEP.
 Several methods were reviewed and systematically evaluated, and the novel Fr\'echet and kernel physics distances (FPD and KPD) were introduced as efficient, interpretable, and highly sensitive metrics for evaluating generative models in HEP.
-Their performance, along with Wasserstein ($W_1$) distances between individual features and the neural-network-based Fr\'echet ParticleNet distance (FPND), was demonstrated on toy distributions as well as on evaluating the MPGAN and iGAPT models. 
+Their performance, along with Wasserstein ($W_1$) distances between individual features and the neural-network-based Fr\'echet ParticleNet distance (FPND), was demonstrated on toy distributions as well as on evaluating the MPGAN and iGAPT models.
 We propose FPD, KPD, and $W_1$ distances as effective metrics for evaluating fast simulators, and recommend their adoption by CMS and other collaborations in validating the next generation of simulators.
 
 This work has proven impactful in the HEP community, leading to several follow-up studies on point-cloud generative modeling in HEP using the \jetnet dataset and our proposed evaluation metrics, benchmarked against MPGAN and iGAPT~\cite{Kach:2022qnf, Kach:2022uzq, Buhmann:2023pmh, Leigh:2023toe, Mikuni:2023dvk, Kach:2023rqw, Leigh:2023zle, Scham:2023cwn, Scham:2023usu, Buhmann:2023zgc, Jiang:2024ohg}.

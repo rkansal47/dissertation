@@ -7,7 +7,7 @@ The experimental apparatus used in this dissertation is the Compact Muon Solenoi
 It is uniquely characterized by its strong, superconducting 3.8\unit{T} solenoid magnet, around which are arranged several subdetectors to measure the properties of particles produced in collisions at the LHC.
 % It comprises a superconducting 3.8\unit{T} solenoid magnet and several subdetectors to measure the properties of particles produced in proton-proton as well as, to a lesser extent, heavy-ion collisions at the LHC.
 Inside the solenoid, it contains an all-silicon tracker, to measure the momenta of charged particles and identify the collision vertex, and lead-tungstate crystal electromagnetic and brass and scintillator hadronic calorimeters to measure the energy of particles interacting through the electromagnetic and strong forces, respectively.
-Finally, outside the solenoid are gas-ionization detectors, interleaved with steel flux-return yoke plates, to track muons. 
+Finally, outside the solenoid are gas-ionization detectors, interleaved with steel flux-return yoke plates, to track muons.
 
 \begin{figure}[ht]
     \centering
@@ -35,8 +35,8 @@ Specifically, the original design requirements were~\cite{CMS:2008xjf}:
 \end{itemize}
 In addition to the above, the detector also had to be robust against the high radiation environment and pileup at the LHC, as well as have a powerful online event selection system, called the \textit{trigger}, to reduce the high raw 40\unit{MHz} data rate to something manageable for offline storage and analysis.
 
-To satisfy the latter, events of interest in CMS are selected using a two-tiered trigger system. 
-The first level (L1) uses custom hardware processors and information from the calorimeters and muon detectors to select events at a rate of around 100\unit{kHz} within a fixed latency of 4\unit{\mus}~\cite{CMS:2020cmk}. 
+To satisfy the latter, events of interest in CMS are selected using a two-tiered trigger system.
+The first level (L1) uses custom hardware processors and information from the calorimeters and muon detectors to select events at a rate of around 100\unit{kHz} within a fixed latency of 4\unit{\mus}~\cite{CMS:2020cmk}.
 The second level, known as the high-level trigger (HLT), consists of a farm of processors running a version of the full event reconstruction software optimized for fast processing and reduces the event rate to around 1\unit{kHz} before data storage~\cite{CMS:2016ngn}.
 Both online and offline, the raw detector signals are processed and reconstructed first locally as hits in the individual subdetectors, then as tracks and calorimeter clusters, and finally as physics objects such as electrons, muons, jets, and missing energy using the particle-flow (PF) algorithm~\cite{CMS:2017yfk}.
 
@@ -57,7 +57,7 @@ We conclude with the Phase-2 upgrade of CMS in Section~\ref{sec:02_cms_phase2}, 
 
 \subsubsection{Coordinate system}
 
-The CMS detector uses a coordinate system illustrated in Figure~\ref{fig:02_cms_coords}, with the origin set at the interaction point within the detector. 
+The CMS detector uses a coordinate system illustrated in Figure~\ref{fig:02_cms_coords}, with the origin set at the interaction point within the detector.
 The $x$-axis is oriented toward the center of the LHC ring, the $y$-axis is perpendicular to the plane of the LHC ring, and the $z$-axis is parallel to the beamline.
 The azimuthal angle $\phi$ is measured in the $x$-$y$ plane, relative to the $x$-axis and the polar angle $\theta$ in the $x$-$z$ plane, relative to the $z$-axis.
 Typically, $\theta$ is converted to the pseudorapidity $\eta = -\ln \left[ \tan \left( \cnicefrac{\theta}{2} \right) \right]$, which has a more useful scale for describing high energy collisions, and the angular separation between two particles is quantified using the variable $\Delta R = \sqrt{ (\Delta \phi)^2 + (\Delta \eta)^2 }$.
@@ -228,9 +228,9 @@ The strength of the magnet was chosen to allow precision measurements of charged
 \end{figure}
 
 As shown in Figures~\ref{fig:02_cms_detector} and~\ref{fig:02_cms_slice} in red, the solenoid is additionally surrounded by massive layers of steel ``return yoke'', weighing 12,000 tonnes in total, for several complementary reasons:
-(1) it confines the magnetic field, improving the efficiency and safety of the detector, by providing a low-reluctance path for the magnetic field lines to return to the solenoid; 
-(2) it is interleaved with the CMS muon system and provides a residual magnetic field for muon tracking; 
-(3) it absorbs the remaining particles not been completely contained by the calorimeters; 
+(1) it confines the magnetic field, improving the efficiency and safety of the detector, by providing a low-reluctance path for the magnetic field lines to return to the solenoid;
+(2) it is interleaved with the CMS muon system and provides a residual magnetic field for muon tracking;
+(3) it absorbs the remaining particles not been completely contained by the calorimeters;
 and, finally, (4) it provides structural support to the detector.
 The resulting magnetic field throughout CMS is shown in Figure~\ref{fig:02_cms_magnetic_field}, where we can see a uniform $3.8\unit{T}$ field within the solenoid and an $\approx 2\unit{T}$ field in the return yoke.
 
@@ -270,7 +270,7 @@ This is why, as discussed in Section~\ref{sec:02_cms_detectors}, silicon has gai
     \label{fig:02_cms_tracker_material}
 \end{figure}
 
-The pixel tracker includes three barrel layers at radii of 4.4, 7.3, and 10.2\unit{cm} and two pairs of endcap disks at $z = \pm34.5$ and $\pm46.5\unit{cm}$. 
+The pixel tracker includes three barrel layers at radii of 4.4, 7.3, and 10.2\unit{cm} and two pairs of endcap disks at $z = \pm34.5$ and $\pm46.5\unit{cm}$.
 It contains a total of 1440 modules and 66 million pixels, of size (or ``pitch'') $100\times150$\unit{$\mu$m$^2$}, and thickness $285$\unit{$\mu$m}.
 The planar position of the sensor provides a third position coordinate as well.
 The pixel tracker yields an overall hit position resolution of $10$--$20$\unit{$\mu$m} in the transverse direction --- $r\phi$ in the barrel ---  and $20$--$40$\unit{$\mu$m} in the longitudinal direction --- $z$ in the barrel.
@@ -336,7 +336,7 @@ Due to its radial constraints, with the ECAL and magnet on either side, it has a
 \end{figure}
 
 To capture the remaining ``tails'' of hadronic showers in the barrel region, the HO is placed outside the solenoid.
-It uses the same scintillators and electronics as the HB, but uses the magnet and return yoke materials themselves as absorbers, adding up to $3\lambda$ more of material. 
+It uses the same scintillators and electronics as the HB, but uses the magnet and return yoke materials themselves as absorbers, adding up to $3\lambda$ more of material.
 Figure~\ref{fig:02_cms_hcal_ho} demonstrates that the HO is crucial for capturing the entire energy of hadronic showers: without it, we see an excess of events with the measured energy of hadrons lower than their incident energy, implying a loss of energy with the HB alone.
 
 \begin{figure}[ht]
@@ -373,7 +373,7 @@ Three types of gas detectors are used: drift tubes (DTs) in the barrel region, c
     \centering
     \includegraphics[trim=0pt 0pt 90pt 0pt, width=\textwidth]{figures/02-CMS/cms/components/muon_system}
     \caption[Layout of the CMS detector in the $r$-$z$ plane, with the muon system highlighted and the steel return yoke in dark grey, reproduced from Ref.~\cite{CMS:2018rym}.]{Layout of the CMS detector in the $r$-$z$ plane, with the muon system highlighted and the steel return yoke in dark grey, reproduced from Ref.~\cite{CMS:2018rym}.
-    The drift tube stations (DTs) are labeled MB (“Muon Barrel”) and the cathode strip chambers (CSCs) are labeled ME (“Muon Endcap”). 
+    The drift tube stations (DTs) are labeled MB (“Muon Barrel”) and the cathode strip chambers (CSCs) are labeled ME (“Muon Endcap”).
     Resistive plate chambers (RPCs) are mounted in both the barrel and endcaps of CMS, where they are labeled RB and RE, respectively.
     }
     \label{fig:02_cms_muon}
@@ -457,8 +457,8 @@ However, neutral hadrons on average comprise only 10\% of event and jet energies
 \subsection{Muon system}
 
 The muon system is triggered using the independent and complementary timing information from the DTs and CSCs in the barrel and endcap, respectively, and the RPCs in both.
-% The large number of layers in each muon chamber allows enough \pt precision locally to trigger on muons at the L1 
-% local triggers 
+% The large number of layers in each muon chamber allows enough \pt precision locally to trigger on muons at the L1
+% local triggers
 Hits are first reconstructed locally based on the timing information from the RPCs and the position and timing information from the DTs and CSCs.
 Hits along the muon chambers are then combined to form \textit{standalone-muon tracks} using a Kalman filter technique~\cite{Fruhwirth:1987fm}.
 Additional \textit{tracker muon tracks} and \textit{global muon tracks} are formed by propagating tracker tracks to loosely matched DT or CSC hits, and matching the standalone-muon tracks to tracker tracks, respectively~\cite{CMS:2018rym}.
@@ -471,7 +471,7 @@ For higher \pt muons, the combined tracker and muon system information is import
 \subsection{Object reconstruction and particle flow}
 
 The PF algorithm~\cite{CMS:2017yfk} is used to reconstruct and identify each individual particle in an event, with an optimized combination of information from the different subdetectors.
-The energy of photons is obtained from the ECAL measurement. 
+The energy of photons is obtained from the ECAL measurement.
 The energy of electrons is determined from a combination of the electron momentum at the primary interaction vertex as determined by the tracker, the energy of the corresponding ECAL cluster, and the energy sum of all bremsstrahlung photons spatially compatible with originating from the electron track.
 The energy of muons is obtained from the curvature of the corresponding track.
 The energy of charged hadrons is determined from a combination of their momentum measured in the tracker and the matching ECAL and HCAL energy deposits, corrected for the response function of the calorimeters to hadronic showers.
@@ -479,12 +479,12 @@ Finally, the energy of neutral hadrons is obtained from the corresponding correc
 The primary vertex (PV) is taken to be the vertex corresponding to the hardest scattering in the event, evaluated using tracking information alone, as described in Ref.~\cite{CMS-TDR-15-02}.
 
 For each event, hadronic jets are clustered from these reconstructed particles using the infrared and collinear safe anti-\kt algorithm~\cite{Cacciari:2008gp, Cacciari:2011ma} with a distance parameter of 0.4 (AK4 jets) or 0.8 (AK8 jets).
-Jet momentum is determined as the vectorial sum of all particle momenta in the jet, and is found from simulation to be, on average, within 5 to 10\% of the true momentum over the whole \pt spectrum and detector acceptance. 
+Jet momentum is determined as the vectorial sum of all particle momenta in the jet, and is found from simulation to be, on average, within 5 to 10\% of the true momentum over the whole \pt spectrum and detector acceptance.
 % Pileup can contribute additional tracks and calorimetric energy depositions to the jet momentum.
 For the analysis described in this dissertation, the charged-hadron subtraction~\cite{CMS:2014ata} and pileup per particle identification~\cite{Bertolini:2014bba, Sirunyan:2020foa} algorithms are used to mitigate the effect of pileup on AK4 and AK8 jets, respectively, and further corrections are applied to their energy and mass scales and resolutions to correct for detector mismodeling.
 
 Electrons falling within the tracker acceptance are reconstructed using momentum derived from the tracker, the energy from the corresponding ECAL cluster, and the collective energy of all bremsstrahlung photons spatially aligned with the electron track~\cite{Khachatryan:2015hwa}.
-Muons falling within the muon chamber acceptance $\abs{\eta} < 2.4$ are reconstructed as tracks in the central tracker which align with tracks or hits in the muon chambers~\cite{CMS:2018rym}. 
+Muons falling within the muon chamber acceptance $\abs{\eta} < 2.4$ are reconstructed as tracks in the central tracker which align with tracks or hits in the muon chambers~\cite{CMS:2018rym}.
 For the analysis described in this dissertation, electron candidates are required to fall within the tracker acceptance of $\abs{\eta} < 2.5$ and have $\pt > 20 \GeV$, while muon candidates are required to be within the muon chamber acceptance of $\abs{\eta} < 2.4$ and have $\pt > 10 \GeV$.
 Both leptons are then required to pass additional identification criteria~\cite{Khachatryan:2015hwa, CMS:2018rym} to improve purity and be isolated~\cite{CMS:2017yfk} to suppress those originating from bottom or charm hadron decays.
 

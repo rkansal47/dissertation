@@ -16,7 +16,7 @@ We additionally present a novel calibration method for the \hyvv tagger, which i
 \section{ParticleNet for \texorpdfstring{\bbbar}{bb}-jet tagging and mass regression}
 \label{sec:05_hbb_tagger}
 
-A ParticleNet model~\cite{CMS-DP-2020-002} has been trained to classify between background quark and gluon (QCD) jets and signal jets from a boosted spin-0 resonance (\PX) of mass varying between 15 and 250 \GeV and decaying into a pair of quarks, which are categorized into heavy and light flavors: $\PX\to\bbbar$, $\PX\to\ccbar$, and $\PX\to\qqbar$. 
+A ParticleNet model~\cite{CMS-DP-2020-002} has been trained to classify between background quark and gluon (QCD) jets and signal jets from a boosted spin-0 resonance (\PX) of mass varying between 15 and 250 \GeV and decaying into a pair of quarks, which are categorized into heavy and light flavors: $\PX\to\bbbar$, $\PX\to\ccbar$, and $\PX\to\qqbar$.
 The mass of the resonance is varied to ensure the tagger cannot use it as a discriminating variable, thereby achieving mass decorrelation.
 The model inputs are single AK8 jets with up to 100 PF candidates and 7 secondary vertices, each with 42 and 15 features, respectively, while the outputs are the probabilities of the jet to have originated from each of the individual training processes.
 
@@ -31,7 +31,7 @@ This discriminator has shown to be highly performant for $\hbb$ vs QCD tagging, 
 A similar model is also used to regress the mass of wide-radius jets.
 It is trained on the same set of samples but trained to learn the ``true'' jet mass, defined as the \PX mass in the case of signal jets and the generator-level jet mass in the case of QCD jets.
 A comparison of the traditional soft-drop algorithm~\cite{Larkoski:2014wba} (\msd) for mass reconstruction and the ParticleNet regressed mass (\mreg) is shown in Figure~\ref{fig:05_ak8jetmass_2018} for the \bbbar and \VV-candidate jets in the 2018 dataset for data, simulated background events, and a subset of the nonresonant and resonant signal samples.
-We observe two significant benefits of the regressed mass: 
+We observe two significant benefits of the regressed mass:
 1) the signal mass resolution is significantly improved, especially for the 4-pronged \VV jets; and
 2) the regressed mass can recover jets that are too aggressively groomed by the soft-drop algorithm, as indicated by the peak at $0\GeV$ in \msd and lack thereof in \mreg.
 
@@ -113,7 +113,7 @@ The event selection follows that of the control region in Ref.~\cite{CMS-DP-2023
 Jets from the \ttbar MC samples are categorized using generator-level particles as either: ``top matched'' --- all three daughter quarks lying within the jet; ``W matched'' --- only the \PW daughter quarks inside the jet; or ``unmatched'' --- neither of these two cases.
 Only the top-matched jets are reweighted with the Lund plane ratios.
 
-We consider the \THWW discriminant from Eq.~\ref{eq:05_thww}, excluding \PTop in the denominator to ensure top quark events are retained in the high tagger score bins. 
+We consider the \THWW discriminant from Eq.~\ref{eq:05_thww}, excluding \PTop in the denominator to ensure top quark events are retained in the high tagger score bins.
 Plots of the \THWW distribution from the 2018 datasets before and after Lund plane reweighting of the top-matched jets are shown in Figure~\ref{fig:05_part_ttbar}.
 The combined uncertainties per bin are also shown in the distributions and data/MC ratios.
 We observe an overall improvement in data/MC agreement in the highest \THWW bins ($\THWW > 0.6$), with the $\chi^2$-test value between MC and data yields improving from 16.6 to 10.9.

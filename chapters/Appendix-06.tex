@@ -133,9 +133,9 @@ For GNNAE-PL encoders, $\delta = d$, where $d$ is the node dimension in the late
 In the GNNAE-JL decoder, the input layer is a linear layer that recovers the particle cloud structure similar to that in the LGAE.
 
 \subsection{CNNAE}
-The encoder is composed of two convolutional layers with kernel size $(3, 3)$, stride size $(2, 2)$, ``same" padding, and $128$ output channels, each followed by a ReLU activation function. 
-The aggregation layer into the latent space is a fully-connected linear layer. 
-The decoder is composed of transposed convolution layers (also known as deconvolutional layers) with the same settings as the encoder. 
+The encoder is composed of two convolutional layers with kernel size $(3, 3)$, stride size $(2, 2)$, ``same" padding, and $128$ output channels, each followed by a ReLU activation function.
+The aggregation layer into the latent space is a fully-connected linear layer.
+The decoder is composed of transposed convolution layers (also known as deconvolutional layers) with the same settings as the encoder.
 A softmax function is applied at the end so that the sum of all pixel values in an image is $1$, as a property of the jet image representation.
 A 55-dimensional latent space  is chosen so that the compression rate is $55/90 \approx 60\%$ for even comparisons with the LGAE and GNNAE models.
 
@@ -149,7 +149,7 @@ We tested the Hungarian loss~\cite{hungarian,2020SciPy-NMeth} and differentiable
 The graph-based models are optimized using the Adam optimizer~\cite{kigma2015adam}
 implemented in \textsc{PyTorch}~\cite{pytorch}
 with a learning rate $\gamma = 10^{-3}$, coefficients $(\beta_1, \beta_2) = (0.9, 0.999)$, and weight decay $\lambda = 0$.
-The CNNAE is optimized using the same optimizer implemented in TensorFlow~\cite{tensorflow2015-whitepaper}. 
+The CNNAE is optimized using the same optimizer implemented in TensorFlow~\cite{tensorflow2015-whitepaper}.
 They are all trained on single NVIDIA RTX 2080 Ti GPUs each for a maximum of 20000 epochs using early stopping with the patience of 200 epochs.
 The total training time for LGAE models is typically 35 hours, and at most 100 hours, while GNNAE-PL and GNNAE-JL train for 50 and 120 hours on average, respectively.
 By contrast, the CNNAE model, due to its simplicity, can typically converge within 3 hours.
@@ -160,10 +160,10 @@ By contrast, the CNNAE model, due to its simplicity, can typically converge with
 \label{app:06_lgae_equivariancetests}
 
 We test the covariance of the LGAE models to Lorentz transformations and find they are indeed equivariant up to numerical errors.
-Reference~\cite{bogatskiy2020lorentz} points out that equivariance to boosts in particular is sensitive to numerical precision, so we use double precision (64-bit) throughout the model. 
+Reference~\cite{bogatskiy2020lorentz} points out that equivariance to boosts in particular is sensitive to numerical precision, so we use double precision (64-bit) throughout the model.
 In addition, we scale down the data by a factor of 1,000 (i.e. working in the units of PeV) for better numerical precision at high boosts.
 
-For a given transformation $\Lambda \in \mathrm{SO}^+(3,1)$ we compare $\Lambda \cdot \mathrm{LGAE}(p)$ and $ \mathrm{LGAE}(\Lambda \cdot p)$ are compared, where $p$ is the particle-level 4-momentum. 
+For a given transformation $\Lambda \in \mathrm{SO}^+(3,1)$ we compare $\Lambda \cdot \mathrm{LGAE}(p)$ and $ \mathrm{LGAE}(\Lambda \cdot p)$ are compared, where $p$ is the particle-level 4-momentum.
 The relative deviation is defined as
 \begin{equation} \label{eq:06_lgae_delta-p}
     \delta_p(\Lambda) = \left|\frac{
@@ -172,7 +172,7 @@ The relative deviation is defined as
     }{\mathrm{mean}(\Lambda \cdot \mathrm{LGAE}(p))}\right|
 \end{equation}
 Figure~\ref{fig:06_lgae_equivariance} shows the mean relative deviation, averaged over each particle in each jet, over $3000$ jets from our test dataset from boosts along and rotations around the $z$-axis.
-We find the relative deviation from boosts to be within $\order{10^{-3}}$ in the interval $\gamma \in [0, \cosh(10)]$ (equivalent to $\beta \in [0, 1 - 4\times10^{-9}$]) and from rotations to be $<10^{12}$. 
+We find the relative deviation from boosts to be within $\order{10^{-3}}$ in the interval $\gamma \in [0, \cosh(10)]$ (equivalent to $\beta \in [0, 1 - 4\times10^{-9}$]) and from rotations to be $<10^{12}$.
 
 \begin{figure}[ht]
     \centering

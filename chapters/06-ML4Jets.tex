@@ -30,18 +30,18 @@ Indeed, we find that the LGAE outperforms baseline, non-Lorentz-equivariant, mod
     \label{fig:06_jetnet_logo}
 \end{figure}
 
-% \jetnet is a Python package that aims to increase accessibility and reproducibility for ML in HEP, primarily focusing on jets. 
+% \jetnet is a Python package that aims to increase accessibility and reproducibility for ML in HEP, primarily focusing on jets.
 % Based on the popular PyTorch ML framework, it provides easy-to-access and standardized interfaces for multiple heterogeneous HEP datasets and implementations of evaluation metrics, loss functions, and more general utilities relevant to HEP.
 
 It is essential in scientific research to maintain standardized benchmark datasets following the findable, accessible, interoperable, and reproducible (FAIR) data principles~\cite{Chen:2021euv}, practices for using the data, and methods for evaluating and comparing different algorithms.
-This can often be difficult in high energy physics (HEP) because of the broad set of formats in which data is released and the expert knowledge required to parse the relevant information. 
-The \jetnet Python package aims to facilitate this by providing a standard interface and format for HEP datasets, integrated with PyTorch~\cite{NEURIPS2019_9015}, to improve accessibility for both HEP experts and new or interdisciplinary researchers looking to do ML. 
-Furthermore, by providing standard formats and implementations for evaluation metrics, results are more easily reproducible, and models are more easily assessed and benchmarked. 
+This can often be difficult in high energy physics (HEP) because of the broad set of formats in which data is released and the expert knowledge required to parse the relevant information.
+The \jetnet Python package aims to facilitate this by providing a standard interface and format for HEP datasets, integrated with PyTorch~\cite{NEURIPS2019_9015}, to improve accessibility for both HEP experts and new or interdisciplinary researchers looking to do ML.
+Furthermore, by providing standard formats and implementations for evaluation metrics, results are more easily reproducible, and models are more easily assessed and benchmarked.
 \jetnet is complementary to existing efforts for improving HEP dataset accessibility, notably the \texttt{EnergyFlow} library~\cite{Komiske:2019jim}, with a unique focus to ML applications and integration with PyTorch.
 
-\jetnet currently provides easy-to-access and standardized interfaces for the \jetnet dataset (Chapter~\ref{sec:04_jetnet_dataset}), top quark tagging~\cite{kasieczka_gregor_2019_2603256, Kasieczka:2019dbj}, and quark-gluon tagging~\cite{komiske_patrick_2019_3164691} reference datasets, all hosted on Zenodo~\cite{Zenodo}. 
-It also provides standard implementations of the generative evaluation metrics discussed in Chapter~\ref{sec:04_evaluating}, including Fr\'echet physics distance (FPD), kernel physics distance (KPD), 1-Wasserstein distance (W1), Fr\'echet ParticleNet distance (FPND), coverage, and minimum matching distance (MMD). 
-Finally, \jetnet implements as well custom loss functions like a differentiable version of the energy mover's distance~\cite{Komiske:2019fks} and more general jet utilities. 
+\jetnet currently provides easy-to-access and standardized interfaces for the \jetnet dataset (Chapter~\ref{sec:04_jetnet_dataset}), top quark tagging~\cite{kasieczka_gregor_2019_2603256, Kasieczka:2019dbj}, and quark-gluon tagging~\cite{komiske_patrick_2019_3164691} reference datasets, all hosted on Zenodo~\cite{Zenodo}.
+It also provides standard implementations of the generative evaluation metrics discussed in Chapter~\ref{sec:04_evaluating}, including Fr\'echet physics distance (FPD), kernel physics distance (KPD), 1-Wasserstein distance (W1), Fr\'echet ParticleNet distance (FPND), coverage, and minimum matching distance (MMD).
+Finally, \jetnet implements as well custom loss functions like a differentiable version of the energy mover's distance~\cite{Komiske:2019fks} and more general jet utilities.
 % \TODO{Can talk more about this? tie into learning EMD with the GNN too?}
 
 \jetnet has had a considerable impact in the field, demonstrated by the surge in ML and HEP research it has facilitated, including in the areas of generative adversarial networks~\cite{Kansal:2021cqp}, transformers~\cite{Kach:2022uzq, Kansal:2022spb, Kach:2023rqw},  diffusion models~\cite{Leigh:2023toe, Mikuni:2023dvk}, and equivariant networks~\cite{Hao:2022zns, Buhmann:2023pmh}, all accessing datasets, metrics, and more through the package.
@@ -49,7 +49,7 @@ In particular, it has been the basis for virtually all research in the last two 
 We would also like to note that from the educational perspective, we have found \jetnet to be a valuable tool to involve new students quickly in ML research;
 both through its use in easily initiating ML projects, as well as through contributions to the software itself.
 
-In the future, we hope to expand the package to additional dataset loaders, including detector-level data, and different machine learning backends such as JAX~\cite{jax2018github}. 
+In the future, we hope to expand the package to additional dataset loaders, including detector-level data, and different machine learning backends such as JAX~\cite{jax2018github}.
 Improvements to the performance, such as optional lazy loading of large datasets, are also planned, as well as community challenges to benchmark algorithms as discussed above.
 
 \subsubsection{Acknowledgements}
@@ -108,7 +108,7 @@ Finally, we conclude in Section~\ref{sec:06_lgae_conclusion}.
 \begin{figure}[htb!]
     \centering
     \includegraphics[width=\linewidth]{figures/06-ML4Jets/lgae/architectures/LGAE.pdf}
-    \caption[Individual Lorentz group equivariant message passing (LMP) layers are shown on the left, and the LGAE architecture is built out of LMPs on the right.]{Individual Lorentz group equivariant message passing (LMP) layers are shown on the left, and the LGAE architecture is built out of LMPs on the right. 
+    \caption[Individual Lorentz group equivariant message passing (LMP) layers are shown on the left, and the LGAE architecture is built out of LMPs on the right.]{Individual Lorentz group equivariant message passing (LMP) layers are shown on the left, and the LGAE architecture is built out of LMPs on the right.
     Here, $\mathrm{MixRep}$ denotes the node-level operator that upsamples features in each $(m, n)$ representation space to $\tau_{(m, n)}$ channels; it appears as $W$ in Eq.~(\ref{eq:06_lgae_update}).}
     \label{fig:06_lgae_architecture-full}
 \end{figure}
@@ -122,28 +122,28 @@ We provide the LGAE code, written in Python using the \textsc{PyTorch} ML framew
 
 \subsection{LMP layers \label{sec:06_lgae_lmp}}
 
-LMP layers take as inputs fully-connected graphs with nodes representing particles and the Minkowski distance between respective node 4-vectors as edge features. 
+LMP layers take as inputs fully-connected graphs with nodes representing particles and the Minkowski distance between respective node 4-vectors as edge features.
 Each node $\mathcal{F}_i$ is defined by its features, all transforming under a corresponding irrep of the Lorentz group in the canonical basis~\cite{gelfand2018representations}, including at least one 4-vector (transforming under the $(1/2, 1/2)$ representation) representing its 4-momentum.
-As in Ref~\cite{bogatskiy2020lorentz}, we denote the number of features in each node transforming under the $(m, n)$ irrep as $\tau_{(m,n)}$, referred to as the multiplicity of the $(m,n)$ representation. 
+As in Ref~\cite{bogatskiy2020lorentz}, we denote the number of features in each node transforming under the $(m, n)$ irrep as $\tau_{(m,n)}$, referred to as the multiplicity of the $(m,n)$ representation.
 
 The $(t+1)$-th MP layer operation consists of message-passing between each pair of nodes, with a message $m_{i j}^{(t)}$ to node $i$ from node $j$ (where $j \neq i$) and a self-interaction term $m_{ii}$ defined as
 \begin{align} \label{eq:06_lgae_msg}
-        m_{i j}^{(t)} &= f\left( \left(p_{ij}^{(t)}\right)^2 \right) p_{ij}^{(t)} \otimes \mathcal{F}_j^{(t)} \\ 
+        m_{i j}^{(t)} &= f\left( \left(p_{ij}^{(t)}\right)^2 \right) p_{ij}^{(t)} \otimes \mathcal{F}_j^{(t)} \\
         m_{i i}^{(t)} &= \mathcal{F}_i^{(t)} \otimes \mathcal{F}_i^{(t)}
 \end{align}
-where $\mathcal{F}_{i}^{(t)}$ are the node features of node $i$ before the $(t+1)$-th layer, $p_{ij} = p_i - p_j$ is the difference between node four-vectors, $p_{ij}^2$ is the squared Minkowski norm of $p_{i j}$, and $f$ is a learnable, differentiable function acting on Lorentz scalars. 
+where $\mathcal{F}_{i}^{(t)}$ are the node features of node $i$ before the $(t+1)$-th layer, $p_{ij} = p_i - p_j$ is the difference between node four-vectors, $p_{ij}^2$ is the squared Minkowski norm of $p_{i j}$, and $f$ is a learnable, differentiable function acting on Lorentz scalars.
 A Clebsch--Gordan (CG) decomposition, which reduces the features to direct sums of irreps of $\mathrm{SO}^+(3,1)$, is performed on both terms before concatenating them to produce the message $m_i$ for node $i$:
 \begin{equation}
-    m_i^{(t)} = 
+    m_i^{(t)} =
     \mathrm{CG}\left[
     m_{i i}^{(t)}
     \right]
     \oplus
     \mathrm{CG}\left[
     \sum_{j\neq i} m_{i j}^{(t)}
-    \right], 
+    \right],
 \end{equation}
-where the summation over the destination node $j$ ensures permutation symmetry because it treats all other nodes equally. 
+where the summation over the destination node $j$ ensures permutation symmetry because it treats all other nodes equally.
 
 Finally, this aggregated message is used to update each node's features, such that
 \begin{equation} \label{eq:06_lgae_update}
@@ -153,21 +153,21 @@ for all $i \in \{1, \ldots, N_{\mathrm{particle}}\}$, where $W^{(t+1)}$ is a lea
 In practice, we then truncate the irreps to a maximum dimension to make computations more tractable.
 
 \subsection{Encoder \label{sec:06_lgae_lgaee}}
-The encoder takes as input an $N$-particle cloud, where each particle is each associated with a 4-momentum vector and an arbitrary number of scalars representing physical features such as mass, charge, and spin. 
-Each isotypic component is initially transformed to a chosen multiplicity of $\parenthesis{\tau_{(m, n)}^{(0)}}_{\mathrm{E}}$ via a node-wise operator $W^{(0)}$ identical conceptually to $W^{(t+1)}$ in Eq.~(\ref{eq:06_lgae_update}). 
-The resultant graph is then processed through $N_{\mathrm{MP}}^{\mathrm{E}}$ LMP layers, specified by a sequence of multiplicities $\left\{ \parenthesis{\tau_{(m, n)}^{(t)}}_{\mathrm{E}} \right\}_{t=1}^{N_{\mathrm{MP}}^{\mathrm{E}}}$, where $\parenthesis{\tau_{(m, n)}^{(t)}}_{\mathrm{E}}$ is the multiplicity of the $(m, n)$ representation at the $t$-th layer. 
+The encoder takes as input an $N$-particle cloud, where each particle is each associated with a 4-momentum vector and an arbitrary number of scalars representing physical features such as mass, charge, and spin.
+Each isotypic component is initially transformed to a chosen multiplicity of $\parenthesis{\tau_{(m, n)}^{(0)}}_{\mathrm{E}}$ via a node-wise operator $W^{(0)}$ identical conceptually to $W^{(t+1)}$ in Eq.~(\ref{eq:06_lgae_update}).
+The resultant graph is then processed through $N_{\mathrm{MP}}^{\mathrm{E}}$ LMP layers, specified by a sequence of multiplicities $\left\{ \parenthesis{\tau_{(m, n)}^{(t)}}_{\mathrm{E}} \right\}_{t=1}^{N_{\mathrm{MP}}^{\mathrm{E}}}$, where $\parenthesis{\tau_{(m, n)}^{(t)}}_{\mathrm{E}}$ is the multiplicity of the $(m, n)$ representation at the $t$-th layer.
 Weights are shared across the nodes in a layer to ensure permutation equivariance.
-After the final MP layer, node features are aggregated to the latent space by a component-wise minimum (min), maximum (max), or mean. 
+After the final MP layer, node features are aggregated to the latent space by a component-wise minimum (min), maximum (max), or mean.
 The min and max operations are performed on the respective Lorentz invariants.
-We also find, empirically, interesting performance by simply concatenating isotypic components across each particle and linearly ``mixing" them via a learned matrix as in Eq.~(\ref{eq:06_lgae_update}). 
-Crucially, unlike in Eq.~(\ref{eq:06_lgae_update}), where this operation only happens per particle, the concatenation across the particles imposes an ordering and, hence, breaks the permutation symmetry. 
+We also find, empirically, interesting performance by simply concatenating isotypic components across each particle and linearly ``mixing" them via a learned matrix as in Eq.~(\ref{eq:06_lgae_update}).
+Crucially, unlike in Eq.~(\ref{eq:06_lgae_update}), where this operation only happens per particle, the concatenation across the particles imposes an ordering and, hence, breaks the permutation symmetry.
 
 
 \subsection{Decoder \label{sec:06_lgae_lgaed}}
 
 The decoder recovers the $N$-particle cloud by acting on the latent space with $N$ independent, learned linear operators, which again mix components living in the same representations.
 This cloud passes through $N_{\mathrm{MP}}^{\mathrm{D}}$ LMP layers, specified by a sequence of multiplicities $\left\{ \parenthesis{\tau_{(m, n)}^{(t)}}_{\mathrm{D}} \right\}_{t=1}^{N_{\mathrm{MP}}^{\mathrm{D}}}$, where $\parenthesis{\tau_{(m, n)}^{(t)}}_{\mathrm{D}}$ is the multiplicity of the $(m, n)$ representation at the $t$-th LMP layer.
-After the LMP layers, node features are mixed back to the input representation space $\parenthesis{D^{(0,0)}}^{\oplus \tau_{(0,0)}^{(0)}} \oplus D^{(1/2, 1/2)}$ by applying a linear mixing layer and then truncating other isotypic components. 
+After the LMP layers, node features are mixed back to the input representation space $\parenthesis{D^{(0,0)}}^{\oplus \tau_{(0,0)}^{(0)}} \oplus D^{(1/2, 1/2)}$ by applying a linear mixing layer and then truncating other isotypic components.
 
 \section{Experiments}
 \label{sec:06_lgae_experiments}
@@ -194,7 +194,7 @@ Nevertheless, important studies in future work may include quantifying this symm
 \label{sec:06_lgae_models}
 
 LGAE model results are presented using both the min-max (LGAE-Min-Max) and ``mix'' (LGAE-Mix) aggregation schemes for the latent space, which consists of varying numbers of complex Lorentz vectors --- corresponding to different compression rates.
-We compare the LGAE to baseline GNN and CNN autoencoder models, referred to as ``GNNAE'' and ``CNNAE'' respectively. 
+We compare the LGAE to baseline GNN and CNN autoencoder models, referred to as ``GNNAE'' and ``CNNAE'' respectively.
 
 The GNNAE model is composed of fully-connected MPNNs adapted from MPGAN (Section~\ref{sec:04_mpgan}).
 We experiment with two types of encodings: (1) particle-level (GNNAE-PL), as in the PGAE~\cite{Tsan:2021brw} model, which compresses the features per node in the graph but retains the graph structure in the latent space, and (2) jet-level (GNNAE-JL), which averages the features across each node to form the latent space, as in the LGAE.
@@ -238,19 +238,19 @@ The LGAE models are verified to be equivariant to Lorentz boosts and rotations u
     \caption[Jet image reconstructions.]{Jet image reconstructions by
         LGAE-Min-Max ($\tau_{(1/2, 1/2)}=4$, $56.67\%$ compression),
         LGAE-Mix ($\tau_{(1/2, 1/2)}=9$, $61.67\%$ compression),
-        GNNAE-JL ($\dim(L) = 55$, $61.11\%$ compression), 
+        GNNAE-JL ($\dim(L) = 55$, $61.11\%$ compression),
         GNNAE-PL ($\dim(L) = 2\times 30$, $66.67\%$ compression), and CNNAE ($\dim(L) = 55$, $61.11\%$ compression).
     }
     \label{fig:06_lgae_recons-jet-imgs}
 \end{figure}
 
 
-We evaluate the performance of the LGAE, GNNAE, and CNNAE models, with the different aggregation schemes discussed, on the reconstruction of the particle and jet features of QCD jets.  
+We evaluate the performance of the LGAE, GNNAE, and CNNAE models, with the different aggregation schemes discussed, on the reconstruction of the particle and jet features of QCD jets.
 We consider relative transverse momentum
 $\ptrel = \pt^{\mathrm{particle}}/\pt^{\mathrm{jet}}$ and relative angular coordinates
 $\etarel =\eta^{\mathrm{particle}} - \eta^{\mathrm{jet}}$ and
 $\phirel =\phi^{\mathrm{particle}} - \phi^{\mathrm{jet}} \pmod{2\pi}$
-as each particle's features, and total jet mass, \pt and $\eta$ as jet features. 
+as each particle's features, and total jet mass, \pt and $\eta$ as jet features.
 We define the compression rate as the ratio between the total dimension of the latent space and the number of features in the input space: $30\ \mathrm{particles} \times 3\ \mathrm{features\ per\ particle} = 90$.
 
 Figure~\ref{fig:06_lgae_recons-jet-imgs} shows random samples of jets, represented as discrete images in the angular-coordinate plane, reconstructed by the models with similar levels of compression in comparison to the true jets.
@@ -262,7 +262,7 @@ Due to the discretization of the inputs to the CNNAE, reconstructing individual 
 We can observe visually in Figure~\ref{fig:06_lgae_recons-jet-imgs} that out of the two permutation invariant models, while neither is able to reconstruct the jet substructure perfectly,
 the LGAE-Min-Max outperforms the GNNAE-JL.
 Perhaps surprisingly, the permutation-symmetry-breaking mix aggregation scheme improves the LGAE in this regard.
-Both visually in Figure~\ref{fig:06_lgae_recons-hist} and quantitatively from Tables~\ref{tab:06_lgae_recons-particle} and~\ref{tab:06_lgae_recons-jet}, we conclude that the LGAE-Mix has the best performance overall, significantly outperforming the GNNAE and CNNAE models at similar compression rates. 
+Both visually in Figure~\ref{fig:06_lgae_recons-hist} and quantitatively from Tables~\ref{tab:06_lgae_recons-particle} and~\ref{tab:06_lgae_recons-jet}, we conclude that the LGAE-Mix has the best performance overall, significantly outperforming the GNNAE and CNNAE models at similar compression rates.
 The LGAE-Min-Max model outperforms the GNNAE-JL in reconstructing all features and the GNNAE-PL in all but the IQR of the particle angular coordinates.
 
 \begin{figure}[ht!]
@@ -274,7 +274,7 @@ The LGAE-Min-Max model outperforms the GNNAE-JL in reconstructing all features a
         LGAE-Min-Max ($\tau_{(1/2, 1/2)}=4$, resulting in $56.67\%$ compression) and
         and LGAE-Mix ($\tau_{(1/2, 1/2)}=9$, resulting in $61.67\%$ compression),
         and GNNAE-JL ($\dim(L) = 55$, resulting in $61.11\%$ compression) and
-        GNNAE-PL ($\dim(L) = 2\times 30$, resulting in $66.67\%$ compression). The reconstructions by the CNNAE are not included due to the discrete values of $\etarel$ and $\phirel$, as discussed in the text. 
+        GNNAE-PL ($\dim(L) = 2\times 30$, resulting in $66.67\%$ compression). The reconstructions by the CNNAE are not included due to the discrete values of $\etarel$ and $\phirel$, as discussed in the text.
         \textbf{Bottom}:
         jet feature $(M, \pt, \eta)$ reconstruction by the four models.
         For the jet feature reconstruction by the GNNAEs, the particle features in relative coordinates were transformed back to absolute coordinates before plotting.
@@ -349,7 +349,7 @@ The LGAE-Min-Max model outperforms the GNNAE-JL in reconstructing all features a
     \centering
     \caption[Median and IQR of relative errors in jet feature
     reconstruction by selected LGAE and GNNAE models, along with the CNNAE model.]{Median and IQR of relative errors in jet feature
-        reconstruction by selected LGAE and GNNAE models, along with the CNNAE model. 
+        reconstruction by selected LGAE and GNNAE models, along with the CNNAE model.
         In each column, the best performing latent space per model is italicised, and the best model overall is highlighted in bold.
     }
     \label{tab:06_lgae_recons-jet}
@@ -387,17 +387,17 @@ The LGAE-Min-Max model outperforms the GNNAE-JL in reconstructing all features a
          & $\tau_{(1/2,1/2)} = 9$ ($61.67\%$)
          & $\mathbf{< 10^{-3}}$ & $\mathbf{0.003}$
          & $\mathbf{< 10^{-3}}$ & $\mathbf{< 10^{-3}}$
-         & $\mathbf{< 10^{-3}}$ 
          & $\mathbf{< 10^{-3}}$
-         & $\mathbf{< 10^{-3}}$ & 
+         & $\mathbf{< 10^{-3}}$
+         & $\mathbf{< 10^{-3}}$ &
          $\mathbf{< 10^{-3}}$
         \\
          & & $\tau_{(1/2,1/2)} = 13$ ($88.33\%$)
          & $\mathbf{< 10^{-3}}$ & $\mathbf{0.003}$
          & $\mathbf{< 10^{-3}}$ & $\mathbf{< 10^{-3}}$
-         & $\mathbf{< 10^{-3}}$ 
          & $\mathbf{< 10^{-3}}$
-         & $\mathbf{< 10^{-3}}$ & 
+         & $\mathbf{< 10^{-3}}$
+         & $\mathbf{< 10^{-3}}$ &
          $\mathbf{< 10^{-3}}$
         \\[2mm]
         \multirow{4}{*}{GNNAE}
@@ -427,11 +427,11 @@ The LGAE-Min-Max model outperforms the GNNAE-JL in reconstructing all features a
          & $\mathit{-0.001}$ & ${0.011}$
          & $\mathbf{<10^{-3}}$ & ${0.005}$
         \\[2mm]
-        CNNAE 
+        CNNAE
         & Linear layer
-        & $\dim(L) = 55$ ($61.67\%$) 
+        & $\dim(L) = 55$ ($61.67\%$)
         & $-0.030$
-        & $0.042$ 
+        & $0.042$
         & $-0.021$
         & $0.017$
         & $\mathbf{< 10^{-3}}$
@@ -469,17 +469,17 @@ The LGAE-Min-Max model outperforms the GNNAE-JL in reconstructing all features a
 
 We test the performance of all models as unsupervised anomaly detection algorithms by pre-training them solely on QCD and then using the reconstruction error for the QCD and new signal jets as the discriminating variable.
 We consider top quark, $\PW$ boson, and $\PZ$ boson jets as potential signals and QCD as the ``background''.
-We test the Chamfer distance, energy mover's distance~\cite{Komiske:2019fks} --- the earth mover's distance applied to particle clouds, and MSE between input and output jets as reconstruction errors, and find the Chamfer distance most performant for all graph-based models. 
-For the CNNAE, we use the MSE between the input and reconstructed image as the anomaly score. 
+We test the Chamfer distance, energy mover's distance~\cite{Komiske:2019fks} --- the earth mover's distance applied to particle clouds, and MSE between input and output jets as reconstruction errors, and find the Chamfer distance most performant for all graph-based models.
+For the CNNAE, we use the MSE between the input and reconstructed image as the anomaly score.
 
 Receiver operating characteristic (ROC) curves showing the signal efficiencies ($\varepsilon_s$) versus background efficiencies ($\varepsilon_b$) for individual and combined signals are shown in Figure~\ref{fig:06_lgae_roc-each},\footnote{Discontinuities in the top quark and combined signal LGAE-Min-Max ROCs indicate that at background efficiencies of $\lessapprox 5\times10^{-3}$, there are no signal events remaining in the validation dataset.} and $\varepsilon_s$ values at particular background efficiencies are given in Table~\ref{tab:06_lgae_ad}.
 We see that in general the permutation equivariant LGAE and GNNAE models outperform the CNNAE, strengthening the case for considering equivariance in neural networks.
-Furthermore, LGAE models have significantly higher signal efficiencies than GNNAEs and CNNAEs for all signals when rejecting $>90\%$ of the background (which is the minimum level we typically require in HEP), and LGAE-Mix consistently performs better than LGAE-Min-Max. 
+Furthermore, LGAE models have significantly higher signal efficiencies than GNNAEs and CNNAEs for all signals when rejecting $>90\%$ of the background (which is the minimum level we typically require in HEP), and LGAE-Mix consistently performs better than LGAE-Min-Max.
 
 \begin{table}[ht!]
     \centering
     \caption{
-        Anomaly detection metrics by a selected LGAE and GNNAE models, along with the CNNAE model. 
+        Anomaly detection metrics by a selected LGAE and GNNAE models, along with the CNNAE model.
         In each column, the best performing latent space per model is italicized, and the best model overall is highlighted in bold.
     }
     \label{tab:06_lgae_ad}
@@ -544,8 +544,8 @@ Furthermore, LGAE models have significantly higher signal efficiencies than GNNA
 
 
 The outputs of the LGAE encoder are irreducible representations of the Lorentz groups; they consist of a pre-specified number of Lorentz scalars, vectors, and potentially higher-order representations.
-This implies a significantly more interpretable latent representation of the jets than traditional autoencoders, as the information distributed across the latent space is now disentangled between the different irreps of the Lorentz group. 
-For example, scalar quantities like the jet mass will necessarily be encoded in the scalars of the latent space, and jet and particle 4-momenta in the vectors. 
+This implies a significantly more interpretable latent representation of the jets than traditional autoencoders, as the information distributed across the latent space is now disentangled between the different irreps of the Lorentz group.
+For example, scalar quantities like the jet mass will necessarily be encoded in the scalars of the latent space, and jet and particle 4-momenta in the vectors.
 
 We demonstrate the latter empirically on the LGAE-Mix model ($\tau_{(1/2, 1/2)} = 2$) by looking at correlations between jet 4-momenta and the components of different combinations of latent vector components.
 Figure~\ref{fig:06_lgae_correlations} shows that, in fact, the jet momenta is encoded in the imaginary component of the sum of the latent vectors.
@@ -581,7 +581,7 @@ We observe that, in agreement with our hypothesis, the LGAE models both maintain
 
 We develop the Lorentz group autoencoder (LGAE), an autoencoder model equivariant to Lorentz transformations.
 We argue that incorporating this key inductive bias of high energy physics (HEP) data can have a significant impact on the performance, efficiency, and interpretability of machine learning models in HEP.
-We apply the LGAE to tasks of compression and reconstruction of input quantum chromodynamics (QCD) jets, and of identifying anomalous top quark, W boson, and Z boson jets. 
+We apply the LGAE to tasks of compression and reconstruction of input quantum chromodynamics (QCD) jets, and of identifying anomalous top quark, W boson, and Z boson jets.
 We report excellent performance in comparison to baseline graph and convolutional neural network autoencoder models, with the LGAE outperforming them on several key metrics.
 We also demonstrate the LGAE's interpretability, by analyzing the latent spaces of LGAE models for both tasks, and data efficiency relative to baseline models.
 The LGAE opens many promising avenues in terms of both performance and model interpretability, with the exploration of new datasets, the magnitude of Lorentz and permutation symmetry breaking due to detector effects, higher-order Lorentz group representations, and challenges with real-life compression and anomaly detection applications all exciting possibilities for future work.

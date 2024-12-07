@@ -22,26 +22,26 @@ We provide here a brief overview of the metrics used for comparing MPGAN and the
 
 \subsubsection{Physics-inspired metrics}
 
-An accurate jet simulation algorithm should reproduce both low-level and high-level features (such as those described in Chapter~\ref{sec:04_mpgan_genhep}); hence, a standard method of validating generative models, which we too employ, is to compare the distributions of such features between the real and generated samples~\cite{deOliveira:2017pjk, Paganini:2017dwg, ATL-SOFT-PUB-2020-006, Erdmann:2018jxd, Carminati:2020kym, Sekmen:2016iql}. 
+An accurate jet simulation algorithm should reproduce both low-level and high-level features (such as those described in Chapter~\ref{sec:04_mpgan_genhep}); hence, a standard method of validating generative models, which we too employ, is to compare the distributions of such features between the real and generated samples~\cite{deOliveira:2017pjk, Paganini:2017dwg, ATL-SOFT-PUB-2020-006, Erdmann:2018jxd, Carminati:2020kym, Sekmen:2016iql}.
 
 For application in HEP, a generative model needs to produce jets with physical features indistinguishable from real.
 Therefore, we propose the validation criteria that differences between real and generated sample features may not exceed those between sets of randomly chosen real samples.
-To verify this, we use bootstrapping to compare between random samples of only real jets as a baseline. 
+To verify this, we use bootstrapping to compare between random samples of only real jets as a baseline.
 
-A practically useful set of features to validate against are the so-called ``energy-flow polynomials'' (EFPs)~\cite{Komiske:2017aww}, which are a type of multi-particle correlation functions. 
+A practically useful set of features to validate against are the so-called ``energy-flow polynomials'' (EFPs)~\cite{Komiske:2017aww}, which are a type of multi-particle correlation functions.
 Importantly, the set of all EFPs forms a linear basis for all experimentally useful --- i.e., all infrared- and colinear- (IRC-) safe --- jet-level features / observables.
-Therefore, we claim that if we observe all EFP distributions to be reproduced with high fidelity and to match the above criteria, we can conclude with strong confidence that our model is outputting accurate particle clouds. 
+Therefore, we claim that if we observe all EFP distributions to be reproduced with high fidelity and to match the above criteria, we can conclude with strong confidence that our model is outputting accurate particle clouds.
 
 \subsubsection{Computer-vision-inspired metrics}
-A popular metric for evaluating images which has been shown to be sensitive to output quality and mode-collapse --- though it has its limitations~\cite{borji2021} --- is the Fr\'{e}chet Inception Distance~\cite{TTUR} (FID). 
-FID is defined as the Fr\'{e}chet distance between Gaussian distributions fitted to the activations of a fully-connected layer of the Inception-v3 image classifier in response to real and generated samples. 
+A popular metric for evaluating images which has been shown to be sensitive to output quality and mode-collapse --- though it has its limitations~\cite{borji2021} --- is the Fr\'{e}chet Inception Distance~\cite{TTUR} (FID).
+FID is defined as the Fr\'{e}chet distance between Gaussian distributions fitted to the activations of a fully-connected layer of the Inception-v3 image classifier in response to real and generated samples.
 We develop a particle-cloud-analogue of this metric, which we call Fr\'{e}chet ParticleNet Distance (FPND), using the state-of-the-art (SOTA) ParticleNet graph convolutional jet classifier~\cite{Qu:2019gqs} in lieu of the Inception network.
 We note that FPND and comparing distributions as above are conceptually equivalent, except here instead of physically meaningful and easily interpretable features, we are comparing those found to be statistically optimum for distinguishing jets.
 
-Two common metrics for evaluating point cloud generators are coverage (COV) and minimum matching distance (MMD)~\cite{rgan}. 
-Both involve finding the closest point cloud in a sample $X$ to each cloud in another sample $Y$, based on a metric such as the Chamfer distance or the earth mover's distance. 
-Coverage is defined as the fraction of samples in $X$ which were matched to one in $Y$, measuring thus the diversity of the samples in $Y$ relative to $X$, and MMD is the average distance between matched samples, measuring the quality of samples. 
-We use both, and due to drawbacks of the Chamfer distance pointed out in Ref.~\cite{rgan}, for our distance metric choose only the analogue of the earth mover's distance for particle clouds a.k.a. the energy mover's distance (EMD)~\cite{Komiske:2019fks}. 
+Two common metrics for evaluating point cloud generators are coverage (COV) and minimum matching distance (MMD)~\cite{rgan}.
+Both involve finding the closest point cloud in a sample $X$ to each cloud in another sample $Y$, based on a metric such as the Chamfer distance or the earth mover's distance.
+Coverage is defined as the fraction of samples in $X$ which were matched to one in $Y$, measuring thus the diversity of the samples in $Y$ relative to $X$, and MMD is the average distance between matched samples, measuring the quality of samples.
+We use both, and due to drawbacks of the Chamfer distance pointed out in Ref.~\cite{rgan}, for our distance metric choose only the analogue of the earth mover's distance for particle clouds a.k.a. the energy mover's distance (EMD)~\cite{Komiske:2019fks}.
 We discuss the effectiveness and complementarity of all four metrics in evaluating clouds in Section~\ref{sec:04_mpgan_results}.
 
 
@@ -53,7 +53,7 @@ We describe now the architecture of the MPGAN model (Figure~\ref{fig:04_mpgan_ar
 \begin{figure}[t!]
     \centering
     \centerline{\includegraphics[width=\textwidth]{figures/04-ML4Sim/mpgan/mparch_wide.pdf}}
-    \caption[Top: The MP generator uses message passing to generate a particle cloud.]{Top: The MP generator uses message passing to generate a particle cloud. 
+    \caption[Top: The MP generator uses message passing to generate a particle cloud.]{Top: The MP generator uses message passing to generate a particle cloud.
     In blue is the initial latent vector and FC layer part of the MP-LFC variant.
     Bottom: The MP discriminator uses message passing to classify an input particle cloud as real or generated.}
     \label{fig:04_mpgan_arch}
@@ -61,13 +61,13 @@ We describe now the architecture of the MPGAN model (Figure~\ref{fig:04_mpgan_ar
 
 \subsubsection{Message passing}
 
-Jets originate from the decay and hadronization of a single source-particle; hence, they end up with important high-level jet features and a rich global structure, known as the jet substructure~\cite{larkoski2020jet}, stemming from the input particle. 
-Indeed, any high-level feature useful for analyzing jets, such as jet mass or multi-particle correlations, is necessarily global~\cite{Komiske:2017aww}.  
-Because of this, while past work in learning on point clouds~\cite{dynamicgraphcnn, monti2017geometric, Qu:2019gqs}, including GraphCNN-GAN, has used a locally connected graph structure and convolutions for message passing, we choose a fully connected graph, equally weighting messages from all particles in the clouds. 
-Rather than subtracting particle features for messages between particles, useful in graph convolutions to capture local differences within a neighborhood, the respective features are concatenated to preserve the global structure (the difference between particle features is also only physically meaningful if they are in the 4-vector representation of the Lorentz group). 
+Jets originate from the decay and hadronization of a single source-particle; hence, they end up with important high-level jet features and a rich global structure, known as the jet substructure~\cite{larkoski2020jet}, stemming from the input particle.
+Indeed, any high-level feature useful for analyzing jets, such as jet mass or multi-particle correlations, is necessarily global~\cite{Komiske:2017aww}.
+Because of this, while past work in learning on point clouds~\cite{dynamicgraphcnn, monti2017geometric, Qu:2019gqs}, including GraphCNN-GAN, has used a locally connected graph structure and convolutions for message passing, we choose a fully connected graph, equally weighting messages from all particles in the clouds.
+Rather than subtracting particle features for messages between particles, useful in graph convolutions to capture local differences within a neighborhood, the respective features are concatenated to preserve the global structure (the difference between particle features is also only physically meaningful if they are in the 4-vector representation of the Lorentz group).
 During the update step in the message passing we find it empirically beneficial to incorporate a residual connection to previous particle features.
 
-The operation can be described as follows. 
+The operation can be described as follows.
 For an $N$-particle cloud $J^t = \{p_1^t, \cdots, p_N^t\}$ after $t$ iterations of message passing, with $t=0$ corresponding to the original input cloud, each particle $p^t_i$ is represented by features $\cvec{h}^t_i$.
 One iteration of message passing is then defined as
 \begin{align}
@@ -80,9 +80,9 @@ where $\cvec{m}^{t+1}_{ij}$ is the message vector sent from particle $j$ to part
 
 \subsubsection{Generator}
 
-We test two initializations of a particle cloud for the MPGAN generator: (1) directly initializing the cloud with $N$ particles, each with $L$ randomly sampled features, which we refer to as the MP generator, and (2) inputting a single $Z$-dimensional latent noise vector and transforming it via an FC layer into an $N\times L$-dimensional matrix, which we refer to as the MP-Latent-FC (MP-LFC) generator. 
+We test two initializations of a particle cloud for the MPGAN generator: (1) directly initializing the cloud with $N$ particles, each with $L$ randomly sampled features, which we refer to as the MP generator, and (2) inputting a single $Z$-dimensional latent noise vector and transforming it via an FC layer into an $N\times L$-dimensional matrix, which we refer to as the MP-Latent-FC (MP-LFC) generator.
 MP-LFC uses a latent space which can intuitively be understood as representing the initial source particle's features along with parameters to capture the stochasticity of the jet production process.
-Due to the complex nature of this process, however, we posit that this global, flattened latent space cannot capture the full phase space of individual particle features. 
+Due to the complex nature of this process, however, we posit that this global, flattened latent space cannot capture the full phase space of individual particle features.
 Hence, we introduce the MP generator, which samples noise directly per particle, and find that it outperforms MP-LFC (Table~\ref{tab:04_mpgan_results}).
 
 \subsubsection{Discriminator}
@@ -92,13 +92,13 @@ However, the jet-level features are not yet reproduced to a high enough accuracy
 While PointNet is able to capture global structural information, it can miss the complex interparticle correlations in real particle clouds.
 We find we can overcome this limitation by incorporating message passing in the discriminator as well as in the generator.
 Concretely, our MP discriminator receives the real or generated cloud and applies MP layers to produce intermediate features for each particle, which are then aggregated via a feature-wise average-pooling operation and passed through an FC layer to output the final scalar feature.
-We choose 2 MP layers for both networks. 
+We choose 2 MP layers for both networks.
 
 \subsubsection{Variable-sized clouds}
 
-In order to handle clouds with varying numbers of particles, as typical of jets, we introduce an additional binary ``masking'' particle feature classifying the particle as genuine or zero-padded. 
-Particles in the zero-padded class are ignored entirely in the message passing and pooling operations. 
-The MP generator adds mask features to the initial particle cloud, using an additional input of the size of the jet $N$, sampled from the real distribution per jet type, before the message passing layers, based on sorting in particle feature space. 
+In order to handle clouds with varying numbers of particles, as typical of jets, we introduce an additional binary ``masking'' particle feature classifying the particle as genuine or zero-padded.
+Particles in the zero-padded class are ignored entirely in the message passing and pooling operations.
+The MP generator adds mask features to the initial particle cloud, using an additional input of the size of the jet $N$, sampled from the real distribution per jet type, before the message passing layers, based on sorting in particle feature space.
 Ablation studies with alternative (as well as without) masking strategies are discussed in App.~\ref{app:04_mpgan_masking}.
 
 \subsection{Experiments on MNIST handwritten digits}
@@ -108,11 +108,11 @@ Before applying MPGAN to the \jetnet dataset, we test it initially on point-clou
 Practically, these were highly useful during the development of the model, while exploring architectures, hyperparameters, and training strategies, as they provided a simpler test-bench as well as an easy way to visually evaluate the model.
 
 We consider two MNIST datasets.
-First, a sparse graph representation of the MNIST dataset, where from each image we select the 100 highest intensity pixels as the nodes of a fully connected graph, with their feature vectors consisting of the $x$, $y$ coordinates and intensities. 
+First, a sparse graph representation of the MNIST dataset, where from each image we select the 100 highest intensity pixels as the nodes of a fully connected graph, with their feature vectors consisting of the $x$, $y$ coordinates and intensities.
 This is directly analogous to selecting the coordinates and momenta of the highest momentum particles in a jet or highest energy hits in a detector.
-The second dataset, known as the MNIST superpixels dataset~\cite{monti2017geometric}, was created by converting each MNIST image into 75 superpixels, corresponding to the nodes of a graph. 
+The second dataset, known as the MNIST superpixels dataset~\cite{monti2017geometric}, was created by converting each MNIST image into 75 superpixels, corresponding to the nodes of a graph.
 The centers and intensities of the superpixels comprise the hidden features of the nodes.
-% Edge features for both datasets are chosen to be the Euclidean distance between the connected nodes. 
+% Edge features for both datasets are chosen to be the Euclidean distance between the connected nodes.
 
 We train MPGAN separately for each digit, analogous to independent trainings for different jet classes.
 The best parameters per-digit are chosen using a variation of FID adopted for point clouds, using the hidden features of the MoNet classifier~\cite{monti2017geometric}.
@@ -122,7 +122,7 @@ We observe that the model is able to reproduce the real samples with high fideli
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/04-ML4Sim/mpgan/real_gen.pdf}
-    \caption{Samples from our sparse MNIST dataset (far left) compared to samples from MPGAN (center left). 
+    \caption{Samples from our sparse MNIST dataset (far left) compared to samples from MPGAN (center left).
     Samples from the MNIST superpixels dataset (center right) compared to samples from MPGAN (far right).\label{fig:04_mpgan_mnist}}
 \end{figure}
 
@@ -136,15 +136,15 @@ We first discuss the evaluation metrics, then the results of the MPGAN model com
 \subsubsection{Evaluation}
 \label{sec:04_mpgan_eval}
 
-We use four techniques discussed in Section~\ref{sec:04_mpgan_geneval} for evaluating and comparing models. 
-Distributions of physical particle and jet features are compared visually and quantitatively using the Wasserstein-1 (\wass) distance between them. 
+We use four techniques discussed in Section~\ref{sec:04_mpgan_geneval} for evaluating and comparing models.
+Distributions of physical particle and jet features are compared visually and quantitatively using the Wasserstein-1 (\wass) distance between them.
 For ease of evaluation, we report (1) the average scores of the three particle features (\wassp) $\etarel$, $\phirel$, and $\ptrel$, (2) the jet mass (\wassm), and (3) the average of a subset of the EFPs\footnote{We choose 5 EFPs corresponding to the set of loopless multigraphs with 4 vertices and 4 edges.}
-(\wassefp), which together provide a holistic picture of the low- and high-level aspects of a jet. 
-The \wass distances are calculated for each feature between random samples of 10,000 real and generated jets, and averaged over 5 batches. 
+(\wassefp), which together provide a holistic picture of the low- and high-level aspects of a jet.
+The \wass distances are calculated for each feature between random samples of 10,000 real and generated jets, and averaged over 5 batches.
 Baseline \wass distances are calculated between two sets of randomly sampled real jets with 10,000 samples each, and are listed for each feature in Table \ref{tab:04_mpgan_realw1}.
 The real samples are split 70/30 for training/evaluation.
 We train ParticleNet for classification on our dataset to develop the FPND metric.
-FPND is calculated between 50,000 random real and generated samples, based on the activations of the first FC layer in our trained model\footnote{ParticleNet training details are given in App.~\ref{app:04_mpgan_pnet}. The trained model is provided in the \jetnet library~\cite{jetnetlib}.}. 
+FPND is calculated between 50,000 random real and generated samples, based on the activations of the first FC layer in our trained model\footnote{ParticleNet training details are given in App.~\ref{app:04_mpgan_pnet}. The trained model is provided in the \jetnet library~\cite{jetnetlib}.}.
 Coverage and MMD are calculated between 100 real and 100 generated samples, and averaged over 10 such batches.
 Implementations for all metrics are provided in the \jetnet package~\cite{jetnetlib}.
 
@@ -167,7 +167,7 @@ Implementations for all metrics are provided in the \jetnet package~\cite{jetnet
 \label{sec:04_mpgan_results}
 
 On each of \jetnet's three classes, we test r-GAN's FC, GraphCNN, and TreeGAN generators with rGAN's FC and the PointNet-Mix discriminators, and compare them to MPGAN's MP generator and discriminator models, including both MP and MP-LFC generator variations.
-Training and implementation details for each can be found in App.~\ref{app:04_mpgan_training}, and all code in Ref.~\cite{mpgancode}. 
+Training and implementation details for each can be found in App.~\ref{app:04_mpgan_training}, and all code in Ref.~\cite{mpgancode}.
 We use a maximum of 30 particles per jet, choosing the 30 highest-\pt particles in jets with more than 30.
 
 \begin{figure}[htpb]
@@ -180,32 +180,32 @@ We use a maximum of 30 particles per jet, choosing the 30 highest-\pt particles 
 \end{figure}
 
 We choose model parameters which, during training, yield the lowest \wassm score.
-This is because (1) \wass scores between physical features are more relevant for physics applications than the other three metrics, and (2) qualitatively we find it be a better discriminator of model quality than particle features or EFP scores. 
+This is because (1) \wass scores between physical features are more relevant for physics applications than the other three metrics, and (2) qualitatively we find it be a better discriminator of model quality than particle features or EFP scores.
 Table \ref{tab:04_mpgan_results} lists the scores for each model and class, and Figure~\ref{fig:04_mpgan_results} shows plots of selected feature distributions of real and generated jets, for the best performing FC, GraphCNN, TreeGAN, and MP generators.
 We also provide discretized images in the angular-coordinates-plane, a.k.a ``jet images'', in Figures~\ref{fig:04_mpgan_jetims_g}---\ref{fig:04_mpgan_jetims_t}; however, we note that it is in general not easy to visually evaluate the quality of individual particle clouds, hence we focus on metrics and visualizations aggregated over batches of clouds.
 Overall we find that MPGAN is a significant improvement over the best FC, GraphCNN, and TreeGAN models, particularly for top and light quark jets.
-This is evident both visually and quantitatively in every metric, especially jet $\wass$s and FPND, with the exception of \wassp where only the FC generator and PointNet discriminator (FC + PointNet) combination is more performant. 
+This is evident both visually and quantitatively in every metric, especially jet $\wass$s and FPND, with the exception of \wassp where only the FC generator and PointNet discriminator (FC + PointNet) combination is more performant.
 
 \begin{table}[htpb!]
-\caption{Six evaluation scores on different generator and discriminator combinations. 
-Lower is better for all metrics except COV. 
+\caption{Six evaluation scores on different generator and discriminator combinations.
+Lower is better for all metrics except COV.
 \label{tab:04_mpgan_results}}
 \centering\resizebox{\textwidth}{!}{
     \begin{tabular}{cllcccccc}
     \toprule
-    Jet class & Generator & Discriminator & 
+    Jet class & Generator & Discriminator &
     \begin{tabular}[c]{@{}l@{}}\wassm \\ ($\times 10^{-3}$)\end{tabular} &
     \begin{tabular}[c]{@{}l@{}}\wassp \\ ($\times 10^{-3}$)\end{tabular} &
-    \begin{tabular}[c]{@{}l@{}}\wassefp \\ ($\times 10^{-5}$)\end{tabular} & 
+    \begin{tabular}[c]{@{}l@{}}\wassefp \\ ($\times 10^{-5}$)\end{tabular} &
     FPND & COV $\uparrow$ & MMD \\
     \midrule
-    \multirow{13}{*}{Gluon}  
-    \input{tables/04-ML4Sim/mpgan/results_table/g} 
+    \multirow{13}{*}{Gluon}
+    \input{tables/04-ML4Sim/mpgan/results_table/g}
     \\ \midrule
-    \multirow{13}{*}{\begin{tabular}[c]{@{}l@{}}Light \\ quark\end{tabular}} 
+    \multirow{13}{*}{\begin{tabular}[c]{@{}l@{}}Light \\ quark\end{tabular}}
     \input{tables/04-ML4Sim/mpgan/results_table/q}
     \\ \midrule
-    \multirow{13}{*}{\begin{tabular}[c]{@{}l@{}}Top \\ quark\end{tabular}} 
+    \multirow{13}{*}{\begin{tabular}[c]{@{}l@{}}Top \\ quark\end{tabular}}
     \input{tables/04-ML4Sim/mpgan/results_table/t}
     \\ \midrule
     \end{tabular}
@@ -234,26 +234,26 @@ Lower is better for all metrics except COV.
     \label{fig:04_mpgan_jetims_t}
 \end{figure}
 
-We additionally perform a latency measurement and find, using an NVIDIA A100 GPU, that MPGAN generation requires $35.7\mu$s per jet. 
+We additionally perform a latency measurement and find, using an NVIDIA A100 GPU, that MPGAN generation requires $35.7\mu$s per jet.
 In comparison, the traditional generation process for \jetnet is measured on an 8-CPU machine as requiring 46ms per jet, meaning MPGAN provides a three-orders-of-magnitude speed-up.
-Furthermore, as noted in Section~\ref{sec:04_jetnet_dataset}, the generation of \jetnet is significantly simpler than full simulation and reconstruction used at the LHC, which has been measured to require 12.3s~\cite{Pedro:2018jqu} and 4s~\cite{chen2020data} respectively per top quark jet. 
+Furthermore, as noted in Section~\ref{sec:04_jetnet_dataset}, the generation of \jetnet is significantly simpler than full simulation and reconstruction used at the LHC, which has been measured to require 12.3s~\cite{Pedro:2018jqu} and 4s~\cite{chen2020data} respectively per top quark jet.
 Hence in practical applications we anticipate MPGAN's improvement to potentially rise to five-orders-of-magnitude.
 
 
 \subsubsection{Real baseline comparison}
 
-We find that MPGAN's jet-level \wass scores all fall within error of the baselines in Table~\ref{tab:04_mpgan_realw1}, while those of alternative generators are several standard deviations away. 
+We find that MPGAN's jet-level \wass scores all fall within error of the baselines in Table~\ref{tab:04_mpgan_realw1}, while those of alternative generators are several standard deviations away.
 % best performing fc gen is ~4x worse on top jet features
-This is particularly an issue with complex top quark particle clouds, where we can see in Figure~\ref{fig:04_mpgan_results} none of the existing generators are able to learn the bimodal jet feature distributions, and smaller light quark clouds, where we see distortion of jet features due to difficulty reproducing the zero-padded particle features. 
+This is particularly an issue with complex top quark particle clouds, where we can see in Figure~\ref{fig:04_mpgan_results} none of the existing generators are able to learn the bimodal jet feature distributions, and smaller light quark clouds, where we see distortion of jet features due to difficulty reproducing the zero-padded particle features.
 No model is able to achieve particle-level scores close to the baseline, and only those of the FC + PointNet combination and MPGAN are of the same order of magnitude.
 We conclude that MPGAN reproduces the physical observable distributions to the highest degree of accuracy, but note, however, that it requires further improvement in particle feature reconstruction before it is ready for practical application in HEP.
 
 \subsubsection{Architecture discussion}
 
-To disentangle the effectiveness of the MP generator and discriminator, we train each individually with alternative counterparts (Table~\ref{tab:04_mpgan_results}). 
+To disentangle the effectiveness of the MP generator and discriminator, we train each individually with alternative counterparts (Table~\ref{tab:04_mpgan_results}).
 With the same PointNet discriminator, the GraphCNN and TreeGAN generators perform worse than the simple FC generator for every metric on all three datasets.
-The physics-motivated MP generator on the other hand outperforms all on the gluon and top quark datasets, and significantly so on the jet-level \wass scores and the FPND. 
-We note, however, that the MP generator is not a significant improvement over the other generators with an FC discriminator. 
+The physics-motivated MP generator on the other hand outperforms all on the gluon and top quark datasets, and significantly so on the jet-level \wass scores and the FPND.
+We note, however, that the MP generator is not a significant improvement over the other generators with an FC discriminator.
 Holding the generator fixed, the PointNet discriminator performs significantly better over the FC for all metrics.
 With the FC, GraphCNN, and TreeGAN generators, PointNet is also an improvement over the MP discriminator.
 With an MP generator, the MP discrimimator is more performant on jet-level \wass and FPND scores but, on the top quark dataset, degrades \wassp relative to PointNet.
@@ -273,25 +273,25 @@ We learn from these three things: (1) a generator or discriminator architecture 
 \end{figure}
 
 We now discuss the merits of each evaluation metrics and provide suggestions for their use in future work. Figure~\ref{fig:04_mpgan_correlation} shows correlation plots between chosen pairs of our evaluation metrics.
-As expected, we find W1-M and W1-EFP to be highly correlated,  as they both measure learning of global jet features. 
-For rigorous validation we suggest measuring both but for time-sensitive use-cases, such as quick evaluations during model training, W1-M should be sufficient. 
-W1-M, FPND, and W1-P are all measuring different aspects of the generation and are relatively uncorrelated. 
-We expect FPND overall to be the best and most discriminatory metric for evaluation, as it compares features found by a SOTA classifier to be statistically optimum for characterizing jets, while the W1 scores are valuable for their interpretability. 
-Out of these, W1-M/W1-EFP are the most important from a physics-standpoint, as we generally characterize collisions by the high-level features of the output jets, rather than the individual particle features. 
+As expected, we find W1-M and W1-EFP to be highly correlated,  as they both measure learning of global jet features.
+For rigorous validation we suggest measuring both but for time-sensitive use-cases, such as quick evaluations during model training, W1-M should be sufficient.
+W1-M, FPND, and W1-P are all measuring different aspects of the generation and are relatively uncorrelated.
+We expect FPND overall to be the best and most discriminatory metric for evaluation, as it compares features found by a SOTA classifier to be statistically optimum for characterizing jets, while the W1 scores are valuable for their interpretability.
+Out of these, W1-M/W1-EFP are the most important from a physics-standpoint, as we generally characterize collisions by the high-level features of the output jets, rather than the individual particle features.
 
-MMD and coverage are both valuable for specifically evaluating the quality and diversity of samples respectively, however we see from Figure~\ref{fig:04_mpgan_correlation} that they saturate after a certain point, after which FPND and \wass scores are necessary for stronger discrimination. 
+MMD and coverage are both valuable for specifically evaluating the quality and diversity of samples respectively, however we see from Figure~\ref{fig:04_mpgan_correlation} that they saturate after a certain point, after which FPND and \wass scores are necessary for stronger discrimination.
 We also note that in Table~\ref{tab:04_mpgan_results}, models with low \wass scores relative to the baseline have the best coverage and MMD scores as well.
 This indicates that the \wass metrics are sensitive to both mode collapse (measured by coverage), which is expected as in terms of feature distributions mode collapse manifests as differing supports, to which the \wass distance is sensitive, as well as to individual sample quality (measured by MMD), which supports our claim that recovering jet feature distributions implies accurate learning of individual cloud structure.
-Together this suggests that low \wass scores are able to validate sample quality and against mode collapse, and justifies our criteria that a practical ML simulation alternative have \wass scores close to the baselines in Table~\ref{tab:04_mpgan_results}. 
-In conclusion, for thorough validation of generated particle clouds, we recommend considering all three W-1 scores in conjunction with FPND, while MMD and coverage, being focused tests of these aspects of generation, may be useful for understanding failure modes during model development. 
+Together this suggests that low \wass scores are able to validate sample quality and against mode collapse, and justifies our criteria that a practical ML simulation alternative have \wass scores close to the baselines in Table~\ref{tab:04_mpgan_results}.
+In conclusion, for thorough validation of generated particle clouds, we recommend considering all three W-1 scores in conjunction with FPND, while MMD and coverage, being focused tests of these aspects of generation, may be useful for understanding failure modes during model development.
 
 
 \subsection{Summary}
 \label{sec:04_mpgan_summary}
 
-In this section, we applied existing state-of-the-art point cloud generative models to \jetnet, and proposed several physics- and computer-vision-inspired metrics to rigorously evaluate generated clouds.  
+In this section, we applied existing state-of-the-art point cloud generative models to \jetnet, and proposed several physics- and computer-vision-inspired metrics to rigorously evaluate generated clouds.
 We found that existing models are not performant on a number of metrics, and failed to reproduce high-level jet features---arguably the most significant aspect for HEP.
-We then introduced the novel message-passing generative adversarial network (MPGAN) model, designed to capture complex global structure and handle variable-sized clouds, which significantly improved performance in this area, as well as other metrics. 
+We then introduced the novel message-passing generative adversarial network (MPGAN) model, designed to capture complex global structure and handle variable-sized clouds, which significantly improved performance in this area, as well as other metrics.
 
 Despite the high performance, the major limitation of MPGAN is the quadratic scaling of the message passing operation, which makes it difficult to scale to larger clouds than 30-particle ones used in Section~\ref{sec:04_mpgan_exp}.
 In the next section, we discuss the iGAPT model to overcome this limitation.
@@ -312,7 +312,7 @@ We discuss architecture choices and timing comparisons, but defer a deeper evalu
 \label{sec:04_gapt_gapt}
 
 Similar to MPGAN, GAPT is a GAN for particle cloud data, but employing self-attention instead of message passing in the two generator and discriminator networks.
-It is based on the generative adversarial set transformer (GAST) architecture~\cite{stelzner2020generative}, which makes use of set transformer~\cite{lee2019set} blocks to aggregate information across all points and update their features. 
+It is based on the generative adversarial set transformer (GAST) architecture~\cite{stelzner2020generative}, which makes use of set transformer~\cite{lee2019set} blocks to aggregate information across all points and update their features.
 It maintains the key inductive biases which makes MPGAN successful---permutation symmetry-respecting operations, and fully connected interaction between nodes during generation to learn high-level global features, but with a significant improvement in speed due to the higher computational efficiency of the attention mechanism compared to the message passing operations used in MPGAN.
 
 The generator and discriminator networks are composed of permutation-invariant multihead self-attention blocks (SABs) as defined in Ref.~\cite{lee2019set} and illustrated in Figure~\ref{fig:04_gapt_attention}.
@@ -349,7 +349,7 @@ $N_{\mathrm{max}}$ is the maximum number of particles per jet we want to simulat
 The jet noise is added to the embedded $N$ to produce $\cvec{z}$, which is then transformed along with the particle noise via multiple IPABs to output a generated jet.
 
 The discrimination process starts with a generated or real jet, and the sampled or true jet multiplicity $N$.
-This is again transformed via a learned embedding layer to produce the 
+This is again transformed via a learned embedding layer to produce the
 $\cvec{z}$ conditioning vector for the discriminator, which along with the input jet are processed through IPABs producing an intermediate jet representation.
 The constituents of this jet are aggregated in a permutation-invariant manner using a pooling by multihead attention (PMA) layer, as introduced in~\cite{lee2019set}, the output of which is finally fed into a linear layer to classify the jet as real or fake.
 
@@ -414,7 +414,7 @@ We defer a detailed evaluation of the performance to Section~\ref{sec:04_evaluat
     \label{fig:04_igapt_feature_distributions_30}
 \end{figure}
 
-\subsubsection{Timing} 
+\subsubsection{Timing}
 
 A key benefit of iGAPT is its improved time complexity over MPGAN.
 This is demonstrated in Table~\ref{tab:04_igapt_times_gluon}, which shows the training and generation times for each model for 30 particle jets using the largest batch size possible on an NVIDIA 1080 GPU, with iGAPT outperforming MPGAN by a factor of 3.5.
@@ -432,7 +432,7 @@ Finally, we note that the ``true'' generation time per jet is approximately 50\,
 Jet type & Model & Training time & & Generation time & & Batch size \\
  & & (s/epoch) & & ($\mu$s / jet) & \\
 \midrule
-\multirow{2}{*}{Gluon, $n=30$} 
+\multirow{2}{*}{Gluon, $n=30$}
 & MPGAN & $193$ & & $142$ & & 512 \\
 & iGAPT & \textbf{$31$} & & \textbf{$40$} & & 4096 \\
 \midrule
