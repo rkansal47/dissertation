@@ -1,7 +1,11 @@
 % \chapter{Accelerating Simulations with AI}
 % \label{sec:04_ml4sim}
 
-\chapter{Introduction and the \jetnet Dataset}
+\ifdefined\HCode
+    \chapter{Introduction and the JetNet Dataset}
+\else
+    \chapter{Introduction and the \jetnet Dataset}
+\fi
 \label{sec:04_intro}
 
 \begin{center}
@@ -73,7 +77,13 @@ The present work can be seen as an extension of this idea, using a simpler, ML-b
 Effectively, we are trading the interpretability of MC methods for the speed of GPU-accelerated ML generators. 
 
 
-\section{\texorpdfstring{\jetnet}{JetNet}}
+\ifdefined\HCode
+    \section{JetNet}
+\else
+    \section{\texorpdfstring{\jetnet}{JetNet}}
+\fi
+
+
 \label{sec:04_jetnet_dataset}
 
 \begin{figure}[t!]

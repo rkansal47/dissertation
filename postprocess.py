@@ -182,7 +182,7 @@ def regex_fixes(file: Path):
 
     # Apply regex to move <msub|...> tag outside of <menclose> tag
     content = re.sub(r"main.html", r"index.html", content)
-
+    
     with file.open("w") as f:
         f.write(content)
 

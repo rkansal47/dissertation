@@ -30,7 +30,7 @@ In evaluating generative models, we aim to quantify the difference between the r
 Lacking tractable analytic distributions in general, this can be viewed as a form of two-sample goodness-of-fit (GOF) testing of the hypothesis $\real{p}(\cvec{x}) = \gen{p}(\cvec{x})$ using real and generated samples, $\{\cvec{x}_{\mathrm{real}}\}$ and $\{\cvec{x}_{\mathrm{gen}}\}$, drawn from their respective distributions.
 As illustrated in Ref.~\cite{cousins_gof}, in general, there is no ``best'' GOF test with power against all alternative hypotheses. 
 Instead, we aim for a set of tests that collectively have power against the relevant alternatives we expect, and are practically most appropriate.
-We first outline the criteria we require of our evaluation metrics in Section~\ref{sec:04_evaluating_criteria}, then review and discuss the suitability of possible metrics in Section~\ref{sec:04_evaluating_emetrics}, and end in Section~\ref{sec:04_evaluating_feature_selection} with a discussion on the features to use in comparing such high-dimensional distributions, thereby motivating FPD and KPD.
+Below, we first outline the criteria we require of our evaluation metrics, then review and discuss the suitability of possible metrics, and end with a discussion on the features to use in comparing such high-dimensional distributions, thereby motivating FPD and KPD.
 
 \subsubsection{Criteria for evaluation metrics in HEP}
 \label{sec:04_evaluating_criteria}
@@ -61,10 +61,10 @@ Therefore, while valuable, this method is restricted to evaluating single featur
 
 To extend to multivariate distributions, we first review measures of differences between probability distributions.
 The two prevalent, almost mutually exclusive,\footnote{The total variation distance is the only nontrivial discrepancy measure that is both an IPM and an $f$-divergence~\cite[Appendix A]{sriperumbudur_empirical}; however, to our knowledge, a consistent finite-sample estimator for it does not exist (see, for example, Ref.~\cite[Section 5]{sriperumbudur_empirical}).} classes of discrepancy measures are integral probability metrics (IPMs)~\cite{muller_ipms} and $f$-divergences.
-An IPM $D_\mathcal{F}$, defined as
+An IPM $D_{\mathcal{F}}$, defined as
 \
 \begin{equation}\label{eqn:ipm}
-    D_\mathcal{F}(\real p, \gen p) = \sup _{f \in \mathcal F} |\mathbb E_{\cvec x \sim p_{\mathrm{real}}} f(\cvec{x}) - \mathbb E_{\cvec y \sim p_{\mathrm{gen}}} f(\cvec y)|,
+    D_{\mathcal{F}}(\real p, \gen p) = \sup _{f \in \mathcal F} |\mathbb E_{\cvec x \sim p_{\mathrm{real}}} f(\cvec{x}) - \mathbb E_{\cvec y \sim p_{\mathrm{gen}}} f(\cvec y)|,
 \end{equation}
 measures the difference in two distributions, \real{p} and \gen{p} in Eq.~(\ref{eqn:ipm}), by using a ``witness'' function $f$, out of a class of measurable, real-valued functions $\mathcal{F}$, which maximizes the absolute difference in its expected value over the two distributions.
 The choice of $\mathcal{F}$ defines different types of IPMs.
@@ -168,7 +168,7 @@ We experiment with both types of features in Section~\ref{sec:04_evaluating_jetd
 \label{sec:04_evaluating_toydata} 
 
 As a first test and filtering of the many metrics discussed, we evaluate each metric's performance on simple 2D (mixture of) Gaussian-distributed datasets. 
-We describe the specific metrics tested in Section~\ref{sec:04_evaluating_toydata_metrics}, the distributions we evaluate in Section~\ref{sec:04_evaluating_toydata_distributions}, and experimental results in Section~\ref{sec:04_evaluating_toydata_results}. 
+Below, we describe the specific metrics tested, the distributions we evaluate, and experimental results. 
 
 
 \subsubsection{Metrics}
@@ -182,7 +182,7 @@ Timing measurements for each metric can be found in Appendix~\ref{app:04_evaluat
 
 \begin{enumerate}
     \item \textbf{Wasserstein distance} is estimated by solving the linear program described in, for example, Ref.~\cite{bertsimas_linearopt}, using the Python optimal transport library~\cite{flamary_pot}.
-    \item $\mathbf{\textbf{FGD}}_\infty$ is calculated by measuring FGD for 10 batch sizes, between a minimum batch size of 20,000 and varying maximum batch size. 
+    \item $\mathbf{FGD}_{\infty}$ is calculated by measuring FGD for 10 batch sizes, between a minimum batch size of 20,000 and varying maximum batch size. 
     A linear fit is performed of the FGD as a function of the reciprocal of the batch size, and \fgdinf is defined to be the $y$ intercept---it, thus, corresponds to the infinite batch size limit.
     The error is taken to be the standard error of the intercept.
     % The FGD at each of the 10 batch sizes is measured 20 times and the average is used for the linear fit.
@@ -254,8 +254,8 @@ We can infer several properties of each metric from these measurements.
 \begin{sidewaystable}[ht!]
     \centering
     % \begin{table*}[ht]
-    \caption[Values, significances, and errors of metrics, as defined in Section~\ref{sec:04_evaluating_toydata_metrics}, for each (mixture of) Gaussian distribution(s), for the largest sample size tested.]
-    {Values, significances, and errors of metrics, as defined in Section~\ref{sec:04_evaluating_toydata_metrics}, for each (mixture of) Gaussian distribution(s), for the largest sample size tested.
+    \caption[Values, significances, and errors of metrics, as defined in Section~\ref{sec:04_evaluating_toydata}, for each (mixture of) Gaussian distribution(s), for the largest sample size tested.]
+    {Values, significances, and errors of metrics, as defined in Section~\ref{sec:04_evaluating_toydata}, for each (mixture of) Gaussian distribution(s), for the largest sample size tested.
     The most significant scores per distribution are in bold.
     \label{tab:04_evaluating_toy_results} 
     }
@@ -290,7 +290,7 @@ We, therefore, conclude that precision and recall are the more meaningful metric
 \label{sec:04_evaluating_jetdata} 
 
 We next test the performance of the Wasserstein distance, \fgdinf, MMD, precision, and recall on high momentum gluon jets from the \jetnet dataset.
-As discussed in Section~\ref{sec:04_evaluating_feature_selection}, we test all metrics on two sets of features per jet: (i) physically meaningful high-level features and (ii) features derived from a pretrained classifier.
+As discussed in Section~\ref{sec:04_evaluating_metrics}, we test all metrics on two sets of features per jet: (i) physically meaningful high-level features and (ii) features derived from a pretrained classifier.
 We choose a set of 36 energy flow polynomials (EFPs)~\cite{Komiske:2017aww} (all EFPs of degree less than five) for the former, as they form a complete basis for all infrared- and collinear-safe observables.
 The classifier features are derived from the activations of the penultimate layer of the SOTA ParticleNet~\cite{Qu:2019gqs} classifier, as described in Section~\ref{sec:04_mpgan}.
 Finally, we test the binary classifier metric as in Refs.~\cite{krause_caloflow, calochallenge} using both ParticleNet directly on the low-level jet features and a two-layer fully connected network (FCN) on the high-level EFPs.
@@ -312,7 +312,7 @@ As our true distribution we use simulated gluon jets of ${\approx}1\TeV$ transve
 We again consider the three particle features: relative angular coordinates 
 $\etarel =\eta^{\mathrm{particle}} - \eta^{\mathrm{jet}}$ and 
 $\phirel =\phi^{\mathrm{particle}} - \phi^{\mathrm{jet}} \pmod{2\pi}$, and the relative transverse momentum 
-$\ptrel = \pt^{\mathrm{particle}}/\pt^{\mathrm{jet}}$.
+$\ptrel = p_{\mathrm{T}}^{\mathrm{particle}}/p_{\mathrm{T}}^{\mathrm{jet}}$.
 To obtain alternative distributions we distort the dataset in several ways typical of the mismodeling we observe in ML generative models: lower feature resolution, systematic shifts in the features, and inability to capture the full distribution.
 
 We perform both distribution-level distortions, by reweighting the samples in jet mass to produce a mass distribution that is (i) smeared, (ii) smeared and shifted higher, and (iii) missing the tail of the distribution, as well as direct particle-level distortions, by (iv) smearing all three \phirel, \etarel, and \ptrel features, smearing the (v) \ptrel and (vi) \etarel individually, and (vii) shifting the \ptrel higher. 
@@ -322,23 +322,20 @@ The effects of the distortions on the relative jet mass are shown in Figure~\ref
 \label{sec:04_evaluating_jetdata_results} 
 
 \begin{table*}[ht!]
-\caption[Values, significances, and errors of metrics for each jet distribution.]{Values, significances, and errors of metrics, as defined in Sections~\ref{sec:04_evaluating_toydata_metrics} and~\ref{sec:04_evaluating_jetdata_results}, for each jet distribution, for the largest sample size tested. EFP and PN refer to metrics using EFPs and ParticleNet activations as their input features, respectively. 
+\caption[Values, significances, and errors of metrics for each jet distribution.]{Values, significances, and errors of metrics, as defined in Sections~\ref{sec:04_evaluating_toydata} and~\ref{sec:04_evaluating_jetdata}, for each jet distribution, for the largest sample size tested. EFP and PN refer to metrics using EFPs and ParticleNet activations as their input features, respectively. 
 The most significant scores per distribution are in bold.\label{tab:04_evaluating_jet_results}}
-\begin{adjustwidth}{-1in}{-1in}% adjust the L and R margins by 1 inch
 \centering\resizebox{\textwidth}{!}{
-    %\begin{tabular}{l|C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}}
+    % \begin{tabular}{l|C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}C{2cm}}
     \begin{tabular}{l|cccccccc}
     \toprule
     \input{tables/04-ML4Sim/evaluating/2_jet_measurements}\\
     \bottomrule
     \end{tabular}
 }
-\end{adjustwidth}
 \end{table*}
 
-Table~\ref{tab:04_evaluating_jet_results} shows the central values, significances, and errors for each metric, as defined in Section~\ref{sec:04_evaluating_toydata_metrics}, with the most significant scores per alternative distribution highlighted in bold.
+Table~\ref{tab:04_evaluating_jet_results} shows the central values, significances, and errors for each metric, as defined in Section~\ref{sec:04_evaluating_toydata}, with the most significant scores per alternative distribution highlighted in bold.
 The first row shows the Wasserstein distance between only the 1D jet mass distributions (\wassm) as introduced in Section~\ref{sec:04_mpgan}, as a test of the power and limitations of considering only 1D marginal distributions.
-% Using the same metric of significance as in Section~\ref{sec:04_evaluating_toydata_results},
 We see that, in fact, \wassm identifies most distortions as significantly discrepant but is not as sensitive to subtle changes such as particle \ptrel smearing.
 Additionally, even with up to 50,000 samples, it is unable to converge to the true value.
 Nevertheless, it proves to be a valuable metric that can be used for focused evaluation of specific physical features, complementing aggregate metrics.
@@ -388,7 +385,7 @@ Figure~\ref{fig:04_evaluating_correlations} first shows correlation plots betwee
 We observe an overall positive relationship between the metrics, as one might expect. 
 FPD and KPD have the strongest correlation, likely because they are accessing similar information about the same set of input features.
 However, for low values, the correlation is weak between all metrics, indicating that these metrics are complementary in understanding different aspects of the model's performance.
-As noted in Section~\ref{sec:04_evaluating_jetdata_results}, the correlation between FPD and FPND may improve if the former were to use a subset of lower-level particle features as well.
+As noted in Section~\ref{sec:04_evaluating_jetdata}, the correlation between FPD and FPND may improve if the former were to use a subset of lower-level particle features as well.
 
 
 \begin{table}[ht!]

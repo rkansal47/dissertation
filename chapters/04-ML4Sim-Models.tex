@@ -430,18 +430,13 @@ Finally, we note that the ``true'' generation time per jet is approximately 50\,
 \begin{tabular}{l|lccccc}
 \toprule
 Jet type & Model & Training time & & Generation time & & Batch size \\
- & & (s/epoch) & & (µs / jet) & \\
+ & & (s/epoch) & & ($\mu$s / jet) & \\
 \midrule
 \multirow{2}{*}{Gluon, $n=30$} 
 & MPGAN & $193$ & & $142$ & & 512 \\
-% & GAPT & 28 & & 1.79 & & 4096 \\
-% & GAST & 79 & & 2.64 & & 2048 \\
 & iGAPT & \textbf{$31$} & & \textbf{$40$} & & 4096 \\
 \midrule
-\multirow{1}{*}{Gluon, $n=150$} 
-% & MPGAN & - & & - & & - \\
-% & GAPT & 92 & & 12.84 & & 512 \\
-% & GAST & 229 & & 12.67 & & 512 \\
+Gluon, $n=150$
 & iGAPT & $267$ & & $315$ & & 512 \\
 \bottomrule
 \end{tabular}
