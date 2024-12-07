@@ -1,0 +1,358 @@
+\documentclass[12pt]{ucsddissertation}
+
+\usepackage{fontspec}
+\newfontfamily\hindifont{Tiro Devanagari Sanskrit}[Script=Devanagari]
+
+\usepackage{amsthm}
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+
+\usepackage[sort&compress,numbers]{natbib}
+% \setcitestyle{maxcitenames=6}
+
+\usepackage[NoDate]{currvita}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{ragged2e}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyphenat}       % To provide more control over hyphenation
+\usepackage{xparse}
+\usepackage{pifont}
+\usepackage{nicefrac}
+\usepackage{adjustbox}
+% \usepackage{gensymb}
+% \usepackage{dcolumn}  
+% \usepackage{newtxtext}
+\usepackage{resizegather}
+
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate]{nosep}
+
+
+\usepackage{amsmath}
+% \usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{slashed}
+\usepackage{dsfont}
+\usepackage{braket}
+\usepackage{multirow}
+\usepackage{needspace}
+\usepackage[bottom]{footmisc}
+\usepackage{changepage}
+\usepackage{booktabs} 
+\usepackage{titlesec}
+\usepackage{rotating}
+\usepackage{tocloft}
+\usepackage[normalem]{ulem}
+\usepackage{tikz}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{simplewick} 
+
+% \usepackage{etoolbox}
+% \makeatletter
+% \patchcmd{\@afterindentfalse}{\@afterindenttrue}{}{}{}
+
+% \titlespacing{\subsubsection}{0pt}{\parskip}{-0.5\parskip}
+\titleformat{\section}
+{\normalfont\LARGE\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+{\normalfont\large\bfseries}{\thesubsubsection}{1em}{}
+
+\renewcommand{\cftpartfont}{\large\bfseries}
+\renewcommand{\cftchapfont}{\bfseries}
+\cftpagenumbersoff{part}
+% \renewcommand{\cftpartaftersnum}{\hfill}
+% \renewcommand{\cftpartpagefont}{}   % no page number
+% \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftpartnumwidth}{2cm}% Adjust this value as needed
+
+\renewcommand{\thesubsubsection}{\thesubsection.\Roman{subsubsection}}
+
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+\definecolor{awesome-emerald}{HTML}{00A388}
+\definecolor{awesome-skyblue}{HTML}{0395DE}
+\definecolor{awesome-red}{HTML}{DC3522}
+\definecolor{awesome-pink}{HTML}{EF4089}
+\definecolor{awesome-orange}{HTML}{FF6138}
+\definecolor{awesome-nephritis}{HTML}{27AE60}
+\definecolor{awesome-concrete}{HTML}{95A5A6}
+\definecolor{awesome-darknight}{HTML}{131A28}
+\colorlet{awesomelinks}{black}
+\colorlet{authorhighlight}{black}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+
+\numberwithin{equation}{section}
+% \numberwithin{figure}{section}
+% \numberwithin{table}{section}
+
+\usepackage[breaklinks=true,pdfborder={0 0 0}]{hyperref}
+\hypersetup{colorlinks=true,
+            linkcolor=awesomelinks,
+            urlcolor=awesomelinks,
+            citecolor=awesomelinks,}
+
+\usepackage{doi}
+
+% for centered columns with fixed width
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+
+\bibliographystyle{apsrev4-2}
+
+\setlength{\intextsep}{40pt plus 2pt minus 2pt} % Adjust as needed
+% \setlength{\belowcaptionskip}{-10pt} % Space below caption
+
+% \let\oldfootnoterule\footnoterule
+% \renewcommand\footnoterule{\vspace*{1.5\baselineskip}\oldfootnoterule}
+
+\AtBeginDocument{%
+	\settowidth\cvlabelwidth{\cvlabelfont 0000--0000}%
+}
+
+% OGS recommends increasing the margins slightly.
+\increasemargins{.1in}
+
+\sloppy
+
+% These are just for testing/examples, delete them
+\usepackage{trace}
+%\usepackage{showframe} % This package was just to see page margins
+\usepackage[english]{babel}
+\usepackage{blindtext}
+% \overfullrule5pt
+% ---
+
+% Required information
+\title{Understanding the High Energy Higgs Sector with the CMS Experiment and Artificial Intelligence}
+\author{Raghav Kansal}
+\degree{Physics}{Doctor of Philosophy}
+% Each member of the committee should be listed as Professor Foo Bar.
+% If Professor is not the correct title for one, then titles should be
+% omitted entirely.
+\chair{Javier Duarte}
+% Your committee members (other than the chairs) must be in alphabetical order
+\committee{Maurizio Pierini}
+\committee{Hao Su}
+\committee{Zhuowen Tu}
+\committee{Frank Wuerthwein}
+\degreeyear{2024}
+
+
+
+
+
+% Start the document
+\begin{document}
+
+\input{notation.tex}
+\addtocontents{toc}{\vskip 20pt}
+
+% Begin with frontmatter and so forth
+\frontmatter
+\maketitle
+\makecopyright
+\makesignature
+% Optional
+\begin{dedication}
+% \vskip0pt plus.5fil
+% \setsinglespacing
+% \setsinglespacing
+% \vfil
+% \vfil
+\begin{center}
+\textit{To my family.}
+\end{center}
+% \vfil
+% \vfil
+\end{dedication}
+
+% Optional
+\begin{epigraph}
+\vskip0pt plus.5fil
+\setsinglespacing
+\vfil
+\vfil
+\begin{center}
+{\hindifont
+तम आसीत्तमसा गूहळमग्रे प्रकेतं सलिलं सर्वाऽइदम्। \\
+तुच्छ्येनाभ्वपिहितं यदासीत्तपसस्तन्महिनाजायतैकम्॥३॥
+\vskip\baselineskip
+ - नासदीय सूक्त 
+}\textit{(Hymn of Creation)}
+\end{center}
+\vfil
+\vfil
+\end{epigraph}
+
+% \setlength{\cftbeforepartskip}{1mm}
+% \setlength{\cftbeforetoctitleskip}{8cm}
+
+% Next comes the table of contents, list of figures, list of tables,
+% etc. If you have code listings, you can use \listoflistings (or
+% \lstlistoflistings) to have it be produced here as well. Same with
+% \listofalgorithms.
+
+
+
+{\hypersetup{linkcolor=black}
+\tableofcontents
+\listoffigures
+\listoftables
+}
+
+\setlength{\parskip}{0.6\baselineskip}
+% \setlength{\parindent}{3em}
+
+\input{chapters/Acknowledgements.tex}
+
+\begin{vita}
+\noindent
+\begin{cv}{}
+\begin{cvlist}{}
+\item[2019] Bachelor of Science in Physics and Computer Engineering\\
+            University of California San Diego\\
+            \textit{Summa cum laude}
+\item[2019] CERN Openlab Summer Student
+\item[2019] IRIS-HEP Fellow
+\item[2019-2024] Graduate Student Researcher\\University of California San Diego
+\item[2021-2022] Artificial Intelligence Fellow\\Fermilab LHC Physics Center
+\item[2023-2024] Graduate Scholar\\Fermilab LHC Physics Center
+\item[2024] Doctor of Philosophy in Physics\\University of California San Diego
+\item[2024-] AI/Schmidt Postdoctoral Scholar Research Associate\\California Institute of Technology and Fermilab
+\end{cvlist}
+\end{cv}
+
+% This puts in the PUBLICATIONS header. Note that it appears inside
+% the vita environment. It is optional.
+% \clearpage
+\publications
+
+\noindent
+\textit{Note: as a member of the CMS collaboration, I have been an author on all CMS papers since 2019. 
+The following includes only the CMS publications to which I made significant contributions during my PhD.}
+\\[0.1\baselineskip]
+\begin{enumerate}[itemsep=\baselineskip]
+    \item CMS Collaboration, “Search for Nonresonant Pair Production of Highly Energetic Higgs Bosons Decaying to Bottom Quarks and Vector Bosons”, in prep, CMS-HIG-23-012 (2023).
+    \item CMS Collaboration, “Search for a massive scalar resonance decaying to a light scalar and a Higgs boson in the two b quarks and four light quarks final state”, in prep, CMS-B2G-23-007 (2023).
+    \item A. Li*, V. Krishnamohan*, \textcolor{authorhighlight}{R. Kansal}, J. Duarte, R. Sen, S. Tsan, and Z. Zhang, “Induced generative adversarial particle transformers”, NeurIPS ML4PS Workshop (2023), \href{https://arxiv.org/abs/2312.04757}{arXiv:2312.04757}.
+    \item \textcolor{authorhighlight}{R. Kansal}, C. Pareja, Z. Hao, and J. Duarte, “JetNet: A Python package for accessing open datasets and benchmarking machine learning methods in high energy physics”, \href{https://doi.org/10.21105/joss.05789}{\textbf{JOSS} 8, 5789} (2023).
+    \item Z. Hao, \textcolor{authorhighlight}{R. Kansal}, J. Duarte, and N. Chernyavskaya, “Lorentz group equivariant autoencoders”, \href{https://doi.org/10.1140/epjc/s10052-023-11633-5}{\textbf{Eur. Phys. J. C} 83, 485} (2023), \href{https://arxiv.org/abs/2212.07347}{arXiv:2212.07347}.
+    \item \textcolor{authorhighlight}{R. Kansal}, A. Li, J. Duarte, N. Chernyavskaya, M. Pierini, B. Orzari, and T. Tomei, “Evaluating generative models in high energy physics”, \href{https://doi.org/10.1103/PhysRevD.107.076017}{\textbf{Phys. Rev. D} 107, 076017} (2023), \href{https://arxiv.org/abs/2211.10295}{arXiv:2211.10295}.
+    \item CMS Collaboration, “Search for Nonresonant Pair Production of Highly Energetic Higgs Bosons Decaying to Bottom Quarks”, \href{https://doi.org/10.1103/PhysRevLett.131.041803}{\textbf{Phys. Rev. Lett.} 131, 041803} (2023), \href{https://arxiv.org/abs/2205.06667}{arXiv:2205.06667}.
+    \item \textcolor{authorhighlight}{R. Kansal}, J. Duarte, H. Su, B. Orzari, T. Tomei, M. Pierini, M. Touranakou, J.-R. Vlimant, and D. Gunopulos, “Particle Cloud Generation with Message Passing Generative Adversarial Networks”, NeurIPS (2021), \href{https://arxiv.org/abs/2106.11535}{arXiv:2106.11535}.
+    \item F. Mokhtar, \textcolor{authorhighlight}{R. Kansal}, and J. Duarte, “Do graph neural networks learn traditional jet substructure?”, NeurIPS ML4PS Workshop (2022), \href{https://arxiv.org/abs/2211.09912}{arXiv:2211.09912}.
+    \item M. Touranakou, N. Chernyavskaya, J. Duarte, D. Gunopulos, \textcolor{authorhighlight}{R. Kansal}, B. Orzari, M. Pierini, T. Tomei, and J.-R. Vlimant, “Particle-based fast jet simulation at the LHC with variational autoencoders”, \href{https://doi.org/10.1088/2632-2153/ac7c56}{\textbf{Machine Learning: Science and Technology} 3, 035003} (2022), \href{https://arxiv.org/abs/2203.00520}{arXiv:2203.00520}.
+    \item A. Apresyan, D. Diaz, J. Duarte, S. Ganguly, \textcolor{authorhighlight}{R. Kansal}, N. Lu, C. M. Suarez, S. Mukherjee, C. Peña, B. Sheldon, and S. Xie, “Improving Di-Higgs Sensitivity at Future Colliders in Hadronic Final States with Machine Learning”, Contribution to Snowmass Summer Study (2022), \href{https://arxiv.org/abs/2203.07353}{arXiv:2203.07353}.
+    \item Y. Chen et al., “A FAIR and AI-ready Higgs boson decay dataset”, \href{https://doi.org/10.1038/s41597-021-01109-0}{\textbf{Sci. Data} 9, 31} (2021), \href{https://arxiv.org/abs/2108.02214}{arXiv:2108.02214}.
+    \item F. Mokhtar, \textcolor{authorhighlight}{R. Kansal}, D. Diaz, J. Duarte, J. Pata, M. Pierini, and J.-R. Vlimant, “Explaining machine-learned particle-flow reconstruction”, NeurIPS ML4PS Workshop (2021), \href{https://arxiv.org/abs/2111.12840}{arXiv:2111.12840}.
+    \item S. Tsan, \textcolor{authorhighlight}{R. Kansal}, A. Aportela, D. Diaz, J. Duarte, S. Krishna, F. Mokhtar, J.-R. Vlimant, and M. Pierini, “Particle graph autoencoders and differentiable, learned energy mover’s distance”, NeurIPS ML4PS Workshop (2021), \href{https://arxiv.org/abs/2111.12849}{arXiv:2111.12849}.
+    \item B. Orzari, T. Tomei, M. Pierini, M. Touranakou, J. Duarte, \textcolor{authorhighlight}{R. Kansal}, J.-R. Vlimant, and D. Gunopulos, “Sparse Data Generation for Particle-Based Simulation of Hadronic Jets in the LHC”, ICML LXAI Workshop (2021), \href{https://arxiv.org/abs/2109.15197}{arXiv:2109.15197}.
+    \item \textcolor{authorhighlight}{R. Kansal}, J. Duarte, B. Orzari, T. Tomei, M. Pierini, M. Touranakou, J.-R. Vlimant, and D. Gunopulos, “Graph generative adversarial networks for sparse data generation in high energy physics”, NeurIPS ML4PS Workshop (2020), \href{https://arxiv.org/abs/2012.00173}{arXiv:2012.00173}.
+\end{enumerate}
+\end{vita}
+
+% Put your maximum 350 word abstract here.
+\begin{dissertationabstract}
+% \noindent
+% \setlength{\parindent}{4em}
+This dissertation describes efforts towards understanding the Higgs boson at the highest energies humanly accessible, using the CMS experiment at the Large Hadron Collider and advances in artificial intelligence (AI) and machine learning (ML).
+We present searches for resonant and nonresonant Higgs-boson (\PH) pair production in the all-hadronic two beauty-quark and two vector boson (\PV) final state, using a novel strategy to measure the quartic \HHVV coupling and search for new Higgs-like bosons.
+By targeting highly Lorentz-boosted Higgs pairs, we probe effects of potential new physics in the high energy Higgs sector, which could hold answers to fundamental mysteries of nature such as baryon asymmetry.
+
+To enable these and future searches, we introduce as well significant developments in AI/ML, including in the identification of boosted \hvv decays with deep transformer networks and advances in AI-accelerated fast simulations of the CMS detector.
+The latter notably includes the development of the first, highly performant generative models for point-cloud data in high energy physics, which have the potential to improve CMS' computational efficiency by up to three orders of magnitude.
+We also highlight novel solutions to the important and challenging problems of calibrating and validating these ML techniques.
+Finally, we present new approaches to search for new physics in a model-agnostic manner, using physics-informed ML methods equivariant to Lorentz transformations.
+
+The quartic \HHVV coupling is observed (expected) to be constrained to $[-0.04, 2.05]$ ($[0.05, 1.98]$) at the 95\% confidence level relative to the standard model prediction, representing the second-most sensitive measurement of this coupling by CMS to date.
+Exclusion limits on the production cross section of new heavy resonances decaying to two Higgs-like bosons are expected to be as low as 0.3\unit{fb} for high resonance masses.
+\end{dissertationabstract}
+
+% This is where the main body of your dissertation goes!
+\mainmatter
+
+
+% \setcounter{part}{-1}
+% \part{Introduction}
+% \part*{Part 0 \\ Introduction} % The * suppresses the automatic numbering
+% \addcontentsline{toc}{part}{\texorpdfstring{Part 0 \quad\,\, Introduction}{Introduction}} % Manually add Part 0 to the table of contents
+\input{chapters/00-Introduction.tex}
+
+% \renewcommand{\thefigure}{\thesection}
+% % \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+
+
+\part{Theoretical Background}
+\label{part:sm}
+
+\input{chapters/01-SM.tex}
+\input{chapters/01-SM-01-Symmetries.tex}
+\input{chapters/01-SM-02-QFT.tex}
+\input{chapters/01-SM-03-SM.tex}
+
+\part{Experimental Background}
+\label{part:epp}
+
+\input{chapters/02-LHC.tex}
+\input{chapters/02-CMS.tex}
+
+\part{AI/ML and Statistics Background}
+\label{part:aiml}
+
+\input{chapters/03-ML.tex}
+\input{chapters/03-Stats.tex}
+
+\part{Accelerating Simulations with AI}
+\label{part:ml4sim}
+
+\input{chapters/04-ML4Sim.tex} 
+\input{chapters/04-ML4Sim-Models.tex} 
+\input{chapters/04-ML4Sim-Evaluation.tex} 
+
+
+\part{Searches for High Energy Higgs Boson Pairs}
+\label{part:hh}
+
+\input{chapters/05-Jet-Tagging.tex}
+\input{chapters/05-HH.tex}
+
+\part{AI for Jets}
+\label{part:ml4jets}
+
+\input{chapters/06-ML4Jets.tex}
+
+
+% \chapter{Conclusion}
+
+% Stuff at the end of the dissertation goes in the back matter
+
+
+\appendix
+\part{Appendix}
+
+\input{chapters/Appendix-01.tex}
+\input{chapters/Appendix-04.tex}
+\input{chapters/Appendix-06.tex}
+
+\backmatter
+\nocite{apsrev42Control}
+\bibliography{bibliography}
+ 
+\end{document}

@@ -1,0 +1,77 @@
+\begin{table}[htb!]
+    \begin{center}
+    \caption{The complete set of input features into GloParT. Three types of inputs are considered: charged PF candidates, neutral PF candidates, and secondary vertices (SVs).}
+    \label{tab:05_part_inputs}
+    \resizebox*{\textwidth}{!}{
+    \begin{tabular}{ll}
+    \hline\hline
+    Variable & Definition \\ \hline\hline
+    \multicolumn{2}{c}{\textbf{charged PF candidates}}\\\hline
+    $\log\pt$ & logarithm of the particle’s \pt \\
+    $\log E$ & logarithm of the particle’s energy \\
+    $\Delta\eta(\text{jet})$ & difference in pseudorapidity between the particle
+    and the jet axis\\
+    $\Delta\phi(\text{jet})$ & difference in azimuthal angle between the particle
+    and the jet axis \\
+    $|\eta|$ & absolute value of the particle's pseudorapidity\\
+    $q$ & electric charge of the particle\\
+    \texttt{isMuon} & if the particle is identified as a muon \\
+    \texttt{isElectron} & if the particle is identified as an electron \\
+    \texttt{isChargedHadron} & if the particle is identified as a charged hadron \\
+    \texttt{pvAssociationQuality} & flag related to the association of the track to
+    the primary vertices \\
+    \texttt{lostInnerHits} & quality flag of the track related to missing hits on
+    the pixel layers \\
+    $\chi^2/dof$ & $\chi^2$ value of the trajectory fit normalized to the number of
+    degrees of freedom \\
+    \texttt{qualityMask} & quality flag of the track \\
+    $d_z$ & longitudinal impact parameter of the track \\
+    $d_z$/$\sigma_{d_{z}}$ & significance of the longitudinal impact parameter \\
+    $d_{xy}$ & transverse impact parameter of the track \\
+    $d_{xy}$/$\sigma_{d_{xy}}$ & significance of the transverse impact parameter \\
+    $\eta_{\text{rel}}$ & pseudorapidity of the track relative to the jet axis \\
+    $p_{\text{T,rel}}$ ratio & track momentum perpendicular to the jet axis,
+    divided by the magnitude of the track momentum \\
+    $p_{\text{par,rel}}$ ratio & track momentum parallel to the jet axis divided by
+    the magnitude of the track momentum \\
+    $d_{\text{3D}}$ &  signed 3D impact parameter of the track \\
+    $d_{\text{3D}}/\sigma_{\text{3D}}$ & signed 3D impact parameter significance of
+    the track \\
+    \texttt{trackDistance} & distance between the track and the jet axis at their
+    point of closest approach \\
+    \hline\hline
+    
+    \multicolumn{2}{c}{\textbf{Neutral PF candidates}}\\\hline
+    $\log\pt$ & logarithm of the particle’s \pt \\
+    $\log E$ & logarithm of the particle’s energy \\
+    $\Delta\eta(\text{jet})$ & difference in pseudorapidity between the particle
+    and the jet axis\\
+    $\Delta\phi(\text{jet})$ & difference in azimuthal angle between the particle
+    and the jet axis \\
+    $|\eta|$ & absolute value of the particle's pseudorapidity\\
+    \texttt{isPhoton} & if the particle is identified as a photon \\
+    \texttt{isNeutralHadron} & if the particle is identified as a neutral hadron \\
+    \hline\hline
+    \multicolumn{2}{c}{\textbf{For SVs within the jet cone}}\\\hline
+    $\log\pt$ & logarithm of the SV \pt \\
+    $m_{\text{SV}}$ & mass of the SV \\
+    $\Delta\eta(\text{jet})$ & difference in pseudorapidity between the SV and the
+    jet axis\\
+    $\Delta\phi(\text{jet})$ & difference in azimuthal angle between the SV and the
+    jet axis \\
+    $|\eta|$ & absolute value of the SV's pseudorapidity\\
+    $N_\text{tracks}$ & number of tracks associated with the SV \\
+    $\chi^2/dof$ & $\chi^2$ value of the SV fit normalized to the number of degrees
+    of freedom \\
+    $d_{\text{2D}}$ &  signed 2D impact parameter (i.e., in the transverse plane)
+    of the SV \\
+    $d_{\text{2D}}/\sigma_{\text{2D}}$ & signed 2D impact parameter significance of
+    the SV \\
+    $d_{\text{3D}}$ &  signed 3D impact parameter of the SV \\
+    $d_{\text{3D}}/\sigma_{\text{3D}}$ & signed 3D impact parameter significance of
+    the SV \\
+    \hline\hline
+    \end{tabular}
+    }
+    \end{center}
+    \end{table}
