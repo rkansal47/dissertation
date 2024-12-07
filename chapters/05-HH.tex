@@ -227,20 +227,20 @@ The $\PW+$jets and $\PZ+$jets MC samples are corrected to approximately NNLO in 
 
 The QCD event yields in the signal, or ``pass'', and fail regions are related by a smoothly parametrized transfer factor $\rpf$:
 \begin{equation}
-n(\mathrm{QCD})^\mathrm{pass}_b = \rpf(m)\, n(\mathrm{QCD})^\mathrm{fail}_b,
+n(\mathrm{QCD})^{\mathrm{pass}}_b = \rpf(m)\, n(\mathrm{QCD})^{\mathrm{fail}}_b,
 \end{equation}
 
-where $n(\mathrm{QCD})_b$ is the QCD yield in bin $b$, and $n(\mathrm{QCD})^\mathrm{fail}_b$ is estimated to be the data in the fail region minus non-QCD backgrounds.
+where $n(\mathrm{QCD})_b$ is the QCD yield in bin $b$, and $n(\mathrm{QCD})^{\mathrm{fail}}_b$ is estimated to be the data in the fail region minus non-QCD backgrounds.
 In the nonresonant case, separate transfer factors are used for each signal region $R$ ($\in$ \{ggF, VBF\}), each of which is parametrized by the coefficients $a^R_k$ of the set of $n^R + 1$ Bernstein basis polynomials $b_{k, n^R}$ of order $n^R$ in \mregbb:
 \begin{equation}
-R^\mathrm{Region\ R}_{P/F\ \textrm{nonresonant}}(\mregbb) = \sum^{n^R_\mregbb}_{k=0} a^R_k b_{k, n^R_\mregbb}(\mregbb),
+R^{\mathrm{Region\ R}}_{P/F\ \textrm{nonresonant}}(\mregbb) = \sum^{n^R_\mregbb}_{k=0} a^R_k b_{k, n^R_\mregbb}(\mregbb),
 \end{equation}
 while in the resonant case it is generalised to two dimensions, as a function of \mjj and \mregvv:
 \begin{equation}
 R_{P/F\ \textrm{resonant}}(\mjj, \mregvv) = \sum^{n_\mjj}_{k=0} \sum^{n_\mregvv}_{l=0} a_{k,l} \big[ b_{k, n_\mjj}(\mjj)\, b_{l, n_\mregvv}(\mregvv)\big].
 \end{equation}
 
-The optimal orders of the polynomials are determined to be $n^\mathrm{ggF}_\mregbb = 0$, $n^\mathrm{VBF}_\mregbb = 1$, $n_\mjj = 2$, and $n_\mregvv = 1$ by a Fisher F-test.
+The optimal orders of the polynomials are determined to be $n^{\mathrm{ggF}}_\mregbb = 0$, $n^{\mathrm{VBF}}_\mregbb = 1$, $n_\mjj = 2$, and $n_\mregvv = 1$ by a Fisher F-test.
 This iteratively tests each polynomial order, starting from the lowest considered, against higher order polynomials to see if the latter provide significantly better fits.
 The lowest order tested is 0 for all but the nonresonant VBF region, for which we require the transfer factor to be at least linear to account for observed shift in the simulated QCD \mregbb shape (due to the higher \mHH phase space of this region).
 

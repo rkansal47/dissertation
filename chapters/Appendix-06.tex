@@ -6,14 +6,14 @@
 
 \subsection{LGAE}
 
-For both the encoder and decoder, we choose $N_\mathrm{MP}^\mathrm{E} = N_\mathrm{MP}^\mathrm{D} = 4$ LMP layers.
+For both the encoder and decoder, we choose $N_{\mathrm{MP}}^{\mathrm{E}} = N_{\mathrm{MP}}^{\mathrm{D}} = 4$ LMP layers.
 The multiplicity per node in each LMP layer has been optimized to be
 \begin{equation}
-    \left\{ \parenthesis{\tau_{(m, n)}^{(t)}}^\mathrm{E} \right\}_{t=1}^{4} = (3,3,4,4)
+    \left\{ \parenthesis{\tau_{(m, n)}^{(t)}}^{\mathrm{E}} \right\}_{t=1}^{4} = (3,3,4,4)
 \end{equation}
 for the encoder and
 \begin{equation}
-    \left\{ \parenthesis{\tau_{(m, n)}^{(t)}}^\mathrm{D} \right\}_{t=1}^{4} = (4,4,3,3)
+    \left\{ \parenthesis{\tau_{(m, n)}^{(t)}}^{\mathrm{D}} \right\}_{t=1}^{4} = (4,4,3,3)
 \end{equation}
 for the decoder, the components in the vector on the right-hand side are the multiplicity in each of the four LMP layers per network, and the multiplicity per layer is the same for all representations.
 After each CG decomposition, we truncate irreps of dimensions higher than $(1/2, 1/2)$ for tractable computations, i.e., after each LMP operation we are left with only scalar and vector representations per node.

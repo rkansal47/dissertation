@@ -149,13 +149,13 @@ Finally, this aggregated message is used to update each node's features, such th
 \begin{equation} \label{eq:06_lgae_update}
     \mathcal{F}_i^{(t+1)} = W^{(t+1)} \left( \mathcal{F}_i^{(t)} \oplus m_i^{(t)} \right)
 \end{equation}
-for all $i \in \{1, \ldots, N_\mathrm{particle}\}$, where $W^{(t+1)}$ is a learnable node-wise operator which acts as separate fully-connected linear layers $W^{(t+1)}_{(m, n)}$ on the set of components living within each separate $(m, n)$ representation space, outputting a chosen $\tau_{(m,n)}^{(t+1)}$ number of components per representation.
+for all $i \in \{1, \ldots, N_{\mathrm{particle}}\}$, where $W^{(t+1)}$ is a learnable node-wise operator which acts as separate fully-connected linear layers $W^{(t+1)}_{(m, n)}$ on the set of components living within each separate $(m, n)$ representation space, outputting a chosen $\tau_{(m,n)}^{(t+1)}$ number of components per representation.
 In practice, we then truncate the irreps to a maximum dimension to make computations more tractable.
 
 \subsection{Encoder \label{sec:06_lgae_lgaee}}
 The encoder takes as input an $N$-particle cloud, where each particle is each associated with a 4-momentum vector and an arbitrary number of scalars representing physical features such as mass, charge, and spin. 
-Each isotypic component is initially transformed to a chosen multiplicity of $\parenthesis{\tau_{(m, n)}^{(0)}}_\mathrm{E}$ via a node-wise operator $W^{(0)}$ identical conceptually to $W^{(t+1)}$ in Eq.~(\ref{eq:06_lgae_update}). 
-The resultant graph is then processed through $N_{\mathrm{MP}}^\mathrm{E}$ LMP layers, specified by a sequence of multiplicities $\left\{ \parenthesis{\tau_{(m, n)}^{(t)}}_\mathrm{E} \right\}_{t=1}^{N_{\mathrm{MP}}^\mathrm{E}}$, where $\parenthesis{\tau_{(m, n)}^{(t)}}_\mathrm{E}$ is the multiplicity of the $(m, n)$ representation at the $t$-th layer. 
+Each isotypic component is initially transformed to a chosen multiplicity of $\parenthesis{\tau_{(m, n)}^{(0)}}_{\mathrm{E}}$ via a node-wise operator $W^{(0)}$ identical conceptually to $W^{(t+1)}$ in Eq.~(\ref{eq:06_lgae_update}). 
+The resultant graph is then processed through $N_{\mathrm{MP}}^{\mathrm{E}}$ LMP layers, specified by a sequence of multiplicities $\left\{ \parenthesis{\tau_{(m, n)}^{(t)}}_{\mathrm{E}} \right\}_{t=1}^{N_{\mathrm{MP}}^{\mathrm{E}}}$, where $\parenthesis{\tau_{(m, n)}^{(t)}}_{\mathrm{E}}$ is the multiplicity of the $(m, n)$ representation at the $t$-th layer. 
 Weights are shared across the nodes in a layer to ensure permutation equivariance.
 After the final MP layer, node features are aggregated to the latent space by a component-wise minimum (min), maximum (max), or mean. 
 The min and max operations are performed on the respective Lorentz invariants.
@@ -166,7 +166,7 @@ Crucially, unlike in Eq.~(\ref{eq:06_lgae_update}), where this operation only ha
 \subsection{Decoder \label{sec:06_lgae_lgaed}}
 
 The decoder recovers the $N$-particle cloud by acting on the latent space with $N$ independent, learned linear operators, which again mix components living in the same representations.
-This cloud passes through $N_{\mathrm{MP}}^\mathrm{D}$ LMP layers, specified by a sequence of multiplicities $\left\{ \parenthesis{\tau_{(m, n)}^{(t)}}_\mathrm{D} \right\}_{t=1}^{N_{\mathrm{MP}}^\mathrm{D}}$, where $\parenthesis{\tau_{(m, n)}^{(t)}}_\mathrm{D}$ is the multiplicity of the $(m, n)$ representation at the $t$-th LMP layer.
+This cloud passes through $N_{\mathrm{MP}}^{\mathrm{D}}$ LMP layers, specified by a sequence of multiplicities $\left\{ \parenthesis{\tau_{(m, n)}^{(t)}}_{\mathrm{D}} \right\}_{t=1}^{N_{\mathrm{MP}}^{\mathrm{D}}}$, where $\parenthesis{\tau_{(m, n)}^{(t)}}_{\mathrm{D}}$ is the multiplicity of the $(m, n)$ representation at the $t$-th LMP layer.
 After the LMP layers, node features are mixed back to the input representation space $\parenthesis{D^{(0,0)}}^{\oplus \tau_{(0,0)}^{(0)}} \oplus D^{(1/2, 1/2)}$ by applying a linear mixing layer and then truncating other isotypic components. 
 
 \section{Experiments}
@@ -247,9 +247,9 @@ The LGAE models are verified to be equivariant to Lorentz boosts and rotations u
 
 We evaluate the performance of the LGAE, GNNAE, and CNNAE models, with the different aggregation schemes discussed, on the reconstruction of the particle and jet features of QCD jets.  
 We consider relative transverse momentum
-$\ptrel = \pt^\mathrm{particle}/\pt^\mathrm{jet}$ and relative angular coordinates
-$\etarel =\eta^\mathrm{particle} - \eta^\mathrm{jet}$ and
-$\phirel =\phi^\mathrm{particle} - \phi^\mathrm{jet} \pmod{2\pi}$
+$\ptrel = \pt^{\mathrm{particle}}/\pt^{\mathrm{jet}}$ and relative angular coordinates
+$\etarel =\eta^{\mathrm{particle}} - \eta^{\mathrm{jet}}$ and
+$\phirel =\phi^{\mathrm{particle}} - \phi^{\mathrm{jet}} \pmod{2\pi}$
 as each particle's features, and total jet mass, \pt and $\eta$ as jet features. 
 We define the compression rate as the ratio between the total dimension of the latent space and the number of features in the input space: $30\ \mathrm{particles} \times 3\ \mathrm{features\ per\ particle} = 90$.
 
@@ -270,7 +270,7 @@ The LGAE-Min-Max model outperforms the GNNAE-JL in reconstructing all features a
     \includegraphics[width=\linewidth]{figures/06-ML4Jets/lgae/reconstructions/hist-cnnae.pdf}
     \caption[Particle and jet feature reconstruction by the LGAE, GNNAE, and CNNAE models.]{
         \textbf{Top}:
-        particle momenta $(\pt^\mathrm{rel}, \eta^\mathrm{rel}, \phi^\mathrm{rel})$ reconstruction by
+        particle momenta $(\pt^{\mathrm{rel}}, \eta^{\mathrm{rel}}, \phi^{\mathrm{rel}})$ reconstruction by
         LGAE-Min-Max ($\tau_{(1/2, 1/2)}=4$, resulting in $56.67\%$ compression) and
         and LGAE-Mix ($\tau_{(1/2, 1/2)}=9$, resulting in $61.67\%$ compression),
         and GNNAE-JL ($\dim(L) = 55$, resulting in $61.11\%$ compression) and

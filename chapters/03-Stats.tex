@@ -257,12 +257,12 @@ Note that for cases where we can't use the asymptotic form, Ref.~\cite{Cranmer:2
 \label{sec:03_significance}
 
 Now that we know the distribution of the test statistic $p(\tilde{t}_s|H_s) \equiv p(\tilde{t}_s|s)$, we can finally test $H_s$ with our experiment.
-We just need to calculate the ``observed'' test statistic $\tilde{t}^\mathrm{obs}_s$ from our observations, and compare it to the $p(\tilde{t}_s|s)$.
+We just need to calculate the ``observed'' test statistic $\tilde{t}^{\mathrm{obs}}_s$ from our observations, and compare it to the $p(\tilde{t}_s|s)$.
 
 \begin{example}
 \label{ex:03_pvalue}
 Let's say we're testing the hypothesis of $s = 10$ signal events in our model and we observe $n = 20, m = 5$ events.
-We can map this observation to our test statistic $\tilde{{t}}^\mathrm{{obs}}_s(s = 10, n_\mathrm{obs} = 20, m_\mathrm{obs} = 5) = 1.07$,
+We can map this observation to our test statistic $\tilde{{t}}^{\mathrm{{obs}}}_s(s = 10, n_{\mathrm{obs}} = 20, m_{\mathrm{obs}} = 5) = 1.07$,
 and see where this falls in our $p(\tilde{t}_s|s)$ distribution (Figure~\ref{fig:03_Hs}).
 \end{example}
 
@@ -274,10 +274,10 @@ and see where this falls in our $p(\tilde{t}_s|s)$ distribution (Figure~\ref{fig
 \label{fig:03_Hs}
 \end{figure}
 
-Ultimately, we care about, given $p(\tilde{t}_s|s)$, the probability of obtaining $\tilde{t}^\mathrm{obs}_s$ \textit{or a value more inconsistent} with $H_s$; i.e., the green shaded region above.
+Ultimately, we care about, given $p(\tilde{t}_s|s)$, the probability of obtaining $\tilde{t}^{\mathrm{obs}}_s$ \textit{or a value more inconsistent} with $H_s$; i.e., the green shaded region above.
 This is referred to as the $p$\textit{-value} of the observation:
 \begin{equation}
-p_s = \int_{\tilde{t}_\mathrm{obs}}^{\infty}p(\tilde{t}_s|s)\mathrm d \tilde{t}_s = 1 - F(\tilde{t}_\mathrm{obs}|s),
+p_s = \int_{\tilde{t}_{\mathrm{obs}}}^{\infty}p(\tilde{t}_s|s)\mathrm d \tilde{t}_s = 1 - F(\tilde{t}_{\mathrm{obs}}|s),
 \label{eq:03_pvalue}
 \end{equation}
 which is $0.30$ for this example, where
@@ -309,7 +309,7 @@ We sometimes say that our measurement is (in)consistent or (in)compatible with $
 \subsubsection{Signal discovery}
 
 So far, we have been testing the signal hypothesis, but usually when searching for a particle, we instead test the ``background-only'' hypothesis $H_0$ and decide whether or not to reject it. 
-This means we want $\tilde{t}^\mathrm{obs}_0$ and $p(\tilde{t}_0|0)$ (Figure~\ref{fig:03_H0}).\footnote{Ref.~\cite{Cowan:2010js} refers to the special case of the test statistic $\tilde{t}_s$ for $s = 0$ as $q_0$.}
+This means we want $\tilde{t}^{\mathrm{obs}}_0$ and $p(\tilde{t}_0|0)$ (Figure~\ref{fig:03_H0}).\footnote{Ref.~\cite{Cowan:2010js} refers to the special case of the test statistic $\tilde{t}_s$ for $s = 0$ as $q_0$.}
 
 \begin{figure}[htb]
 \centering
@@ -331,7 +331,7 @@ In summary, the framework for hypothesis testing comprises:
 \begin{enumerate}
     \item Defining a test statistic $t$ to map data $\cvec{x}$ (in our example, $\cvec{x} = (n, m)$) to a single number.
     \item Deriving the distribution of $t$ under the hypothesis being tested $p(t|H)$ by sampling from ``toy'' datasets assuming $H$.
-    \item Quantifying the compatibility of the observed data $\cvec{x}_\mathrm{obs}$ with $H$ with the $p$-value or significance $Z$ of $t_\mathrm{obs}$ relative to $p(t|H)$.
+    \item Quantifying the compatibility of the observed data $\cvec{x}_{\mathrm{obs}}$ with $H$ with the $p$-value or significance $Z$ of $t_{\mathrm{obs}}$ relative to $p(t|H)$.
 \end{enumerate}
 
 This $p$-value / significance is what we then use to decide whether or not to exclude $H$. 
@@ -348,21 +348,21 @@ Very similar to the idea of the significance level, the CL is defined such that 
 
 This can be ensured for any given CL by solving Eq.~\ref{eq:03_pvalue} for a $p$-value of $1 - \mathrm{CL}$: 
 \begin{equation}
-p = 1 - \mathrm{CL} = \int_{\tilde{t}^\mathrm{obs}_s}^{\infty}p(\tilde{t}_s|s_\pm)\mathrm d \tilde{t}_s,
+p = 1 - \mathrm{CL} = \int_{\tilde{t}^{\mathrm{obs}}_s}^{\infty}p(\tilde{t}_s|s_\pm)\mathrm d \tilde{t}_s,
 \label{eq:03_cl}
 \end{equation}
 where $s_-$ and $s_+$ are the lower and upper limits on $s$, respectively.
 
-This can be solved by scanning $s$ and finding the values of $s$ for which the RHS $= 1 - \mathrm{CL}$, as demonstrated in Figure~\ref{fig:03_neymanconstruction} for the experiment in Example~\ref{ex:03_pvalue} ($n_\mathrm{obs} = 20, m_\mathrm{obs} = 5$).
+This can be solved by scanning $s$ and finding the values of $s$ for which the RHS $= 1 - \mathrm{CL}$, as demonstrated in Figure~\ref{fig:03_neymanconstruction} for the experiment in Example~\ref{ex:03_pvalue} ($n_{\mathrm{obs}} = 20, m_{\mathrm{obs}} = 5$).
 This procedure of inverting the hypothesis test by scanning along the values of the POIs is called the ``Neyman construction''. 
 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\textwidth]{figures/03-Stats/03-intervals-and-limits/1.png}
-\caption[Demonstration of the Neyman construction for a 95\% confidence interval for the experiment in Example~\ref{ex:03_pvalue} ($n_\mathrm{obs} = 20, m_\mathrm{obs} = 5$).]{Demonstration of the Neyman construction for a 95\% confidence interval for the experiment in Example~\ref{ex:03_pvalue} ($n_\mathrm{obs} = 20, m_\mathrm{obs} = 5$).
+\caption[Demonstration of the Neyman construction for a 95\% confidence interval for the experiment in Example~\ref{ex:03_pvalue} ($n_{\mathrm{obs}} = 20, m_{\mathrm{obs}} = 5$).]{Demonstration of the Neyman construction for a 95\% confidence interval for the experiment in Example~\ref{ex:03_pvalue} ($n_{\mathrm{obs}} = 20, m_{\mathrm{obs}} = 5$).
 Left: Scanning $p(\tilde{t}_s|s)$ using 10,000 toys each for different values of $s$. 
-Right: Converting this to a contour plot of the $p$-values for different $\tilde{t}_s$'s as a function of $s$, with the observed $t^\mathrm{obs}_s$ in red. 
-The points at which $t^\mathrm{obs}_s$ intersects with the $p$-value = 0.05 contour are marked in black and signify the limits of the 95\% confidence interval for $s$ - in this case, $[6.0, 25.8]$.}
+Right: Converting this to a contour plot of the $p$-values for different $\tilde{t}_s$'s as a function of $s$, with the observed $t^{\mathrm{obs}}_s$ in red. 
+The points at which $t^{\mathrm{obs}}_s$ intersects with the $p$-value = 0.05 contour are marked in black and signify the limits of the 95\% confidence interval for $s$ - in this case, $[6.0, 25.8]$.}
 \label{fig:03_neymanconstruction}
 \end{figure}
 
@@ -425,8 +425,8 @@ $p(\tilde{q}_s|s)$ is shifted to the left with respect to $p(\tilde{t}_s|s)$; he
 \includegraphics[width=\textwidth]{figures/03-Stats/03-intervals-and-limits/4.png}
 \caption[Extending the Neyman construction to an upper limit on $s$.]{Extending the Neyman construction to an upper limit on $s$. 
 Left: Scanning the upper limit test statistic distribution $p(\tilde{q}_s|s)$ using 10,000 toys each for different values of $s$. 
-Right: Converting this to a contour plot of the $p$-values for different $\tilde{q}_s$'s as a function of $s$, with the observed $q^\mathrm{obs}_s$ in red. 
-The point at which $q^\mathrm{obs}_s$ intersects with the $p$-value = 0.05 contour is marked in black and signifies the upper limit at 95\% CL.}
+Right: Converting this to a contour plot of the $p$-values for different $\tilde{q}_s$'s as a function of $s$, with the observed $q^{\mathrm{obs}}_s$ in red. 
+The point at which $q^{\mathrm{obs}}_s$ intersects with the $p$-value = 0.05 contour is marked in black and signifies the upper limit at 95\% CL.}
 \label{fig:03_upperlimits}
 \end{figure}
 
@@ -461,14 +461,14 @@ On the other hand, for more sensitive regions, compatibility should be lower $\R
 
 To be explicit, here
 \begin{equation}
-p_b = \int^{\tilde{t}_\mathrm{obs}}_{-\infty}p(\tilde{t}_s|0)\mathrm d \tilde{t}_s,
+p_b = \int^{\tilde{t}_{\mathrm{obs}}}_{-\infty}p(\tilde{t}_s|0)\mathrm d \tilde{t}_s,
 \label{eq:03_pb}
 \end{equation}
 
 where we should note that:
 \begin{enumerate}
     \item We're looking at the distribution of $\tilde{t}_s$ --- \textit{not} $\tilde{t}_0$ --- under the background-only hypothesis, since the underlying test is of $H_s$, not $H_0$; and
-    \item We're integrating \textit{up to} $\tilde{t}_\mathrm{obs}$, unlike for $p_s$, because lower $\tilde{t}$ means greater compatibility with the background-only hypothesis.
+    \item We're integrating \textit{up to} $\tilde{t}_{\mathrm{obs}}$, unlike for $p_s$, because lower $\tilde{t}$ means greater compatibility with the background-only hypothesis.
 \end{enumerate}
 
 The effect of the CL$_s$ criterion is demonstrated in Figure~\ref{fig:03_cls} for Examples~\ref{ex:03_pvalue} and~\ref{ex:03_cls}.
@@ -543,7 +543,7 @@ To derive the \textit{expected} limit, we do the opposite of the above and ask, 
 This means we need:
 \begin{enumerate}
   \item The distribution $p(\tilde{q}_\mu|\mu)$ to solve for $\mu^+$ in Eq.~\ref{eq:03_cl} and be able to do the upper limit calculation (as in Section~\ref{sec:03_upper_limits});
-  \item $p(\tilde{q}_\mu|0)$ to get the median (and other quantiles') expected $\tilde{q}_\mu^\mathrm{obs}$ for different signal strengths under the background-only hypothesis; and, furthermore,
+  \item $p(\tilde{q}_\mu|0)$ to get the median (and other quantiles') expected $\tilde{q}_\mu^{\mathrm{obs}}$ for different signal strengths under the background-only hypothesis; and, furthermore,
   \item To scan over the different signal strengths to find the $\mu$ that results in a median $p$-value of $0.05$ --- or, rather, $p_\mu'$-value (Eq.~\ref{eq:03_pmu_prime}), since we're using the CL$_s$ method for upper limits (Section~\ref{sec:03_cls}).
 \end{enumerate}
 
@@ -945,14 +945,14 @@ For $\mu = \mu' \Rightarrow \Lambda = 0$, again this simplifies to:
     F(t_\mu|\mu) \simeq 2\Phi(\sqrt{t_\mu}) - 1.
 \label{eq:03_ptmu_cdf_special}
 \end{equation}
-From Eq.~\ref{eq:03_pvalue}, we know the $p$-value $p_\mu$ of the observed $t_\mu^\mathrm{obs}$ under a signal hypothesis of $H_\mu$ is
+From Eq.~\ref{eq:03_pvalue}, we know the $p$-value $p_\mu$ of the observed $t_\mu^{\mathrm{obs}}$ under a signal hypothesis of $H_\mu$ is
 \begin{equation}
-    p_\mu = 1 - F(t_\mu^\mathrm{obs}|\mu) = 2(1 - \Phi(\sqrt{t_\mu^\mathrm{obs}})),
+    p_\mu = 1 - F(t_\mu^{\mathrm{obs}}|\mu) = 2(1 - \Phi(\sqrt{t_\mu^{\mathrm{obs}}})),
 \label{eq:03_pmu_asym}
 \end{equation}
 with an associated significance
 \begin{equation}
-    Z = \Phi^{-1}(1-p_\mu) = \Phi^{-1}(2\Phi(\sqrt{t_\mu^\mathrm{obs}} - 1)
+    Z = \Phi^{-1}(1-p_\mu) = \Phi^{-1}(2\Phi(\sqrt{t_\mu^{\mathrm{obs}}} - 1)
 \label{eq:03_Z_asym}
 \end{equation}
 
@@ -960,23 +960,23 @@ with an associated significance
 \subsubsection{Application to hypothesis testing}
 
 Let's see how well this approximation agrees with the toy-based $p$-value we found in Example~\ref{ex:03_pvalue}.
-For the same counting experiment example, where we expect $s = 10$ and observe $n_\mathrm{obs} = 20$, $m_\mathrm{obs} = 5$, we found the $p$-value for testing the $\mu = 1$ hypothesis $p_{\mu = 1} = 0.3$ (and the associated significance $Z = 0.52$).
-Calculating $t_\mu^\mathrm{obs}$ for this example and plugging it into the asymptotic approximation from Eq.~\ref{eq:03_pmu_asym} gives:\footnote{Note that we're using $t_\mu$ here, not the alternative test statistic $\tilde{t_\mu}$; however, in this case since $\hat\mu > 0$, they are equivalent.}
+For the same counting experiment example, where we expect $s = 10$ and observe $n_{\mathrm{obs}} = 20$, $m_{\mathrm{obs}} = 5$, we found the $p$-value for testing the $\mu = 1$ hypothesis $p_{\mu = 1} = 0.3$ (and the associated significance $Z = 0.52$).
+Calculating $t_\mu^{\mathrm{obs}}$ for this example and plugging it into the asymptotic approximation from Eq.~\ref{eq:03_pmu_asym} gives:\footnote{Note that we're using $t_\mu$ here, not the alternative test statistic $\tilde{t_\mu}$; however, in this case since $\hat\mu > 0$, they are equivalent.}
 \begin{align}
 \label{eq:03_pmu_asym_example}
-  &t_\mu^\mathrm{obs} = 1.08  \\
+  &t_\mu^{\mathrm{obs}} = 1.08  \\
   &\Rightarrow p_{\mu = 1} = 2(1 - \Phi(\sqrt{1.08})) = 0.3 \\
   &\Rightarrow Z = 0.52.
 \end{align}
 We see that it agrees exactly! 
 
-The agreement more generally, with varying $s, \mu, n_\mathrm{obs}, m_\mathrm{obs}$, is plotted in Figure~\ref{fig:03_asym_significances}.
+The agreement more generally, with varying $s, \mu, n_{\mathrm{obs}}, m_{\mathrm{obs}}$, is plotted in Figure~\ref{fig:03_asym_significances}.
 We observe generally strong agreement, except for low $n, m$ where, as expected, the asymptotic approximation breaks down.
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=\textwidth]{figures/03-Stats/06-asymptotic-plr/5.png}
-  \caption[Comparing the significances, as a function of the signal strength $\mu$ of the hypothesis being tested, for simple counting experiments (Eq.~\ref{eq:03_pois3}) with different $s, n_\mathrm{obs}, m_\mathrm{obs}$'s.]{Comparing the significances, as a function of the signal strength $\mu$ of the hypothesis being tested, for simple counting experiments (Eq.~\ref{eq:03_pois3}) with different $s, n_\mathrm{obs}, m_\mathrm{obs}$'s, derived using $30,000$ toys each (solid) to estimate the $p(t_\mu|\mu)$ distribution vs. the asymptotic approximation (dashed).}
+  \caption[Comparing the significances, as a function of the signal strength $\mu$ of the hypothesis being tested, for simple counting experiments (Eq.~\ref{eq:03_pois3}) with different $s, n_{\mathrm{obs}}, m_{\mathrm{obs}}$'s.]{Comparing the significances, as a function of the signal strength $\mu$ of the hypothesis being tested, for simple counting experiments (Eq.~\ref{eq:03_pois3}) with different $s, n_{\mathrm{obs}}, m_{\mathrm{obs}}$'s, derived using $30,000$ toys each (solid) to estimate the $p(t_\mu|\mu)$ distribution vs. the asymptotic approximation (dashed).}
   \label{fig:03_asym_significances}
 \end{figure}
 

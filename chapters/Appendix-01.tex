@@ -442,7 +442,7 @@ Our solution is to refer to these states instead as \textit{positive-} and \text
 
 For treating interactions that are small perturbations to the free theory, it is most useful to employ the interaction picture of QM, a hybrid of the Schr\"odinger and Heisenberg pictures.
 Recall that in the Schr\"odinger picture, operators are fixed while states evolve with time, and vice versa in the Heisenberg picture.
-In the interaction picture, we split the Hamiltonian into the free ($H_0$) and interaction terms ($H_\mathrm{int}$), defining operators to evolve with the former and states with the latter.
+In the interaction picture, we split the Hamiltonian into the free ($H_0$) and interaction terms ($H_{\mathrm{int}}$), defining operators to evolve with the former and states with the latter.
 
 The upshot of this in QFT is that the S-matrix element can be written according to \textit{Dyson's formula}:
 \begin{equation}
@@ -452,10 +452,10 @@ The upshot of this in QFT is that the S-matrix element can be written according 
 where $T$ is the same time-ordering operator from Section~\ref{sec:01_qft_quantization_propagators} and $H_I$ is the time-evolved interaction Hamiltonian in the interaction picture:
 \begin{equation}
 	\label{eq:01_qft_interactions_interaction_hamiltonian}
-	H_I(t) = e^{iH_0t}H_\mathrm{int}e^{-iH_0t}.
+	H_I(t) = e^{iH_0t}H_{\mathrm{int}}e^{-iH_0t}.
 \end{equation}
 
-Assuming a small $H_\mathrm{int}$, Dyson's formula can be Taylor expanded as:
+Assuming a small $H_{\mathrm{int}}$, Dyson's formula can be Taylor expanded as:
 \begin{multline}
 	\label{eq:01_qft_interactions_dysons_expansion}
 	\braket{f|S|i} = \braket{f|\identity|i} + (-i) \int_{-\infty}^\infty \braket{f|H_I(t)|i}dt \\
@@ -552,7 +552,7 @@ For the left-most diagram, we see $k = q_{f1} - q_{i1} = q_{f2} - q_{i2}$, while
 Thus, the total matrix element is
 \begin{equation}
 	\label{eq:01_qft_interactions_nn_scattering_2}
-	i \mathcal M = i(\mathcal M_\mathrm{left} + \mathcal M_\mathrm{right}) = (-ig)^2 \bigg[ \cfrac{1}{(q_{f1} - q_{i1})^2 - m^2} + \cfrac{1}{(q_{f2} - q_{i1})^2 - m^2} \bigg],
+	i \mathcal M = i(\mathcal M_{\mathrm{left}} + \mathcal M_{\mathrm{right}}) = (-ig)^2 \bigg[ \cfrac{1}{(q_{f1} - q_{i1})^2 - m^2} + \cfrac{1}{(q_{f2} - q_{i1})^2 - m^2} \bigg],
 	% \begin{split}
 	% 	i \mathcal M_1 = (-ig)^2 \cdot  \cfrac{1}{(q_{f1} - q_{i1})^2 - m^2 + i\varepsilon}, \\
 	% 	i \mathcal M_2 = (-ig)^2 \cdot  \cfrac{1}{(q_{f2} - q_{i1})^2 - m^2 + i\varepsilon},
@@ -999,7 +999,7 @@ The matrix element for meson decay into a fermion-antifermion pair with spin and
 We can calculate the decay rate as in Section~\ref{sec:01_qft_interactions_decay}, except now we have to sum over the spins of the fermions:
 \begin{equation}
 	\label{eq:01_qft_spinors_meson_decay_rate}
-	d\Gamma = \sum_{s_1, s_2}^2 \frac{1}{2m} \abs{\mathcal M}^2 d\Pi_\mathrm{LIPS} = \frac{g^2}{2m} \sum_{s_1, s_2}^2 \abs{\bar u_{s_1}(q_1) v_{s_2}(q_2)}^2 d\Pi_\mathrm{LIPS}.
+	d\Gamma = \sum_{s_1, s_2}^2 \frac{1}{2m} \abs{\mathcal M}^2 d\Pi_{\mathrm{LIPS}} = \frac{g^2}{2m} \sum_{s_1, s_2}^2 \abs{\bar u_{s_1}(q_1) v_{s_2}(q_2)}^2 d\Pi_{\mathrm{LIPS}}.
 \end{equation}
 In the COM frame, we can choose $q_1 = (\frac{m}{2}, 0, 0, q)$ and $q_2 = (\frac{m}{2}, 0, 0, -q)$, with $q^2 = \frac{m^2}{4} - M^2$ by energy conservation.
 Using the forms of $\bar u_s$ and $v_s$ we found in Eq.~\ref{eq:01_qft_spinors_dirac_solution_momentum}, we see that the sum over spin states simplifies nicely:
@@ -1007,7 +1007,7 @@ Using the forms of $\bar u_s$ and $v_s$ we found in Eq.~\ref{eq:01_qft_spinors_d
 	\label{eq:01_qft_spinors_meson_decay_sum}
 	\sum_{s_1, s_2}^2 \abs{\bar u_{s_1}(q_1) v_{s_2}(q_2)}^2 = 8q^2 = 2(m^2 - 4M^2).
 \end{equation}
-Since this is independent of the final state kinematics, the integral of $d\Pi_\mathrm{LIPS}$ is the same as for the scalar meson decay, and we obtain an the overall decay rate of:
+Since this is independent of the final state kinematics, the integral of $d\Pi_{\mathrm{LIPS}}$ is the same as for the scalar meson decay, and we obtain an the overall decay rate of:
 \begin{equation}
 	\label{eq:01_qft_spinors_meson_decay_rate_final}
 	\Gamma = \frac{g^2m}{16\pi} \left(1 - \frac{4M^2}{m^2}\right)^{3/2}.

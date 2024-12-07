@@ -27,7 +27,7 @@ Finally, we conclude in Section~\ref{sec:04_evaluating_conclusion}.
 \label{sec:04_evaluating_metrics}
 
 In evaluating generative models, we aim to quantify the difference between the real and generated data distributions $\real{p}(\cvec{x})$ and $\gen{p}(\cvec{x})$ respectively, where data samples $\cvec{x} \in \mathbb{R}^d$ are typically high dimensional.
-Lacking tractable analytic distributions in general, this can be viewed as a form of two-sample goodness-of-fit (GOF) testing of the hypothesis $\real{p}(\cvec{x}) = \gen{p}(\cvec{x})$ using real and generated samples, $\{\cvec{x}_\mathrm{real}\}$ and $\{\cvec{x}_\mathrm{gen}\}$, drawn from their respective distributions.
+Lacking tractable analytic distributions in general, this can be viewed as a form of two-sample goodness-of-fit (GOF) testing of the hypothesis $\real{p}(\cvec{x}) = \gen{p}(\cvec{x})$ using real and generated samples, $\{\cvec{x}_{\mathrm{real}}\}$ and $\{\cvec{x}_{\mathrm{gen}}\}$, drawn from their respective distributions.
 As illustrated in Ref.~\cite{cousins_gof}, in general, there is no ``best'' GOF test with power against all alternative hypotheses. 
 Instead, we aim for a set of tests that collectively have power against the relevant alternatives we expect, and are practically most appropriate.
 We first outline the criteria we require of our evaluation metrics in Section~\ref{sec:04_evaluating_criteria}, then review and discuss the suitability of possible metrics in Section~\ref{sec:04_evaluating_emetrics}, and end in Section~\ref{sec:04_evaluating_feature_selection} with a discussion on the features to use in comparing such high-dimensional distributions, thereby motivating FPD and KPD.
@@ -64,7 +64,7 @@ The two prevalent, almost mutually exclusive,\footnote{The total variation dista
 An IPM $D_\mathcal{F}$, defined as
 \
 \begin{equation}\label{eqn:ipm}
-    D_\mathcal{F}(\real p, \gen p) = \sup _{f \in \mathcal F} |\mathbb E_{\cvec x \sim p_\mathrm{real}} f(\cvec{x}) - \mathbb E_{\cvec y \sim p_\mathrm{gen}} f(\cvec y)|,
+    D_\mathcal{F}(\real p, \gen p) = \sup _{f \in \mathcal F} |\mathbb E_{\cvec x \sim p_{\mathrm{real}}} f(\cvec{x}) - \mathbb E_{\cvec y \sim p_{\mathrm{gen}}} f(\cvec y)|,
 \end{equation}
 measures the difference in two distributions, \real{p} and \gen{p} in Eq.~(\ref{eqn:ipm}), by using a ``witness'' function $f$, out of a class of measurable, real-valued functions $\mathcal{F}$, which maximizes the absolute difference in its expected value over the two distributions.
 The choice of $\mathcal{F}$ defines different types of IPMs.
@@ -310,9 +310,9 @@ We first describe the dataset and tested distortions, and then the experimental 
 As our true distribution we use simulated gluon jets of ${\approx}1\TeV$ transverse momentum (\pt) from the \jetnet dataset (Section~\ref{sec:04_jetnet_dataset}) using the associated \jetnet library (Section~\ref{sec:06_jetnet}).
 % Details of the simulation and representation of the dataset can be found in Ref.~\cite{kansal_mpgan}.
 We again consider the three particle features: relative angular coordinates 
-$\etarel =\eta^\mathrm{particle} - \eta^\mathrm{jet}$ and 
-$\phirel =\phi^\mathrm{particle} - \phi^\mathrm{jet} \pmod{2\pi}$, and the relative transverse momentum 
-$\ptrel = \pt^\mathrm{particle}/\pt^\mathrm{jet}$.
+$\etarel =\eta^{\mathrm{particle}} - \eta^{\mathrm{jet}}$ and 
+$\phirel =\phi^{\mathrm{particle}} - \phi^{\mathrm{jet}} \pmod{2\pi}$, and the relative transverse momentum 
+$\ptrel = \pt^{\mathrm{particle}}/\pt^{\mathrm{jet}}$.
 To obtain alternative distributions we distort the dataset in several ways typical of the mismodeling we observe in ML generative models: lower feature resolution, systematic shifts in the features, and inability to capture the full distribution.
 
 We perform both distribution-level distortions, by reweighting the samples in jet mass to produce a mass distribution that is (i) smeared, (ii) smeared and shifted higher, and (iii) missing the tail of the distribution, as well as direct particle-level distortions, by (iv) smearing all three \phirel, \etarel, and \ptrel features, smearing the (v) \ptrel and (vi) \etarel individually, and (vii) shifting the \ptrel higher. 

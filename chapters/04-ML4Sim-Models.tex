@@ -344,8 +344,8 @@ On top of maintaining permutation invariance and operating on point-cloud repres
 IPABs and different ways of incorporating $\cvec{z}$ into the attention process are described below.
 
 The generation process starts with sampling random Gaussian noise and a particle multiplicity $N$ from the true distribution, which is transformed via a learned linear embedding layer.
-The noise has two components: a set of $N_\mathrm{max}$ vectors representing initial particle features, and a single vector representing initial jet features.
-$N_\mathrm{max}$ is the maximum number of particles per jet we want to simulate, and the number of initial particle and jet features is a hyperparameter we tune.
+The noise has two components: a set of $N_{\mathrm{max}}$ vectors representing initial particle features, and a single vector representing initial jet features.
+$N_{\mathrm{max}}$ is the maximum number of particles per jet we want to simulate, and the number of initial particle and jet features is a hyperparameter we tune.
 The jet noise is added to the embedded $N$ to produce $\cvec{z}$, which is then transformed along with the particle noise via multiple IPABs to output a generated jet.
 
 The discrimination process starts with a generated or real jet, and the sampled or true jet multiplicity $N$.
@@ -354,7 +354,7 @@ $\cvec{z}$ conditioning vector for the discriminator, which along with the input
 The constituents of this jet are aggregated in a permutation-invariant manner using a pooling by multihead attention (PMA) layer, as introduced in~\cite{lee2019set}, the output of which is finally fed into a linear layer to classify the jet as real or fake.
 
 Attention blocks require fixed multiplicity; however, jets naturally have a variable number of particle constituents.
-To handle this, we zero-pad all jets to $N_\mathrm{max}$ particles and use masked attention in every block to ignore these.
+To handle this, we zero-pad all jets to $N_{\mathrm{max}}$ particles and use masked attention in every block to ignore these.
 
 
 \subsubsection{Attention Blocks}
