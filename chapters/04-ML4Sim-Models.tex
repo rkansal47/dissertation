@@ -68,13 +68,13 @@ Rather than subtracting particle features for messages between particles, useful
 During the update step in the message passing we find it empirically beneficial to incorporate a residual connection to previous particle features.
 
 The operation can be described as follows. 
-For an $N$-particle cloud $J^t = \{p_1^t, \cdots, p_N^t\}$ after $t$ iterations of message passing, with $t=0$ corresponding to the original input cloud, each particle $p^t_i$ is represented by features $\vec{h}^t_i$.
+For an $N$-particle cloud $J^t = \{p_1^t, \cdots, p_N^t\}$ after $t$ iterations of message passing, with $t=0$ corresponding to the original input cloud, each particle $p^t_i$ is represented by features $\cvec{h}^t_i$.
 One iteration of message passing is then defined as
 \begin{align}
-        \label{eqn:mpm} \vec{m}^{t+1}_{ij} &= f_e^{t+1}(\vec{h}^t_i \oplus \vec{h}^t_j), \\
-        \label{eqn:mph} \vec{h}^{t+1}_i &= f_n^{t+1}(\vec{h}^t_i \oplus \sum_{j \in J} \vec{m}^{t+1}_{ij})\,,
+        \label{eqn:mpm} \cvec{m}^{t+1}_{ij} &= f_e^{t+1}(\cvec{h}^t_i \oplus \cvec{h}^t_j), \\
+        \label{eqn:mph} \cvec{h}^{t+1}_i &= f_n^{t+1}(\cvec{h}^t_i \oplus \sum_{j \in J} \cvec{m}^{t+1}_{ij})\,,
 \end{align}
-where $\vec{m}^{t+1}_{ij}$ is the message vector sent from particle $j$ to particle $i$, $\vec{h}^{t+1}_i$ are the updated features of particle $i$, and $f_e^{t+1}$ and $f_n^{t+1}$ are arbitrary functions which, in our case, are implemented as multilayer perceptrons (MLPs) with 3 FC layers.
+where $\cvec{m}^{t+1}_{ij}$ is the message vector sent from particle $j$ to particle $i$, $\cvec{h}^{t+1}_i$ are the updated features of particle $i$, and $f_e^{t+1}$ and $f_n^{t+1}$ are arbitrary functions which, in our case, are implemented as multilayer perceptrons (MLPs) with 3 FC layers.
 % Ablation studies using our message passing operation but with locally connected topologies are discussed in App.~\ref{app:04_mpgan_locallyconnected}.
 
 
@@ -340,17 +340,17 @@ We train for 2000 epochs and select the model with the lowest Fr\'echet physics 
 
 The iGAPT model builds on the GAPT architecture, but introduces a novel physics-informed attention mechanism that allows for linear-time complexity in the number of particles per jet.
 As illustrated in Figure~\ref{fig:04_igapt_arch}, it is a GAN with the generator and discriminator networks composed of ``induced particle attention blocks'' (IPABs).
-On top of maintaining permutation invariance and operating on point-cloud representations, as in MPGAN and GAPT, the key inductive bias we experiment with in iGAPT is maintaining a global vector through the generation and discrimination processes, $\vec{z}$, which implicitly represents global jet features.
-IPABs and different ways of incorporating $\vec{z}$ into the attention process are described below.
+On top of maintaining permutation invariance and operating on point-cloud representations, as in MPGAN and GAPT, the key inductive bias we experiment with in iGAPT is maintaining a global vector through the generation and discrimination processes, $\cvec{z}$, which implicitly represents global jet features.
+IPABs and different ways of incorporating $\cvec{z}$ into the attention process are described below.
 
 The generation process starts with sampling random Gaussian noise and a particle multiplicity $N$ from the true distribution, which is transformed via a learned linear embedding layer.
 The noise has two components: a set of $N_\mathrm{max}$ vectors representing initial particle features, and a single vector representing initial jet features.
 $N_\mathrm{max}$ is the maximum number of particles per jet we want to simulate, and the number of initial particle and jet features is a hyperparameter we tune.
-The jet noise is added to the embedded $N$ to produce $\vec{z}$, which is then transformed along with the particle noise via multiple IPABs to output a generated jet.
+The jet noise is added to the embedded $N$ to produce $\cvec{z}$, which is then transformed along with the particle noise via multiple IPABs to output a generated jet.
 
 The discrimination process starts with a generated or real jet, and the sampled or true jet multiplicity $N$.
 This is again transformed via a learned embedding layer to produce the 
-$\vec{z}$ conditioning vector for the discriminator, which along with the input jet are processed through IPABs producing an intermediate jet representation.
+$\cvec{z}$ conditioning vector for the discriminator, which along with the input jet are processed through IPABs producing an intermediate jet representation.
 The constituents of this jet are aggregated in a permutation-invariant manner using a pooling by multihead attention (PMA) layer, as introduced in~\cite{lee2019set}, the output of which is finally fed into a linear layer to classify the jet as real or fake.
 
 Attention blocks require fixed multiplicity; however, jets naturally have a variable number of particle constituents.
@@ -365,7 +365,7 @@ To counter this, Ref.~\cite{lee2019set} also proposed ``induced'' SABs (ISABs), 
 This representation is then attended to by the original set to produce the new output.
 This retains the global interactions between particles while achieving $\mathcal O(NM)$ scaling---linear in the particle multiplicity.
 ISABs have been used in generative adversarial set transformers (GAST)~\cite{stelzner2020generative}, yielding high quality results on computer vision datasets.
-GAST incorporates similar global set features $\vec{z}$ by concatenating them to each particle before every ISAB operation.
+GAST incorporates similar global set features $\cvec{z}$ by concatenating them to each particle before every ISAB operation.
 
 \begin{figure}[ht!]
     \centering
@@ -376,10 +376,10 @@ GAST incorporates similar global set features $\vec{z}$ by concatenating them to
 \end{figure}
 
 In iGAPT, we experiment with an alternative version of conditioning, which we call ``induced particle attention''.
-Here, $\vec{z}$ is directly used as the inducing vector in an ISAB, and is continuously updated through the intermediate, induced attention outputs.
-Explicitly, as illustrated in Figure~\ref{fig:04_igapt_ipab}, the $i$th IPAB receives as input the jet $\vec{x}^{i}$ and global features $\vec{z}^{i}$ from the previous block, after which $\vec{x}^{i}$ is first attended to by $\vec{z}^{i}$ to output updated features $\vec{z}^{i+1}$, and then conversely $\vec{z}^{i+1}$ is attended to by $\vec{x}^{i}$ to output the updated jet $\vec{x}^{i+1}$.
+Here, $\cvec{z}$ is directly used as the inducing vector in an ISAB, and is continuously updated through the intermediate, induced attention outputs.
+Explicitly, as illustrated in Figure~\ref{fig:04_igapt_ipab}, the $i$th IPAB receives as input the jet $\cvec{x}^{i}$ and global features $\cvec{z}^{i}$ from the previous block, after which $\cvec{x}^{i}$ is first attended to by $\cvec{z}^{i}$ to output updated features $\cvec{z}^{i+1}$, and then conversely $\cvec{z}^{i+1}$ is attended to by $\cvec{x}^{i}$ to output the updated jet $\cvec{x}^{i+1}$.
 This is interpreted as a way to update and learn the global jet features, such as mass and \pt, along with the individual particle features, and allow both to interact in each attention layer.
-An additional and significant advantage is that this induced attention operation involves only one inducing vector --- $\vec{z}$, hence $M = 1$ and we achieve $\mathcal O(N)$ computational complexity.
+An additional and significant advantage is that this induced attention operation involves only one inducing vector --- $\cvec{z}$, hence $M = 1$ and we achieve $\mathcal O(N)$ computational complexity.
 
 
 
@@ -432,13 +432,13 @@ Finally, we note that the ``true'' generation time per jet is approximately 50\,
 Jet type & Model & Training time & & Generation time & & Batch size \\
  & & (s/epoch) & & (µs / jet) & \\
 \midrule
-\multirow{2}{*}{Gluon, \(n=30\)} 
+\multirow{2}{*}{Gluon, $n=30$} 
 & MPGAN & $193$ & & $142$ & & 512 \\
 % & GAPT & 28 & & 1.79 & & 4096 \\
 % & GAST & 79 & & 2.64 & & 2048 \\
 & iGAPT & \textbf{$31$} & & \textbf{$40$} & & 4096 \\
 \midrule
-\multirow{1}{*}{Gluon, \(n=150\)} 
+\multirow{1}{*}{Gluon, $n=150$} 
 % & MPGAN & - & & - & & - \\
 % & GAPT & 92 & & 12.84 & & 512 \\
 % & GAST & 229 & & 12.67 & & 512 \\

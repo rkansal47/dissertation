@@ -1,11 +1,17 @@
 \documentclass[12pt]{ucsddissertation}
 
 \usepackage{fontspec}
-\newfontfamily\hindifont{Tiro Devanagari Sanskrit}[Script=Devanagari]
+\newfontfamily\hindifont{FreeSerif}[Script=Devanagari]
 
 \usepackage{amsthm}
-\usepackage{newpxtext}
-\usepackage{newpxmath}
+
+\ifdefined\HCode%
+    \usepackage{amssymb}
+\else
+    % palatino font (doesn't work with tex4ht, but it can be specified in the CSS):
+    \usepackage{newpxtext}
+    \usepackage{newpxmath}
+\fi
 
 \usepackage[sort&compress,numbers]{natbib}
 % \setcitestyle{maxcitenames=6}
@@ -24,18 +30,16 @@
 \usepackage{pifont}
 \usepackage{nicefrac}
 \usepackage{adjustbox}
-% \usepackage{gensymb}
-% \usepackage{dcolumn}  
-% \usepackage{newtxtext}
-\usepackage{resizegather}
+\usepackage{xspace}
+
+\unless\ifdefined\HCode
+    \usepackage{resizegather}
 
 \usepackage{enumerate}
 \usepackage[shortlabels]{enumitem}
 \setlist[enumerate]{nosep}
 
-
 \usepackage{amsmath}
-% \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{slashed}
 \usepackage{dsfont}
@@ -86,8 +90,8 @@
 \definecolor{awesome-nephritis}{HTML}{27AE60}
 \definecolor{awesome-concrete}{HTML}{95A5A6}
 \definecolor{awesome-darknight}{HTML}{131A28}
-\colorlet{awesomelinks}{black}
-\colorlet{authorhighlight}{black}
+\colorlet{awesomelinks}{awesome-skyblue}
+\colorlet{authorhighlight}{awesome-red}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -131,12 +135,6 @@
 
 \sloppy
 
-% These are just for testing/examples, delete them
-\usepackage{trace}
-%\usepackage{showframe} % This package was just to see page margins
-\usepackage[english]{babel}
-\usepackage{blindtext}
-% \overfullrule5pt
 % ---
 
 % Required information
@@ -171,16 +169,9 @@
 \makesignature
 % Optional
 \begin{dedication}
-% \vskip0pt plus.5fil
-% \setsinglespacing
-% \setsinglespacing
-% \vfil
-% \vfil
 \begin{center}
 \textit{To my family.}
 \end{center}
-% \vfil
-% \vfil
 \end{dedication}
 
 % Optional
@@ -195,21 +186,17 @@
 तुच्छ्येनाभ्वपिहितं यदासीत्तपसस्तन्महिनाजायतैकम्॥३॥
 \vskip\baselineskip
  - नासदीय सूक्त 
-}\textit{(Hymn of Creation)}
+}
 \end{center}
 \vfil
 \vfil
 \end{epigraph}
 
-% \setlength{\cftbeforepartskip}{1mm}
-% \setlength{\cftbeforetoctitleskip}{8cm}
 
 % Next comes the table of contents, list of figures, list of tables,
 % etc. If you have code listings, you can use \listoflistings (or
 % \lstlistoflistings) to have it be produced here as well. Same with
 % \listofalgorithms.
-
-
 
 {\hypersetup{linkcolor=black}
 \tableofcontents

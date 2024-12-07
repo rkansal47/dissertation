@@ -46,12 +46,12 @@ Finally, we detail two types of unsupervised learning algorithms, autoencoders a
 \subsubsection{Supervised and unsupervised learning}
 
 ML algorithms can be broadly categorized as \textit{supervised} and \textit{unsupervised} learning.
-The former involves learning a mapping between some input data ${\vec{x}}$ and a specific output $\vec{y}$; for example, classifying jets as originating from a Higgs boson or QCD background.
+The former involves learning a mapping between some input data ${\cvec{x}}$ and a specific output $\cvec{y}$; for example, classifying jets as originating from a Higgs boson or QCD background.
 Other examples include regression tasks where the target output is a continuous variable, such as predicting the mass of a jet or the energy of a particle.
 Algorithms used for supervised learning include support vector machines (SVMs)~\cite{cortes1995support}, (boosted) decision trees (BDTs)~\cite{breiman1984classification, hastie2009boosting}, and neural networks.
-Such algorithms necessitate a \textit{labeled} training dataset of input-output pairs $(\vec{x}_i, \vec{y}_i)$.
+Such algorithms necessitate a \textit{labeled} training dataset of input-output pairs $(\cvec{x}_i, \cvec{y}_i)$.
 
-Tasks for which we do not have straightforward labeled data are considered unsupervised learning problems, in which the model must learn the properties and structure of the data $\vec{x}$ without explicit target outputs.
+Tasks for which we do not have straightforward labeled data are considered unsupervised learning problems, in which the model must learn the properties and structure of the data $\cvec{x}$ without explicit target outputs.
 Examples include clustering algorithms, which aim to group similar data points together, and generative and anomaly detection models, both of which aim to learn the underlying distribution of the data in some manner for the purposes of generating new data or identifying outliers, respectively.
 The latter two will be discussed in more detail in Section~\ref{sec:03_genaes}.
 
@@ -62,23 +62,23 @@ Note that these two categories are not mutually exclusive but rather two ends of
 Perhaps the simplest example of an ML task is linear regression, which entails fitting a linear model:
 \begin{equation}
     \label{eq:03_ml_linear}
-    f(x|w) = \vec{w} \cdot \vec{x}
+    f(x|w) = \cvec{w} \cdot \cvec{x}
 \end{equation}
-to a set of data points $(\vec{x}_i, y_i)$, where $\vec{w}$ are the model \textit{weights} which need to be learned.
+to a set of data points $(\cvec{x}_i, y_i)$, where $\cvec{w}$ are the model \textit{weights} which need to be learned.
 %  and are the parameters ``learned'' during the training.
 To do so, we define a \textit{loss function} $L$ that quantifies the difference between the model's prediction and our desired output, such as the mean squared error:
 \begin{equation}
     \label{eq:03_ml_mse}
     L = \frac{1}{N} \sum_{i=1}^N (f(x_i|w) - y_i)^2.
 \end{equation}
-The learning objective of our model is hence to minimize $L$ with respect to the weights $\vec{w}$.
+The learning objective of our model is hence to minimize $L$ with respect to the weights $\cvec{w}$.
 
 For linear regression, the minimum can in fact be found analytically to be:
 \begin{equation}
     \label{eq:03_ml_linear_soln}
-    \vec{w} = (\vec{X}^T \vec{X})^{-1} \vec{X}^T \vec{y},
+    \cvec{w} = (\cvec{X}^T \cvec{X})^{-1} \cvec{X}^T \cvec{y},
 \end{equation}
-where $\vec{X}$ is the matrix of input data and $\vec{y}$ the vector of target outputs.
+where $\cvec{X}$ is the matrix of input data and $\cvec{y}$ the vector of target outputs.
 However, for more complex models (or even in linear regression when the matrix inversion is too expensive), numerical optimization techniques are required.
 The most common is \textit{gradient descent}.
 
@@ -87,9 +87,9 @@ The most common is \textit{gradient descent}.
 Gradient descent is an optimization algorithm that iteratively adjusts the weights of a model in the direction of steepest descent, i.e., the gradient:
 \begin{equation}
     \label{eq:03_ml_grad_desc}
-    \vec{w}_{t+1} = \vec{w}_t - \eta \nabla_w L,
+    \cvec{w}_{t+1} = \cvec{w}_t - \eta \nabla_w L,
 \end{equation}
-where $\vec{w}_t$ are the weights at iteration $t$, and $\eta$ is the step size or \textit{learning rate} (LR).
+where $\cvec{w}_t$ are the weights at iteration $t$, and $\eta$ is the step size or \textit{learning rate} (LR).
 This process is visualized for two learnable parameters in Figure~\ref{fig:03_ml_gradientdescent}.
 
 \begin{figure}[ht]
@@ -156,7 +156,7 @@ The building blocks of ANNs are single ``artificial neurons'', or \textit{percep
 They are similar to the linear models discussed above, but with an additional non-linear function $\sigma$ --- known as the \textit{activation function}, applied to the output (Figure~\ref{fig:03_ml_perceptron}, left):
 \begin{equation}
     \label{eq:03_ml_perceptron}
-    f(x|w, b) = \sigma(\vec{w} \cdot \vec{x} + b),
+    f(x|w, b) = \sigma(\cvec{w} \cdot \cvec{x} + b),
 \end{equation}
 where $b$ is a constant, learned \textit{bias} term.
 Common choices for the activation include the sigmoid, hyperbolic tangent, and piecewise linear functions.
@@ -185,15 +185,15 @@ Backpropagation is, essentially, the repeated application of the chain rule of c
 For a simple two-layer network, for example:
 \begin{equation}
     \label{eq:03_ml_backprop_nn}
-    f(x|w, b) = \sigma^{(2)}(\vec{w}^{(2)} \cdot (\sigma^{(1)}(\vec{w}^{(1)} \cdot \vec{x} + \vec{b}^{(1)}) + \vec{b}^{(2)}),
+    f(x|w, b) = \sigma^{(2)}(\cvec{w}^{(2)} \cdot (\sigma^{(1)}(\cvec{w}^{(1)} \cdot \cvec{x} + \cvec{b}^{(1)}) + \cvec{b}^{(2)}),
 \end{equation}
-where the superscript denotes the layer of the network, the gradient of the loss function $L$ with respect to $\vec{w}^{(1)}$ is:
+where the superscript denotes the layer of the network, the gradient of the loss function $L$ with respect to $\cvec{w}^{(1)}$ is:
 \begin{equation}
     \label{eq:03_ml_backprop}
-    \frac{\partial L}{\partial w^{(1)}} = \underbrace{\frac{\partial L}{\partial f} \frac{\partial f}{\partial \sigma^{(2)}} \frac{\partial \sigma^{(2)}}{\partial \vec{w}^{(2)}}}_{\nicefrac{\partial L}{\partial w^{(2)}}}
-    \underbrace{\frac{\partial \vec{w}^{(2)}}{\partial \sigma^{(1)}} \frac{\partial \sigma^{(1)}}{\partial \vec{w}^{(1)}}}_{\nicefrac{\partial w^{(1)}}{\partial w^{(2)}}}.
+    \frac{\partial L}{\partial w^{(1)}} = \underbrace{\frac{\partial L}{\partial f} \frac{\partial f}{\partial \sigma^{(2)}} \frac{\partial \sigma^{(2)}}{\partial \cvec{w}^{(2)}}}_{\cnicefrac{\partial L}{\partial w^{(2)}}}
+    \underbrace{\frac{\partial \cvec{w}^{(2)}}{\partial \sigma^{(1)}} \frac{\partial \sigma^{(1)}}{\partial \cvec{w}^{(1)}}}_{\cnicefrac{\partial w^{(1)}}{\partial w^{(2)}}}.
 \end{equation}
-This tells us that $\nicefrac{\partial L}{\partial w^{(1)}}$ can be computed using the gradient with respect to $w^{(2)}$ --- which needs to be calculated anyway --- and, more generally, by walking backwards through the network operations and taking the product of the derivatives at each step.
+This tells us that $\cnicefrac{\partial L}{\partial w^{(1)}}$ can be computed using the gradient with respect to $w^{(2)}$ --- which needs to be calculated anyway --- and, more generally, by walking backwards through the network operations and taking the product of the derivatives at each step.
 This simple but powerful idea scales well to large and diverse network architectures, and is why huge DNNs can be trained effectively with relative ease.
 
 \subsubsection{Convolutional neural networks}
@@ -244,7 +244,7 @@ The attention mechanism is then defined as:
     \label{eq:03_ml_attention}
     A(Q, K, V) = \mathrm{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V,
 \end{equation}
-where $d_k$ is the dimension of the keys and queries, and $\mathrm{softmax}\left(\nicefrac{QK^T}{\sqrt{d_k}}\right)$ are the ``attention scores'' between each pair of input and output nodes.
+where $d_k$ is the dimension of the keys and queries, and $\mathrm{softmax}\left(\cnicefrac{QK^T}{\sqrt{d_k}}\right)$ are the ``attention scores'' between each pair of input and output nodes.
 This output $A$ is finally used to update the features of the output nodes.
 Figure~\ref{fig:04_gapt_attention} shows a schematic of the special case of \textit{self-attention}, in which the input set is also the output set; i.e., each node's features are updated based on the features of all other nodes.
 
@@ -399,18 +399,18 @@ However, we will discuss a slightly different approach, applied to point-cloud d
 This approach uses ``Fourier decompositions'' of the input, feature, and output spaces into irreducible representations (irreps) of the symmetry group, and is referred to as a ``tensor-field network''~\cite{thomas2018tensor}. 
 In addition to their aforementioned applications to HEP, point clouds are also extremely useful representations of physical objects such as molecules and crystals, both of which are inherently $\EE[3]$ invariant.
 
-In the approach of Ref.~\cite{thomas2018tensor}, the input and intermediate network layers $f$ take the set of coordinates $\vec{r}_a$ and features $\vec{x}_a$ for each point $a$ in the point cloud and map them to the same set of coordinates with new learned features $\vec{y}_a$ ($f(\vec{r}_a,\vec{x}_a) = (\vec{r}_a,\vec{y}_a)$), with an equivariant $f$ again having to satisfy Eq.~\ref{eq:06_equivariantnns_equiv}.
+In the approach of Ref.~\cite{thomas2018tensor}, the input and intermediate network layers $f$ take the set of coordinates $\cvec{r}_a$ and features $\cvec{x}_a$ for each point $a$ in the point cloud and map them to the same set of coordinates with new learned features $\cvec{y}_a$ ($f(\cvec{r}_a,\cvec{x}_a) = (\cvec{r}_a,\cvec{y}_a)$), with an equivariant $f$ again having to satisfy Eq.~\ref{eq:06_equivariantnns_equiv}.
 If necessary, the features are aggregated at the end across all points to produce the output.
-Translation equivariance is achieved directly by requiring $f$ to only consider distances $\vec{r}_i - \vec{r_j}$ between points $i$ and $j$ (a global translation will not affect these). 
+Translation equivariance is achieved directly by requiring $f$ to only consider distances $\cvec{r}_i - \cvec{r_j}$ between points $i$ and $j$ (a global translation will not affect these). 
 
-For rotation equivariance, first the feature vectors $\vec{x}_a$ are decomposed according to how they transform under irreps of $\SO[3]$ --- scalars, vectors or higher order tensors (the coordinates $\vec{r}_a$ already transform as vectors in $\mathbb R^3$ under the fundamental rep): 
+For rotation equivariance, first the feature vectors $\cvec{x}_a$ are decomposed according to how they transform under irreps of $\SO[3]$ --- scalars, vectors or higher order tensors (the coordinates $\cvec{r}_a$ already transform as vectors in $\mathbb R^3$ under the fundamental rep): 
 \begin{equation}
     \mathbb R^3 \oplus \CX = \bigoplus _l R_l^{m_l}
 \end{equation}
 where the sum is performed over irreps $R_l$ (with dimension $2l+1$) and $m_l$ are the multiplicities. 
 Thus, each point's features and coordinates have the corresponding decomposition:
 \begin{equation}
-    \vec{r}_a \oplus \vec{x}_a = \bigoplus _l \bigoplus _{c=1}^{m_l} V^l_{ac}
+    \cvec{r}_a \oplus \cvec{x}_a = \bigoplus _l \bigoplus _{c=1}^{m_l} V^l_{ac}
 \end{equation}
 where the $V^l_{ac}$ are tensors which transform under the $l$ irrep. 
 Similar to steerable CNNs, each of these tensors are individually acted upon by generalized convolutional filters with the form $R(r)Y^{l_f}(\hat{r})$, where $R$ is a learned radial function, $Y^l$ are the spherical harmonic tensors, and the set $l_f$ corresponds to the set of desired irreps in feature space. The spherical harmonics are directly analogous to using circular harmonics for $\EE[2]$ (except they have dimension $2l+1$) and by the same argument they satisfy Eq.~\ref{eq:06_equivariantnns_equiv}. 
@@ -421,7 +421,7 @@ The input features are the masses of each point, which are scalars under $\SO[3]
 
 Some interesting and successful applications include classifying molecules~\cite{miller2020relevance}, predicting protein complex structures~\cite{Eismann2020HierarchicalRN}, and predicting the phonon density of states (DoS) in crystals~\cite{chen2020direct}. 
 A schematic of the architecture used for the latter is shown in Figure~\ref{fig:06_equivariantnns_dos}. 
-Different crystals are represented geometrically as point clouds in $\mathbb R^3$, with individual atoms labeled via feature vectors $\vec{x}_a$ using mass weighted one-hot encoding. 
+Different crystals are represented geometrically as point clouds in $\mathbb R^3$, with individual atoms labeled via feature vectors $\cvec{x}_a$ using mass weighted one-hot encoding. 
 After a series of convolution layers the features are summed over all points to predict 51 scalars comprising the phonon DoS.
 
 

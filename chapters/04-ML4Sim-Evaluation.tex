@@ -26,8 +26,8 @@ Finally, we conclude in Section~\ref{sec:04_evaluating_conclusion}.
 \section{Evaluation metrics for generative models}
 \label{sec:04_evaluating_metrics}
 
-In evaluating generative models, we aim to quantify the difference between the real and generated data distributions $\real{p}(\vec{x})$ and $\gen{p}(\vec{x})$ respectively, where data samples $\vec{x} \in \mathbb{R}^d$ are typically high dimensional.
-Lacking tractable analytic distributions in general, this can be viewed as a form of two-sample goodness-of-fit (GOF) testing of the hypothesis $\real{p}(\vec{x}) = \gen{p}(\vec{x})$ using real and generated samples, $\{\vec{x}_\mathrm{real}\}$ and $\{\vec{x}_\mathrm{gen}\}$, drawn from their respective distributions.
+In evaluating generative models, we aim to quantify the difference between the real and generated data distributions $\real{p}(\cvec{x})$ and $\gen{p}(\cvec{x})$ respectively, where data samples $\cvec{x} \in \mathbb{R}^d$ are typically high dimensional.
+Lacking tractable analytic distributions in general, this can be viewed as a form of two-sample goodness-of-fit (GOF) testing of the hypothesis $\real{p}(\cvec{x}) = \gen{p}(\cvec{x})$ using real and generated samples, $\{\cvec{x}_\mathrm{real}\}$ and $\{\cvec{x}_\mathrm{gen}\}$, drawn from their respective distributions.
 As illustrated in Ref.~\cite{cousins_gof}, in general, there is no ``best'' GOF test with power against all alternative hypotheses. 
 Instead, we aim for a set of tests that collectively have power against the relevant alternatives we expect, and are practically most appropriate.
 We first outline the criteria we require of our evaluation metrics in Section~\ref{sec:04_evaluating_criteria}, then review and discuss the suitability of possible metrics in Section~\ref{sec:04_evaluating_emetrics}, and end in Section~\ref{sec:04_evaluating_feature_selection} with a discussion on the features to use in comparing such high-dimensional distributions, thereby motivating FPD and KPD.
@@ -64,7 +64,7 @@ The two prevalent, almost mutually exclusive,\footnote{The total variation dista
 An IPM $D_\mathcal{F}$, defined as
 \
 \begin{equation}\label{eqn:ipm}
-    D_\mathcal{F}(\real p, \gen p) = \sup _{f \in \mathcal F} |\mathbb E_{\vec x \sim p_\mathrm{real}} f(\vec{x}) - \mathbb E_{\vec y \sim p_\mathrm{gen}} f(\vec y)|,
+    D_\mathcal{F}(\real p, \gen p) = \sup _{f \in \mathcal F} |\mathbb E_{\cvec x \sim p_\mathrm{real}} f(\cvec{x}) - \mathbb E_{\cvec y \sim p_\mathrm{gen}} f(\cvec y)|,
 \end{equation}
 measures the difference in two distributions, \real{p} and \gen{p} in Eq.~(\ref{eqn:ipm}), by using a ``witness'' function $f$, out of a class of measurable, real-valued functions $\mathcal{F}$, which maximizes the absolute difference in its expected value over the two distributions.
 The choice of $\mathcal{F}$ defines different types of IPMs.
@@ -73,7 +73,7 @@ Maximum mean discrepancy (MMD)~\cite{gretton_mmd} is another popular example, wh
 
 $f$-divergences, on the other hand, are defined as
 \begin{equation}\label{eqn:fdiv}
-    D_f(\gen p, \real p) = \int \real p (\vec x) f \bigg( \cfrac{\real p (\vec x)}{\gen p (\vec x)} \bigg ) d\vec x.
+    D_f(\gen p, \real p) = \int \real p (\cvec x) f \bigg( \cfrac{\real p (\cvec x)}{\gen p (\cvec x)} \bigg ) d\cvec x.
 \end{equation}
 They calculate the average of the pointwise differences between the two distributions, \real{p} and \gen{p} in Eq.~(\ref{eqn:ipm}), transformed by a ``generating function'' $f$, weighted by \real{p}.
 Like IPMs, different $f$-divergences are defined by the choice of generating function.
@@ -151,7 +151,7 @@ Despite these drawbacks, we perform the classifier-based test from Refs.~\cite{k
 \label{sec:04_evaluating_feature_selection} 
 
 We end by discussing which features to select for evaluation. 
-Generally, for data such as calorimeter showers and jets, individual samples $\vec x \in \mathbb R^d$ are extremely high dimensional, with showers and jets containing up to $\mathcal{O}(1000)$s of hits and particles respectively, each with its own set of features. 
+Generally, for data such as calorimeter showers and jets, individual samples $\cvec x \in \mathbb R^d$ are extremely high dimensional, with showers and jets containing up to $\mathcal{O}(1000)$s of hits and particles respectively, each with its own set of features. 
 Apart from the practical challenges of comparing distributions in this $d$-dimensional case, often this full set of low-level features is not the most relevant for our downstream use case.
 
 
@@ -399,7 +399,7 @@ As noted in Section~\ref{sec:04_evaluating_jetdata_results}, the correlation bet
     \centering\resizebox{\textwidth}{!}{
     \begin{tabular}{l|lcccc}
         \toprule
-        & Model & \wassppt (\(10^{-3}\)) & \wassm (\(10^{-3}\)) & FPD (\( 10^{-3}\)) & KPD (\(10^{-6}\)) \\
+        & Model & \wassppt ($10^{-3}$) & \wassm ($10^{-3}$) & FPD ($ 10^{-3}$) & KPD ($10^{-6}$) \\
         \midrule
         \multirow{5}{*}{Gluon (30)}
         & Truth & $0.14 \pm 0.06$ & $0.46 \pm 0.08$ & $0.14 \pm 0.04$ & $1.8 \pm 11.9$\\ 

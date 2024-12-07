@@ -2,6 +2,21 @@
 \newcommand{\identity}{\ensuremath{\mathds{1}}\xspace}
 \newcommand{\mustequal}{\ensuremath{\overset{!}{=}}\xspace}
 \newcommand{\tr}[1]{\ensuremath{\mathrm{Tr}\left[#1\right]}\xspace}
+\newcommand{\cnicefrac}[2]{%
+  \ifdefined\HCode  % nicefrac not well supported by tex4ht
+    \frac{#1}{#2}
+  \else
+    \nicefrac{#1}{#2}
+  \fi
+}
+\newcommand{\cslashed}[1]{%
+  \ifdefined\HCode  % slashed not supported by tex4ht
+    \cancel{#1}
+  \else
+    \slashed{#1}
+  \fi
+}
+\newcommand{\cvec}[1]{\mathbf{#1}}
 
 \NewDocumentCommand{\SO}{ o }{%
   \ensuremath{\mathrm{SO}\IfValueT{#1}{(#1)}}\xspace
@@ -27,9 +42,9 @@
 
 \newcommand{\suu}{\ensuremath{\mathrm{SU}(2)\times\mathrm{U}(1)}\xspace}
 
-\newcommand{\svecp}[1]{\ensuremath{#1_{\vec{p}}\,}}
-\newcommand{\ophat}[1]{\ensuremath{\hat #1_{\vec{p}}\,}}
-\newcommand{\ophatd}[1]{\ensuremath{\hat #1^\dagger_{\vec{p}}\,}}
+\newcommand{\svecp}[1]{\ensuremath{#1_{\cvec{p}}\,}}
+\newcommand{\ophat}[1]{\ensuremath{\hat #1_{\cvec{p}}\,}}
+\newcommand{\ophatd}[1]{\ensuremath{\hat #1^\dagger_{\cvec{p}}\,}}
 
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\mus}{\ensuremath{\mu\text{s}}\xspace}
@@ -39,7 +54,7 @@
 \newcommand{\cl}{\ensuremath{c_{\lambda}}\xspace}
 \newcommand{\cvv}{\ensuremath{c_{2V}}\xspace}
 \newcommand{\pt}{\ensuremath{p_\mathrm{T}}\xspace}
-\newcommand{\Pl}{\ensuremath{\ell}\xspace}
+\newcommand{\Pl}{\textrm{l}\xspace}
 \newcommand{\Pq}{\textrm{q}\xspace}
 \newcommand{\Pg}{\textrm{g}\xspace}
 \newcommand{\Pc}{\textrm{c}\xspace}
@@ -156,9 +171,9 @@
 \newcommand{\tam}{\ensuremath{\PGt_{\PGm}}\xspace}
 \newcommand{\tah}{\ensuremath{\PGt_{\mathrm{h}}}\xspace}
 
-\newcommand{\mx}{\ensuremath{{m_\textrm{X}}}\xspace}
-\newcommand{\mh}{\ensuremath{{m_\textrm{H}}}\xspace}
-\newcommand{\my}{\ensuremath{{m_\textrm{Y}}}\xspace}
+\newcommand{\mx}{\ensuremath{{m_X}}\xspace}
+\newcommand{\mh}{\ensuremath{{m_H}}\xspace}
+\newcommand{\my}{\ensuremath{{m_Y}}\xspace}
 \newcommand{\mxmy}{\ensuremath{{\mx,\my}}\xspace}
 
 \newcommand{\msd}{\ensuremath{{m_\mathrm{SD}}}\xspace}

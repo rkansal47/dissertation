@@ -27,7 +27,7 @@ It is a renormalizable, quantum Yang-Mills theory, and is illustrated nicely in 
 Before electroweak symmetry breaking (EWSB) --- a form of spontaneous symmetry breaking (SSB) --- it possessed the gauge symmetry $\SU[3]_\mathrm{C} \times \SU[2]_\mathrm{L} \times \UU[1]_\mathrm{Y}$, with $C$, $L$, and $Y$ standing for color, left, and hypercharge, respectively.
 %  (their significance will be explained in the following sections).
 These three groups correspond to the strong, weak, and electromagnetic forces, with eight, three, and one generators or gauge bosons, respectively.
-The relative strengths of each interaction, as well as gravity's, are shown in Table~\ref{tab:01_sm_coupling_constants}, based on the equivalent of the fine structure constant of each force, $\alpha_f = \nicefrac{g_f}{4\pi}$, where $g_f$ is the respective coupling constant.
+The relative strengths of each interaction, as well as gravity's, are shown in Table~\ref{tab:01_sm_coupling_constants}, based on the equivalent of the fine structure constant of each force, $\alpha_f = \cnicefrac{g_f}{4\pi}$, where $g_f$ is the respective coupling constant.
 
 The SM contains six fermions charged and uncharged under the $\SU[3]_\mathrm{C}$ symmetry each, called the ``quarks'' and ``leptons'', respectively.
 % --- the ``quarks'' --- and six fermions uncharged --- the ``leptons''.
@@ -45,7 +45,7 @@ The outcome is the state of the universe and physics as we know it.
 Of course, as outlined in the introduction, this picture does not explain myriad phenomena in fundamental physics, including dark matter, dark energy, baryon asymmetry, and neutrino masses.
 This is why it is crucial to test the SM as rigorously and in as broad a phase space as possible, in order to identify any cracks that may point to new physics.
 
-% The relative strength of each of their interactions is typically quantified by the equivalent of the fine structure constant for each force, $\alpha_f = \nicefrac{g_f}{4\pi}$, where $g_f$ is the coupling constant.
+% The relative strength of each of their interactions is typically quantified by the equivalent of the fine structure constant for each force, $\alpha_f = \cnicefrac{g_f}{4\pi}$, where $g_f$ is the coupling constant.
 % This is shown in Table~\ref{tab:01_sm_coupling_constants} for each force, as well as gravity for illustrative purposes.
 
 \begin{table}[htbp]
@@ -87,7 +87,7 @@ The three orthogonal eigenstates in this representation are colloquially referre
 Putting this together, the QCD Lagrangian, with all the indices labeled explicitly is:
 \begin{equation}
 	\label{eq:01_sm_qcd_lagrangian}
-	\mathcal L = -\frac{1}{4} G^a_{\mu\nu} G^{a\mu\nu} + \sum_{f = 1}^6 \bar q_{\alpha f i} [\delta_{ij}(i\slashed \partial_{\alpha\beta} - m \delta_{\alpha\beta}) + g_s \slashed G^a_{\alpha\beta} t_{ij}^a] q_{\beta f j}
+	\mathcal L = -\frac{1}{4} G^a_{\mu\nu} G^{a\mu\nu} + \sum_{f = 1}^6 \bar q_{\alpha f i} [\delta_{ij}(i\cslashed \partial_{\alpha\beta} - m \delta_{\alpha\beta}) + g_s \cslashed G^a_{\alpha\beta} t_{ij}^a] q_{\beta f j}
 \end{equation}
 where $g_s$ is the strong coupling constant, $G^a_{\mu\nu} = \partial_\mu G^a_\nu - \partial_\nu G^a_\mu + g_s f^{abc} G^b_\mu G^c_\nu$ is the gluon field strength tensor, $f^{abc}$ are the structure constants of $\SU[3]$, $t^a$ are the generators of $\SU[3]$ in the fundamental representation, the sum over $f$ is running over the six flavors, and the indices $a$ and $i, j$ label the eight gluons and the three colors of quarks, respectively.
 The six flavors of quarks have different masses and charges, as shown in Figure~\ref{fig:01_sm_qcd_quarks}.
@@ -108,7 +108,7 @@ This $200 \MeV$ limit is considered the characteristic energy scale of QCD, $\La
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/01-SM-03-SM/qcd/qcd_running}
-	\caption{The theoretically predicted running of the strong coupling $\alpha_s = \nicefrac{g_s^2}{4\pi}$ as a function of the energy scale along with experimental measurements, reproduced from Ref.~\cite{Boito:2023lzf}.}
+	\caption{The theoretically predicted running of the strong coupling $\alpha_s = \cnicefrac{g_s^2}{4\pi}$ as a function of the energy scale along with experimental measurements, reproduced from Ref.~\cite{Boito:2023lzf}.}
 	\label{fig:01_sm_qcd_running}
 \end{figure}
 
@@ -122,7 +122,7 @@ Because of this, QCD is one of the least understood and most exciting areas of s
 \label{sec:01_sm_qcd_asymptotic}
 
 As discussed above, a key phenomenological characteristic of the strong force is asymptotic freedom, wherein at high energies quarks and gluons behave as free particles.
-This also means that perturbative techniques can be applied at high energies; indeed, we can derive an analogous $\nicefrac{1}{r^2}$ ``Coulomb force'', based on tree-level quark-quark scattering amplitudes, for quarks at very short distances.
+This also means that perturbative techniques can be applied at high energies; indeed, we can derive an analogous $\cnicefrac{1}{r^2}$ ``Coulomb force'', based on tree-level quark-quark scattering amplitudes, for quarks at very short distances.
 This force turns out to always be attractive between quarks and antiquarks, as well as between two or even three quarks in different color states: the ``aim'' of the force appears to always be to form color-neutral bound states.
 These are called \textit{mesons} for the case of an antiquark and quark pair, and \textit{baryons} for three quarks.
 
@@ -282,7 +282,7 @@ These are called parton splitting functions, $P_{ij}(z)$, depicted in Figure~\re
 They are then further convolved with PDFs to derive their evolution with the energy scale:
 \begin{equation}
 	\label{eq:01_sm_qcd_pdf_evolution}
-	\frac{\dd f_i(x, Q^2)}{\dd Q^2} = \frac{1}{Q^2} \sum_{j} \int_x^1 \frac{\dd z}{z} f_j(\nicefrac{x}{z}, Q^2) P_{ji}(z).
+	\frac{\dd f_i(x, Q^2)}{\dd Q^2} = \frac{1}{Q^2} \sum_{j} \int_x^1 \frac{\dd z}{z} f_j(\cnicefrac{x}{z}, Q^2) P_{ji}(z).
 \end{equation}
 
 Equations~\ref{eq:01_sm_qcd_pdf_evolution} are called the Dokshitzer-Gribov-Lipatov-Altarelli-Parisi (DGLAP) evolution equations, after five physicists who developed them in the 1970s, and are analogous to the renormalization group flows of coupling constants.
@@ -413,7 +413,7 @@ The same principle was also applied to other weak decays, such as muon decay (Fi
 
 As it turned out, the four-fermion interaction is of mass dimension $6$ and not renormalizable (see Chapter~\ref{sec:01_qft_interactions}), leading to the scattering cross-section diverging at high energies.
 This is, of course, because these interactions are in fact mediated by the massive weak $W^\pm$ and $Z$ gauge bosons, which become relevant around their mass scale of $\mathcal O(100\GeV)$.
-We now understand the Fermi theory as an effective field theory (EFT) valid for energies much lower than $100 \GeV$, wherein the $W$ and $Z$ boson DoFs can be integrated out and nonrenormalizable interactions are allowed --- they are just suppressed by factors of $(\nicefrac{1}{M_W})^2$.
+We now understand the Fermi theory as an effective field theory (EFT) valid for energies much lower than $100 \GeV$, wherein the $W$ and $Z$ boson DoFs can be integrated out and nonrenormalizable interactions are allowed --- they are just suppressed by factors of $(\cnicefrac{1}{M_W})^2$.
 This suppression is why the weak interaction is so weak, with a coupling constant of $\approx \mathcal O(10^{-6})$ at the mass scale of the proton.
 
 \begin{figure}[ht]
@@ -455,13 +455,13 @@ The bold numbers indicate the dimension of the representation under the respecti
 		\toprule
 		 & $\UU[1]_Y$ & $\SU[2]_L$ & $\SU[3]_C$ \\
 		\midrule
-		$Q_L$ & $+ \nicefrac{1}{6}$ & $\mathbf{2}$ & $\mathbf{3}$ \\
-		$L_L$ & $- \nicefrac{1}{2}$ & $\mathbf{2}$ & $\mathbf{1}$ \\
-		$u_R$ & $+ \nicefrac{2}{3}$ & $\mathbf{1}$ & $\mathbf{3}$ \\
-		$d_R$ & $- \nicefrac{1}{3}$ & $\mathbf{1}$ & $\mathbf{3}$ \\
+		$Q_L$ & $+ \cnicefrac{1}{6}$ & $\mathbf{2}$ & $\mathbf{3}$ \\
+		$L_L$ & $- \cnicefrac{1}{2}$ & $\mathbf{2}$ & $\mathbf{1}$ \\
+		$u_R$ & $+ \cnicefrac{2}{3}$ & $\mathbf{1}$ & $\mathbf{3}$ \\
+		$d_R$ & $- \cnicefrac{1}{3}$ & $\mathbf{1}$ & $\mathbf{3}$ \\
 		$e_R$ & $-1$ & $\mathbf{1}$ & $\mathbf{1}$ \\
 		$\nu_R$? & $0$ & $\mathbf{1}$ & $\mathbf{1}$ \\
-		$H$ & $+ \nicefrac{1}{2}$ & $\mathbf{2}$ & $\mathbf{1}$ \\
+		$H$ & $+ \cnicefrac{1}{2}$ & $\mathbf{2}$ & $\mathbf{1}$ \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:01_sm_ew_fermions}
@@ -510,7 +510,7 @@ The overall electroweak Lagrangian is:
 \begin{multline}
 	\label{eq:01_sm_ew_lagrangian}
 	\mathcal{L}_\mathrm{EW} = -\frac{1}{4} W^a_{\mu\nu} W^{a\mu\nu} - \frac{1}{4} B_{\mu\nu} B^{\mu\nu} \\ 
-	+ \bar{Q}_L i \slashed{D} Q_L + \bar{L}_L i \slashed{D} L_L + \bar{u}_R i \slashed{D} u_R + \bar{d}_R i \slashed{D} d_R + \bar{e}_R i \slashed{D} e_R \\
+	+ \bar{Q}_L i \cslashed{D} Q_L + \bar{L}_L i \cslashed{D} L_L + \bar{u}_R i \cslashed{D} u_R + \bar{d}_R i \cslashed{D} d_R + \bar{e}_R i \cslashed{D} e_R \\
 	+ \mathcal{L}_\mathrm{Higgs} + \mathcal{L}_\mathrm{Yukawa},
 \end{multline}
 % \end{equation}
@@ -591,7 +591,7 @@ where
 	m_W = \frac{1}{2} vg \approx 80 \GeV, \quad m_Z = \frac{1}{2} v \sqrt{g^2 + g'^2} \approx 91 \GeV, \quad m_h = \sqrt{2\lambda} v \approx 125 \GeV.
 \end{equation}
 
-Note that in addition to the gauge-boson self-interactions, the Higgs field also has a trilinear ($\lambda v h^3$) and quartic ($\nicefrac{1}{4} \lambda h^4$) self-interaction terms.
+Note that in addition to the gauge-boson self-interactions, the Higgs field also has a trilinear ($\lambda v h^3$) and quartic ($\cnicefrac{1}{4} \lambda h^4$) self-interaction terms.
 While some manner of EWSB has been confirmed experimentally through the discovery of the Higgs boson, its full nature, and the full form of the Higgs potential, can only be determined through measurements of these terms.
 The trilinear self-coupling, in particular, can be accessed at the LHC through pair production of the Higgs boson, as we will discuss in Section~\ref{sec:01_higgs}.
 Higgs pair production also allows exclusive access to the quartic $hhVV$ couplings, where $V$ is a weak gauge boson.
@@ -603,7 +603,7 @@ In terms of the original generators --- three $T^A$s for $\SU[2]_L$ and one $Y$ 
 This is the massless photon field, with the gauge group $\UU[1]_\mathrm{EM}$.
 
 The eigenvalue of $Q$ for each fermion corresponds to their electric charge under this group.
-For the $\SU[2]_L$-singlet fields, $T_3$ has no value and hence $Q = Y$, while for the doublets, $T_3$ has eigenvalues $\pm \nicefrac{1}{2}$ for the upper and lower components, respectively: e.g. for $u_L$, $Q = \nicefrac{1}{2} + \nicefrac{1}{6} = \nicefrac{2}{3}$ and for $e_L$, $Q = -\nicefrac{1}{2}-\nicefrac{1}{2} = 1$.
+For the $\SU[2]_L$-singlet fields, $T_3$ has no value and hence $Q = Y$, while for the doublets, $T_3$ has eigenvalues $\pm \cnicefrac{1}{2}$ for the upper and lower components, respectively: e.g. for $u_L$, $Q = \cnicefrac{1}{2} + \cnicefrac{1}{6} = \cnicefrac{2}{3}$ and for $e_L$, $Q = -\cnicefrac{1}{2}-\cnicefrac{1}{2} = 1$.
 In the end, we see that the left- and right-chiral fermion field pairs have the same charge under this remaining unbroken symmetry, so they can again form Dirac spinors:
 \begin{equation}
 	\label{eq:01_sm_ew_dirac}
@@ -639,7 +639,7 @@ The electroweak energy scale of $\approx 100\GeV$ is one such example which has 
 
 A common way of expressing the problem is based on the Higgs mass: if we believe the SM to be an EFT valid up to some energy scale $\Lambda$, and if we have \textit{a priori} no other energy scale to which to tie the Higgs mass, then we expect higher order corrections to its bare mass to be of order $\Lambda$.
 For example, if there is no new physics up to the Planck scale, then we are left with a bare mass and correction both of order $10^{19} \GeV$.
-The fact that the actual mass is $125 \GeV$ implies a cancellation between the two, or \textit{finetuning}, at a $\nicefrac{125}{10^{19}} \approx 10^{-15}\%$ level.
+The fact that the actual mass is $125 \GeV$ implies a cancellation between the two, or \textit{finetuning}, at a $\cnicefrac{125}{10^{19}} \approx 10^{-15}\%$ level.
 This is considered highly ``unnatural'' and is called a \textit{hierarchy problem}, perhaps hinting at new physics.
 
 One possibility is that $\Lambda$ is in fact on the order of the Higgs mass, and we are simply yet to find the new degrees of freedom at this $\mathcal O(100\GeV)$ scale.

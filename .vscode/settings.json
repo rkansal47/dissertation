@@ -1,10 +1,11 @@
 {
+    "latex-workshop.latex.autoBuild.run": "never",
     "latex-workshop.latex.recipes": [
         {
           "name": "latexmk",
           "tools": [
             "processbib",
-            "xelatexmk"
+            "lualatexmk"
           ]
         },
     ],

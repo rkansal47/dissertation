@@ -329,9 +329,9 @@ $3\sigma$, $4\sigma$, and $5\sigma$ are commonly referred to as ``evidence'', ``
 In summary, the framework for hypothesis testing comprises:
 
 \begin{enumerate}
-    \item Defining a test statistic $t$ to map data $\vec{x}$ (in our example, $\vec{x} = (n, m)$) to a single number.
+    \item Defining a test statistic $t$ to map data $\cvec{x}$ (in our example, $\cvec{x} = (n, m)$) to a single number.
     \item Deriving the distribution of $t$ under the hypothesis being tested $p(t|H)$ by sampling from ``toy'' datasets assuming $H$.
-    \item Quantifying the compatibility of the observed data $\vec{x}_\mathrm{obs}$ with $H$ with the $p$-value or significance $Z$ of $t_\mathrm{obs}$ relative to $p(t|H)$.
+    \item Quantifying the compatibility of the observed data $\cvec{x}_\mathrm{obs}$ with $H$ with the $p$-value or significance $Z$ of $t_\mathrm{obs}$ relative to $p(t|H)$.
 \end{enumerate}
 
 This $p$-value / significance is what we then use to decide whether or not to exclude $H$. 
@@ -831,14 +831,14 @@ As $\Lambda \rightarrow \infty$, $\chi'^2_k(\Lambda)$ becomes more and more like
   \label{fig:03_noncentralchi2}
 \end{figure}
 
-By extending the derivation in Eq.~\ref{eq:03_plr_taylor} to multiple POIs, one can find the simple generalization to multiple POIs $\vec\mu$:
+By extending the derivation in Eq.~\ref{eq:03_plr_taylor} to multiple POIs, one can find the simple generalization to multiple POIs $\cvec\mu$:
 \begin{equation}
 p(t_\mu|\mu') \sim \chi'^2_k(\Lambda),
 \label{eq:03_chi2multipois}
 \end{equation}
-where the DoF $k$ are equal the number of POIs $\dim\vec\mu$, and 
+where the DoF $k$ are equal the number of POIs $\dim\cvec\mu$, and 
 \begin{equation}
-\Lambda = (\vec\mu - \vec\mu')^T \cdot \tilde{\mathcal I}^{-1}(\vec\mu') \cdot (\vec\mu - \vec\mu'),
+\Lambda = (\cvec\mu - \cvec\mu')^T \cdot \tilde{\mathcal I}^{-1}(\cvec\mu') \cdot (\cvec\mu - \cvec\mu'),
 \label{eq:03_Lambdamultipois}
 \end{equation}
 where $\tilde{\mathcal I}^{-1}$ is $\mathcal I^{-1}$ restricted only to the components corresponding to the POIs.
