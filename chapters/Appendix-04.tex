@@ -127,7 +127,7 @@ In strategies 1 and 3 we test
 both binary and continuous masks.
 Finally, in strategy 4, we train an auxiliary network to choose a number of particles to mask (as opposed to sampling from the real distribution), which is then passed into the standard MP generator.
 
-We find that all such strategies are unable to produce accurate light quark jets, and in fact trainings for each diverge in the fashion depicted in Figure~\ref{fig:04_mpgan_masking_loss}, even using each discriminator regularization method mentioned in App.~\ref{app:04_mpgan_training}).
+We find that all such strategies are unable to produce accurate light quark jets, and in fact trainings for each diverge in the fashion depicted in Figure~\ref{fig:04_mpgan_masking_loss}, even using each discriminator regularization method mentioned in Appendix~\ref{app:04_mpgan_training}).
 We conclude that learning the number of particles to produce is a significant challenge for a generator network, but is a relatively simple feature with which to discriminate between real and fake jets.
 To equalize this we use the strategy in Section~\ref{sec:04_mpgan_arch} where the number of particles to produce is sampled directly from the real distribution, removing the burden of learning this distribution from the generator network.
 

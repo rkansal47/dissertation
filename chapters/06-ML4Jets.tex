@@ -4,7 +4,12 @@
 % \chapter{Introduction}
 % \label{sec:06_ml4jets_intro}
 
-\chapter{Introduction and the \jetnet Package}
+\ifdefined\HCode
+    \chapter{Introduction and the JetNet Package}
+\else
+    \chapter{Introduction and the \jetnet Package}
+\fi
+
 \label{sec:06_jetnet}
 
 In the final Part of the dissertation, we discuss some more developments in machine learning and high energy physics, focusing primarily on jets.
@@ -19,7 +24,11 @@ As detailed in Chapter~\ref{sec:03_ml_equivariantnns}, equivariant neural networ
 Incorporating such \textit{inductive biases} of our data can lead to more data-efficient, interpretable, and performant AI algorithms.
 Indeed, we find that the LGAE outperforms baseline, non-Lorentz-equivariant, models on tasks of compression and anomaly detection for jets, provides a more interpretable latent space, and achieves high performance with a small fraction of the data needed to train CNNs.
 
-\section{\jetnet}
+\ifdefined\HCode
+    \section{JetNet}
+\else
+    \section{\texorpdfstring{\jetnet}{JetNet}}
+\fi
 \label{sec:06_jetnet_jetnet}
 
 \begin{figure}[ht!]
@@ -247,7 +256,7 @@ The LGAE models are verified to be equivariant to Lorentz boosts and rotations u
 
 We evaluate the performance of the LGAE, GNNAE, and CNNAE models, with the different aggregation schemes discussed, on the reconstruction of the particle and jet features of QCD jets.
 We consider relative transverse momentum
-$\ptrel = \pt^{\mathrm{particle}}/\pt^{\mathrm{jet}}$ and relative angular coordinates
+$\ptrel = p_{\mathrm{T}}^{\mathrm{particle}}/p_{\mathrm{T}}^{\mathrm{jet}}$ and relative angular coordinates
 $\etarel =\eta^{\mathrm{particle}} - \eta^{\mathrm{jet}}$ and
 $\phirel =\phi^{\mathrm{particle}} - \phi^{\mathrm{jet}} \pmod{2\pi}$
 as each particle's features, and total jet mass, \pt and $\eta$ as jet features.
@@ -270,7 +279,7 @@ The LGAE-Min-Max model outperforms the GNNAE-JL in reconstructing all features a
     \includegraphics[width=\linewidth]{figures/06-ML4Jets/lgae/reconstructions/hist-cnnae.pdf}
     \caption[Particle and jet feature reconstruction by the LGAE, GNNAE, and CNNAE models.]{
         \textbf{Top}:
-        particle momenta $(\pt^{\mathrm{rel}}, \eta^{\mathrm{rel}}, \phi^{\mathrm{rel}})$ reconstruction by
+        particle momenta $(\ptrel, \eta^{\mathrm{rel}}, \phi^{\mathrm{rel}})$ reconstruction by
         LGAE-Min-Max ($\tau_{(1/2, 1/2)}=4$, resulting in $56.67\%$ compression) and
         and LGAE-Mix ($\tau_{(1/2, 1/2)}=9$, resulting in $61.67\%$ compression),
         and GNNAE-JL ($\dim(L) = 55$, resulting in $61.11\%$ compression) and

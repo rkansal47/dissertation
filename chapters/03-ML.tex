@@ -623,7 +623,7 @@ Indeed, the cardinality is correlated with other jets features such as the jet m
 
 Still, particle clouds and point clouds have similarities insomuch as they represent sets of elements in some physical space, hence we first test existing point cloud GANs as baseline comparisons on \jetnet.
 There are several published generative models in this area; however, the majority exploit inductive biases specific to their respective datasets, such as ShapeNet-based~\cite{pcgan,pointflow,discretepointflow,ShapeGF} and molecular~\cite{kohler20,simm21,gschnet} point clouds, which are not appropriate for jets.
-A more detailed discussion, including some experimental results, can be found in App.~\ref{app:04_mpgan_pcgen}.
+A more detailed discussion, including some experimental results, can be found in Appendix~\ref{app:04_mpgan_pcgen}.
 
 There do exist some more general-purpose GAN models, namely r-GAN~\cite{rgan}, GraphCNN-GAN~\cite{graphcnngan}, and TreeGAN~\cite{treegan}, and we test these on \jetnet.
 r-GAN uses a fully-connected (FC) network, GraphCNN-GAN uses graph convolutions based on dynamic $k$-nn graphs in intermediate feature spaces, and TreeGAN iteratively up-samples the graphs with information passing from ancestor to descendant nodes.

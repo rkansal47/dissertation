@@ -134,7 +134,10 @@ def edit_footnotes(soup: BeautifulSoup):
 
     footnotes_div = soup.find("div", {"class": "footnotes"})
     if footnotes_div:
-        main_content_main.append(footnotes_div)
+        if footnotes_div.contents:
+            main_content_main.append(footnotes_div)
+        else:
+            footnotes_div.decompose()
 
     footer_div = soup.new_tag("div", **{"class": "footer"})
     footer_p = soup.new_tag("p")

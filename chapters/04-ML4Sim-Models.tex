@@ -75,7 +75,7 @@ One iteration of message passing is then defined as
         \label{eqn:mph} \cvec{h}^{t+1}_i &= f_n^{t+1}(\cvec{h}^t_i \oplus \sum_{j \in J} \cvec{m}^{t+1}_{ij})\,,
 \end{align}
 where $\cvec{m}^{t+1}_{ij}$ is the message vector sent from particle $j$ to particle $i$, $\cvec{h}^{t+1}_i$ are the updated features of particle $i$, and $f_e^{t+1}$ and $f_n^{t+1}$ are arbitrary functions which, in our case, are implemented as multilayer perceptrons (MLPs) with 3 FC layers.
-% Ablation studies using our message passing operation but with locally connected topologies are discussed in App.~\ref{app:04_mpgan_locallyconnected}.
+% Ablation studies using our message passing operation but with locally connected topologies are discussed in Appendix~\ref{app:04_mpgan_locallyconnected}.
 
 
 \subsubsection{Generator}
@@ -99,7 +99,7 @@ We choose 2 MP layers for both networks.
 In order to handle clouds with varying numbers of particles, as typical of jets, we introduce an additional binary ``masking'' particle feature classifying the particle as genuine or zero-padded.
 Particles in the zero-padded class are ignored entirely in the message passing and pooling operations.
 The MP generator adds mask features to the initial particle cloud, using an additional input of the size of the jet $N$, sampled from the real distribution per jet type, before the message passing layers, based on sorting in particle feature space.
-Ablation studies with alternative (as well as without) masking strategies are discussed in App.~\ref{app:04_mpgan_masking}.
+Ablation studies with alternative (as well as without) masking strategies are discussed in Appendix~\ref{app:04_mpgan_masking}.
 
 \subsection{Experiments on MNIST handwritten digits}
 \label{sec:04_mpgan_mnist}
@@ -144,7 +144,7 @@ The \wass distances are calculated for each feature between random samples of 10
 Baseline \wass distances are calculated between two sets of randomly sampled real jets with 10,000 samples each, and are listed for each feature in Table \ref{tab:04_mpgan_realw1}.
 The real samples are split 70/30 for training/evaluation.
 We train ParticleNet for classification on our dataset to develop the FPND metric.
-FPND is calculated between 50,000 random real and generated samples, based on the activations of the first FC layer in our trained model\footnote{ParticleNet training details are given in App.~\ref{app:04_mpgan_pnet}. The trained model is provided in the \jetnet library~\cite{jetnetlib}.}.
+FPND is calculated between 50,000 random real and generated samples, based on the activations of the first FC layer in our trained model\footnote{ParticleNet training details are given in Appendix~\ref{app:04_mpgan_pnet}. The trained model is provided in the \jetnet library~\cite{jetnetlib}.}.
 Coverage and MMD are calculated between 100 real and 100 generated samples, and averaged over 10 such batches.
 Implementations for all metrics are provided in the \jetnet package~\cite{jetnetlib}.
 
@@ -167,7 +167,7 @@ Implementations for all metrics are provided in the \jetnet package~\cite{jetnet
 \label{sec:04_mpgan_results}
 
 On each of \jetnet's three classes, we test r-GAN's FC, GraphCNN, and TreeGAN generators with rGAN's FC and the PointNet-Mix discriminators, and compare them to MPGAN's MP generator and discriminator models, including both MP and MP-LFC generator variations.
-Training and implementation details for each can be found in App.~\ref{app:04_mpgan_training}, and all code in Ref.~\cite{mpgancode}.
+Training and implementation details for each can be found in Appendix~\ref{app:04_mpgan_training}, and all code in Ref.~\cite{mpgancode}.
 We use a maximum of 30 particles per jet, choosing the 30 highest-\pt particles in jets with more than 30.
 
 \begin{figure}[htpb]
