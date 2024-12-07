@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Experiments on jet data</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="chapterToc">9 <a href="IntroductionandtheJetNetDataset.html#introduction-and-the-jetnet-dataset">Introduction and the JetNet Dataset</a></span>
+<span class="chapterToc">10 <a href="Generativemodelsforfastparticlecloudsimulations.html#generative-models-for-fast-particlecloud-simulations">Generative models for fast particle-cloud simulations</a></span>
+<span class="chapterToc">11 <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">Validating and comparing fast simulations</a></span>
+<span class="sectionToc">11.1 <a href="Evaluationmetricsforgenerativemodels.html#evaluation-metrics-for-generative-models">Evaluation metrics for generative models</a></span>
+<span class="sectionToc">11.2 <a href="Experimentsongaussiandistributeddata.html#experiments-on-gaussiandistributed-data">Experiments on gaussian-distributed data</a></span>
+<span class="sectionToc">11.3 <a href="#experiments-on-jet-data">Experiments on jet data</a></span>
+<span class="sectionToc">11.4 <a href="DemonstrationonparticlecloudGANs.html#demonstration-on-particle-cloud-gans">Demonstration on particle cloud GANs</a></span>
+<span class="sectionToc">11.5 <a href="Summary.html#summary4">Summary</a></span>
+<span class="chapterToc">12 <a href="Conclusionandimpact.html#conclusion-and-impact">Conclusion and impact</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="Experimentsongaussiandistributeddata.html">⭠</a> <a href="DemonstrationonparticlecloudGANs.html">⭢</a> </nav>
+<h3 class="sectionHead" id="experiments-on-jet-data"><span class="titlemark">11.3   </span> <a id="x56-25200011.3"></a>Experiments on jet data</h3>
+<!--  l. 292  --><p class="noindent">We next test the performance of the Wasserstein distance,
+<!--  l. 292  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math>,
+MMD, precision, and recall on high momentum gluon jets from the <span class="small-caps">JetNet</span> dataset. As
+discussed in Section <a href="Evaluationmetricsforgenerativemodels.html#evaluation-metrics-for-generative-models">11.1<!--  tex4ht:ref: sec:04_evaluating_metrics   --></a>, we test all metrics on two sets of features per jet: (i)
+physically meaningful high-level features and (ii) features derived from a pretrained
+classifier. We choose a set of 36 energy flow polynomials (EFPs) [<a href="Bibliography.html#XKomiske_2017aww">309</a>] (all
+                                                                                
+
+                                                                                
+EFPs of degree less than five) for the former, as they form a complete basis for
+all infrared- and collinear-safe observables. The classifier features are derived
+from the activations of the penultimate layer of the SOTA ParticleNet [<a href="Bibliography.html#XQu_2019gqs">223</a>]
+classifier, as described in Section <a href="MessagepassingGANs.html#message-passing-gans">10.1<!--  tex4ht:ref: sec:04_mpgan   --></a>. Finally, we test the binary classifier
+metric as in Refs. [<a href="Bibliography.html#Xkrause_caloflow">351</a>, <a href="Bibliography.html#Xcalochallenge">352</a>] using both ParticleNet directly on the low-level jet
+features and a two-layer fully connected network (FCN) on the high-level EFPs.
+We note that Refs. [<a href="Bibliography.html#Xkrause_caloflow">351</a>, <a href="Bibliography.html#Xcalochallenge">352</a>] do not provide a recipe for measuring the null
+distribution, instead relying on direct comparisons between area under the
+curve (AUC) values, which is a limitation of this classifier-based metric. We
+first describe the dataset and tested distortions, and then the experimental
+results.
+</p><!--  l. 300  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="dataset"><a id="x56-253000"></a>Dataset</h5>
+<a id="x56-253000doc"></a>
+<figure class="figure">
+<!--  l. 304  --><p class="noindent" id="the-probability-in-arbitrary-units-au-of-the-relative-jet-mass-for-truth-and-distorted-gluon-jet-distributions-on-the-left-are-distributionlevel-distortions-and-on-the-right-particlelevel"> <img alt="PIC" src="figures/04-ML4Sim/evaluating/jet_mass_dists-.png" style="max-width:100%"/> <a id="x56-253001r3"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 11.3. </span></span><span class="content">The probability, in arbitrary units (A.U.), of the relative jet mass
+for truth and distorted gluon jet distributions. On the left are distribution-level
+distortions, and on the right particle-level.
+</span></figcaption><!--  tex4ht:label?: x56-253001r3   -->
+</figure>
+<!--  l. 310  --><p class="indent">       As our true distribution we use simulated gluon jets of
+<!--  l. 310  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-rel" stretchy="false">≈</mo><mn>1</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>TeV</mtext></mstyle></mrow></math> transverse
+momentum (<!--  l. 310  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math>)
+from the <span class="small-caps">JetNet</span> dataset (Section <a href="JetNet.html#jetnet">9.2<!--  tex4ht:ref: sec:04_jetnet_dataset   --></a>) using the associated <span class="small-caps">JetNet</span> library
+(Section <span class="ec-lmbx-12">??</span>). We again consider the three particle features: relative angular coordinates
+<!--  l. 313  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>η</mi></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>η</mi></mrow><mrow><mstyle mathvariant="normal"><mi>particle</mi></mstyle></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>η</mi></mrow><mrow><mstyle mathvariant="normal"><mi>jet</mi></mstyle></mrow></msup></mrow></math> and
+<!--  l. 314  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>ϕ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>ϕ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>particle</mi></mstyle></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>ϕ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>jet</mi></mstyle></mrow></msup><mspace width="0.3em"></mspace><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="italic">mod</mi><mspace width="0.3em"></mspace> <mn>2</mn><mi>π</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, and the relative
+transverse momentum <!--  l. 315  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal">
+<mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>particle</mi></mstyle></mrow></msubsup><mo class="MathClass-bin" stretchy="false">∕</mo><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal">
+<mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>jet</mi></mstyle></mrow></msubsup></mrow></math>.
+To obtain alternative distributions we distort the dataset in several ways typical of the
+mismodeling we observe in ML generative models: lower feature resolution, systematic
+shifts in the features, and inability to capture the full distribution.
+</p><!--  l. 318  --><p class="indent">       We perform both distribution-level distortions, by reweighting the samples in jet mass
+to produce a mass distribution that is (i) smeared, (ii) smeared and shifted higher, and (iii)
+missing the tail of the distribution, as well as direct particle-level distortions, by (iv) smearing
+all three <!--  l. 318  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>ϕ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msup></math>,
+<!--  l. 318  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>η</mi></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msup></math>, and
+<!--  l. 318  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msubsup></math> features, smearing
+the (v) <!--  l. 318  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msubsup></math> and (vi)
+<!--  l. 318  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>η</mi></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msup></math> individually, and
+(vii) shifting the <!--  l. 318  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msubsup></math>
+higher. The effects of the distortions on the relative jet mass are shown in Figure <a href="#the-probability-in-arbitrary-units-au-of-the-relative-jet-mass-for-truth-and-distorted-gluon-jet-distributions-on-the-left-are-distributionlevel-distortions-and-on-the-right-particlelevel">11.3<!--  tex4ht:ref: fig:04_evaluating_jetdists   --></a>,
+                                                                                
+
+                                                                                
+with further plots of different variables available in Appendix <span class="ec-lmbx-12">??</span>.
+</p>
+<h5 class="subsubsectionHead" id="results3"><a id="x56-254000"></a>Results</h5>
+<a id="x56-254000doc"></a>
+<!--  l. 324  --><p class="indent"> </p><figure class="float" id="x56-254001r2"><span id="values-significances-and-errors-of-metrics-for-each-jet-distribution"></span>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Table 11.2.   </span></span><span class="content">Values,   significances,   and   errors   of   metrics,   as   defined   in
+Sections <a href="Experimentsongaussiandistributeddata.html#experiments-on-gaussiandistributed-data">11.2<!--  tex4ht:ref: sec:04_evaluating_toydata   --></a> and <a href="#experiments-on-jet-data">11.3<!--  tex4ht:ref: sec:04_evaluating_jetdata   --></a>, for each jet distribution, for the largest sample size tested.
+EFP and PN refer to metrics using EFPs and ParticleNet activations as their input
+features, respectively. The most significant scores per distribution are in bold.
+</span></figcaption><!--  tex4ht:label?: x56-254001r2   -->
+<div class="pic-tabular"><img alt="------------------------------------------------------------------------------------------------------------------------------------------
+                      |
+                      |                                                                Particle      Particle     Particle     Particle
+                      |
+ Metric               |    Truth         Smeared        Shifted     Removing   tail     features        ηrel         preTl         preTl
+                      |
+                      |                                                                smeared       smeared      smeared       shifted
+----------------------|-------------------------------------------------------------------------------------------------------------------
+ W M  × 103           |  0.28 ± 0.05      2.1 ± 0.2      6.0 ± 0.3       0.6 ± 0.2        1.7 ± 0.2      0.9 ± 0.3     0.5 ± 0.2     5.8 ± 0.2
+   1                  |
+ Significance          |                   37 ± 3        114 ± 6          7 ± 2          28 ± 3        12 ± 4       4 ± 1       111 ±  3
+------------------------------------------------------------------------------------------------------------------------------------------
+                      |
+ Wasserstein EFP      |  0.02 ± 0.01     0.09 ± 0.05    0.10 ± 0.02    0.016 ±  0.007    0.19 ± 0.08    0.03 ± 0.01   0.03 ± 0.02   0.06 ± 0.02
+                      |
+ Significance          |                    6 ± 4         7 ± 1        0.06 ±  0.02        14 ± 6       0.8 ± 0.4     0.9 ± 0.6      4 ± 1
+----------------------|-------------------------------------------------------------------------------------------------------------------
+                 3    |
+ FGD  ∞ EFP  ×10      |  0.08 ± 0.03       20 ± 1      26.6 ±  0.9       2.4 ±  0.1         21 ± 2      3.6 ± 0.3     2.3 ± 0.2    29.1 ± 0.4
+                      |
+-Significance-----------------------------580-±-30------760-±--20--------66-±-4---------610 ±-40------103-±--8------64-±-4------830-±-10---
+                      |
+ MMD   EFP   ×103     |− 0.006 ±  0.005   0.17 ± 0.06     0.9 ± 0.1      0.03 ±  0.02     0.35 ± 0.09    0.08 ± 0.05   0.01 ± 0.02    1.8 ± 0.1
+                      |
+ Significance          |                   30 ± 10      170 ± 20          6 ± 4         70 ± 10       10 ± 10       3 ± 5       360 ± 20
+----------------------|-------------------------------------------------------------------------------------------------------------------
+                      |
+ Precision EFP         |   0.9 ± 0.1      0.94 ± 0.04   0.978 ± 0.005    0.88 ±  0.08       0.7 ± 0.1     0.94 ± 0.06    0.7 ± 0.1    0.79 ± 0.09
+                      |
+-Significance---------------------------------0-------------0---------0.109-±--0.009------1.9-±-0.3---------0---------2.0-±-0.3-----0.9-±-0.1---
+                      |
+ Recall EFP           |   0.9 ± 0.1      0.88 ± 0.07    0.97 ± 0.01     0.92 ±  0.06     0.83 ± 0.05    0.92 ± 0.07    0.8 ± 0.1     0.8 ± 0.1
+                      |
+ Significance          |                 0.16 ± 0.01         0               0         0.58 ± 0.04        0         0.8 ± 0.1     1.1 ± 0.2
+------------------------------------------------------------------------------------------------------------------------------------------
+                      |
+ Wasserstein PN       |  1.65 ± 0.06      1.7 ± 0.1      2.4 ± 0.4      1.71 ±  0.08       4.5 ± 0.1     1.79 ± 0.05    4.0 ± 0.4     7.6 ± 0.2
+                      |
+ Significance          |                 0.84 ± 0.05      12 ± 2        0.97 ±  0.05        45 ± 1      2.26 ± 0.06     37 ± 3       95 ± 3
+----------------------|-------------------------------------------------------------------------------------------------------------------
+ FGD    PN  ×103      |   0.6 ± 0.4        37 ± 2        202 ± 4        4.3 ± 0.4       1220 ± 10       20 ± 1     1230 ±  10   3630 ±  10
+      ∞               |
+ Significance          |                   98 ± 4        540 ± 0        9.8 ± 0.9       3320 ± 20       51 ± 3     3340 ±  30   9870 ±  30
+------------------------------------------------------------------------------------------------------------------------------------------
+                      |
+ MMD   PN  ×103       |    − 2 ± 2         4 ± 8        80 ± 10         − 1 ± 4       500 ± 100       3 ± 2       560 ± 60    1100 ±  40
+                      |
+ Significance          |                    3 ± 6        40 ± 10          0 ± 3         280 ± 70       3 ± 2       310 ± 30     610 ± 20
+----------------------|-------------------------------------------------------------------------------------------------------------------
+ Precision PN          |  0.68 ± 0.07     0.64 ± 0.04    0.71 ± 0.06     0.73 ±  0.03     0.09 ± 0.04    0.75 ± 0.08   0.08 ± 0.04   0.39 ± 0.08
+                      |
+ Significance          |                 0.57 ± 0.04         0               0            8 ± 4           0          8 ± 5       4.0 ± 0.8
+------------------------------------------------------------------------------------------------------------------------------------------
+                      |
+ Recall PN            |  0.70 ± 0.05     0.61 ± 0.04    0.61 ± 0.08     0.73 ±  0.06    0.014 ± 0.009    0.7 ± 0.1    0.01 ± 0.01   0.57 ± 0.09
+                      |
+ Significance          |                  1.8 ± 0.1      1.8 ± 0.2           0            14 ± 9          0         10 ± 10      2.6 ± 0.4
+----------------------|-------------------------------------------------------------------------------------------------------------------
+                      |
+ Classifier LLF AUC    |     0.50           0.52           0.54            0.50            0.97          0.81         0.93         0.99
+                      |
+-Classifier HLF--AUC---------0.50-----------0.53-----------0.55------------0.50------------0.84----------0.64---------0.74---------0.92-----
+                      |
+                      |  " src="main-2bda1a3e0e3ade5607b42adb0ec0e7be.svg"/></div>
+</figure>
+<!--  l. 337  --><p class="noindent">Table <a href="#values-significances-and-errors-of-metrics-for-each-jet-distribution">11.2<!--  tex4ht:ref: tab:04_evaluating_jet_results   --></a> shows the central values, significances, and errors for each metric, as defined in
+Section <a href="Experimentsongaussiandistributeddata.html#experiments-on-gaussiandistributed-data">11.2<!--  tex4ht:ref: sec:04_evaluating_toydata   --></a>, with the most significant scores per alternative distribution highlighted in bold.
+The first row shows the Wasserstein distance between only the 1D jet mass distributions
+(<!--  l. 338  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>W</mi></mrow><mrow><mn>1</mn></mrow><mrow><mstyle mathvariant="normal"><mi>M</mi></mstyle></mrow></msubsup></math>)
+as introduced in Section <a href="MessagepassingGANs.html#message-passing-gans">10.1<!--  tex4ht:ref: sec:04_mpgan   --></a>, as a test of the power and limitations
+of considering only 1D marginal distributions. We see that, in fact,
+<!--  l. 339  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>W</mi></mrow><mrow><mn>1</mn></mrow><mrow><mstyle mathvariant="normal"><mi>M</mi></mstyle></mrow></msubsup></math> identifies
+most distortions as significantly discrepant but is not as sensitive to subtle changes such as
+particle <!--  l. 339  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msubsup></math>
+smearing. Additionally, even with up to 50,000 samples, it is unable to converge to the
+true value. Nevertheless, it proves to be a valuable metric that can be used
+for focused evaluation of specific physical features, complementing aggregate
+metrics.
+</p><!--  l. 343  --><p class="indent">       The next five rows show values for metrics which use EFPs as their features. We find that,
+perhaps surprisingly, <!--  l. 344  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math>
+is the most sensitive to all distortions, with significances orders of magnitude higher
+than the rest. The Wasserstein distance is not sensitive to many distortions for
+the sample sizes tested, while the MMD is successful, but not as sensitive as
+<!--  l. 345  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math>. It is
+also clear that precision and recall have difficulty discerning the quality and diversity of
+distributions in high-dimensional feature spaces, which is perhaps expected considering
+                                                                                
+
+                                                                                
+the difficulty of manifold estimation in such a space.
+</p><!--  l. 348  --><p class="indent">       An extremely similar conclusion is reached when considering the metrics using ParticleNet
+activations, with <!--  l. 348  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math>
+again the highest performing. Broadly, ParticleNet activations allow the metric to
+distinguish particle-level distortions slightly better, and vice versa for distribution-level
+distortions, although overall the sensitivities are quite similar. We posit that including
+a subset of lower-level particle features in addition to EFPs could improve
+sensitivity to particle-level distortions, a study of which we leave to future
+work.
+</p><!--  l. 353  --><p class="indent">       Finally, the last two rows provide the AUC values for a ParticleNet classifier
+trained on the particle low-level features (LLF), and an FCN trained on high-level
+features (HLF). We find that while both appear to be able to distinguish well the
+samples with particle-level distortions, they have no sensitivity to the distribution level
+distortions.
+</p><!--  l. 357  --><p class="indent">       In conclusion, we find from these experiments that
+<!--  l. 357  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math> is in
+fact the most sensitive metric to all distortions tested. Despite the Gaussian assumption,
+it is clear that access to the first-order moments of the distribution is sufficient for it to
+have high discriminating power against the relevant alternative distributions we expect
+from generative models.
+</p><!--  l. 360  --><p class="indent">       Applying <!--  l. 360  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math>
+                                                                                
+
+                                                                                
+to hand-engineered physical features or ParticleNet activations leads to
+similar performance, with the former having a slight edge. In addition,
+<!--  l. 361  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math> using
+physical features—<i>Fréchet physics distance (FPD)</i> for short—has a number of practical
+benefits. For instance, it can be consistently applied to any data structure (e.g. point
+clouds or images) and easily adapted to different datasets as long as the same physical
+features can be derived from the data samples (Ref. [<span class="ec-lmbx-12">? </span>] and Section <a href="MessagepassingGANs.html#message-passing-gans">10.1<!--  tex4ht:ref: sec:04_mpgan   --></a> derive similar
+jet observables from images and point clouds, respectively). These are both
+difficult to do with features derived from a pretrained classifier, where different
+classifier architectures may need to be considered for different data structures and
+potentially even different datasets. FPD is also more easily interpreted, as evaluators
+have more control and understanding of the set of features they provide as
+input.
+</p><!--  l. 366  --><p class="indent">       Hence, we propose FPD as a novel efficient, interpretable, and highly
+sensitive metric for evaluating generative models in HEP. However, MMD on
+hand-engineered features—kernel physics distance (KPD) for short—and
+<!--  l. 367  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>W</mi></mrow><mrow><mn>1</mn></mrow></msub></math> scores
+between individual feature distributions also provide valuable information and, as
+demonstrated in Section <a href="Experimentsongaussiandistributeddata.html#experiments-on-gaussiandistributed-data">11.2<!--  tex4ht:ref: sec:04_evaluating_toydata   --></a>, can cover alternative distributions for which FPD lacks
+discriminating power.
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="Experimentsongaussiandistributeddata.html">⭠</a> <a href="DemonstrationonparticlecloudGANs.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

@@ -40,11 +40,11 @@
 computing, and even real-time triggers in high-energy physics (HEP). Significant
 contributions of this dissertation include ML advancements for Higgs boson searches and
 beyond and fast detector simulations for the HL-LHC. In this chapter, to motivate
+them, we introduce some core concepts of ML, especially as they relate to HEP
+applications.
                                                                                 
 
                                                                                 
-them, we introduce some core concepts of ML, especially as they relate to HEP
-applications.
 </p><!--  l. 11  --><p class="indent">       ML refers to a general class of algorithms that “learn” from data to solve
 problems. This is in contrast to traditional, hand-engineered bespoke algorithms
 designed by domain experts to address specific tasks. A relevant example in HEP is
@@ -65,11 +65,11 @@ automatically compute optimal, non-linear selections in this high-dimensional fe
 space.
 </p><!--  l. 18  --><p class="indent">       More recently, the advent of artificial neural networks (ANNs) and deep learning
 (DL), along with increased data availability and computing power, has led to orders of
+magnitude increases in the dimensionality of data that can be exploited and the
+complexity and expressivity of the models built. A relevant example of their significant
                                                                                 
 
                                                                                 
-magnitude increases in the dimensionality of data that can be exploited and the
-complexity and expressivity of the models built. A relevant example of their significant
 impact in HEP is in jet identification: jets are extremely high-dimensional
 objects, composed of hundreds of particles, tracks, and vertices each with several
 distinguishing features. Traditionally, this information had to be aggregated into
@@ -90,12 +90,12 @@ classification and regression to simulation and anomaly detection, and more. Ind
 development of DL algorithms in HEP is a rapidly growing subfield in its own
 right, and its various applications are visualized as a “nomological net” in
 Figure <a href="#a-nomological-net-of-ml-applications-in-hep-reproduced-from-ref-lincolninstrumentation">7.1<!--  tex4ht:ref: fig:03_ml_nomological_net   --></a>; a comprehensive “living” review is available in Ref. [<a href="Bibliography.html#Xhepmllivingreview">203</a>]. As we discuss
+below, however, with more complex data and models also comes the need for
+more sophisticated methods to validate, calibrate, and trust them; this is the
                                                                                 
 
                                                                                 
-below, however, with more complex data and models also comes the need for
-more sophisticated methods to validate, calibrate, and trust them; this is the
-subject of Chapters <span class="ec-lmbx-12">??</span> and <span class="ec-lmbx-12">??</span>, on evaluating generative models and calibrating
+subject of Chapters <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">11<!--  tex4ht:ref: sec:04_evaluating   --></a> and <span class="ec-lmbx-12">??</span>, on evaluating generative models and calibrating
 <!--  l. 29  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> jet
 taggers, respectively.
 </p><!--  l. 31  --><p class="indent">       In this chapter, we first provide a brief introduction to ML and DL, emphasizing
@@ -284,7 +284,7 @@ model’s predictions and quantify the systematic uncertainties associated with 
 models become more complex and high-dimensional, calibration becomes increasingly
 challenging (and often overlooked)! To this end, significant contributions of this
 dissertation are the development of novel methods to efficiently and sensitively validate
-the performance of ML-based simulations (Chapter <span class="ec-lmbx-12">??</span>), and improving the calibration
+the performance of ML-based simulations (Chapter <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">11<!--  tex4ht:ref: sec:04_evaluating   --></a>), and improving the calibration
 of <!--  l. 139  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> jet
 identification algorithms (Chapter <span class="ec-lmbx-12">??</span>).
 </p><!--  l. 142  --><p class="noindent">
@@ -442,7 +442,7 @@ include local graph convolutions — similar to CNNs, but with graph-based
 kernels; and message-passing neural networks (MPNNs), which deliver and
 aggregate learned messages between nodes. An example of an MPNN is shown in
 Figure <a href="#schematic-of-a-message-passing-graph-neural-network">7.5<!--  tex4ht:ref: fig:03_ml_gnn   --></a>, and is the basis for a novel GNN generative model introduced in
-Chapter <span class="ec-lmbx-12">??</span>.
+Chapter <a href="Generativemodelsforfastparticlecloudsimulations.html#generative-models-for-fast-particlecloud-simulations">10<!--  tex4ht:ref: sec:04_models   --></a>.
 </p>
 <figure class="figure">
 <!--  l. 230  --><p class="noindent" id="schematic-of-a-message-passing-graph-neural-network"> <img alt="PIC" src="figures/06-ML4Jets/equivariantnns/mpnn_box_line-.png" style="max-width:70%"/> <a id="x39-147001r5"></a>
@@ -490,7 +490,7 @@ nodes.
 attention a (particularly efficient) form of message-passing. They have proven
 extremely successful and durable in NLP and other sequence-based tasks, and are
 also gaining prominence in computer vision and HEP. We introduce two novel
-transformer-based models for jet simulations and tagging in Chapters <span class="ec-lmbx-12">??</span> and <span class="ec-lmbx-12">??</span>,
+transformer-based models for jet simulations and tagging in Chapters <a href="Generativemodelsforfastparticlecloudsimulations.html#generative-models-for-fast-particlecloud-simulations">10<!--  tex4ht:ref: sec:04_models   --></a> and <span class="ec-lmbx-12">??</span>,
 respectively.
 </p>
 <figure class="figure">
@@ -585,13 +585,13 @@ nodes) can be tuned or even learned to reflect the physical nature of the data. 
 example, for local data, such as 3D point clouds of natural objects, connections can be
 defined based on the Euclidean distance between points, while in the case of jets or
 particle showers in a calorimeter, we can choose a fully-connected topology to
-reflect their global correlations (as we emphasize in Chapter <span class="ec-lmbx-12">??</span>). The attention
+reflect their global correlations (as we emphasize in Chapter <a href="Generativemodelsforfastparticlecloudsimulations.html#generative-models-for-fast-particlecloud-simulations">10<!--  tex4ht:ref: sec:04_models   --></a>). The attention
 mechanism in transformers is by definition fully connected, and hence well-suited as
 well.
 </p><!--  l. 309  --><p class="indent">       This is why we advocate for point-cloud representations and GNN and transformer
 models as natural choices for HEP data. Indeed, major contributions of this dissertation
 are the development of the first point-cloud based generative models for jet simulations
-(Chapter <span class="ec-lmbx-12">??</span>), which achieve breakthrough performance for an ML simulator in terms of
+(Chapter <a href="Generativemodelsforfastparticlecloudsimulations.html#generative-models-for-fast-particlecloud-simulations">10<!--  tex4ht:ref: sec:04_models   --></a>), which achieve breakthrough performance for an ML simulator in terms of
 accuracy and efficiency, and the first transformer-based jet tagging algorithm (Chapter <span class="ec-lmbx-12">??</span>)
 for <!--  l. 310  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
 jet-tagging, powering a significant boost in the sensitivity of the

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Demonstration on particle cloud GANs</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="chapterToc">9 <a href="IntroductionandtheJetNetDataset.html#introduction-and-the-jetnet-dataset">Introduction and the JetNet Dataset</a></span>
+<span class="chapterToc">10 <a href="Generativemodelsforfastparticlecloudsimulations.html#generative-models-for-fast-particlecloud-simulations">Generative models for fast particle-cloud simulations</a></span>
+<span class="chapterToc">11 <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">Validating and comparing fast simulations</a></span>
+<span class="sectionToc">11.1 <a href="Evaluationmetricsforgenerativemodels.html#evaluation-metrics-for-generative-models">Evaluation metrics for generative models</a></span>
+<span class="sectionToc">11.2 <a href="Experimentsongaussiandistributeddata.html#experiments-on-gaussiandistributed-data">Experiments on gaussian-distributed data</a></span>
+<span class="sectionToc">11.3 <a href="Experimentsonjetdata.html#experiments-on-jet-data">Experiments on jet data</a></span>
+<span class="sectionToc">11.4 <a href="#demonstration-on-particle-cloud-gans">Demonstration on particle cloud GANs</a></span>
+<span class="sectionToc">11.5 <a href="Summary.html#summary4">Summary</a></span>
+<span class="chapterToc">12 <a href="Conclusionandimpact.html#conclusion-and-impact">Conclusion and impact</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="Experimentsonjetdata.html">⭠</a> <a href="Summary.html">⭢</a> </nav>
+<h3 class="sectionHead" id="demonstration-on-particle-cloud-gans"><span class="titlemark">11.4   </span> <a id="x57-25500011.4"></a>Demonstration on particle cloud GANs</h3>
+<!--  l. 373  --><p class="noindent">We now provide a practical demonstration of the efficacy of our proposed metrics in
+evaluating the high-performing generative model discussed previously in this chapter:
+MPGAN, GAPT, GAST, and iGAPT. The visual comparison between the iGAPT and
+MPGAN models has been shown in Figure <a href="Generativeadversarialparticletransformers.html#lowlevel-particle-feature-distributions-far-left-and-center-left-and-highlevel-jet-feature-distributions-center-right-and-far-right">10.10<!--  tex4ht:ref: fig:04_igapt_feature_distributions_30   --></a>, demonstrating the high performance,
+but also the difficulty in distinguishing visually between the two models and the
+real jets. This makes these models an effective test bench for our proposed
+metrics.
+</p>
+<figure class="figure">
+<!--  l. 379  --><p class="noindent" id="correlations-between-fpd-and-fpnd-kpd-and-w-m-on-separate-batches-of-gaptgenerated-jets"> <img alt="PIC" src="figures/04-ML4Sim/evaluating/162_correlations-.png" style="max-width:100%"/> <a id="x57-255001r4"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 11.4.    </span></span><span class="content">Correlations    between    FPD    and    FPND,    KPD,    and
+<!--  l. 380  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>W</mi></mrow><mrow><mn>1</mn></mrow><mrow><mstyle mathvariant="normal"><mi>M</mi></mstyle></mrow></msubsup></math>
+on 400 separate batches of 50,000 GAPT-generated jets.
+</span></figcaption><!--  tex4ht:label?: x57-255001r4   -->
+</figure>
+<!--  l. 384  --><p class="indent">       Figure <a href="#correlations-between-fpd-and-fpnd-kpd-and-w-m-on-separate-batches-of-gaptgenerated-jets">11.4<!--  tex4ht:ref: fig:04_evaluating_correlations   --></a> first shows correlation plots between FPD and FPND, KPD, and
+<!--  l. 384  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>W</mi></mrow><mrow><mn>1</mn></mrow><mrow><mstyle mathvariant="normal"><mi>M</mi></mstyle></mrow></msubsup></math> on
+400 separate batches of 50,000 GAPT-generated jets. We observe an overall positive
+relationship between the metrics, as one might expect. FPD and KPD have the
+strongest correlation, likely because they are accessing similar information about the
+same set of input features. However, for low values, the correlation is weak between all
+metrics, indicating that these metrics are complementary in understanding different
+aspects of the model’s performance. As noted in Section <a href="Experimentsonjetdata.html#experiments-on-jet-data">11.3<!--  tex4ht:ref: sec:04_evaluating_jetdata   --></a>, the correlation between
+FPD and FPND may improve if the former were to use a subset of lower-level particle
+features as well.
+</p>
+<div class="table">
+<!--  l. 391  --><p class="indent"> </p><figure class="float" id="x57-255002r3"><span id="evaluation-metrics-for-different-jet-types-and-models-the-bestperforming-model-on-each-metric-and-jet-type-is-highlighted-in-bold"></span>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Table 11.3.  </span></span><span class="content">Evaluation  metrics  for  different  jet  types  and  models.  The
+best-performing model on each metric and jet type is highlighted in bold.        </span></figcaption><!--  tex4ht:label?: x57-255002r3   -->
+<div class="pic-tabular"><img alt="------------------|-------------------------------------------------------------------
+                  |              preTl   −3      M    − 3           − 3            −6
+                   Model      W 1p  (10  )   W 1 (10   )  FPD  (10   )  KPD   (10  )
+------------------|-------------------------------------------------------------------
+                  |Truth       0.14 ± 0.06    0.46 ± 0.08   0.14 ± 0.04    1.8 ± 11.9
+                  |
+                  |MPGAN       0.27 ± 0.02     0.7 ± 0.3    0.41 ± 0.09      0 ± 8
+                  |
+ Gluon (30 )      |GAPT       0.25 ±  0.07    1.0 ± 0.2    0.46 ± 0.06      5 ± 3
+                  |
+                  |GAST         0.8 ± 0.1      0.7 ± 0.2    0.40 ± 0.05    7.0 ± 10.3
+                  |
+                  |iGAPT       0.76 ± 0.07    0.7 ± 0.1    0.29 ± 0.04      3 ± 5
+------------------|-------------------------------------------------------------------
+                  |Truth       0.21 ± 0.05     0.5 ± 0.2    0.09 ± 0.03     − 3 ± 3
+                  |
+                  |MPGAN      0.41 ±  0.07   0.5 ± 0.1     1.9 ± 0.2     1.7 ± 15.1
+                  |
+ Light quark (30) |GAPT        2.74 ± 0.09    2.54 ± 0.05   4.03 ± 0.06      96 ± 9
+                  |
+                  |GAST         1.2 ± 0.1      1.8 ± 0.2    0.65 ± 0.07   27.0 ± 11.7
+                  |
+                  |iGAPT       1.89 ± 0.04     1.2 ± 0.3    0.51 ± 0.07      12 ± 7
+------------------|-------------------------------------------------------------------
+                  |Truth       0.20 ± 0.05     0.7 ± 0.2    0.07 ± 0.03     − 16 ± 2
+                  |
+                  |MPGAN       0.44 ± 0.08    0.5 ± 0.1     2.8 ± 0.2    14.7 ± 12.9
+                  |
+ Top quark  (30)  |GAPT       0.34 ±  0.02    1.9 ± 0.2    0.43 ± 0.03   25.4 ± 28.8
+                  |
+                  |GAST        1.16 ± 0.08     1.5 ± 0.2    0.30 ± 0.05   − 2.4 ±  17.2
+                  |
+                  |iGAPT       0.54 ± 0.04     0.9 ± 0.3    0.25 ± 0.03   − 0.6 ± 14.1
+------------------|-------------------------------------------------------------------
+                  |Truth       0.09 ± 0.03     0.7 ± 0.2    0.10 ± 0.03    0.5 ± 10.5
+                  |
+                  |GAPT        0.77 ± 0.03    1.1 ± 0.3     22.0 ± 0.1    62.5 ± 11.1
+ Gluon (150 )     |
+                  |GAST        0.68 ± 0.05     3.7 ± 0.3    3.60 ± 0.06   47.7 ± 13.8
+                  |
+                  |iGAPT      0.66 ±  0.03    4.4 ± 0.7    2.99 ± 0.06   158.1 ± 37.9
+------------------|-------------------------------------------------------------------
+                  |  " src="main-e0b1dc1a8247a0fe7506307c764a4e89.svg"/></div>
+</figure>
+</div>
+<!--  l. 429  --><p class="indent">       Next, FPD, KPD, <!--  l. 429  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>W</mi></mrow><mrow><mn>1</mn></mrow><mrow><mstyle mathvariant="normal"><mi>M</mi></mstyle></mrow></msubsup></math>
+scores, as well as the <!--  l. 429  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>W</mi></mrow><mrow><mn>1</mn></mrow></msub></math>
+distance between the particle <!--  l. 429  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msubsup></math>
+distributions, from the best-performing MPGAN, GAPT, GAST, and iGAPT
+models are shown in Table <a href="#evaluation-metrics-for-different-jet-types-and-models-the-bestperforming-model-on-each-metric-and-jet-type-is-highlighted-in-bold">11.3<!--  tex4ht:ref: tab:04_evaluating_modelscores   --></a>, respectively. Focusing on just the 30-particle
+gluon jets first, we observe that it is extremely difficult to either distinguish
+between the performance of the models or draw a conclusion for their viability as
+alternative simulators based only on visual inspection of the histograms or even the
+<!--  l. 430  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>W</mi></mrow><mrow><mn>1</mn></mrow><mrow><mstyle mathvariant="normal"><mi>M</mi></mstyle></mrow></msubsup></math> score.
+However, FPD provides crucial information in this regard clearly indicating that iGAPT
+is outperforming the other models, validating our physics-informed approach to its
+architecture. However, we see that the FPD scores are discrepant from the truth,
+indicating room for improvement.
+</p><!--  l. 434  --><p class="indent">       Overall, we see from this experiment the value in employing a broad
+set of sensitive, interpretable metrics. Firstly, evaluators can identify specific
+points of failures in their models. In the case of iGAPT, we note that while its
+<!--  l. 436  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>W</mi></mrow><mrow><mn>1</mn></mrow><mrow><mstyle mathvariant="normal"><mi>M</mi></mstyle></mrow></msubsup></math>, FPD
+and KPD scores are generally strong, it is consistently worse than MPGAN on
+<!--  l. 436  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>W</mi></mrow><mrow><mn>1</mn><mi>p</mi></mrow><mrow><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msubsup></mrow></msubsup></math>,
+indicating difficulty in learning the particle-level features — likely because of
+                                                                                
+
+                                                                                
+the increased emphasis on high-level, jet, features in the IPAB architecture.
+Secondly, evaluators are also able to define clear, quantitative criteria for model
+selection for their downstream tasks: for example, if comparing different
+simulator options, they can simply choose the model with the lowest FPD
+score, or if validating a faster alternative to traditional, accurate simulations,
+they may wish to require all scores to be compatible (e.g., significances of
+<!--  l. 437  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>2</mn></mrow></math>) with
+the latter, or even with LHC data itself, before adopting the model.
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="Experimentsonjetdata.html">⭠</a> <a href="Summary.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

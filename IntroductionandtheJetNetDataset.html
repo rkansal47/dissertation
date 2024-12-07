@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>9 Introduction and the JetNet Dataset</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="chapterToc">9 <a href="#introduction-and-the-jetnet-dataset">Introduction and the JetNet Dataset</a></span>
+<span class="sectionToc">9.1 <a href="Simulatingjets.html#simulating-jets">Simulating jets</a></span>
+<span class="sectionToc">9.2 <a href="JetNet.html#jetnet">JetNet</a></span>
+<span class="chapterToc">10 <a href="Generativemodelsforfastparticlecloudsimulations.html#generative-models-for-fast-particlecloud-simulations">Generative models for fast particle-cloud simulations</a></span>
+<span class="chapterToc">11 <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">Validating and comparing fast simulations</a></span>
+<span class="chapterToc">12 <a href="Conclusionandimpact.html#conclusion-and-impact">Conclusion and impact</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="AcceleratingSimulationswithAI.html">⭠</a> <a href="Simulatingjets.html">⭢</a> </nav>
+<h2 class="chapterHead" id="introduction-and-the-jetnet-dataset"><span class="titlemark">Chapter 9</span><br/><a id="x47-2050009"></a>Introduction and the JetNet Dataset</h2>
+<div class="center">
+<!--  l. 11  --><p class="noindent">
+</p><!--  l. 17  --><p class="noindent"><i>What I cannot create, I do not understand.</i> - Richard Feynman  </p></div>
+<!--  l. 20  --><p class="noindent">Simulations are critical components of the scientific process in high-energy physics. They
+are employed from the beginning of the experimental design, to evaluate the expected
+performance of a detector, all the way up to the data analysis, to determine our
+sensitivity to a given signal process.
+</p><!--  l. 23  --><p class="indent">       For the CMS experiment, the simulation pipeline broadly involves:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+1. 
+</dt><dd class="enumerate-enumitem">Event generation: simulating the hard collision process, parton showering,
+hadronization,   and   underlying   event   interactions   (see   Chapter <a href="Quantumchromodynamics.html#quantum-chromodynamics">4.1<!--  tex4ht:ref: sec:01_sm_qcd   --></a>),
+                                                                                
+
+                                                                                
+outputting generator-level or “gen-level” particles.
+</dd>
+<dt class="enumerate-enumitem">
+2. 
+</dt><dd class="enumerate-enumitem">Detector simulation: simulating the response of the detector to the particles
+produced in the collision and outputting the raw detector signals, or “hits”
+in the detector, most commonly with the <span class="small-caps">Geant4</span> software [<span class="ec-lmbx-12">? </span>].
+</dd>
+<dt class="enumerate-enumitem">
+3. 
+</dt><dd class="enumerate-enumitem">Reconstruction:  converting  the  raw  detector  signals  into  tracks  and
+ECAL/HCAL clusters, which can then be reconstructed further into physical
+“objects” like jets, leptons, and missing transverse energy (see Chapter <a href="Detectorreconstructionandperformance.html#detector-reconstruction-and-performance">6.4<!--  tex4ht:ref: sec:02_cms_reconstruction   --></a>).</dd></dl>
+<!--  l. 30  --><p class="indent">       The first two steps are inherently stochastic processes due to the randomness of
+quantum mechanical decays and interactions between particles and materials. This
+means that the complete analytic form for the probability densities of collision and
+detector outputs is intractable. Instead, traditionally, the event generation relies on
+Monte Carlo (MC) methods to sample from probability distributions of decays and
+interactions, while the detector simulation propagates the resulting particles through the
+detector and magnetic field, simulating the random interactions and energy deposits at
+each step.
+</p><!--  l. 34  --><p class="indent">       These methods have proven extremely effective at modeling collisions
+and the detector response for decades in HEP, but are computationally
+expensive: the full simulation of a single collision in CMS takes
+<!--  l. 34  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>10</mn><mstyle class="text"><mtext> s</mtext></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> [<a href="Bibliography.html#XPedro_2018jqu">300</a>]. To
+maximize the physics potential of the upcoming era of high luminosity, the CMS experiment
+                                                                                
+
+                                                                                
+will need to reconstruct 300 billion real collision events, and simulate and reconstruct
+2–3<!--  l. 36  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">×</mo></math> more,
+a monumental task to which current methods cannot scale. Indeed, we are expected to fall
+3–10<!--  l. 37  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">×</mo></math>
+short of the necessary CPU resources to do this in HL-LHC [<span class="ec-lmbx-12">? </span>].
+</p><!--  l. 39  --><p class="indent">       There are two important avenues of R&amp;D which must be explored to
+address this. First, performing simulation and reconstruction on GPUs:
+even porting a conservative fraction can improve computing capacity by
+20-26%. Second, wide adoption of a fast simulation and reconstruction
+alternative (FastSim): 50% of CMS analyses switching to this would mean a
+10<!--  l. 42  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">×</mo></math>
+speed-up in simulations, which are in total expected to require 40% of CPU resources [<span class="ec-lmbx-12">?</span>
+]. However, they each carry risks: of simulations not translating well to GPUs due to
+their sequential nature, and of inadequate FastSim performance leading to insufficient
+adoption by analyzers.
+</p><!--  l. 46  --><p class="indent">       ML advancements in generative modeling can simultaneously improve the quality
+of fast simulations and naturally enable GPU-acceleration, addressing both risks. In
+this Part, we introduce such advancements using novel physics-informed deep
+learning (DL) generative models, and efficient and sensitive techniques for their
+validation.
+</p><!--  l. 49  --><p class="indent">       We first introduce below the problem of simulating high energy jets and
+introduce the <span class="small-caps">JetNet</span> benchmark dataset used for all studies in the chapter. As
+                                                                                
+
+                                                                                
+highlighted in Chapter <a href="MachineLearningforHEP.html#machine-learning-for-hep">7<!--  tex4ht:ref: sec:03_ml   --></a>, a key contribution of this work is use of particle-cloud
+representations of jets, which we argued are more natural for HEP data than the more
+common (at the time) image- and vector-based algorithms.
+</p><!--  l. 53  --><p class="indent">       To that end, we introduce two novel and highly performant ML-based approaches
+designed to leverage point clouds in HEP, using (1) message-passing graph neural
+networks (GNNs) (Chapter <a href="MessagepassingGANs.html#message-passing-gans">10.1<!--  tex4ht:ref: sec:04_mpgan   --></a>) and (2) attention-based transformer networks
+(Chapter <a href="Generativeadversarialparticletransformers.html#generative-adversarial-particle-transformers">10.2<!--  tex4ht:ref: sec:04_gapt   --></a>). We will then discuss the critical problem of validating such ML-based
+fast simulation techniques and propose two new, sensitive methods to do so
+(Section <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">11<!--  tex4ht:ref: sec:04_evaluating   --></a>). We will finally conclude with the outlook for these techniques in
+Chapter <a href="Conclusionandimpact.html#conclusion-and-impact">12<!--  tex4ht:ref: sec:04_outlook   --></a>, discussing as well how this work has sparked a new, vibrant subfield of ML
+research in HEP.
+</p>
+<div class="sectionTOCS">
+<span class="sectionToc">9.1 <a href="Simulatingjets.html#simulating-jets">Simulating jets</a></span>
+<br/> <span class="sectionToc">9.2 <a href="JetNet.html#jetnet">JetNet</a></span>
+</div>
+<nav class="crosslinks-bottom"> <a href="AcceleratingSimulationswithAI.html">⭠</a> <a href="Simulatingjets.html">⭢</a> </nav> <div class="footnotes"></div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

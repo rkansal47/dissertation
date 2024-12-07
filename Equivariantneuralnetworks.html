@@ -49,6 +49,9 @@ hence desirable to develop NN architectures that themselves are intrinsically <i
 to the associated transformations, which can thereby be more data efficient, more easily
 interpretable, and perhaps ultimately more successful [<a href="Bibliography.html#Xthomas2018tensor">224</a>].
 </p><!--  l. 322  --><p class="indent">       We have already encountered some forms of equivariance: to translations in
+                                                                                
+
+                                                                                
 CNNs and to permutations in GNNs. More recently, there has been work on building
 equivariance to a broader set of transformations, such as the symmetries mentioned
 above, which will be the focus of this section.
@@ -66,6 +69,9 @@ from Refs. [<a href="Bibliography.html#Xcohen2016group">225</a>–<a href="Bibl
 is considered <strong>equivariant</strong> to a group of transformations
 <!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>G</mi></math> if
 <!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="MathClass-op">∀</mi><mo> ⁡<!--  FUNCTION APPLICATION  --></mo><mi>g</mi> <mo class="MathClass-rel" stretchy="false">∈</mo> <mi>G</mi></mrow></math> and some
+                                                                                
+
+                                                                                
 representation <!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>π</mi></math> there
 exists a representation <!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>π</mi></mrow><mrow><mi>′</mi></mrow></msup></math>
 satisfying </p><table class="equation"><tr><td>
@@ -84,6 +90,9 @@ on the input must correspond to a transformation by the same group
 element in the feature space (but with potentially different representations
 <!--  l. 340  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>π</mi></math> and
 <!--  l. 340  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>π</mi></mrow><mrow><mi>′</mi></mrow></msup></math>).
+                                                                                
+
+                                                                                
 </p>
 </div>
 <!--  l. 341  --><p class="indent">
@@ -102,6 +111,9 @@ do not affect features at all.
 <!--  l. 345  --><p class="indent">
 </p><!--  l. 347  --><p class="indent">       While for many tasks, such as classification, <i>invariance</i> of the outputs is sufficient,
 Refs. [<a href="Bibliography.html#Xcohen2016steerable">226</a>, <a href="Bibliography.html#Xworrall2017harmonic">227</a>] argue that equivariance is more desirable at least in the intermediate
+                                                                                
+
+                                                                                
 layers, as it allows the network to learn useful information about the transformation
 <!--  l. 347  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math>
 itself.
@@ -110,9 +122,6 @@ itself.
 in <!--  l. 349  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math> dimensions) and
 invariant to the <!--  l. 349  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>S</mi></mstyle></mrow><mrow><mi>N</mi></mrow></msub></math> group
 (permutations of <!--  l. 349  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math>
-                                                                                
-
-                                                                                
 objects), respectively. Next, we discuss the extension to broader symmetry
 groups.
 </p><!--  l. 353  --><p class="noindent">
@@ -124,6 +133,9 @@ equivariance to not only translations, but <i>rotations and reflections</i> in 2
 <!--  l. 356  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>E</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> group. We make
 use of a general procedure, based on Refs. [<a href="Bibliography.html#Xcohen2016group">225</a>, <a href="Bibliography.html#Xcohen2016steerable">226</a>], for extending 2D translational invariance
 (<!--  l. 357  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>) to equivariance
+                                                                                
+
+                                                                                
 to a group <!--  l. 357  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>G</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="normal"><mi>T</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">⋊</mo> <mi>H</mi></mrow></math>, where
 <!--  l. 357  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">⋊</mo></math> is the semi-direct product
 and <!--  l. 357  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math> is a subgroup of
@@ -132,9 +144,6 @@ representations of <!--  l. 357  --><math display="inline" xmlns="http://www.w3.
 <!--  l. 357  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mstyle mathvariant="normal"><mi>Ind</mi></mstyle></mrow><mrow><mi>H</mi></mrow><mrow><mi>G</mi></mrow></msubsup></math>, from
 <!--  l. 357  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math>.<span class="footnote-mark"><a href="#fn33x8" id="fn33x8-bk"><sup class="textsuperscript">1</sup></a></span><a id="x40-152001f1"></a>
 For <!--  l. 358  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>G</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="normal"><mi>E</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, in
-                                                                                
-
-                                                                                
 particular, <!--  l. 358  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="normal"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>,
 the group of distance-preserving transformations in 2D; i.e., rotations and
 reflections.
@@ -163,6 +172,9 @@ After this, Eq. <a href="#x40-151002r1">7.2.1<!--  tex4ht:ref: eq:06_equivarian
 2D translation <!--  l. 368  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>t</mi> <mo class="MathClass-rel" stretchy="false">∈</mo><mstyle mathvariant="normal"><mi>T</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.
 </p><!--  l. 371  --><p class="indent">       Since Eq. <a href="#x40-152003r2">7.2.2<!--  tex4ht:ref: eq:06_equivariantnns_equiv2   --></a> is linear in <!--  l. 371  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math>,
 we want a complete linear basis of functions that satisfy it. We can obtain
+                                                                                
+
+                                                                                
 this by restricting the convolutional filters of a standard CNN to circular
 harmonics [<a href="Bibliography.html#Xworrall2017harmonic">227</a>]:<span class="footnote-mark"><a href="#fn34x8" id="fn34x8-bk"><sup class="textsuperscript">2</sup></a></span><a id="x40-152005f2"></a>
 </p><table class="equation"><tr><td>

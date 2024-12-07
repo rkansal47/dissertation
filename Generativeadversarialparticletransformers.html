@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Generative adversarial particle transformers</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="chapterToc">9 <a href="IntroductionandtheJetNetDataset.html#introduction-and-the-jetnet-dataset">Introduction and the JetNet Dataset</a></span>
+<span class="chapterToc">10 <a href="Generativemodelsforfastparticlecloudsimulations.html#generative-models-for-fast-particlecloud-simulations">Generative models for fast particle-cloud simulations</a></span>
+<span class="sectionToc">10.1 <a href="MessagepassingGANs.html#message-passing-gans">Message passing GANs</a></span>
+<span class="sectionToc">10.2 <a href="#generative-adversarial-particle-transformers">Generative adversarial particle transformers</a></span>
+<span class="subsectionToc">10.2.1 <a href="#gapt">GAPT</a></span>
+<span class="subsectionToc">10.2.2 <a href="#igapt">iGAPT</a></span>
+<span class="subsectionToc">10.2.3 <a href="#experiments">Experiments</a></span>
+<span class="subsectionToc">10.2.4 <a href="#summary3">Summary</a></span>
+<span class="chapterToc">11 <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">Validating and comparing fast simulations</a></span>
+<span class="chapterToc">12 <a href="Conclusionandimpact.html#conclusion-and-impact">Conclusion and impact</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="MessagepassingGANs.html">⭠</a> <a href="Validatingandcomparingfastsimulations.html">⭢</a> </nav>
+<h3 class="sectionHead" id="generative-adversarial-particle-transformers"><span class="titlemark">10.2   </span> <a id="x52-22700010.2"></a>Generative adversarial particle transformers</h3>
+<!--  l. 303  --><p class="noindent">In the previous section, we introduced the MPGAN model, which represented a
+significant advance in ML-based fast simulations for HEP, being able to capture
+the complex global structure of jets and handle variable-sized particle clouds
+using fully-connected graph neural networks. However, this fully-connected
+nature means its memory and time complexity scale quadratically with the
+number of particles per jet, leading to difficulty in simulating larger particle
+clouds.
+                                                                                
+
+                                                                                
+</p><!--  l. 306  --><p class="indent">       In this section, we first introduce in Section <a href="#gapt">10.2.1<!--  tex4ht:ref: sec:04_gapt_gapt   --></a> the generative adversarial
+particle transformer (GAPT) model, which takes advantage of the computationally
+efficient “attention”-mechanism that has led to significant advances in natural
+language processing. This provides a significant speed-up over MPGAN, but is
+still limited by the quadratic scaling of the attention mechanism. We then
+present the induced GAPT (iGAPT) model in Section <a href="#igapt">10.2.2<!--  tex4ht:ref: sec:04_gapt_igapt   --></a>, featuring “induced
+particle attention blocks” (IPABs) that incorporate physics-informed inductive
+biases of jets, to offer both linear-time complexity and improved output fidelity.
+We discuss architecture choices and timing comparisons, but defer a deeper
+evaluation of the performance of these models and MPGAN to Chapter <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">11<!--  tex4ht:ref: sec:04_evaluating   --></a>, which
+details our new methodology for quantitatively validating and comparing fast
+simulations.
+</p><!--  l. 311  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="gapt"><span class="titlemark">10.2.1   </span> <a id="x52-22800010.2.1"></a>GAPT</h4>
+<!--  l. 314  --><p class="noindent">Similar to MPGAN, GAPT is a GAN for particle cloud data, but employing
+self-attention instead of message passing in the two generator and discriminator
+networks. It is based on the generative adversarial set transformer (GAST)
+architecture [<a href="Bibliography.html#Xstelzner2020generative">319</a>], which makes use of set transformer [<a href="Bibliography.html#Xlee2019set">320</a>] blocks to aggregate
+                                                                                
+
+                                                                                
+information across all points and update their features. It maintains the key inductive
+biases which makes MPGAN successful—permutation symmetry-respecting operations,
+and fully connected interaction between nodes during generation to learn high-level
+global features, but with a significant improvement in speed due to the higher
+computational efficiency of the attention mechanism compared to the message passing
+operations used in MPGAN.
+</p><!--  l. 318  --><p class="indent">       The generator and discriminator networks are composed of permutation-invariant
+multihead self-attention blocks (SABs) as defined in Ref. [<a href="Bibliography.html#Xlee2019set">320</a>] and illustrated in
+Figure <a href="Introduction1.html#schematic-of-set-selfattention">7.6<!--  tex4ht:ref: fig:04_gapt_attention   --></a>. We use four and two SAB blocks in the generator and discriminator
+respectively. Each SAB block uses 8 attention heads, and a 128-dimensional
+embedding space for each of the query, key, and value vectors. It also contains a
+one-layer feed-forward neural network (FFN) after each attention step, which
+maintains the 128-dimensional embedding for node features, and applies a leaky
+ReLU activation, with negative slope coefficient 0.2. Residual connections to the
+pre-SAB node features are used after both the attention step and FFN. After
+the final SAB block, a tanh activation is applied to the generator, whereas in
+the discriminator, the results are first pooled using a pooling by multihead
+attention (PMA) block [<a href="Bibliography.html#Xlee2019set">320</a>], followed by a final fully connected layer and sigmoid
+activation.
+</p><!--  l. 325  --><p class="indent">       For training, we use the mean squared error loss function, as in the LSGAN [<a href="Bibliography.html#Xmao_lsgan">321</a>],
+and the RMSProp optimizer with a two timescale update rule [<a href="Bibliography.html#XTTUR">311</a>], using a learning rate of
+<!--  l. 325  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn> <mo class="MathClass-bin" stretchy="false">⋅</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>4</mn></mrow></msup></mrow></math> and
+                                                                                
+
+                                                                                
+<!--  l. 325  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>4</mn></mrow></msup></mrow></math> for
+the discriminator and generator respectively. Dropout, with probability 0.5, is used to
+regularize the discriminator. We train for 2000 epochs and select the model with the
+lowest Fréchet physics distance.
+</p><!--  l. 329  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="igapt"><span class="titlemark">10.2.2   </span> <a id="x52-22900010.2.2"></a>iGAPT</h4>
+<figure class="figure">
+<!--  l. 335  --><p class="noindent" id="diagram-of-the-igapt-generator-and-discriminator-networks"><img alt="PIC" src="figures/04-ML4Sim/igapt/gapt.png" style="max-width:100%"/> <a id="x52-229001r8"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 10.8. </span></span><span class="content">Diagram of the iGAPT generator and discriminator networks.    </span></figcaption><!--  tex4ht:label?: x52-229001r8   -->
+</figure>
+<!--  l. 341  --><p class="indent">       The iGAPT model builds on the GAPT architecture, but introduces a novel
+physics-informed attention mechanism that allows for linear-time complexity in the number
+of particles per jet. As illustrated in Figure <a href="#diagram-of-the-igapt-generator-and-discriminator-networks">10.8<!--  tex4ht:ref: fig:04_igapt_arch   --></a>, it is a GAN with the generator and
+discriminator networks composed of “induced particle attention blocks” (IPABs). On
+top of maintaining permutation invariance and operating on point-cloud representations,
+as in MPGAN and GAPT, the key inductive bias we experiment with in iGAPT is
+maintaining a global vector through the generation and discrimination processes,
+<!--  l. 343  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>z</mi></mstyle></math>,
+which implicitly represents global jet features. IPABs and different ways of incorporating
+<!--  l. 344  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>z</mi></mstyle></math> into
+the attention process are described below.
+</p><!--  l. 346  --><p class="indent">       The generation process starts with sampling random Gaussian noise and a particle
+multiplicity <!--  l. 346  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math>
+from the true distribution, which is transformed via a learned
+linear embedding layer. The noise has two components: a set of
+<!--  l. 347  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>N</mi></mrow><mrow><mstyle mathvariant="normal"><mi>max</mi></mstyle></mrow></msub></math> vectors
+representing initial particle features, and a single vector representing initial jet features.
+<!--  l. 348  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>N</mi></mrow><mrow><mstyle mathvariant="normal"><mi>max</mi></mstyle></mrow></msub></math> is the
+maximum number of particles per jet we want to simulate, and the number of initial particle
+and jet features is a hyperparameter we tune. The jet noise is added to the embedded
+<!--  l. 349  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math> to
+                                                                                
+
+                                                                                
+produce <!--  l. 349  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>z</mi></mstyle></math>,
+which is then transformed along with the particle noise via multiple IPABs to output a
+generated jet.
+</p><!--  l. 351  --><p class="indent">       The discrimination process starts with a generated or real jet, and the sampled or true jet
+multiplicity <!--  l. 351  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math>.
+This is again transformed via a learned embedding layer to produce the
+<!--  l. 353  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>z</mi></mstyle></math>
+conditioning vector for the discriminator, which along with the input jet are
+processed through IPABs producing an intermediate jet representation. The
+constituents of this jet are aggregated in a permutation-invariant manner using
+a pooling by multihead attention (PMA) layer, as introduced in [<a href="Bibliography.html#Xlee2019set">320</a>], the
+output of which is finally fed into a linear layer to classify the jet as real or
+fake.
+</p><!--  l. 356  --><p class="indent">       Attention blocks require fixed multiplicity; however, jets naturally have a
+variable number of particle constituents. To handle this, we zero-pad all jets to
+<!--  l. 357  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>N</mi></mrow><mrow><mstyle mathvariant="normal"><mi>max</mi></mstyle></mrow></msub></math>
+particles and use masked attention in every block to ignore these.
+</p>
+<h5 class="subsubsectionHead" id="attention-blocks"><a id="x52-230000"></a>Attention Blocks</h5>
+<a id="x52-230000doc"></a>
+<!--  l. 363  --><p class="noindent">The SAB blocks used by GAPT offer the benefit of global, fully connected
+interactions between particles; however, this also results in quadratic scaling with
+the particle multiplicity, which is undesirable. To counter this, Ref. [<a href="Bibliography.html#Xlee2019set">320</a>] also
+proposed “induced” SABs (ISABs), where the input set is first attended to by
+<!--  l. 364  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi></math>
+learned inducing vectors via a MAB, outputting an intermediate, compressed
+representation. This representation is then attended to by the original set to produce
+the new output. This retains the global interactions between particles while achieving
+<!--  l. 366  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="italic">NM</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+scaling—linear in the particle multiplicity. ISABs have been used in generative
+adversarial set transformers (GAST) [<a href="Bibliography.html#Xstelzner2020generative">319</a>], yielding high quality results on
+computer vision datasets. GAST incorporates similar global set features
+<!--  l. 368  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>z</mi></mstyle></math> by
+concatenating them to each particle before every ISAB operation.
+</p>
+<figure class="figure">
+<!--  l. 373  --><p class="noindent" id="illustration-of-an-induced-particle-attention-block-ipab"><img alt="PIC" src="figures/04-ML4Sim/igapt/IPAB.png" style="max-width:70%"/> <a id="x52-230001r9"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 10.9. </span></span><span class="content">Illustration of an induced particle attention block (IPAB).        </span></figcaption><!--  tex4ht:label?: x52-230001r9   -->
+</figure>
+<!--  l. 378  --><p class="indent">       In iGAPT, we experiment with an alternative version of
+conditioning, which we call “induced particle attention”. Here,
+<!--  l. 379  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>z</mi></mstyle></math> is
+directly used as the inducing vector in an ISAB, and is continuously updated through
+the intermediate, induced attention outputs. Explicitly, as illustrated in Figure <a href="#illustration-of-an-induced-particle-attention-block-ipab">10.9<!--  tex4ht:ref: fig:04_igapt_ipab   --></a>, the
+<!--  l. 380  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>th IPAB receives as
+input the jet <!--  l. 380  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>i</mi></mrow></msup></math> and global
+features <!--  l. 380  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mstyle mathvariant="bold"><mi>z</mi></mstyle></mrow><mrow><mi>i</mi></mrow></msup></math> from the previous
+block, after which <!--  l. 380  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>i</mi></mrow></msup></math> is
+first attended to by <!--  l. 380  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mstyle mathvariant="bold"><mi>z</mi></mstyle></mrow><mrow><mi>i</mi></mrow></msup></math> to
+output updated features <!--  l. 380  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mstyle mathvariant="bold"><mi>z</mi></mstyle></mrow><mrow><mi>i</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn></mrow></msup></math>,
+and then conversely <!--  l. 380  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mstyle mathvariant="bold"><mi>z</mi></mstyle></mrow><mrow><mi>i</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn></mrow></msup></math>
+is attended to by <!--  l. 380  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>i</mi></mrow></msup></math> to
+output the updated jet <!--  l. 380  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>i</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn></mrow></msup></math>.
+This is interpreted as a way to update and learn the global jet features, such as mass
+and <!--  l. 381  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math>,
+along with the individual particle features, and allow both to interact
+in each attention layer. An additional and significant advantage is that
+this induced attention operation involves only one inducing vector —
+<!--  l. 382  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>z</mi></mstyle></math>, hence
+<!--  l. 382  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>M</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math> and we
+achieve <!--  l. 382  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mi>N</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+                                                                                
+
+                                                                                
+computational complexity.
+</p>
+<h5 class="subsubsectionHead" id="training-and-hyperparameters"><a id="x52-231000"></a>Training and Hyperparameters</h5>
+<!--  l. 388  --><p class="noindent">Along with GAPT, we test both the GAST and iGAPT models on the <span class="small-caps">JetNet</span> dataset,
+to compare the performance of ISABs and IPABs. The iGAPT and GAST models were
+trained for a maximum of 6000 epochs on a single NVIDIA RTX1080 GPU using the
+RMSProp optimizer. The training time and batch size for 30- and 150-particle gluon jets
+is shown in Table <a href="#timing-measurements-for-mpgan-and-igapt-measured-on-an-nvidia-gpu">10.3<!--  tex4ht:ref: tab:04_igapt_times_gluon   --></a>. We use a two-time update rule [<a href="Bibliography.html#XTTUR">311</a>], with learning rates of
+<!--  l. 391  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.5</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>4</mn></mrow></msup></mrow></math> and
+<!--  l. 391  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.5</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>4</mn></mrow></msup></mrow></math> for
+the generator and discriminator, respectively. The discriminator is regularized with
+dropout with a probability of 0.5 and layer normalization. We use a LeakyReLU
+activation after every linear layer, except the final generator (tanh) and discriminator
+(sigmoid) outputs. After hyperparameter tuning, we settle on on 3 and 6 ISAB layers for
+the generator and discriminator respectively, and 4 and 8 IPAB layers for the iGAPT
+model. We use 16 and 128 initial particle and jet features, respectively, in iGAPT.
+GAST uses 20 inducing vectors for its ISABs.
+                                                                                
+
+                                                                                
+</p><!--  l. 399  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="experiments"><span class="titlemark">10.2.3   </span> <a id="x52-23200010.2.3"></a>Experiments</h4>
+<!--  l. 401  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="results1"><a id="x52-233000"></a>Results</h5>
+<!--  l. 403  --><p class="noindent">We test and compare the GAPT, GAST, iGAPT, and MPGAN models on 30-particle
+gluon, light quark, and top quark jets, and on 150-particle gluon jets. Out of all our
+trainings, we select the GAPT, GAST, and iGAPT models with the lowest Fréchet
+physics distance score, as will be introduced in Section <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">11<!--  tex4ht:ref: sec:04_evaluating   --></a>, due to its high
+sensitivity to common types of mismodeling. Comparisons of real and iGAPT-
+and MPGAN-generated feature distributions are shown in Figure <a href="#lowlevel-particle-feature-distributions-far-left-and-center-left-and-highlevel-jet-feature-distributions-center-right-and-far-right">10.10<!--  tex4ht:ref: fig:04_igapt_feature_distributions_30   --></a> and
+Appendix <span class="ec-lmbx-12">??</span> for 30 and 150 particles, respectively, demonstrating high fidelity
+results from both models. We defer a detailed evaluation of the performance to
+Section <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">11<!--  tex4ht:ref: sec:04_evaluating   --></a>.
+</p>
+<figure class="figure">
+<!--  l. 410  --><p class="noindent" id="lowlevel-particle-feature-distributions-far-left-and-center-left-and-highlevel-jet-feature-distributions-center-right-and-far-right"> <img alt="PIC" src="figures/04-ML4Sim/igapt/feature_distributions_30-.png" style="max-width:100%"/> <a id="x52-233001r10"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 10.10. </span></span><span class="content">Low-level particle feature distributions (far left and center left)
+and high-level jet feature distributions (center right and far right) for the real
+data (red), MPGAN-generated data (blue), and iGAPT-generated data (green),
+for 30-particle gluon (top row), light quark (middle), and top quark jets (bottom).
+A                                                                                                sample
+<!--  l. 413  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>d</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>4</mn></mrow></math>
+energy flow polynomial [<a href="Bibliography.html#XKomiske_2017aww">309</a>] is plotted in the rightmost column.                </span></figcaption><!--  tex4ht:label?: x52-233001r10   -->
+</figure>
+<h5 class="subsubsectionHead" id="timing"><a id="x52-234000"></a>Timing</h5>
+<!--  l. 419  --><p class="noindent">A key benefit of iGAPT is its improved time complexity over MPGAN. This is
+demonstrated in Table <a href="#timing-measurements-for-mpgan-and-igapt-measured-on-an-nvidia-gpu">10.3<!--  tex4ht:ref: tab:04_igapt_times_gluon   --></a>, which shows the training and generation times for each
+model for 30 particle jets using the largest batch size possible on an NVIDIA 1080 GPU,
+with iGAPT outperforming MPGAN by a factor of 3.5. MPGAN is computationally
+challenging to extend to 150 particles, hence timing information is not provided; in
+contrast, iGAPT’s training and generation times scale well with the number of particles.
+Finally, we note that the “true” generation time per jet is approximately 50 ms
+(see Section <a href="MessagepassingGANs.html#x51-222000doc">10.1.4.<!--  tex4ht:ref: sec:04_mpgan_results   --></a>), thus iGAPT represents more than a factor of 100 speed
+up.
+</p>
+<div class="table">
+<!--  l. 425  --><p class="indent"> </p><figure class="float" id="x52-234001r3"><span id="timing-measurements-for-mpgan-and-igapt-measured-on-an-nvidia-gpu"></span>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Table 10.3. </span></span><span class="content">Timing measurements for MPGAN and iGAPT, measured on an
+NVIDIA 1080 GPU.                                                            </span></figcaption><!--  tex4ht:label?: x52-234001r3   -->
+<div class="pic-tabular"><img alt="-----------------|--------------------------------------------------------------
+ Jet type         |Model      Training time     Generation  time      Batch size
+                 |
+                 |             (s/epoch )         (μs / jet)
+--------------------------------------------------------------------------------
+                 |
+                 |MPGAN           193                142               512
+ Gluon, n = 30   |
+                 |iGAPT            31                 40              4096
+-----------------|--------------------------------------------------------------
+ Gluon, n = 150  |iGAPT           267                315               512
+-----------------|--------------------------------------------------------------
+                 |  " src="main-83c43ebe46749aeee98078a823cfcfe4.svg"/></div>
+</figure>
+</div>
+<h4 class="subsectionHead" id="summary3"><span class="titlemark">10.2.4   </span> <a id="x52-23500010.2.4"></a>Summary</h4>
+<!--  l. 449  --><p class="noindent">We introduced the attention-based generative adversarial particle transformer
+(GAPT) and induced GAPT (iGAPT) models for fast simulation of particle
+clouds, and demonstrated their performance visually on the <span class="small-caps">JetNet</span> dataset.
+The iGAPT model, in particular with its induced particle attention blocks
+(IPABs), offers a significant improvement in time complexity over MPGAN, with
+promising potential to scale up to the cardinality necessary for (HL-)LHC
+simulations.
+</p><!--  l. 452  --><p class="indent">       As seen from Figure <a href="#lowlevel-particle-feature-distributions-far-left-and-center-left-and-highlevel-jet-feature-distributions-center-right-and-far-right">10.10<!--  tex4ht:ref: fig:04_igapt_feature_distributions_30   --></a>, while visually we can observe roughly that the
+iGAPT and MPGAN models perform similarly and match the real distributions, this is
+not sufficient to draw robust and objective conclusions about the models. In the next
+chapter, we tackle the problem of quantitatively evaluating and comparing such fast
+simulators in HEP.
+</p><!--  l. 455  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="acknowledgements4"><a id="x52-236000"></a>Acknowledgements</h5>
+<!--  l. 457  --><p class="noindent">This chapter is, in part, a reprint of the materials as they appear in the NeurIPS
+ML4PS Workshop, 2020, R. Kansal; J. Duarte; B. Orzari; T. Tomei; M. Pierini; M.
+Touranakou; J.-R. Vlimant; and D. Gunopulos. Graph generative adversarial networks
+for sparse data generation in high energy physics; NeurIPS, 2021, R. Kansal; J. Duarte;
+H. Su; B. Orzari; T. Tomei; M. Pierini; M. Touranakou; J.-R. Vlimant; and D.
+Gunopulos. Particle Cloud Generation with Message Passing Generative Adversarial
+Networks; and the NeurIPS ML4PS Workshop, 2024, A. Li; V. Krishnamohan; R.
+Kansal; J. Duarte; R. Sen; S. Tsan; and Z. Zhang; Induced generative adversarial
+particle transformers. The dissertation author was the primary investigator and
+(co-)author of these papers.
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="MessagepassingGANs.html">⭠</a> <a href="Validatingandcomparingfastsimulations.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

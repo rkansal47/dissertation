@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Experiments on gaussian-distributed data</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="chapterToc">9 <a href="IntroductionandtheJetNetDataset.html#introduction-and-the-jetnet-dataset">Introduction and the JetNet Dataset</a></span>
+<span class="chapterToc">10 <a href="Generativemodelsforfastparticlecloudsimulations.html#generative-models-for-fast-particlecloud-simulations">Generative models for fast particle-cloud simulations</a></span>
+<span class="chapterToc">11 <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">Validating and comparing fast simulations</a></span>
+<span class="sectionToc">11.1 <a href="Evaluationmetricsforgenerativemodels.html#evaluation-metrics-for-generative-models">Evaluation metrics for generative models</a></span>
+<span class="sectionToc">11.2 <a href="#experiments-on-gaussiandistributed-data">Experiments on gaussian-distributed data</a></span>
+<span class="sectionToc">11.3 <a href="Experimentsonjetdata.html#experiments-on-jet-data">Experiments on jet data</a></span>
+<span class="sectionToc">11.4 <a href="DemonstrationonparticlecloudGANs.html#demonstration-on-particle-cloud-gans">Demonstration on particle cloud GANs</a></span>
+<span class="sectionToc">11.5 <a href="Summary.html#summary4">Summary</a></span>
+<span class="chapterToc">12 <a href="Conclusionandimpact.html#conclusion-and-impact">Conclusion and impact</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="Evaluationmetricsforgenerativemodels.html">⭠</a> <a href="Experimentsonjetdata.html">⭢</a> </nav>
+<h3 class="sectionHead" id="experiments-on-gaussiandistributed-data"><span class="titlemark">11.2   </span> <a id="x55-24600011.2"></a>Experiments on gaussian-distributed data</h3>
+<!--  l. 170  --><p class="noindent">As a first test and filtering of the many metrics discussed, we evaluate each metric’s
+performance on simple 2D (mixture of) Gaussian-distributed datasets. Below, we
+describe the specific metrics tested, the distributions we evaluate, and experimental
+                                                                                
+
+                                                                                
+results.
+</p><!--  l. 174  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="metrics"><a id="x55-247000"></a>Metrics</h5>
+<a id="x55-247000doc"></a>
+<!--  l. 177  --><p class="noindent">We test several metrics discussed in Section <a href="Evaluationmetricsforgenerativemodels.html#evaluation-metrics-for-generative-models">11.1<!--  tex4ht:ref: sec:04_evaluating_metrics   --></a>, with implementation details provided
+below. Values are measured for different numbers of test samples, using the mean of five
+measurements each and their standard deviation as the error, for all metrics but
+<!--  l. 178  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math> and
+MMD. The sample size was increased until the metric was observed to have converged,
+or, as in the case of the Wasserstein distance and diversity and coverage, until it proved
+too computationally expensive. Timing measurements for each metric can be found in
+Appendix <span class="ec-lmbx-12">??</span>.
+</p><!--  l. 184  --><p class="indent">
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">   
+1. 
+</dt><dd class="enumerate-enumitem"><strong>Wasserstein distance</strong> is estimated by solving the linear program described
+in, for example, Ref. [<a href="Bibliography.html#Xbertsimas_linearopt">359</a>], using the Python optimal transport library [<a href="Bibliography.html#Xflamary_pot">360</a>].
+</dd>
+<dt class="enumerate-enumitem">
+                                                                                
+
+                                                                                
+2. 
+</dt><dd class="enumerate-enumitem"><!--  l. 185  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="bold"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math>
+is calculated by measuring FGD for 10 batch sizes, between a minimum
+batch  size  of  20,000  and  varying  maximum  batch  size.  A  linear  fit  is
+performed of the FGD as a function of the reciprocal of the batch size, and
+<!--  l. 186  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math>
+is defined to be the <!--  l. 186  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math>
+intercept—it, thus, corresponds to the infinite batch size limit. The error
+is taken to be the standard error of the intercept. This closely follows the
+recommendation of Ref. [<a href="Bibliography.html#Xchong_unbiasedfid">343</a>], except empirically we find it necessary to
+increase the minimum batch size from 5,000 to 20,000 and to use the average
+of 20 measurements at each batch size in the linear fit, in order to obtain
+<!--  l. 189  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math>
+intervals with <!--  l. 189  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">&gt;</mo></mrow></math>68%
+coverage of the true value.<span class="footnote-mark"><a href="#fn56x12" id="fn56x12-bk"><sup class="textsuperscript">4</sup></a></span><a id="x55-247003f4"></a>
+</dd>
+<dt class="enumerate-enumitem">
+3. 
+</dt><dd class="enumerate-enumitem"><strong>MMD</strong> is calculated using the unbiased quadratic time estimator defined in
+Ref. [<a href="Bibliography.html#Xgretton_mmd">329</a>]. We test 3rd (as in KID) and 4th order polynomial kernels. We
+find MMD measurements to be extremely sensitive to outlier sets of samples,
+hence we use the median of 10 measurements each per sample size as our
+estimates, and half the difference between the 16th and 84th percentile as
+the error. We find empirically that this interval has 74% coverage of the true
+value when testing on the true distribution.
+</dd>
+<dt class="enumerate-enumitem">
+                                                                                
+
+                                                                                
+4. 
+</dt><dd class="enumerate-enumitem"><strong>Precision and recall</strong> [<a href="Bibliography.html#Xkynkaanniemi_pr">347</a>] and
+</dd>
+<dt class="enumerate-enumitem">
+5. 
+</dt><dd class="enumerate-enumitem"><strong>Diversity     and     coverage</strong> [<a href="Bibliography.html#Xnaeem_dc">348</a>]     are     both     calculated     using
+the recommendations of their respective authors, apart from the maximum
+batch size, which we vary.</dd></dl>
+<!--  l. 198  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="distributions"><a id="x55-248000"></a>Distributions</h5>
+<a id="x55-248000doc"></a>
+<figure class="figure">
+<!--  l. 202  --><p class="noindent" id="samples-of-mixtures-of-gaussian-distributions-used-for-testing-evaluation-metrics"> <img alt="PIC" src="figures/04-ML4Sim/evaluating/test_dists-.png" style="max-width:100%"/> <a id="x55-248001r1"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 11.1. </span></span><span class="content">Samples of (mixtures of) Gaussian distributions used for testing
+evaluation metrics.
+</span></figcaption><!--  tex4ht:label?: x55-248001r1   -->
+</figure>
+<!--  l. 210  --><p class="indent">       We use a 2D Gaussian with 0 means and covariance matrix
+<!--  l. 210  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Σ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">(</mo><mrow><mtable><mtr class="smallmatrix">
+<mtd><mn>1.00</mn></mtd>
+<mtd><mn>0.25</mn></mtd>
+</mtr><mtr class="smallmatrix">
+<mtd><mn>0.25</mn></mtd>
+<mtd><mn>1.00</mn></mtd>
+</mtr> </mtable></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow></math>as the
+true distribution. We test the sensitivity of the above metrics to the following
+distortions, shown in Figure <a href="#samples-of-mixtures-of-gaussian-distributions-used-for-testing-evaluation-metrics">11.1<!--  tex4ht:ref: fig:04_evaluating_toydists   --></a>:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+1. 
+</dt><dd class="enumerate-enumitem">a large shift in <!--  l. 218  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math>
+(1 standard deviation <!--  l. 218  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>σ</mi></math>);
+</dd>
+<dt class="enumerate-enumitem">
+2. 
+</dt><dd class="enumerate-enumitem">a small shift in <!--  l. 219  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math>
+(<!--  l. 219  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.1</mn><mspace class="thinspace" width="0.17em"></mspace><mi>σ</mi></mrow></math>);
+</dd>
+<dt class="enumerate-enumitem">
+3. 
+</dt><dd class="enumerate-enumitem">removing the covariance between the parameters—this tests the sensitivity
+of each metric to correlations;
+</dd>
+<dt class="enumerate-enumitem">
+4. 
+</dt><dd class="enumerate-enumitem">multiplying the (co)variances by 10—tests sensitivity to quality;
+</dd>
+<dt class="enumerate-enumitem">
+5. 
+</dt><dd class="enumerate-enumitem">dividing (co)variances by 10—tests sensitivity to diversity; and, finally,
+</dd>
+<dt class="enumerate-enumitem">
+6 &amp; 7. 
+</dt><dd class="enumerate-enumitem">two mixtures of two Gaussian distributions with the same combined means,
+variances, and covariances as the truth—this tests sensitivity to the shape of
+                                                                                
+
+                                                                                
+the distribution.</dd></dl>
+<h5 class="subsubsectionHead" id="results2"><a id="x55-249000"></a>Results</h5>
+<a id="x55-249000doc"></a>
+<figure class="figure">
+<!--  l. 230  --><p class="noindent" id="scores-of-each-metric-on-samples-from-the-true-distribution-for-varying-sample-sizes"> <img alt="PIC" src="figures/04-ML4Sim/evaluating/truth_scores-.png" style="max-width:100%"/> <a id="x55-249001r2"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 11.2. </span></span><span class="content">Scores of each metric on samples from the true distribution for
+varying sample sizes.
+</span></figcaption><!--  tex4ht:label?: x55-249001r2   -->
+</figure>
+<!--  l. 235  --><p class="noindent"><span class="paragraphHead" id="bias"><a id="x55-250000"></a><span class="ec-lmbx-12">Bias</span></span>  
+We first discuss the performance of each metric in distinguishing between
+two sets of samples from the truth distribution in Figure <a href="#scores-of-each-metric-on-samples-from-the-true-distribution-for-varying-sample-sizes">11.2<!--  tex4ht:ref: fig:04_evaluating_toy_truth_scores   --></a>, effectively
+estimating the null distributions of each test statistic. A fourth-order polynomial
+kernel for MMD is shown as it proved most sensitive. We see that indeed
+<!--  l. 239  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math>
+and MMD are effectively unbiased, while the values of others depend on the
+sample size. This is a significant drawback; even if the same number of samples
+is specified for each metric to mitigate the effect of the bias, as discussed in
+Ref. [<a href="Bibliography.html#Xchong_unbiasedfid">343</a>], in general there is no guarantee that the level of bias <i>for a given
+sample size</i> is the same across different distributions. One possible solution is
+to use a sufficiently large number of samples to ensure convergence within a
+certain percentage of the true value. However, from a practical standpoint,
+the Wasserstein distance quickly becomes computationally intractable beyond
+<!--  l. 242  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1000</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+samples, before which, as we see in Figure <a href="#scores-of-each-metric-on-samples-from-the-true-distribution-for-varying-sample-sizes">11.2<!--  tex4ht:ref: fig:04_evaluating_toy_truth_scores   --></a>, it does not converge even
+for a two-dimensional distribution. Similarly, diversity and coverage require
+a large number of samples for convergence, which is impractical given their
+<!--  l. 243  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>n</mi></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+scaling, while precision and recall suffer from the same scaling but converge
+faster.
+                                                                                
+
+                                                                                
+</p>
+<!--  l. 245  --><p class="noindent"><span class="paragraphHead" id="sensitivity"><a id="x55-251000"></a><span class="ec-lmbx-12">Sensitivity</span></span>
+Table <a href="#values-significances-and-errors-of-metrics-as-defined-in-sectionref-secevaluatingtoydata-for-each-mixture-of-gaussian-distributions-for-the-largest-sample-size-tested">11.1<!--  tex4ht:ref: tab:04_evaluating_toy_results   --></a> lists the means and errors of each metric per dataset for
+the largest sample size tested for each. A similar plot to Figure <a href="#scores-of-each-metric-on-samples-from-the-true-distribution-for-varying-sample-sizes">11.2<!--  tex4ht:ref: fig:04_evaluating_toy_truth_scores   --></a> for
+each alternative distribution can be found in Appendix <span class="ec-lmbx-12">??</span>. A significance
+is also calculated for each score by assuming a Gaussian null (truth)
+distribution,<span class="footnote-mark"><a href="#fn57x12" id="fn57x12-bk"><sup class="textsuperscript">5</sup></a></span><a id="x55-251001f5"></a>
+and the most significant scores per alternative distribution are highlighted in bold. We
+can infer several properties of each metric from these measurements.
+                                                                                
+
+                                                                                
+</p><!--  l. 254  --><p class="indent"> </p><figure class="float" id="x55-251003r1"><span id="values-significances-and-errors-of-metrics-as-defined-in-sectionref-secevaluatingtoydata-for-each-mixture-of-gaussian-distributions-for-the-largest-sample-size-tested"></span>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Table 11.1. </span></span><span class="content">Values, significances, and errors of metrics, as defined in Section <a href="#experiments-on-gaussiandistributed-data">11.2<!--  tex4ht:ref: sec:04_evaluating_toydata   --></a>,
+for each (mixture of) Gaussian distribution(s), for the largest sample size tested.
+The most significant scores per distribution are in bold.                         </span></figcaption><!--  tex4ht:label?: x55-251003r1   -->
+<div class="pic-tabular"><img alt="-----------|---------------------------------------------------------------------------------------------------------
+           |                                                       Multiply       Divide       Mixture of    Mixture of
+ Metric     |    Truth      Shift μx by 1σ Shift  μx  by  Zerocovariance   (co)variances    (co)variances   Two Gaussians  Two Gaussians
+           |                           0.1σ
+--------------------------------------------------------------------by-10----------by-10----------1------------2-------
+           |
+ Wasserstein  | 0.016± 0.004    1.14± 0.02    0.043± 0.008    0.077 ±0.006     9.8±0.1      0.97±0.01   0.036± 0.003   0.191± 0.005
+-Significance-------------------284±-6--------7±-1---------16±-1-------2460-±30-------241-±3-------5.2±-0.5--------44±-1-----
+         3 |
+ FGD∞ ×10  |  0.27± 0.08      1002 ±4      11.5± 0.5     28.4± 0.5      9400 ±20       941 ±2        0.4± 0.1      0.21± 0.07
+ Significance  |               11960 ±40      134± 6       336 ±6      112300± 200    11230± 20      1.3± 0.4         0
+-----------|---------------------------------------------------------------------------------------------------------
+ MMD       |  0.01± 0.02      16.4±0.9     0.07± 0.04     0.40 ±0.08      19k± 1k      4.3±0.1      0.06± 0.02     0.35± 0.03
+ Significance  |                790±40        3± 2         19± 4      920k± 70k      204 ±6        2.3± 0.8        16± 1
+-----------|---------------------------------------------------------------------------------------------------------
+ Precision    | 0.972± 0.005    0.91± 0.01    0.976± 0.004    0.969 ±0.006    0.34±0.01      1.0±0.0     0.975± 0.003    0.998± 0.001
+ Significance  |                12.2±0.1         0        0.440 ±0.003      119 ±4          0            0            0
+-----------|---------------------------------------------------------------------------------------------------------
+ Recall     | 0.997± 0.001   0.992± 0.003   0.997± 0.001    0.998 ±0.001    0.998±0.001     0.58±0.02    0.996± 0.001    0.997± 0.001
+ Significance  |               5.38± 0.02    0.227± 0.000        0            0         420± 10     0.762± 0.001        0
+-----------|---------------------------------------------------------------------------------------------------------
+ Diversity    | 0.979± 0.005   0.969± 0.007   0.980± 0.005    0.977 ±0.006    0.486±0.007     0.98±0.01    0.981± 0.007     0.98± 0.01
+           |
+-Significance--|---------------2.11±-0.02---------0--------0.335-±0.002------109-±2----------0------------0--------0.654±-0.007--
+ Coverage   | 0.946± 0.004   0.791± 0.008   0.944± 0.002    0.939 ±0.002    0.580±0.003    0.367±0.004    0.942± 0.003    0.717± 0.003
+           |
+-Significance--|----------------43.8±0.4----0.493±-0.001----2.047-±0.004----103.6-±0.6-------164-±2------1.094±-0.004-----64.9-±0.3---
+           |  " src="main-c47ae01b6652ff86c9fc4b966f9e160a.svg"/></div>
+</figure>
+<!--  l. 275  --><p class="indent">       Focusing first on the holistic metrics (Wasserstein,
+<!--  l. 275  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math>, and MMD), we find
+that each converges to <!--  l. 275  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-rel" stretchy="false">≈</mo><mn>0</mn></mrow></math>
+on the truth distribution, indicating their estimators are consistent. We
+can evaluate the sensitivity to each alternative distribution by considering
+the difference in scores versus the truth scores. With the notable exception of
+<!--  l. 277  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math> on
+the mixtures of two Gaussian distributions, we observe that all three metrics
+find the alternatives discrepant from the truth score with a significance of
+<!--  l. 277  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">&gt;</mo></mrow></math>2 (equivalent
+to a <!--  l. 277  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value
+of <!--  l. 277  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">&lt;</mo></mrow></math>0.05
+of the test statistic on the alternative distributions).
+</p><!--  l. 279  --><p class="indent">       As expected, despite the clear difference in the shapes of the mixtures compared to the
+truth, since <!--  l. 279  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math>
+has access to up to only the second-order moments of the distributions, it is not
+sensitive to such shape distortions. We also note that a fourth-order polynomial kernel,
+as opposed to the third-order kernel proposed for KID, is required for MMD to be
+sensitive to the mixtures of Gaussian distributions, as shown in Appendix <span class="ec-lmbx-12">??</span>.
+<!--  l. 281  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math> is,
+however, generally the most sensitive to other alternative distributions.
+                                                                                
+
+                                                                                
+</p><!--  l. 283  --><p class="indent">       Finally, we note that precision and recall are clearly sensitive to the two
+distributions designed to reduce quality and diversity respectively, while not
+sensitive to others. This indicates that they are valuable for diagnosing these
+individual failure modes but not for a rigorous evaluation or comparison. Diversity
+and coverage are also sensitive to these distributions, but their relationship
+to quality and diversity is less clear. For example, the coverage is lower with
+the covariances multiplied by 10, when, in fact, the diversity should remain
+unchanged. We, therefore, conclude that precision and recall are the more
+meaningful metrics to disentangle quality and diversity, and use those going
+forward.
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="Evaluationmetricsforgenerativemodels.html">⭠</a> <a href="Experimentsonjetdata.html">⭢</a> </nav> <div class="footnotes"><a id="x55-247004x4"></a>
+<!--  l. 189  --><p class="noindent"><span class="footnote-mark"><a href="#fn56x12-bk" id="fn56x12"><sup class="textsuperscript">4</sup></a></span><span class="ec-lmr-10">The tests of coverage are performed on the jet distributions described in Section </span><a href="Experimentsonjetdata.html#experiments-on-jet-data"><span class="ec-lmr-10">11.3</span><!--  tex4ht:ref: sec:04_evaluating_jetdata   --></a><span class="ec-lmr-10">, with
+the true FGD estimated as the FGD between batch sizes of 150,000, similar to Ref. [</span><a href="Bibliography.html#Xchong_unbiasedfid"><span class="ec-lmr-10">343</span></a><span class="ec-lmr-10">].</span></p><a id="x55-251002x"></a>
+<!--  l. 250  --><p class="indent"> <span class="footnote-mark"><a href="#fn57x12-bk" id="fn57x12"><sup class="textsuperscript">5</sup></a></span><span class="ec-lmr-10">We note that this is not necessarily the case, particularly for the Wasserstein distance,
+which has a biased estimator. However, this is not a significant limitation, because, as can be seen in
+Table </span><a href="#values-significances-and-errors-of-metrics-as-defined-in-sectionref-secevaluatingtoydata-for-each-mixture-of-gaussian-distributions-for-the-largest-sample-size-tested"><span class="ec-lmr-10">11.1</span><!--  tex4ht:ref: tab:04_evaluating_toy_results   --></a><span class="ec-lmr-10">, there is rarely a significant overlap between the null and alternative distributions which
+would require an understanding of the shape of the former.</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>
