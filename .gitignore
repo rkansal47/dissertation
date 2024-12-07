@@ -1,8 +1,7 @@
 main*
 !main.tex
-permission/*/*
-!permission/signed
-!permission/signed/*
-!permission/*/*.tex
-!permission/*/*.py
 .DS_Store
+build
+*.html
+out
+*.pdf

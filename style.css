@@ -142,23 +142,24 @@ main.main-content, div.maketitle{
   background-color:white;
 }
 
-nav.TOC,nav.TOC a, nav.TOC a:visited{
+nav.TOC, nav.TOC a, nav.TOC a:visited{
   background-color:#f8f9fa;
   color:#03071e;
   transition: 0.3s;
 }
 
-nav.toc span{
+nav.TOC span{
   transition: 0.3s;
 }
 
+/* nav.TOC span:hover:not(.mainToc), nav.TOC span:hover:not(.mainToc) *{ */
 nav.TOC span:hover, nav.TOC span:hover *{
   /* color:aqua; */
   background-color:#e9ecef;
   transition: 0.3s;
 }
 
-nav.TOC.mainToc a:hover{
+nav.TOC.mainToc img:hover{
   background-color:#f8f9fa;
   transition: 0.3s;
 }
@@ -185,7 +186,7 @@ nav.TOC.mainToc a:hover{
   }
 
   /* Do not invert media (revert the invert). */
-  img:not(.header-icon), video, iframe {
+  img:not(.header-icon):not(.mainTocLogo), video, iframe {
     filter: invert(100%) hue-rotate(180deg);
   }
 

@@ -497,8 +497,28 @@ command!}{Uh oh}}
 		\fi\fi
 		\renewcommand\listofalgorithms{\listofalgorithm}%
 	\fi
-	\pretocmd\thebibliography{%
-		\unless\ifdefined\HCode
+	\ifdefined\HCode
+		% Remove the automatic chapter heading from the bibliography
+		\makeatletter
+		\renewenvironment{thebibliography}[1]%
+		{%
+		% We do NOT call \chapter*{\bibname} here, removing the default heading
+		\list{\@biblabel{\@arabic\c@enumiv}}{%
+			\settowidth\labelwidth{\@biblabel{999}}%
+			\leftmargin\labelwidth
+			\advance\leftmargin\labelsep
+			\@openbib@code
+			\usecounter{enumiv}%
+			\let\p@enumiv\@empty
+			\renewcommand\theenumiv{\@arabic\c@enumiv}%
+		}%
+		\sloppy\clubpenalty4000\widowpenalty4000%
+		\sfcode`\.=\@m%
+		}%
+		{\endlist}
+		\makeatother
+	\else
+		\pretocmd\thebibliography{%
 			\clearpage
 			\setsinglespacing
 			\ifdefined\bibsep
@@ -506,8 +526,8 @@ command!}{Uh oh}}
 			\fi
 			\csuse{phantomsection}%
 			\addcontentsline{toc}{chapter}{\bibname}%
-		\fi
-	}{}{\ucsd@patchfailed}%
+		}{}{\ucsd@patchfailed}%
+	\fi
 }
 
 % Set page style for the front matter

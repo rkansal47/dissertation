@@ -41,7 +41,7 @@ def edit_header(soup: BeautifulSoup):
 
     header_link = soup.new_tag(
         "a",
-        href="https://github.com/rkansal47/dissertatio",
+        href="https://github.com/rkansal47/dissertation",
         **{
             "class": "header-link",
             "target": "_blank",
@@ -100,9 +100,9 @@ def edit_toc(soup: BeautifulSoup):
     toc_nav = soup.find("nav", {"class": "TOC"})
     if toc_nav:
         main_toc_span = soup.new_tag("span", **{"class": "mainToc"})
-        main_toc_link = soup.new_tag("a", href="index.html")
+        main_toc_link = soup.new_tag("a", href="index.html",
         main_toc_img = soup.new_tag(
-            "img", src="assets/logo.png", alt="Symmetries, QFT, & The Standard Model", width="100%"
+            "img", src="assets/logo.png", alt="Symmetries, QFT, & The Standard Model", width="100%", **{"class": "mainTocLogo"}
         )
         main_toc_link.append(main_toc_img)
         main_toc_span.append(main_toc_link)
