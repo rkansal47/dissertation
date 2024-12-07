@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Asymptotic formulae</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="chapterToc">7 <a href="MachineLearningforHEP.html#machine-learning-for-hep">Machine Learning for HEP</a></span>
+<span class="chapterToc">8 <a href="DataAnalysisandStatisticalInterpretation.html#data-analysis-and-statistical-interpretation">Data Analysis and Statistical Interpretation</a></span>
+<span class="sectionToc">8.1 <a href="IntroductionorWhatisananalysis.html#introduction-or-what-is-an-analysis">Introduction or: What is an analysis?</a></span>
+<span class="sectionToc">8.2 <a href="FrequentiststatisticsattheLHC.html#frequentist-statistics-at-the-lhc">Frequentist statistics at the LHC</a></span>
+<span class="sectionToc">8.3 <a href="#asymptotic-formulae">Asymptotic formulae</a></span>
+<span class="subsectionToc">8.3.1 <a href="#asymptotic-form-of-the-mle">Asymptotic form of the MLE</a></span>
+<span class="subsectionToc">8.3.2 <a href="#asymptotic-form-of-the-profile-likelihood-ratio">Asymptotic form of the profile likelihood ratio</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="FrequentiststatisticsattheLHC.html">⭠</a> <a href="AcceleratingSimulationswithAI.html">⭢</a> </nav>
+<h3 class="sectionHead" id="asymptotic-formulae"><span class="titlemark">8.3   </span> <a id="x45-1870008.3"></a>Asymptotic formulae</h3>
+<!--  l. 589  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="asymptotic-form-of-the-mle"><span class="titlemark">8.3.1   </span> <a id="x45-1880008.3.1"></a>Asymptotic form of the MLE</h4>
+<!--  l. 592  --><p class="noindent">So far, we have discussed how to extract meaningful statistical results from HEP
+experiments by making extensive use of pseudodata / toy experiments to estimate the
+sampling distributions of profile-likelihood-ratio-based test statistics. While this worked
+nicely for our simple counting experiment, generating a sufficiently large number of toys
+can quickly become computationally intractable for the more complex searches
+(and statistical combinations of searches) that are increasingly prevalent at the
+                                                                                
+
+                                                                                
+LHC, containing at times up to thousands of bins and nuisance parameters.
+This and the following section discuss a way to approximate these sampling
+distributions without the need for pseudodata. This was introduced in the famous
+“CCGV” paper [<a href="Bibliography.html#XCowan_2010js">291</a>] in 2011 and has since become the de-facto procedure at the
+LHC.
+</p><!--  l. 597  --><p class="indent">       As hinted at previously, such as in Figures <a href="FrequentiststatisticsattheLHC.html#asymptotic-form-of-p-tss">8.6<!--  tex4ht:ref: fig:03_p_tilde_t_asym   --></a> and <a href="FrequentiststatisticsattheLHC.html#comparing-p-tss-and-p-qss-p-qss-asymptotically-follows-a-half-distribution-green">8.12<!--  tex4ht:ref: fig:03_p_tilde_q   --></a>, the distributions
+<!--  l. 597  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and
+<!--  l. 597  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> (where, in
+general, <!--  l. 597  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-rel" stretchy="false">≠</mo><mi>μ</mi></mrow></math>)
+have similar forms regardless of the nuisance parameters (or sometimes even the POIs).
+This is not a coincidence: we will now derive their “asymptotic” — i.e., in the large
+sample limit — forms, starting first with the asymptotic form of the maximum
+likelihood estimator (MLE).
+</p><!--  l. 600  --><p class="indent">       It is important to remember that the MLE
+<!--  l. 600  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></math> of
+<!--  l. 600  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math> is a random
+variable with its own probability distribution. We can estimate it as always by sampling
+toys, shown in Figure <a href="#distribution-of-the-mle-of-for-different-s-and-b-produced-using-toy-experiments-each-note-the-xaxis-range-is-becoming-narrower-from-the-leftmost-to-the-rightmost-plot">8.20<!--  tex4ht:ref: fig:03_p_mle   --></a> for our counting experiment (Eq. <a href="FrequentiststatisticsattheLHC.html#x44-171003r3">8.2.3<!--  tex4ht:ref: eq:03_pois3   --></a>). One can observe
+that <!--  l. 602  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+follows a Gaussian distribution as the number of events
+<!--  l. 602  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math>
+increases, and indeed this becomes clear if we try to fit one to the histograms
+                                                                                
+
+                                                                                
+(Figure <a href="#gaussian-fits-to-distributions-of-for-different-s-and-b-from-figureref-figpmle">8.21<!--  tex4ht:ref: fig:03_p_mle_fit   --></a>). We will now show this to be true generally, deriving the analytic
+distribution in Sections <a href="#x45-189000doc">8.3.1.<!--  tex4ht:ref: sec:03_pmle_bg   --></a>—<a href="#x45-191000doc">8.3.1.<!--  tex4ht:ref: sec:03_pmle_derivation   --></a>, and discussing the results and the important
+concept of the <i>Asimov</i> dataset for numerical estimation in Sections <a href="#x45-192000doc">8.3.1.<!--  tex4ht:ref: sec:03_pmle_result   --></a> and <a href="#x45-193000doc">8.3.1.<!--  tex4ht:ref: sec:03_pmle_asimov   --></a>,
+respectively.
+</p>
+<figure class="figure">
+<!--  l. 607  --><p class="noindent" id="distribution-of-the-mle-of-for-different-s-and-b-produced-using-toy-experiments-each-note-the-xaxis-range-is-becoming-narrower-from-the-leftmost-to-the-rightmost-plot"><img alt="PIC" src="figures/03-Stats/05-asymptotic-mle/1.png" style="max-width:100%"/> <a id="x45-188001r20"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.20.           </span></span><span class="content">Distribution           of           the           MLE           of
+<!--  l. 608  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>
+for                                                                                             different
+<!--  l. 608  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>
+and
+<!--  l. 608  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>
+produced using 30,000 toy experiments each. (Note the x-axis range is becoming
+narrower from the left-most to the right-most plot.)                             </span></figcaption><!--  tex4ht:label?: x45-188001r20   -->
+</figure>
+<figure class="figure">
+<!--  l. 614  --><p class="noindent" id="gaussian-fits-to-distributions-of-for-different-s-and-b-from-figureref-figpmle"><img alt="PIC" src="figures/03-Stats/05-asymptotic-mle/2.png" style="max-width:100%"/> <a id="x45-188002r21"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.21.          </span></span><span class="content">Gaussian          fits          to          distributions          of
+<!--  l. 615  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></math>
+for                                                                                             different
+<!--  l. 615  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>
+and
+<!--  l. 615  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>
+from Figure <a href="#distribution-of-the-mle-of-for-different-s-and-b-produced-using-toy-experiments-each-note-the-xaxis-range-is-becoming-narrower-from-the-leftmost-to-the-rightmost-plot">8.20<!--  tex4ht:ref: fig:03_p_mle   --></a>.                                                              </span></figcaption><!--  tex4ht:label?: x45-188002r21   -->
+</figure>
+<h5 class="subsubsectionHead" id="statistics-background"><a id="x45-189000"></a>Statistics background</h5>
+<a id="x45-189000doc"></a>
+<!--  l. 623  --><p class="noindent">We first provide a lightning review of some necessary statistics concepts and
+results.
+</p>
+<div class="newtheorem">
+<!--  l. 625  --><p class="noindent"><span class="head">
+<a id="x45-189001r1"></a>
+<span class="ec-lmbx-12">Definition 8.3.1.</span>
+</span> Let the negative log-likelihood (NLL)
+<!--  l. 627  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">≡</mo><mo class="MathClass-bin" stretchy="false">−</mo><mi>l</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>. The derivative of
+the NLL <!--  l. 628  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>l</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is called the
+<strong>score</strong> <!--  l. 628  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>. It has a number
+of useful properties: <span class="footnote-mark"><a href="#fn41x9" id="fn41x9-bk"><sup class="textsuperscript">5</sup></a></span><a id="x45-189002f5"></a>
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+1. 
+</dt><dd class="enumerate-enumitem">Its expectation value at <!--  l. 632  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></math>
+<!--  l. 632  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>𝔼</mi></mrow><mrow><mi>μ</mi><mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></msub><mo class="MathClass-open" stretchy="false">[</mo><mi>s</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>.
+</dd>
+<dt class="enumerate-enumitem">
+2. 
+</dt><dd class="enumerate-enumitem">Its variance <!--  l. 633  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>Var</mi></mstyle><mo class="MathClass-open" stretchy="false">[</mo><mi>s</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><msup><mrow><mi>l</mi></mrow><mrow><mi>″</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>.</dd></dl>
+<!--  l. 635  --><p class="noindent">Note that the expectation value here means an average over observations which are distributed according to a
+particular <!--  l. 635  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>, which here
+we’re calling the “true” <!--  l. 635  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>:
+<!--  l. 635  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></math>.
+</p>
+</div>
+<!--  l. 636  --><p class="indent">
+</p>
+<div class="newtheorem">
+<!--  l. 638  --><p class="noindent"><span class="head">
+<a id="x45-189006r2"></a>
+<span class="ec-lmbx-12">Definition 8.3.2.</span>
+</span> <!--  l. 640  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><msup><mrow><mi>l</mi></mrow><mrow><mi>″</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">≡</mo><mstyle mathvariant="script"><mi>I</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+is called the <strong>Fisher information</strong>. It quantifies the information our data contains about
+<!--  l. 641  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math> and
+importantly, as we’ll see, it (approximately) represents the inverse of the variance of
+                                                                                
+
+                                                                                
+<!--  l. 641  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></math>. More
+generally, for multiple parameters, </p><table class="equation"><tr><td>
+<!--  l. 643  --><p class="indent">
+</p><!--  l. 643  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-189007r1"></mstyle><!--  endlabel  --><msub><mrow>
+<mstyle mathvariant="script"><mi>I</mi></mstyle>
+</mrow><mrow><mi mathvariant="italic">ij</mi></mrow></msub>
+<mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo> <mfrac><mrow><msup><mrow><mi>∂</mi></mrow><mrow><mn>2</mn></mrow></msup><mi>l</mi></mrow>
+<mrow><mi>∂</mi><msub><mrow><mi>μ</mi></mrow><mrow>
+<mi>i</mi></mrow></msub><mi>∂</mi><msub><mrow><mi>μ</mi></mrow><mrow><mi>j</mi></mrow></msub></mrow></mfrac><mo class="MathClass-close" stretchy="false">]</mo>
+</mrow></math></td><td class="eq-no">(8.3.1)</td></tr></table>
+<!--  l. 646  --><p class="noindent">is the Fisher information matrix. It is also commonly called the <strong>covariance
+matrix</strong>.
+</p>
+</div>
+<!--  l. 649  --><p class="indent">
+</p>
+<div class="newtheorem">
+<!--  l. 651  --><p class="noindent"><span class="head">
+<a id="x45-189008r1"></a>
+<span class="ec-lmbx-12">Theorem 8.3.1.</span>
+</span>Putting this together, by the central limit theorem [<a href="Bibliography.html#Xenwiki_1257009135">296</a>], this means
+<!--  l. 652  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> follows a normal
+distribution with mean <!--  l. 652  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math>
+and variance <!--  l. 652  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>I</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, up
+to terms of order <!--  l. 652  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<msqrt>
+<mrow>
+<mi>N</mi></mrow></msqrt></mrow></mfrac> <mo class="MathClass-close" stretchy="false">)</mo></mrow></math>:
+</p><table class="equation"><tr><td>
+<!--  l. 653  --><p class="indent">
+</p><!--  l. 653  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-189009r2"></mstyle><!--  endlabel  -->
+<mi>s</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><munderover> <mo class="MathClass-rel" stretchy="false">→</mo><mrow></mrow><mrow><msqrt><mrow><mi>N</mi></mrow></msqrt> <mo class="MathClass-rel" stretchy="false">&gt;</mo><mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>1</mn></mrow></munderover><mstyle mathvariant="script"><mi>N</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><msqrt><mrow><mstyle mathvariant="script"><mi>I</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi> </mrow> </msup> <mo class="MathClass-close" stretchy="false">)</mo></mrow></msqrt><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.3.2)</td></tr></table>
+<!--  l. 656  --><p class="noindent">where <!--  l. 657  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math>
+represents the data sample size.
+</p>
+</div>
+<!--  l. 658  --><p class="indent">
+</p><!--  l. 661  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="the-fisher-information"><a id="x45-190000"></a>The Fisher information</h5>
+<!--  l. 663  --><p class="noindent">For our simple counting experiment, the Fisher information matrix
+<!--  l. 663  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>I</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+can be found by taking second derivatives of the NLL (Eq. <a href="FrequentiststatisticsattheLHC.html#x44-172002r5">8.2.5<!--  tex4ht:ref: eq:03_nll   --></a>). The
+<!--  l. 664  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="script"><mi>I</mi></mstyle></mrow><mrow><mi mathvariant="italic">μμ</mi></mrow></msub></math> term,
+for example, is: </p><table class="equation"><tr><td>
+<!--  l. 665  --><p class="indent">
+</p><!--  l. 665  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-190001r3"></mstyle><!--  endlabel  --><msub><mrow>
+<mstyle mathvariant="script"><mi>I</mi></mstyle>
+</mrow><mrow><mi mathvariant="italic">μμ</mi></mrow></msub>
+<mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><msup><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msup><msup><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msup><mi>l</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>𝔼</mi><mstyle mathsize="2.03em"><mrow><mo fence="true" form="prefix">[</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle><mi>n</mi> <mo class="MathClass-bin" stretchy="false">⋅</mo> <mfrac><mrow><msup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow>
+<mrow><msup><mrow>
+<mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="italic">μs</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup></mrow></mfrac><mstyle mathsize="2.03em"><mrow><mo fence="true" form="prefix">]</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-bin" stretchy="false">⋅</mo> <mfrac><mrow><msup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow>
+<mrow><msup><mrow>
+<mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="italic">μs</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow>
+<mrow><msup><mrow>
+<mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="italic">μs</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(8.3.3)</td></tr></table>
+<!--  l. 668  --><p class="noindent">
+</p><!--  l. 670  --><p class="indent">       In the last step we use the fact that
+<!--  l. 670  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> under
+true <!--  l. 670  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></math>,
+<!--  l. 670  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>b</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></math>, is
+<!--  l. 670  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></math>. For the remainder
+of this section, <!--  l. 671  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>I</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+will always be evaluated at the true values of the
+parameters,<span class="footnote-mark"><a href="#fn42x9" id="fn42x9-bk"><sup class="textsuperscript">6</sup></a></span><a id="x45-190002f6"></a> so this
+can be simplified to <!--  l. 671  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mstyle mathvariant="script"><mi>I</mi></mstyle></mrow><mrow><mi mathvariant="italic">μμ</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow>
+<mrow><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi> </mrow> </msup> <mi>s</mi><mo class="MathClass-bin" stretchy="false">+</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></mfrac></mrow></math>.
+This is plotted in Figure <a href="#the-fisher-information-i-b-for-different-and-s-as-a-function-of-the-expected-background-b">8.22<!--  tex4ht:ref: fig:03_fisher   --></a>, where we can the Fisher information captures the fact that
+as <!--  l. 672  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>
+increases, we lose sensitivity to — or <i>information</i> about —
+<!--  l. 672  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>.
+</p>
+<figure class="figure">
+<!--  l. 676  --><p class="noindent" id="the-fisher-information-i-b-for-different-and-s-as-a-function-of-the-expected-background-b"><img alt="PIC" src="figures/03-Stats/05-asymptotic-mle/3.png" style="max-width:70%"/> <a id="x45-190004r22"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.22. </span></span><span class="content">The Fisher information <!--  l. 677  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mstyle mathvariant="script"><mi>I</mi></mstyle></mrow><mrow><mi mathvariant="italic">μμ</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+for different <!--  l. 677  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>
+and <!--  l. 677  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>,
+as a function of the expected background <!--  l. 677  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>.</span></figcaption><!--  tex4ht:label?: x45-190004r22   -->
+</figure>
+<!--  l. 681  --><p class="indent">       For completeness (and since we’ll need it below), the full Fisher information
+matrix for our problem, repeating the steps in Eq. <a href="#x45-190001r3">8.3.3<!--  tex4ht:ref: eq:03_fisher   --></a>, is: </p><table class="equation"><tr><td>
+<!--  l. 682  --><p class="indent">
+</p><!--  l. 682  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-190005r4"></mstyle><!--  endlabel  --><mstyle mathvariant="script"><mi>I</mi></mstyle>
+<mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">(</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"><msub><mrow> <mstyle mathvariant="script"><mi>I</mi></mstyle></mrow><mrow><mi mathvariant="italic">μμ</mi></mrow></msub> </mtd>
+<mtd class="array-td" columnalign="center"><msub><mrow> <mstyle mathvariant="script"><mi>I</mi></mstyle></mrow><mrow><mi mathvariant="italic">μb</mi></mrow></msub> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="center"><msub><mrow> <mstyle mathvariant="script"><mi>I</mi></mstyle></mrow><mrow><mi mathvariant="italic">bμ</mi></mrow></msub> </mtd><mtd class="array-td" columnalign="center"><msub><mrow> <mstyle mathvariant="script"><mi>I</mi></mstyle></mrow><mrow><mi mathvariant="italic">bb</mi></mrow></msub> </mtd></mtr>
+<!--  *\c@MaxMatrixCols c  --></mtable> </mrow><mo fence="true" form="postfix">)</mo></mrow> <mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">(</mo><mrow><mtable align="axis" class="array" columnlines="none none none none none none none none none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac><mrow><msup><mrow><mi>s</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow>
+<mrow><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi> </mrow> </msup> <mi>s</mi><mo class="MathClass-bin" stretchy="false">+</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></mfrac> </mtd>
+<mtd class="array-td" columnalign="center"> <mfrac>
+<mrow>
+<mi>s</mi></mrow>
+<mrow><msup><mrow>
+<mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mi>s</mi><mo class="MathClass-bin" stretchy="false">+</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></mfrac> </mtd>
+</mtr><mtr class="array-row"><mtd class="array-td" columnalign="center"> <mfrac>
+<mrow>
+<mi>s</mi></mrow>
+<mrow><msup><mrow>
+<mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mi>s</mi><mo class="MathClass-bin" stretchy="false">+</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></mfrac> </mtd><mtd class="array-td" columnalign="center"> <mfrac>
+<mrow>
+<mn>1</mn></mrow>
+<mrow><msup><mrow>
+<mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mi>s</mi><mo class="MathClass-bin" stretchy="false">+</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></mfrac> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow><msup><mrow>
+<mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></mfrac> </mtd>
+</mtr>
+<!--  *\c@MaxMatrixCols c  --></mtable> </mrow><mo fence="true" form="postfix">)</mo></mrow>
+</mrow></math></td><td class="eq-no">(8.3.4)</td></tr></table>
+<!--  l. 689  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="derivation"><a id="x45-191000"></a>Derivation</h5>
+<a id="x45-191000doc"></a>
+<!--  l. 695  --><p class="noindent">We now have enough background to derive the asymptotic form of the
+MLE. We do this for the 1D case by Taylor-expanding the score of
+                                                                                
+
+                                                                                
+<!--  l. 696  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></math>,
+<!--  l. 696  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>l</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> - which we
+know to be <!--  l. 696  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>
+- around <!--  l. 696  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></math>:
+</p><!--  tex4ht:inline  --><!--  l. 701  --><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align" columnalign="left" displaystyle="true">
+<mtr><mtd class="align-odd" columnalign="right"><msup><mrow><mi>l</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>l</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mi>l</mi></mrow><mrow><mi>″</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-191001r5"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.5)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"> <mo class="MathClass-rel" stretchy="false">⇒</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">≃</mo><mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><msup><mrow><mi>l</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow>
+<mrow><msup><mrow><mi>l</mi></mrow><mrow><mi>″</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi>
+</mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></mfrac> <munderover> <mo class="MathClass-rel" stretchy="false">→</mo><mrow></mrow><mrow><msqrt><mrow>
+<mi>N</mi></mrow></msqrt> <mo class="MathClass-rel" stretchy="false">&gt;</mo><mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>1</mn></mrow></munderover> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mstyle mathvariant="script"><mi>I</mi></mstyle>
+<mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></mfrac><mi>N</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><msqrt><mrow>
+<mstyle mathvariant="script"><mi>I</mi></mstyle>
+<mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></msqrt><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>N</mi><mstyle mathsize="2.03em"><mrow><mo fence="true" form="prefix">(</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<msqrt>
+<mrow>
+<mstyle mathvariant="script"><mi>I</mi></mstyle>
+<mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></msqrt></mrow></mfrac><mstyle mathsize="2.03em"><mrow><mo fence="true" form="prefix">)</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-191002r6"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.6)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr></mtable></math>
+<!--  l. 703  --><p class="noindent">where we plugged in the distribution of
+<!--  l. 703  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>l</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> from Eq. <a href="#x45-189009r2">8.3.2<!--  tex4ht:ref: eq:03_score   --></a>, claimed
+<!--  l. 703  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>l</mi></mrow><mrow><mi>″</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> asymptotically equals
+its expectation value <!--  l. 703  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><msup><mrow><mi>l</mi></mrow><mrow><mi>″</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="script"><mi>I</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+by the law of large numbers [<a href="Bibliography.html#Xenwiki_1256071749">297</a>], and are ignoring the
+<!--  l. 703  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+term.<span class="footnote-mark"><a href="#fn43x9" id="fn43x9-bk"><sup class="textsuperscript">7</sup></a></span><a id="x45-191003f7"></a>
+</p><!--  l. 705  --><p class="indent">       For multiple parameters, <!--  l. 705  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="script"><mi>I</mi></mstyle></math>
+                                                                                
+
+                                                                                
+is a matrix so the variance generalized to the matrix inverse: </p><table class="equation"><tr><td>
+<!--  l. 706  --><p class="indent">
+</p><!--  l. 706  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-191005r7"></mstyle><!--  endlabel  -->
+<mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover>
+<mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup> <mo class="MathClass-rel" stretchy="false">≃</mo> <mi>N</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><msqrt><mrow><msubsup><mrow>
+<mstyle mathvariant="script"><mi>I</mi></mstyle>
+</mrow><mrow><mi mathvariant="italic">μμ</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></msqrt><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.3.7)</td></tr></table>
+<!--  l. 709  --><p class="noindent">
+</p><!--  l. 711  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="result"><a id="x45-192000"></a>Result</h5>
+<a id="x45-192000doc"></a>
+<!--  l. 714  --><p class="noindent">Thus, we see that <!--  l. 714  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></math>
+asymptotically follows a normal distribution around the true
+<!--  l. 714  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math> value,
+                                                                                
+
+                                                                                
+<!--  l. 714  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></math>, with a
+variance <!--  l. 714  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo><msubsup><mrow> <mstyle mathvariant="script"><mi>I</mi></mstyle></mrow><mrow>
+<mi mathvariant="italic">μμ</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>,
+up to <!--  l. 714  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><msqrt><mrow>
+<mi>N</mi></mrow></msqrt><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+terms. Intuitively, from the definition of the Fisher information
+<!--  l. 715  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="script"><mi>I</mi></mstyle></math>,
+we can interpret this as saying that the more information we have about
+<!--  l. 715  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>
+from the data, the lower the variance should be on
+<!--  l. 715  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></math>.
+</p><!--  l. 717  --><p class="indent">       Continuing with our counting experiment from Section <a href="FrequentiststatisticsattheLHC.html#x44-171000doc">8.2.1.<!--  tex4ht:ref: sec:03_data_model   --></a>, inverting
+<!--  l. 717  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="script"><mi>I</mi></mstyle></math> from
+Eq. <a href="#x45-190005r4">8.3.4<!--  tex4ht:ref: eq:03_fishermatrix   --></a> gives us </p><table class="equation"><tr><td>
+<!--  l. 718  --><p class="indent">
+</p><!--  l. 718  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-192001r8"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msqrt><mrow><msubsup><mrow>
+<mstyle mathvariant="script"><mi>I</mi></mstyle>
+</mrow><mrow><mi mathvariant="italic">μμ</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></msqrt> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msqrt><mrow><msup><mrow>
+<mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>2</mn><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></msqrt>
+</mrow>
+<mrow>
+<mi>s</mi></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(8.3.8)</td></tr></table>
+<!--  l. 721  --><p class="noindent">
+</p><!--  l. 723  --><p class="indent">       Note that, as we might expect, this scales as
+<!--  l. 723  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">∼</mo><msqrt><mrow>
+<mi>b</mi></mrow></msqrt></mrow></math>,
+which is the uncertainty of our Poisson nuisance parameter
+<!--  l. 723  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>
+— showing mathematically why we want to keep uncertainties on nuisance
+parameters as low as possible. This is compared to the toy-based distributions
+from Section <a href="#asymptotic-form-of-the-mle">8.3.1<!--  tex4ht:ref: sec:03_asymptotic_mle   --></a> in Figure <a href="#asymptotic-dotted-lines-and-toybased-solid-lines-distributions-using-toys-each-of-the-mle-of-for-different-s-b-and-true-signal-strengths-">8.23<!--  tex4ht:ref: fig:03_p_mle_asym   --></a> this time varying the true signal strength
+<!--  l. 724  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></math>
+as well, where we can observe that this matches very well for large
+<!--  l. 724  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi></mrow></math>, while
+for small values there are some discrete differences.
+</p>
+<figure class="figure">
+<!--  l. 728  --><p class="noindent" id="asymptotic-dotted-lines-and-toybased-solid-lines-distributions-using-toys-each-of-the-mle-of-for-different-s-b-and-true-signal-strengths-"><img alt="PIC" src="figures/03-Stats/05-asymptotic-mle/4.png" style="max-width:100%"/> <a id="x45-192002r23"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.23.     </span></span><span class="content">Asymptotic     (dotted     lines)     and     toy-based     (solid
+lines)    distributions,    using    30,000    toys    each,    of    the    MLE    of
+<!--  l. 729  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>
+for different <!--  l. 729  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>,
+<!--  l. 729  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>,
+and true signal strengths <!--  l. 729  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></math>.</span></figcaption><!--  tex4ht:label?: x45-192002r23   -->
+</figure>
+<!--  l. 733  --><p class="indent">       We can also check the total per-bin errors between the asymptotic
+form and the toy-based distributions directly, as shown in Figure <a href="#error-between-the-sampled-toy-distributions-using-toys-each-and-the-asymptotic-distributions-of-the-mle-of-for-different-s-and-b-blue-with-n-fits-in-red">8.24<!--  tex4ht:ref: fig:03_mle_errors   --></a> (for
+<!--  l. 733  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>
+only). Indeed, this confirms that the error scales as
+<!--  l. 734  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">∼</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<msqrt>
+<mrow><mi>s</mi></mrow></msqrt></mrow></mfrac></mrow></math> and
+<!--  l. 734  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">∼</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<msqrt>
+<mrow>
+<mi>b</mi></mrow></msqrt></mrow></mfrac></mrow></math>, as
+claimed above.
+</p>
+<figure class="figure">
+<!--  l. 738  --><p class="noindent" id="error-between-the-sampled-toy-distributions-using-toys-each-and-the-asymptotic-distributions-of-the-mle-of-for-different-s-and-b-blue-with-n-fits-in-red"><img alt="PIC" src="figures/03-Stats/05-asymptotic-mle/5.png" style="max-width:100%"/> <a id="x45-192003r24"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.24. </span></span><span class="content">Error between the sampled toy distributions, using 50,000 toys each,
+and       the       asymptotic       distributions       of       the       MLE       of
+<!--  l. 739  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>
+for                                                                                             different
+<!--  l. 739  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>
+and
+<!--  l. 739  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>
+(blue),                                                                                             with
+<!--  l. 739  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><msqrt><mrow>
+<mi>N</mi></mrow></msqrt></mrow></math>
+fits in red.                                                                      </span></figcaption><!--  tex4ht:label?: x45-192003r24   -->
+</figure>
+<h5 class="subsubsectionHead" id="numerical-estimation-and-the-asimov-dataset"><a id="x45-193000"></a>Numerical estimation and the Asimov dataset</h5>
+<a id="x45-193000doc"></a>
+<!--  l. 747  --><p class="noindent">In this section, because of the simplicity of our data model, we were able to derive the Fisher information
+<!--  l. 747  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="script"><mi>I</mi></mstyle></math> and, hence, the
+asymptotic form of <!--  l. 747  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></math>
+analytically. In general, this is not possible and we typically have to minimize
+<!--  l. 748  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>l</mi></math>, find
+its second derivatives, and solve Eq. <a href="#x45-190001r3">8.3.3<!--  tex4ht:ref: eq:03_fisher   --></a> etc. <i>numerically</i> instead.
+</p><!--  l. 750  --><p class="indent">       However, when calculating the Fisher information, how
+do we deal with the expectation value over the observed data
+(<!--  l. 750  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi></mrow></math> in
+our case)? Naively, this would require averaging over a bunch of generated toy
+<!--  l. 750  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi></mrow></math>
+values again, which defeats the purpose of using the asymptotic form of
+<!--  l. 750  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></math>!
+</p><!--  l. 752  --><p class="indent">       Instead, we can switch the order of operations in
+Eq. <a href="#x45-190001r3">8.3.3<!--  tex4ht:ref: eq:03_fisher   --></a>,<span class="footnote-mark"><a href="#fn44x9" id="fn44x9-bk"><sup class="textsuperscript">8</sup></a></span><a id="x45-193001f8"></a>
+rewriting it as: </p><table class="equation"><tr><td>
+<!--  l. 753  --><p class="indent">
+</p><!--  l. 753  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-193003r9"></mstyle><!--  endlabel  --><msub><mrow>
+<mstyle mathvariant="script"><mi>I</mi></mstyle>
+</mrow><mrow><mi mathvariant="italic">ij</mi></mrow></msub>
+<mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><msup><mrow><mi>∂</mi></mrow><mrow><mi>i</mi></mrow></msup><msup><mrow><mi>∂</mi></mrow><mrow><mi>j</mi></mrow></msup><mi>l</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-punc" stretchy="false">;</mo> <mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><msup><mrow><mi>∂</mi></mrow><mrow><mi>i</mi></mrow></msup><msup><mrow><mi>∂</mi></mrow><mrow><mi>j</mi></mrow></msup><mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>l</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-punc" stretchy="false">;</mo> <mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><msup><mrow><mi>∂</mi></mrow><mrow><mi>i</mi></mrow></msup><msup><mrow><mi>∂</mi></mrow><mrow><mi>j</mi></mrow></msup><mi>l</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-punc" stretchy="false">;</mo> <mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-punc" stretchy="false">,</mo> <mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(8.3.9)</td></tr></table>
+<!--  l. 756  --><p class="noindent">
+</p><!--  l. 758  --><p class="indent">       Importantly, this says we can find
+<!--  l. 758  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="script"><mi>I</mi></mstyle></math> by simply
+evaluating the likelihood for a dataset of observations equal to their expectation values
+under <!--  l. 758  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></math>
+instead of averaging over the distribution of observations and <i>then</i> getting its second
+derivatives.
+</p>
+<div class="newtheorem">
+<!--  l. 760  --><p class="noindent"><span class="head">
+<a id="x45-193004r3"></a>
+<span class="ec-lmbx-12">Definition 8.3.3.</span>
+</span>Such   a   dataset   is   called   the   <strong>Asimov</strong>   dataset,   and
+<!--  l. 761  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-punc" stretchy="false">;</mo> <mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-punc" stretchy="false">,</mo> <mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">≡</mo> <msub><mrow><mi>L</mi></mrow><mrow><mi>A</mi></mrow></msub></mrow></math>
+is referred to as the “Asimov likelihood”.<span class="footnote-mark"><a href="#fn45x9" id="fn45x9-bk"><sup class="textsuperscript">9</sup></a></span><a id="x45-193005f9"></a>
+</p>
+</div>
+<!--  l. 762  --><p class="indent">
+</p><!--  l. 766  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="asymptotic-form-of-the-profile-likelihood-ratio"><span class="titlemark">8.3.2   </span> <a id="x45-1940008.3.2"></a>Asymptotic form of the profile likelihood ratio</h4>
+<!--  l. 769  --><p class="noindent">We can now proceed to derive the asymptotic form of the sampling distribution
+<!--  l. 769  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> of the profile likelihood
+ratio test statistic <!--  l. 769  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></math>, under a
+“true” signal strength of <!--  l. 769  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></math>.
+This asymptotic form is extremely useful for simplifying the computation of
+(expected) significances, limits, and intervals; indeed, standard procedure
+at the LHC is to use it in lieu of toy-based, empirical distributions for
+<!--  l. 770  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.
+                                                                                
+
+                                                                                
+</p><!--  l. 773  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="asymptotic-form-of-the-profile-likelihood-ratio1"><a id="x45-195000"></a>Asymptotic form of the profile likelihood ratio</h5>
+<!--  l. 775  --><p class="noindent">We start with deriving the asymptotic form of the profile likelihood ratio test statistic
+<!--  l. 775  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></math>
+(Eq. <a href="FrequentiststatisticsattheLHC.html#x44-173002r7">8.2.7<!--  tex4ht:ref: eq:03_ts   --></a>) by following a similar procedure to Section <a href="#x45-191000doc">8.3.1.<!--  tex4ht:ref: sec:03_pmle_derivation   --></a> — and
+using the results therein — of Taylor expanding around its minimum at
+<!--  l. 775  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></math>:<span class="footnote-mark"><a href="#fn46x9" id="fn46x9-bk"><sup class="textsuperscript">10</sup></a></span><a id="x45-195001f10"></a>
+</p><!--  tex4ht:inline  --><!--  l. 789  --><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align" columnalign="left" displaystyle="true">
+<mtr><mtd class="align-odd" columnalign="right"><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mi>λ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-195003r10"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.10)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mi>l</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>2</mn><mi>l</mi><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-195004r11"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.11)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">≃</mo><munder class="msub"><mrow><munder accentunder="false"><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mi>l</mi><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>2</mn><mi>l</mi><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow><mo>⏟</mo></munder> </mrow><mrow><mstyle mathcolor="#0000FF"><mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-rel" stretchy="false">=</mo><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover><mstyle class="text"><mtext> so this is 0</mtext></mstyle></mstyle></mrow></munder> <mo class="MathClass-bin" stretchy="false">−</mo><munder class="msub"><mrow><munder accentunder="false"><mrow> <mn>2</mn><msup><mrow><mi>l</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow><mo>⏟</mo></munder> </mrow><mrow><mstyle mathcolor="#0000FF"><msup><mrow>
+<mi>l</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mstyle></mrow></munder> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><msup><mrow><mi>l</mi></mrow><mrow><mstyle class="MathClass-op"><mi>″</mi></mstyle><mo> ⁡<!--  FUNCTION APPLICATION  --></mo></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">⋅</mo><mfrac><mrow><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac> <mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right">
+<mstyle class="label" id="x45-195005r12"></mstyle><!--  endlabel  -->
+<mstyle class="maketag"><mtext>(8.3.12)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><msup><mrow><mi>l</mi></mrow><mrow><mi>″</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">⋅</mo> <msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-195006r13"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.13)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo><munder class="msub"><mrow><munder accentunder="false"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo><mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><msup><mrow><mi>l</mi></mrow><mrow><mstyle class="MathClass-op"><mi>″</mi></mstyle><mo> ⁡<!--  FUNCTION APPLICATION  --></mo></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo></mrow><mo>⏟</mo></munder> </mrow><mrow><mstyle mathcolor="#0000FF"><mstyle class="text"><mtext>By law of large numbers</mtext></mstyle></mstyle></mrow></munder> <mo class="MathClass-bin" stretchy="false">⋅</mo> <msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-195007r14"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.14)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo><munder class="msub"><mrow><munder accentunder="false"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo><mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><msup><mrow><mi>l</mi></mrow><mrow><mstyle class="MathClass-op"><mi>″</mi></mstyle><mo> ⁡<!--  FUNCTION APPLICATION  --></mo></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo></mrow><mo>⏟</mo></munder> </mrow><mrow>
+<mstyle mathcolor="#0000FF"><mstyle class="text"><mtext>Since bias of MLEs </mtext><mstyle class="math"> <mo class="MathClass-rel" stretchy="false">∼</mo></mstyle><mtext> 0</mtext></mstyle></mstyle></mrow></munder> <mo class="MathClass-bin" stretchy="false">⋅</mo> <msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-195008r15"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.15)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo><munder class="msub"><mrow><munder accentunder="false"><mrow><msub><mrow> <mstyle mathvariant="script"><mi>I</mi></mstyle></mrow><mrow><mi mathvariant="italic">μμ</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow><mo>⏟</mo></munder> </mrow><mrow>
+<mstyle mathcolor="#0000FF"><mstyle class="text"><mtext>From definition of Fisher information</mtext></mstyle></mstyle></mrow></munder> <mo class="MathClass-bin" stretchy="false">⋅</mo> <msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-195009r16"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.16)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"> <mo class="MathClass-rel" stretchy="false">⇒</mo></mtd>
+<mtd class="align-even"><munder class="msub"><mrow><munder accentunder="false"><mrow><menclose notation="box"><mrow> <msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">≃</mo><mfrac><mrow><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup></mrow>
+<mrow><msubsup><mrow>
+<mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></mfrac> </mrow></menclose></mrow><mo>⏟</mo></munder> </mrow><mrow><mstyle mathcolor="#0000FF"><mstyle class="text"><mtext>Using </mtext></mstyle><msub><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow>
+<mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow></msub><mo class="MathClass-rel" stretchy="false">≃</mo><msqrt><mrow><msubsup><mrow>
+<mstyle mathvariant="script"><mi>I</mi></mstyle>
+</mrow><mrow><mi mathvariant="italic">μμ</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></msqrt></mstyle></mrow></munder> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>3</mn></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<msqrt>
+<mrow>
+<mi>N</mi></mrow></msqrt></mrow></mfrac> <mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-195010r17"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.17)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr></mtable></math>
+<!--  l. 791  --><p class="noindent">Here, just like in Eq. <a href="#x45-191002r6">8.3.6<!--  tex4ht:ref: eq:03_taylorl   --></a>, we use the law of large numbers in Line <a href="#x45-195007r14">8.3.14<!--  tex4ht:ref: eq:03_asym_plr_l5   --></a> and take
+<!--  l. 791  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>l</mi></mrow><mrow><mi>″</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> to
+asymptotically equal its expectation value under the true parameter values
+<!--  l. 791  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></math>:
+<!--  l. 791  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>l</mi></mrow><mrow><mi>″</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo><munderover> <mo class="MathClass-rel" stretchy="false">→</mo><mrow></mrow><mrow><msqrt><mrow>
+<mi>N</mi></mrow></msqrt> <mo class="MathClass-rel" stretchy="false">&gt;</mo><mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>1</mn></mrow></munderover><mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><msup><mrow><mi>l</mi></mrow><mrow><mi>″</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>.
+We then in Line <a href="#x45-195008r15">8.3.15<!--  tex4ht:ref: eq:03_asym_plr_l6   --></a> also use the fact that MLEs are generally unbiased
+estimators of the true parameter values in the large sample limit to say
+<!--  l. 792  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><msup><mrow><mi>l</mi></mrow><mrow><mi>″</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo><munderover> <mo class="MathClass-rel" stretchy="false">→</mo><mrow></mrow><mrow><msqrt><mrow>
+<mi>N</mi></mrow></msqrt> <mo class="MathClass-rel" stretchy="false">&gt;</mo><mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>1</mn></mrow></munderover><mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><msup><mrow><mi>l</mi></mrow><mrow><mi>″</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>.
+Finally, in the last step, we use the asymptotic form of the MLE (Eq. <a href="#x45-191005r7">8.3.7<!--  tex4ht:ref: eq:03_asym_std_fisher   --></a>).
+                                                                                
+
+                                                                                
+</p><!--  l. 796  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="asymptotic-form-of-pt-"><a id="x45-196000"></a>Asymptotic form of <!--  l. 796  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math></h5>
+<!--  l. 798  --><p class="noindent">Now that we have an expression for <!--  l. 798  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></math>,
+we can consider its sampling distribution. With a simple change of variables, the form of
+<!--  l. 799  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> should hopefully be
+evident: recognizing that <!--  l. 800  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>
+and <!--  l. 800  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow><mrow><mn>2</mn></mrow></msubsup></math> are simply
+constants, while <!--  l. 800  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></math>
+we know is distributed as a Gaussian centered around
+<!--  l. 800  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></math> with
+variance <!--  l. 800  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow><mrow><mn>2</mn></mrow></msubsup></math>,
+let’s define <!--  l. 800  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>γ</mi> <mo class="MathClass-rel" stretchy="false">≡</mo><mfrac><mrow><mi>μ</mi><mo class="MathClass-bin" stretchy="false">−</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow>
+<mrow><msub><mrow>
+<mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow></msub></mrow></mfrac> </mrow></math>,
+so that
+                                                                                
+
+                                                                                
+</p><!--  tex4ht:inline  --><!--  l. 805  --><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align" columnalign="left" displaystyle="true">
+<mtr><mtd class="align-odd" columnalign="right"><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">≃</mo><mfrac><mrow><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup></mrow>
+<mrow><msubsup><mrow>
+<mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>γ</mi></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-196001r18"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.18)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"><mi>γ</mi></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">∼</mo><mstyle mathvariant="script"><mi>N</mi></mstyle><mstyle mathsize="2.03em"><mrow><mo fence="true" form="prefix">(</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle><mfrac><mrow><mi>μ</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow>
+<mrow><msub><mrow>
+<mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow></msub></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo> <mn>1</mn><mstyle mathsize="2.03em"><mrow><mo fence="true" form="prefix">)</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle><mo class="MathClass-punc" stretchy="false">.</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-196002r19"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.19)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr></mtable></math>
+<!--  l. 807  --><p class="noindent">For the special case of <!--  l. 807  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></math>,
+we can see that <!--  l. 807  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></math> is
+simply the square of a standard normal random variable, which is the definition of the well-known
+<!--  l. 807  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>χ</mi></mrow><mrow><mi>k</mi></mrow><mrow><mn>2</mn></mrow></msubsup></math> distribution
+with <!--  l. 807  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>k</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>
+degrees of freedom (DoF): </p><table class="equation"><tr><td>
+<!--  l. 808  --><p class="indent">
+</p><!--  l. 808  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-196003r20"></mstyle><!--  endlabel  -->
+<mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">∼</mo> <msubsup><mrow><mi>χ</mi></mrow><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(8.3.20)</td></tr></table>
+<!--  l. 811  --><p class="noindent">
+</p><!--  l. 813  --><p class="indent">       In the general case where <!--  l. 813  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>
+may not <!--  l. 813  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></math>,
+<!--  l. 813  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></math> is
+the square of random variable with unit variance but <i>non-zero mean</i>. This is
+distributed as the similar, but perhaps less well-known, <strong>non-central chi-squared
+<!--  l. 814  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>χ</mi></mrow><mrow><mi>k</mi></mrow><mrow><mi>′</mi><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Λ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math></strong>, again
+with 1 DoF, and with a “non-centrality parameter”
+</p><!--  tex4ht:inline  --><!--  l. 820  --><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align" columnalign="left" displaystyle="true">
+<mtr><mtd class="align-odd" columnalign="right"><mi mathvariant="normal">Λ</mi> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mover accent="true"><mrow><mi>γ</mi></mrow><mo accent="true">¯</mo></mover></mrow><mrow><mn>2</mn></mrow></msup></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathsize="2.03em"><mrow><mo fence="true" form="prefix">(</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle><mfrac><mrow><mi>μ</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow>
+<mrow><msub><mrow>
+<mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow></msub></mrow></mfrac><msup><mrow> <mstyle mathsize="2.03em"><mrow><mo fence="true" form="prefix">)</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-196004r21"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.21)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">∼</mo> <msubsup><mrow><mi>χ</mi></mrow><mrow><mn>1</mn></mrow><mrow><mi>′</mi><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Λ</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-196005r22"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.22)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr></mtable></math>
+<!--  l. 822  --><p class="noindent">The “central” vs. non-central chi-squared distributions are visualized in Figure <a href="#central-k-and-noncentral-klambda-distributions-for-lambda-between-left-and-right">8.25<!--  tex4ht:ref: fig:03_noncentralchi2   --></a> for
+<!--  l. 822  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>k</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>. We can see that
+<!--  l. 823  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>χ</mi></mrow><mrow><mi>k</mi></mrow><mrow><mi>′</mi><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Λ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> simply shifts
+towards the right as <!--  l. 823  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">Λ</mi></math>
+increases (at <!--  l. 823  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Λ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math> it is
+a regular central <!--  l. 823  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup></math>).
+                                                                                
+
+                                                                                
+As <!--  l. 824  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Λ</mi> <mo class="MathClass-rel" stretchy="false">→</mo><mi>∞</mi></mrow></math>,
+<!--  l. 824  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>χ</mi></mrow><mrow><mi>k</mi></mrow><mrow><mi>′</mi><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Λ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+becomes more and more like a normal distribution with mean
+<!--  l. 824  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">Λ</mi></math>.<span class="footnote-mark"><a href="#fn47x9" id="fn47x9-bk"><sup class="textsuperscript">11</sup></a></span><a id="x45-196006f11"></a>
+</p>
+<figure class="figure">
+<!--  l. 829  --><p class="noindent" id="central-k-and-noncentral-klambda-distributions-for-lambda-between-left-and-right"><img alt="PIC" src="figures/03-Stats/06-asymptotic-plr/1.png" style="max-width:100%"/> <a id="x45-196008r25"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.25.                                                                    </span></span><span class="content">Central
+<!--  l. 830  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>χ</mi></mrow><mrow><mi>k</mi></mrow><mrow><mn>2</mn></mrow></msubsup></math>
+and                                                                                       non-central
+<!--  l. 830  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>χ</mi></mrow><mrow><mi>k</mi></mrow><mrow><mi>′</mi><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Λ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+distributions                                                                                       for
+<!--  l. 830  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">Λ</mi></math>
+between
+<!--  l. 830  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>30</mn></mrow></math>
+(left)                                                                                                and
+<!--  l. 830  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>30</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>300</mn></mrow></math>
+(right).                                                                         </span></figcaption><!--  tex4ht:label?: x45-196008r25   -->
+</figure>
+<!--  l. 834  --><p class="indent">       By extending the derivation in Eq. <a href="#x45-195010r17">8.3.17<!--  tex4ht:ref: eq:03_plr_taylor   --></a> to multiple
+POIs, one can find the simple generalization to multiple POIs
+<!--  l. 834  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>μ</mi></mstyle></math>:
+</p><table class="equation"><tr><td>
+<!--  l. 835  --><p class="indent">
+</p><!--  l. 835  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-196009r23"></mstyle><!--  endlabel  -->
+<mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">∼</mo> <msubsup><mrow><mi>χ</mi></mrow><mrow>
+<mi>k</mi></mrow><mrow><mi>′</mi><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Λ</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.3.23)</td></tr></table>
+<!--  l. 838  --><p class="noindent">where the DoF <!--  l. 839  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math> are equal
+the number of POIs <!--  l. 839  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mstyle mathvariant="bold"><mi>μ</mi></mstyle></mrow></math>,
+and </p><table class="equation"><tr><td>
+<!--  l. 840  --><p class="indent">
+</p><!--  l. 840  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-196010r24"></mstyle><!--  endlabel  -->
+<mi mathvariant="normal">Λ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>μ</mi></mstyle> <mo class="MathClass-bin" stretchy="false">−</mo><msup><mrow><mstyle mathvariant="bold"><mi>μ</mi></mstyle></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mi>T</mi> </mrow></msup> <mo class="MathClass-bin" stretchy="false">⋅</mo><msup><mrow><mover accent="true"><mrow><mstyle mathvariant="script"><mi>I</mi></mstyle></mrow><mo accent="true">~</mo></mover></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mstyle mathvariant="bold"><mi>μ</mi></mstyle></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">⋅</mo> <mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>μ</mi></mstyle> <mo class="MathClass-bin" stretchy="false">−</mo><msup><mrow><mstyle mathvariant="bold"><mi>μ</mi></mstyle></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.3.24)</td></tr></table>
+<!--  l. 843  --><p class="noindent">where <!--  l. 844  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mover accent="true"><mrow><mstyle mathvariant="script"><mi>I</mi></mstyle></mrow><mo accent="true">~</mo></mover></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>
+is <!--  l. 844  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mstyle mathvariant="script"><mi>I</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>
+restricted only to the components corresponding to the POIs.
+</p>
+<h5 class="subsubsectionHead" id="estimating-"><a id="x45-197000"></a>Estimating <!--  l. 847  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow><mrow><mn>2</mn></mrow></msubsup></math></h5>
+<!--  l. 849  --><p class="noindent">The critical remaining step to understanding the asymptotic distribution of
+<!--  l. 849  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></math> is estimating
+<!--  l. 849  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow><mrow><mn>2</mn></mrow></msubsup></math> to find the
+non-centrality parameter <!--  l. 849  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">Λ</mi></math>
+in Eq. <a href="#x45-196004r21">8.3.21<!--  tex4ht:ref: eq:03_Lambda   --></a>. We now discuss two methods to do this.
+</p>
+<!--  l. 852  --><p class="noindent"><span class="paragraphHead" id="method-inverting-the-fisher-information-covariance-matrix"><a id="x45-198000"></a><span class="ec-lmbx-12">Method 1: Inverting the Fisher information / covariance matrix</span></span>
+                                                                                
+
+                                                                                
+The first method is simply using <!--  l. 854  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow></msub> <mo class="MathClass-rel" stretchy="false">≃</mo><msqrt><mrow><msubsup><mrow>
+<mstyle mathvariant="script"><mi>I</mi></mstyle>
+</mrow><mrow><mi mathvariant="italic">μμ</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></msqrt></mrow></math>
+as in Section <a href="#asymptotic-form-of-the-mle">8.3.1<!--  tex4ht:ref: sec:03_asymptotic_mle   --></a>.<span class="footnote-mark"><a href="#fn48x9" id="fn48x9-bk"><sup class="textsuperscript">12</sup></a></span><a id="x45-198001f12"></a>
+This is shown in Figure <a href="#comparing-the-distribution-pt-solid-with-noncentral-lambda-distributions-dotted-for-a-range-of-s-b-values-with-estimated-using-the-inverse-of-the-fisher-information-matrix">8.26<!--  tex4ht:ref: fig:03_ptmu_asym1   --></a> for our counting experiment, using the analytic form for
+<!--  l. 855  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow></msub></math> from
+Eq. <a href="#x45-192001r8">8.3.8<!--  tex4ht:ref: eq:03_asymstd   --></a>. We can see that this asymptotic approximation agrees well with the true
+distribution for some range of parameters, but can deviate significantly for others, as
+highlighted especially in the right plot.
+</p>
+<figure class="figure">
+<!--  l. 860  --><p class="noindent" id="comparing-the-distribution-pt-solid-with-noncentral-lambda-distributions-dotted-for-a-range-of-s-b-values-with-estimated-using-the-inverse-of-the-fisher-information-matrix"><img alt="PIC" src="figures/03-Stats/06-asymptotic-plr/2.png" style="max-width:100%"/> <a id="x45-198003r26"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.26.                 </span></span><span class="content">Comparing                 the                 distribution
+<!--  l. 861  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+(solid)                                       with                                       non-central
+<!--  l. 861  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>χ</mi></mrow><mrow><mn>1</mn></mrow><mrow><mi>′</mi><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Λ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+distributions             (dotted)             for             a             range             of
+<!--  l. 861  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></math>
+values,                                                                                            with
+<!--  l. 861  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow><mrow><mn>2</mn></mrow></msubsup></math>
+estimated using the inverse of the Fisher information matrix.                    </span></figcaption><!--  tex4ht:label?: x45-198003r26   -->
+</figure>
+<!--  l. 866  --><p class="noindent"><span class="paragraphHead" id="interlude-on-asimov-dataset"><a id="x45-199000"></a><span class="ec-lmbx-12">Interlude on Asimov dataset</span></span>
+While we are able to find the analytic form for
+<!--  l. 868  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msqrt><mrow><msubsup><mrow>
+<mstyle mathvariant="script"><mi>I</mi></mstyle>
+</mrow><mrow><mi mathvariant="italic">μμ</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></msqrt></math>
+easily for our simple counting experiment, in general it has to be calculated
+numerically. As introduced in Section <a href="#x45-193000doc">8.3.1.<!--  tex4ht:ref: sec:03_pmle_asimov   --></a>, to handle the expectation value under
+<!--  l. 869  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></math> in
+Eq. <a href="#x45-189007r1">8.3.1<!--  tex4ht:ref: eq:03_fisher_matrix   --></a>, we can make use of the <strong>Asimov dataset</strong>, where the observations
+<!--  l. 869  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>n</mi></mrow><mrow><mi>A</mi></mrow></msub></math>,
+<!--  l. 869  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mi>A</mi></mrow></msub></math> are taken to be their
+expectation values under <!--  l. 869  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></math>,
+simplifying the calculation of <!--  l. 869  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="script"><mi>I</mi></mstyle></math>
+to Eq. <a href="#x45-193003r9">8.3.9<!--  tex4ht:ref: eq:03_fisher_asimov   --></a>.
+</p><!--  l. 871  --><p class="indent">       Explicitly, for our counting experiment (Eq. <a href="FrequentiststatisticsattheLHC.html#x44-171003r3">8.2.3<!--  tex4ht:ref: eq:03_pois3   --></a>), the Asimov observations are
+simply
+                                                                                
+
+                                                                                
+</p><!--  tex4ht:inline  --><!--  l. 876  --><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align" columnalign="left" displaystyle="true">
+<mtr><mtd class="align-odd" columnalign="right"><msub><mrow><mi>n</mi></mrow><mrow><mi>A</mi></mrow></msub></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-199001r25"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.25)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"><msub><mrow><mi>m</mi></mrow><mrow><mi>A</mi></mrow></msub></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">.</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-199002r26"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.26)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr></mtable></math>
+<!--  l. 877  --><p class="noindent">We’ll now consider a second powerful use of the Asimov dataset to estimate
+<!--  l. 877  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow><mrow><mn>2</mn></mrow></msubsup></math>.
+</p>
+<!--  l. 879  --><p class="noindent"><span class="paragraphHead" id="method-the-asimov-sigma-estimate"><a id="x45-200000"></a><span class="ec-lmbx-12">Method 2: The “Asimov sigma” estimate</span></span>
+Putting together Eqs. <a href="FrequentiststatisticsattheLHC.html#x44-174003r10">8.2.10<!--  tex4ht:ref: eq:03_mles   --></a> and <a href="#x45-199002r26">8.3.26<!--  tex4ht:ref: eq:03_asimov_data   --></a>, we can derive a nice property of the Asimov dataset:
+the MLEs <!--  l. 881  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></math>,
+<!--  l. 881  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></math> equal the
+true values <!--  l. 881  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></math>,
+<!--  l. 881  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup></math>:
+                                                                                
+
+                                                                                
+</p><!--  tex4ht:inline  --><!--  l. 886  --><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align" columnalign="left" displaystyle="true">
+<mtr><mtd class="align-odd" columnalign="right"><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>m</mi></mrow><mrow><mi>A</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-200001r27"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.27)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mi>n</mi></mrow><mrow><mi>A</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>m</mi></mrow><mrow><mi>A</mi></mrow></msub></mrow>
+<mrow>
+<mi>s</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>b</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow>
+<mrow>
+<mi>s</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">.</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-200002r28"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.28)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr></mtable></math>
+<!--  l. 887  --><p class="noindent">Thus, <!--  l. 887  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></math>
+evaluated for the Asimov dataset is exactly the non-centrality parameter
+<!--  l. 887  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">Λ</mi></math> that
+we are after! </p><table class="equation"><tr><td>
+<!--  l. 888  --><p class="indent">
+</p><!--  l. 888  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-200003r29"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>A</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">≃</mo><mstyle mathsize="2.03em"><mrow><mo fence="true" form="prefix">(</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle><mfrac><mrow><mi>μ</mi> <mo class="MathClass-bin" stretchy="false">−</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow>
+<mrow><msub><mrow>
+<mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow></msub></mrow></mfrac><msup><mrow> <mstyle mathsize="2.03em"><mrow><mo fence="true" form="prefix">)</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathsize="2.03em"><mrow><mo fence="true" form="prefix">(</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle><mfrac><mrow><mi>μ</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow>
+<mrow><msub><mrow>
+<mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow></msub></mrow></mfrac><msup><mrow> <mstyle mathsize="2.03em"><mrow><mo fence="true" form="prefix">)</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mi mathvariant="normal">Λ</mi><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(8.3.29)</td></tr></table>
+<!--  l. 891  --><p class="noindent">While, not strictly necessary to obtain the asymptotic form for
+<!--  l. 892  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, we can also invert
+this to estimate <!--  l. 892  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow></msub></math>,
+                                                                                
+
+                                                                                
+as </p><table class="equation"><tr><td>
+<!--  l. 893  --><p class="indent">
+</p><!--  l. 893  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-200004r30"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>σ</mi></mrow><mrow><mi>A</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">≃</mo><mfrac><mrow><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup></mrow>
+<mrow><msub><mrow>
+<mi>t</mi></mrow><mrow><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>A</mi></mrow></msub></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.3.30)</td></tr></table>
+<!--  l. 896  --><p class="noindent">where <!--  l. 897  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>σ</mi></mrow><mrow><mi>A</mi></mrow></msub></math>
+is known as the “Asimov sigma”.
+</p><!--  l. 899  --><p class="indent">       The asymptotic distributions using
+<!--  l. 899  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Λ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>A</mi></mrow></msub></mrow></math> are
+plotted in Figure <a href="#comparing-the-sampling-distribution-pt-with-noncentral-lambda-distributions-for-a-range-of-s-b-values-with-the-asimov-sigma-estimation-for-">8.27<!--  tex4ht:ref: fig:03_ptmu_asym2   --></a>. We see that this estimate matches the sampling distributions
+very well, even for cases where the covariance-matrix-estimate failed! Indeed, this is why
+estimating <!--  l. 901  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow></msub> <mo class="MathClass-rel" stretchy="false">≃</mo> <msub><mrow><mi>σ</mi></mrow><mrow><mi>A</mi></mrow></msub></mrow></math>
+is the standard in LHC analyses, and that is the method we’ll employ going
+forward.
+</p><!--  l. 903  --><p class="indent">       Reference [<a href="Bibliography.html#XCowan_2010js">291</a>] conjectures that this is because the Fisher-information-approach
+is restricted only to estimating the second-order term of Eq. <a href="#x45-195010r17">8.3.17<!--  tex4ht:ref: eq:03_plr_taylor   --></a>, while with
+                                                                                
+
+                                                                                
+<!--  l. 903  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>A</mi></mrow></msub></math> we’re
+matching the shape of the likelihood at the minimum which may be able capture some
+of the higher order terms as well.
+</p>
+<figure class="figure">
+<!--  l. 907  --><p class="noindent" id="comparing-the-sampling-distribution-pt-with-noncentral-lambda-distributions-for-a-range-of-s-b-values-with-the-asimov-sigma-estimation-for-"><img alt="PIC" src="figures/03-Stats/06-asymptotic-plr/3.png" style="max-width:100%"/> <a id="x45-200005r27"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.27.          </span></span><span class="content">Comparing          the          sampling          distribution
+<!--  l. 908  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+with non-central <!--  l. 908  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>χ</mi></mrow><mrow><mn>1</mn></mrow><mrow><mi>′</mi><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Λ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+distributions for a range of <!--  l. 908  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup></mrow></math>
+values,         with         the         Asimov         sigma         estimation         for
+<!--  l. 908  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow><mrow><mn>2</mn></mrow></msubsup></math>.</span></figcaption><!--  tex4ht:label?: x45-200005r27   -->
+</figure>
+<!--  l. 913  --><p class="indent">       Despite the pervasive use of the asymptotic formula at the LHC, it’s important to
+remember that it’s an <i>approximation</i>, only valid for large statistics. Figure <a href="#comparing-the-sampling-distribution-pt-with-noncentral-lambda-distributions-for-different-s-b-showing-the-breakdown-of-the-a-approximation-for-at-low-statistics">8.28<!--  tex4ht:ref: fig:03_ptmu_asym3   --></a> shows it breaking
+down for <!--  l. 914  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi> <mo class="MathClass-rel" stretchy="false">≲</mo> <mn>10</mn></mrow></math>
+below.
+</p>
+<figure class="figure">
+<!--  l. 918  --><p class="noindent" id="comparing-the-sampling-distribution-pt-with-noncentral-lambda-distributions-for-different-s-b-showing-the-breakdown-of-the-a-approximation-for-at-low-statistics"><img alt="PIC" src="figures/03-Stats/06-asymptotic-plr/4.png" style="max-width:100%"/> <a id="x45-200006r28"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.28.          </span></span><span class="content">Comparing          the          sampling          distribution
+<!--  l. 919  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+with non-central <!--  l. 919  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>χ</mi></mrow><mrow><mn>1</mn></mrow><mrow><mi>′</mi><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Λ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+distributions for different <!--  l. 919  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi> <mo class="MathClass-rel" stretchy="false">≤</mo> <mn>10</mn></mrow></math>,
+showing the break-down of the <!--  l. 919  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>σ</mi></mrow><mrow><mi>A</mi></mrow></msub></math>
+approximation for <!--  l. 919  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow><mrow><mn>2</mn></mrow></msubsup></math>
+at low statistics.                                                                </span></figcaption><!--  tex4ht:label?: x45-200006r28   -->
+</figure>
+<h5 class="subsubsectionHead" id="the-pdf-and-cdf"><a id="x45-201000"></a>The PDF and CDF</h5>
+<!--  l. 925  --><p class="noindent">The probability distribution function (PDF) for a
+<!--  l. 925  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>χ</mi></mrow><mrow><mi>k</mi></mrow><mrow><mi>′</mi><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Λ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> distribution can be found
+in e.g. Ref. [<a href="Bibliography.html#Xenwiki_1256854724">299</a>] for <!--  l. 925  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>k</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>:
+</p><table class="equation"><tr><td>
+<!--  l. 926  --><p class="indent">
+</p><!--  l. 926  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-201001r31"></mstyle><!--  endlabel  -->
+<mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">≃</mo> <msubsup><mrow><mi>χ</mi></mrow><mrow>
+<mn>1</mn></mrow><mrow><mi>′</mi><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Λ</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn><msqrt><mrow><msub><mrow><mi>t</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub></mrow></msqrt></mrow></mfrac><mstyle mathsize="1.19em"><mrow><mo fence="true" form="prefix">(</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle><mi>φ</mi><mo class="MathClass-open" stretchy="false">(</mo><msqrt><mrow><msub><mrow>
+<mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></mrow></msqrt> <mo class="MathClass-bin" stretchy="false">−</mo><msqrt><mrow>
+<mi mathvariant="normal">Λ</mi></mrow></msqrt><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>φ</mi><mo class="MathClass-open" stretchy="false">(</mo><msqrt><mrow><msub><mrow>
+<mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></mrow></msqrt> <mo class="MathClass-bin" stretchy="false">+</mo> <msqrt><mrow>
+<mi mathvariant="normal">Λ</mi></mrow></msqrt><mo class="MathClass-close" stretchy="false">)</mo><mstyle mathsize="1.19em"><mrow><mo fence="true" form="prefix">)</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.3.31)</td></tr></table>
+<!--  l. 929  --><p class="noindent">where <!--  l. 930  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>φ</mi></math>
+is the PDF of a standard normal distribution. For
+<!--  l. 931  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup> <mo class="MathClass-rel" stretchy="false">⇒</mo><mi mathvariant="normal">Λ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>, this
+simplifies to: </p><table class="equation"><tr><td>
+<!--  l. 932  --><p class="indent">
+</p><!--  l. 932  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-201002r32"></mstyle><!--  endlabel  -->
+<mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">≃</mo> <msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<msqrt>
+<mrow><msub><mrow><mi>t</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub></mrow></msqrt></mrow></mfrac><mi>φ</mi><mo class="MathClass-open" stretchy="false">(</mo><msqrt><mrow><msub><mrow>
+<mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></mrow></msqrt><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(8.3.32)</td></tr></table>
+<!--  l. 935  --><p class="noindent">
+</p><!--  l. 937  --><p class="indent">       The cumulative distribution function (CDF) for
+<!--  l. 937  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>k</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math> is:
+</p><table class="equation"><tr><td>
+<!--  l. 938  --><p class="indent">
+</p><!--  l. 938  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-201003r33"></mstyle><!--  endlabel  -->
+<mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">≃</mo><mi mathvariant="normal">Φ</mi><mo class="MathClass-open" stretchy="false">(</mo><msqrt><mrow><msub><mrow><mi>t</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub></mrow></msqrt> <mo class="MathClass-bin" stretchy="false">−</mo><msqrt><mrow>
+<mi mathvariant="normal">Λ</mi></mrow></msqrt><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mi mathvariant="normal">Φ</mi><mo class="MathClass-open" stretchy="false">(</mo><msqrt><mrow><msub><mrow>
+<mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></mrow></msqrt> <mo class="MathClass-bin" stretchy="false">+</mo> <msqrt><mrow>
+<mi mathvariant="normal">Λ</mi></mrow></msqrt><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.3.33)</td></tr></table>
+<!--  l. 941  --><p class="noindent">where <!--  l. 942  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">Φ</mi></math>
+is the CDF of the standard normal distribution. For
+<!--  l. 943  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup> <mo class="MathClass-rel" stretchy="false">⇒</mo><mi mathvariant="normal">Λ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>, again
+this simplifies to: </p><table class="equation"><tr><td>
+<!--  l. 944  --><p class="indent">
+</p><!--  l. 944  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-201004r34"></mstyle><!--  endlabel  -->
+<mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">≃</mo> <mn>2</mn><mi mathvariant="normal">Φ</mi><mo class="MathClass-open" stretchy="false">(</mo><msqrt><mrow><msub><mrow>
+<mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></mrow></msqrt><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(8.3.34)</td></tr></table>
+<!--  l. 947  --><p class="noindent">From Eq. <a href="FrequentiststatisticsattheLHC.html#x44-178003r14">8.2.14<!--  tex4ht:ref: eq:03_pvalue   --></a>, we know the <!--  l. 948  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value
+<!--  l. 948  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow></msub></math> of the observed
+<!--  l. 948  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup></math> under a signal
+hypothesis of <!--  l. 948  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mi>μ</mi></mrow></msub></math>
+is </p><table class="equation"><tr><td>
+<!--  l. 949  --><p class="indent">
+</p><!--  l. 949  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-201005r35"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><msubsup><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup><mo class="MathClass-rel" stretchy="false">|</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo><mi mathvariant="normal">Φ</mi><mo class="MathClass-open" stretchy="false">(</mo><msqrt><mrow><msubsup><mrow>
+<mi>t</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup></mrow></msqrt><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.3.35)</td></tr></table>
+<!--  l. 952  --><p class="noindent">with an associated significance </p><table class="equation"><tr><td>
+<!--  l. 954  --><p class="indent">
+</p><!--  l. 954  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x45-201006r36"></mstyle><!--  endlabel  -->
+<mi>Z</mi> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mi mathvariant="normal">Φ</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>p</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mi mathvariant="normal">Φ</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mi mathvariant="normal">Φ</mi><mo class="MathClass-open" stretchy="false">(</mo><msqrt><mrow><msubsup><mrow>
+<mi>t</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup></mrow></msqrt> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo>
+</mrow></math></td><td class="eq-no">(8.3.36)</td></tr></table>
+<!--  l. 957  --><p class="noindent">
+</p><!--  l. 960  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="application-to-hypothesis-testing"><a id="x45-202000"></a>Application to hypothesis testing</h5>
+<!--  l. 962  --><p class="noindent">Let’s see how well this approximation agrees with the toy-based
+<!--  l. 962  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value we
+found in Example <a href="FrequentiststatisticsattheLHC.html#x44-178001r1">8.2.1<!--  tex4ht:ref: ex:03_pvalue   --></a>. For the same counting experiment example, where we expect
+<!--  l. 963  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>10</mn></mrow></math> and
+observe <!--  l. 963  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>n</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>20</mn></mrow></math>,
+<!--  l. 963  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>5</mn></mrow></math>, we found the
+<!--  l. 963  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value for testing
+the <!--  l. 963  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math> hypothesis
+<!--  l. 963  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>p</mi></mrow><mrow><mi>μ</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.3</mn></mrow></math> (and the associated
+significance <!--  l. 963  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>Z</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.52</mn></mrow></math>).
+Calculating <!--  l. 964  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup></math>
+for this example and plugging it into the asymptotic approximation from Eq. <a href="#x45-201005r35">8.3.35<!--  tex4ht:ref: eq:03_pmu_asym   --></a>
+gives:<span class="footnote-mark"><a href="#fn49x9" id="fn49x9-bk"><sup class="textsuperscript">13</sup></a></span><a id="x45-202001f13"></a>
+</p><!--  tex4ht:inline  --><!--  l. 970  --><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align" columnalign="left" displaystyle="true">
+<mtr><mtd class="align-odd" columnalign="right"></mtd>
+<mtd class="align-even"><msubsup><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1.08</mn><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-202003r37"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.37)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">⇒</mo> <msub><mrow><mi>p</mi></mrow><mrow><mi>μ</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo><mi mathvariant="normal">Φ</mi><mo class="MathClass-open" stretchy="false">(</mo><msqrt><mrow>
+<mn>1.08</mn></mrow></msqrt><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.3</mn><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-202004r38"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.38)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">⇒</mo> <mi>Z</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.52</mn><mo class="MathClass-punc" stretchy="false">.</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x45-202005r39"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.3.39)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr></mtable></math>
+<!--  l. 971  --><p class="noindent">We see that it agrees exactly!
+</p><!--  l. 973  --><p class="indent">       The agreement more generally, with varying
+<!--  l. 973  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>μ</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>n</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub></mrow></math>, is
+plotted in Figure <a href="#comparing-the-significances-as-a-function-of-the-signal-strength-of-the-hypothesis-being-tested-for-simple-counting-experiments-eqref-eqpois-with-different-s-n-obs-m-obss">8.29<!--  tex4ht:ref: fig:03_asym_significances   --></a>. We observe generally strong agreement, except for low
+<!--  l. 974  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi></mrow></math>
+where, as expected, the asymptotic approximation breaks down.
+</p>
+<figure class="figure">
+<!--  l. 978  --><p class="noindent" id="comparing-the-significances-as-a-function-of-the-signal-strength-of-the-hypothesis-being-tested-for-simple-counting-experiments-eqref-eqpois-with-different-s-n-obs-m-obss"><img alt="PIC" src="figures/03-Stats/06-asymptotic-plr/5.png" style="max-width:100%"/> <a id="x45-202006r29"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.29. </span></span><span class="content">Comparing the significances, as a function of the signal strength
+<!--  l. 979  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>
+of the hypothesis being tested, for simple counting experiments (Eq. <a href="FrequentiststatisticsattheLHC.html#x44-171003r3">8.2.3<!--  tex4ht:ref: eq:03_pois3   --></a>) with
+different <!--  l. 979  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>n</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub></mrow></math>’s,
+derived using <!--  l. 979  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>30</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>000</mn></mrow></math>
+toys each (solid) to estimate the <!--  l. 979  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+distribution vs. the asymptotic approximation (dashed).                         </span></figcaption><!--  tex4ht:label?: x45-202006r29   -->
+</figure>
+<h5 class="subsubsectionHead" id="summary1"><a id="x45-203000"></a>Summary</h5>
+<!--  l. 986  --><p class="noindent">We have been able to find the asymptotic form for the profile-likelihood-ratio test statistic
+<!--  l. 986  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">≃</mo><mfrac><mrow><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>μ</mi><mo class="MathClass-bin" stretchy="false">−</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup></mrow>
+<mrow><msubsup><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow>
+<mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></mfrac> </mrow></math>, which is distributed as a
+<i>non-central chi-squared</i> (<!--  l. 986  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>χ</mi></mrow><mrow><mi>k</mi></mrow><mrow><mi>′</mi><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Λ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>)
+distribution. We discussed two methods for finding the non-centrality parameter
+<!--  l. 987  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">Λ</mi></math>, out of which the
+Asimov sigma <!--  l. 987  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>σ</mi></mrow><mrow><mi>A</mi></mrow></msub></math>
+estimation generally performed better. Finally, the asymptotic formulae were applied to
+simple examples of hypothesis testing to check the agreement with toy-based significances.
+These asymptotic formulae can be extended to the alternative test statistics for positive
+signals <!--  l. 989  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow></msub></math> and
+upper-limit-setting <!--  l. 989  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow></msub></math>,
+as in Ref. [<a href="Bibliography.html#XCowan_2010js">291</a>], to simplify the calculation of both observed and expected significances,
+limits, and intervals.
+</p><!--  l. 991  --><p class="indent">       With that, we conclude the overview of the statistical interpretation of LHC
+results. We will see practical applications of these concepts to searches in the high
+energy Higgs sector in Part <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">V<!--  tex4ht:ref: part:hh   --></a>.
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="FrequentiststatisticsattheLHC.html">⭠</a> <a href="AcceleratingSimulationswithAI.html">⭢</a> </nav> <div class="footnotes"><a id="x45-189003x5"></a>
+<!--  l. 630  --><p class="indent"> <span class="footnote-mark"><a href="#fn41x9-bk" id="fn41x9"><sup class="textsuperscript">5</sup></a></span><span class="ec-lmr-10">See derivations in e.g. Ref. [</span><a href="Bibliography.html#Xenwiki_1253018821"><span class="ec-lmr-10">295</span></a><span class="ec-lmr-10">].</span></p><a id="x45-190003x"></a>
+<!--  l. 671  --><p class="indent"> <span class="footnote-mark"><a href="#fn42x9-bk" id="fn42x9"><sup class="textsuperscript">6</sup></a></span><span class="ec-lmr-10">The reason for this is discussed shortly in Section </span><a href="#x45-191000doc"><span class="ec-lmr-10">8.3.1.</span><!--  tex4ht:ref: sec:03_pmle_derivation   --></a><span class="ec-lmr-10">.</span></p><a id="x45-191004x"></a>
+<!--  l. 703  --><p class="indent"> <span class="footnote-mark"><a href="#fn43x9-bk" id="fn43x9"><sup class="textsuperscript">7</sup></a></span><span class="ec-lmr-10">For a more rigorous derivation, see e.g. Ref. [</span><a href="Bibliography.html#Xgundersen_asymptotic_2019"><span class="ec-lmr-10">298</span></a><span class="ec-lmr-10">].</span></p><a id="x45-193002x"></a>
+<!--  l. 752  --><p class="indent"> <span class="footnote-mark"><a href="#fn44x9-bk" id="fn44x9"><sup class="textsuperscript">8</sup></a></span><span class="ec-lmr-10">We are able to do this because, as we saw above, the score is linear in</span>
+<!--  l. 752  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math> <span class="ec-lmr-10">for
+Poisson likelihoods.</span></p><a id="x45-193006x9"></a>
+<!--  l. 761  --><p class="indent"> <span class="footnote-mark"><a href="#fn45x9-bk" id="fn45x9"><sup class="textsuperscript">9</sup></a></span><span class="ec-lmr-10">The </span><i>Asimov</i> <span class="ec-lmr-10">dataset is named after Isaac Asimov, the popular science fiction author,
+whose book </span><i>Franchise</i> <span class="ec-lmr-10">is about a supercomputer choosing a single person as the sole voter in the
+U.S. elections, because they can represent the entire population.</span></p><a id="x45-195002x"></a>
+<!--  l. 776  --><p class="indent"> <span class="footnote-mark"><a href="#fn46x9-bk" id="fn46x9"><sup class="textsuperscript">10</sup></a></span><span class="ec-lmr-10">Note: this is not a rigorous derivation; it’s just a way to motivate the final result, which is
+taken from Ref. [</span><a href="Bibliography.html#XCowan_2010js"><span class="ec-lmr-10">291</span></a><span class="ec-lmr-10">]. (If you know of a better way, let me know!)</span></p><a id="x45-196007x"></a>
+<!--  l. 825  --><p class="indent"> <span class="footnote-mark"><a href="#fn47x9-bk" id="fn47x9"><sup class="textsuperscript">11</sup></a></span><span class="ec-lmr-10">More information can be found in e.g. Ref. [</span><a href="Bibliography.html#Xenwiki_1256854724"><span class="ec-lmr-10">299</span></a><span class="ec-lmr-10">].</span> </p><a id="x45-198002x"></a>
+<!--  l. 854  --><p class="indent"> <span class="footnote-mark"><a href="#fn48x9-bk" id="fn48x9"><sup class="textsuperscript">12</sup></a></span><span class="ec-lmr-10">More generally, we’d need </span><!--  l. 854  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mover accent="true"><mrow><mstyle mathvariant="script"><mi>I</mi></mstyle></mrow><mo accent="true">~</mo></mover></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>
+<span class="ec-lmr-10">for Eq. </span><a href="#x45-196010r24"><span class="ec-lmr-10">8.3.24</span><!--  tex4ht:ref: eq:03_Lambdamultipois   --></a><span class="ec-lmr-10">.</span></p><a id="x45-202002x"></a>
+<!--  l. 964  --><p class="indent"> <span class="footnote-mark"><a href="#fn49x9-bk" id="fn49x9"><sup class="textsuperscript">13</sup></a></span><span class="ec-lmr-10">Note that we’re using </span><!--  l. 964  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></math>
+<span class="ec-lmr-10">here, not the alternative test statistic </span><!--  l. 964  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></mrow><mo accent="true">~</mo></mover></math><span class="ec-lmr-10">;
+however, in this case since </span><!--  l. 964  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>0</mn></mrow></math><span class="ec-lmr-10">,
+they are equivalent.</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

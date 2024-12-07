@@ -1,8 +1,0 @@
-main*
-!main.tex
-.DS_Store
-build
-*.html
-out
-*.pdf
-**/*-.png

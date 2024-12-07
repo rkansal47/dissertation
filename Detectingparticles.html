@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Detecting particles</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="chapterToc">5 <a href="TheCERNLargeHadronCollider.html#the-cern-large-hadron-collider">The CERN Large Hadron Collider</a></span>
+<span class="chapterToc">6 <a href="TheCMSdetector.html#the-cms-detector">The CMS detector</a></span>
+<span class="sectionToc">6.1 <a href="Overview.html#overview">Overview</a></span>
+<span class="sectionToc">6.2 <a href="#detecting-particles">Detecting particles</a></span>
+<span class="subsectionToc">6.2.1 <a href="#particle-interactions-with-matter">Particle interactions with matter</a></span>
+<span class="subsectionToc">6.2.2 <a href="#types-of-detectors">Types of detectors</a></span>
+<span class="sectionToc">6.3 <a href="CMSdetectorcomponents.html#cms-detector-components">CMS detector components</a></span>
+<span class="sectionToc">6.4 <a href="Detectorreconstructionandperformance.html#detector-reconstruction-and-performance">Detector reconstruction and performance</a></span>
+<span class="sectionToc">6.5 <a href="ThePhase2Upgrade.html#the-phase-upgrade">The Phase-2 Upgrade</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="Overview.html">⭠</a> <a href="CMSdetectorcomponents.html">⭢</a> </nav>
+<h3 class="sectionHead" id="detecting-particles"><span class="titlemark">6.2   </span> <a id="x33-1060006.2"></a>Detecting particles</h3>
+<!--  l. 77  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="particle-interactions-with-matter"><span class="titlemark">6.2.1   </span> <a id="x33-1070006.2.1"></a>Particle interactions with matter</h4>
+<!--  l. 80  --><p class="noindent">In Part <a href="TheoreticalBackground.html#theoretical-background">I<!--  tex4ht:ref: part:sm   --></a>, we discussed the interpretation of fundamental particles as irreps of the
+Poincaré group and quantum excitations of fields. In experimental physics, we have yet
+another interpretation: “a particle is an object that interacts with your detector such
+that you can follow its track” (W. Riegler [<a href="Bibliography.html#XRiegler2013">169</a>]).
+</p><!--  l. 83  --><p class="indent">       Which is to say, in order to detect particles, they must interact with the detector
+material and transfer energy in a way that we can measure. Out of the myriad particles
+produced in LHC proton-proton collisions, the are only eight particles stable enough to
+reach the CMS detector and be detected are listed in Table <a href="#particles-which-can-reach-and-be-detected-by-the-cms-detector-lifetimes-are-given-in-the-rest-frame-for-unstable-particles">6.1<!--  tex4ht:ref: tab:02_cms_particles   --></a>. Neutrinos are also
+stable, but are too weakly interacting to measure with the CMS detector, which means
+it is vital to measure the energy of all the other particles hermetically; the presence of
+neutrinos can then be inferred by energy conservation, or “missing energy” carried by
+neutrinos.
+</p>
+<div class="table">
+<!--  l. 88  --><p class="indent"> </p><figure class="float" id="x33-107001r1"><span id="particles-which-can-reach-and-be-detected-by-the-cms-detector-lifetimes-are-given-in-the-rest-frame-for-unstable-particles"></span>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Table 6.1.  </span></span><span class="content">Particles  which  can  reach  and  be  detected  by  the  CMS  detector.
+Lifetimes are given in the rest frame for unstable particles.                      </span></figcaption><!--  tex4ht:label?: x33-107001r1   -->
+<div class="tabular">
+<table class="tabular" id="TBL-35"><colgroup id="TBL-35-1g"><col id="TBL-35-1"/><col id="TBL-35-2"/><col id="TBL-35-3"/><col id="TBL-35-4"/></colgroup><tr id="TBL-35-1-"><td class="td01" id="TBL-35-1-1" style="text-align:left; white-space:nowrap;"><strong>Particle</strong> </td>
+<td class="td11" id="TBL-35-1-2" style="text-align:center; white-space:nowrap;"> <strong>Mass (MeV/<!--  l. 95  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>c</mi></mrow><mrow><mn>2</mn></mrow></msup></math>)</strong> </td>
+<td class="td11" id="TBL-35-1-3" style="text-align:center; white-space:nowrap;"> <strong>Charge (<!--  l. 95  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>e</mi></math>)</strong> </td>
+<td class="td10" id="TBL-35-1-4" style="text-align:center; white-space:nowrap;"> <strong>Lifetime (s)</strong> </td>
+</tr><tr id="TBL-35-2-"><td class="td01" id="TBL-35-2-1" style="text-align:left; white-space:nowrap;">Photons                  </td>
+<td class="td11" id="TBL-35-2-2" style="text-align:center; white-space:nowrap;"> <!--  l. 97  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math> </td>
+<td class="td11" id="TBL-35-2-3" style="text-align:center; white-space:nowrap;"> <!--  l. 97  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math> </td>
+<td class="td10" id="TBL-35-2-4" style="text-align:center; white-space:nowrap;">                                                                   Stable                                                                                                        </td>
+</tr><tr id="TBL-35-3-"><td class="td01" id="TBL-35-3-1" style="text-align:left; white-space:nowrap;">Electrons / positrons  </td>
+<td class="td11" id="TBL-35-3-2" style="text-align:center; white-space:nowrap;"> <!--  l. 98  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.511</mn></mrow></math> </td>
+<td class="td11" id="TBL-35-3-3" style="text-align:center; white-space:nowrap;"> <!--  l. 98  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-bin" stretchy="false">±</mo> <mn>1</mn></mrow></math> </td>
+<td class="td10" id="TBL-35-3-4" style="text-align:center; white-space:nowrap;">                                                                   Stable                                                                                                        </td>
+</tr><tr id="TBL-35-4-"><td class="td01" id="TBL-35-4-1" style="text-align:left; white-space:nowrap;">Protons                   </td>
+<td class="td11" id="TBL-35-4-2" style="text-align:center; white-space:nowrap;"> <!--  l. 99  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>938</mn></mrow></math> </td>
+<td class="td11" id="TBL-35-4-3" style="text-align:center; white-space:nowrap;"> <!--  l. 99  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn></mrow></math> </td>
+<td class="td10" id="TBL-35-4-4" style="text-align:center; white-space:nowrap;">                                                                   Stable                                                                                                        </td>
+</tr><tr id="TBL-35-5-"><td class="td01" id="TBL-35-5-1" style="text-align:left; white-space:nowrap;">Neutrons                 </td><td class="td11" id="TBL-35-5-2" style="text-align:center; white-space:nowrap;"> <!--  l. 100  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>940</mn></mrow></math> </td><td class="td11" id="TBL-35-5-3" style="text-align:center; white-space:nowrap;"> <!--  l. 100  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math> </td><td class="td10" id="TBL-35-5-4" style="text-align:center; white-space:nowrap;"> <!--  l. 100  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>880</mn></mrow></math> </td>
+</tr><tr id="TBL-35-6-"><td class="td01" id="TBL-35-6-1" style="text-align:left; white-space:nowrap;">(Anti-)Muons           </td><td class="td11" id="TBL-35-6-2" style="text-align:center; white-space:nowrap;"> <!--  l. 101  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>106</mn></mrow></math> </td><td class="td11" id="TBL-35-6-3" style="text-align:center; white-space:nowrap;"> <!--  l. 101  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-bin" stretchy="false">±</mo> <mn>1</mn></mrow></math> </td><td class="td10" id="TBL-35-6-4" style="text-align:center; white-space:nowrap;"> <!--  l. 101  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2.2</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>6</mn>
+</mrow></msup></mrow></math> </td>
+</tr><tr id="TBL-35-7-"><td class="td01" id="TBL-35-7-1" style="text-align:left; white-space:nowrap;">Charged pions          </td>
+<td class="td11" id="TBL-35-7-2" style="text-align:center; white-space:nowrap;"> <!--  l. 102  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>140</mn></mrow></math> </td>
+<td class="td11" id="TBL-35-7-3" style="text-align:center; white-space:nowrap;"> <!--  l. 102  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-bin" stretchy="false">±</mo> <mn>1</mn></mrow></math> </td>
+<td class="td10" id="TBL-35-7-4" style="text-align:center; white-space:nowrap;"> <!--  l. 102  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2.6</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>8</mn></mrow></msup></mrow></math> </td>
+</tr><tr id="TBL-35-8-"><td class="td01" id="TBL-35-8-1" style="text-align:left; white-space:nowrap;">Neutral kaons           </td>
+<td class="td11" id="TBL-35-8-2" style="text-align:center; white-space:nowrap;"> <!--  l. 103  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>498</mn></mrow></math> </td>
+<td class="td11" id="TBL-35-8-3" style="text-align:center; white-space:nowrap;"> <!--  l. 103  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math> </td>
+<td class="td10" id="TBL-35-8-4" style="text-align:center; white-space:nowrap;"> <!--  l. 103  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>9</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>11</mn></mrow></msup></mrow></math>—<!--  l. 103  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>5</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>8</mn></mrow></msup></mrow></math></td>
+</tr><tr id="TBL-35-9-"><td class="td01" id="TBL-35-9-1" style="text-align:left; white-space:nowrap;">Charged kaons          </td>
+<td class="td11" id="TBL-35-9-2" style="text-align:center; white-space:nowrap;"> <!--  l. 104  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>494</mn></mrow></math> </td>
+<td class="td11" id="TBL-35-9-3" style="text-align:center; white-space:nowrap;"> <!--  l. 104  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-bin" stretchy="false">±</mo> <mn>1</mn></mrow></math> </td>
+<td class="td10" id="TBL-35-9-4" style="text-align:center; white-space:nowrap;"> <!--  l. 104  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.2</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>8</mn></mrow></msup></mrow></math> </td>
+</tr></table> </div>
+</figure>
+</div>
+<h5 class="subsubsectionHead" id="charged-particles"><a id="x33-108000"></a>Charged particles</h5>
+<!--  l. 111  --><p class="noindent">Out of these eight, the charged particles can interact electromagnetically with matter
+through: </p>
+<ul class="itemize1">
+<li class="itemize">Ionization      and      excitation      of      atoms:      inelastic      scattering
+with     atomic     electrons     and     elastic     scattering     from     nuclei,
+respectively.       The       average       energy       loss       per       distance
+<!--  l. 114  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"> <mrow><mo fence="true" form="prefix">⟨</mo><mrow><mfrac><mrow><mi mathvariant="italic">dE</mi></mrow>
+<mrow>
+<mi mathvariant="italic">dx</mi></mrow></mfrac> </mrow><mo fence="true" form="postfix">⟩</mo></mrow></math>
+of  a  particle  due  to  ionization  is  given  by  the  famous  Bethe-Bloch
+formula [<a href="Bibliography.html#Xbethe1953passage">170</a>].
+</li>
+<li class="itemize">Bremsstrahlung: photon radiation because of (de-)acceleration in the electric
+field of nuclei;
+</li>
+<li class="itemize">Cherenkov effect: photon radiation due to the particle moving faster than
+the speed of light in the medium;
+</li>
+<li class="itemize">and transition radiation: photon radiation due to the crossing a boundary
+between two different dielectrics.</li></ul>
+<!--  l. 119  --><p class="noindent">Generally, for “heavy” charged particles (of mass
+<!--  l. 119  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≫</mo></mrow></math>
+electron mass), electromagnetic interactions are dominated by ionization and
+excitation, while for electrons and positrons, Bremsstrahlung is dominant at higher
+energies.
+</p><!--  l. 122  --><p class="indent">       The presence and angle of Cherenkov radiation depends on the particle
+momenta, a fact which is often exploited for “particle identification” (PID) by
+distinguishing particles of different masses at given momenta. For example, LHCb uses
+ring-imaging Cherenkov (RICH) detectors to distinguish hadrons, which is critical for
+<!--  l. 123  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>-physics [<a href="Bibliography.html#XLHCb_2008vvz">171</a>].
+CMS, on the other hand, did not prioritize PID and cannot accurately distinguish
+between the different hadrons beyond their charge.
+                                                                                
+
+                                                                                
+</p><!--  l. 128  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="photons"><a id="x33-109000"></a>Photons</h5>
+<!--  l. 130  --><p class="noindent">Photons primarily interact through: </p>
+<ul class="itemize1">
+<li class="itemize">The     photoelectric     effect:     absorption     by     an     atom     causing
+the     ejection     of     an     electron,     dominant     at     low     energies,
+<!--  l. 132  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≪</mo> <mn>1</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>MeV</mtext></mstyle></mrow></math>;
+</li>
+<li class="itemize">Compton        scattering:        incoherent        scattering        off        an
+atomic       electron,       dominant       at       intermediate       energies,
+<!--  l. 133  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">∼</mo> <mn>1</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>MeV</mtext></mstyle></mrow></math>;
+</li>
+<li class="itemize">and     pair     production:     converting     into     electron-positron     pairs
+in    the    Coulomb    field    of    nuclei,    dominant    at    high    energies,
+<!--  l. 134  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≫</mo> <mn>1</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>MeV</mtext></mstyle></mrow></math>.</li></ul>
+<!--  l. 136  --><p class="noindent">The combination of these effects means that as high energy electrons and photons propagate
+                                                                                
+
+                                                                                
+through the detector material, they produce a cascade of secondary particles, called an
+<i>electromagnetic shower</i>, which are analyzed to infer the presence and overall energy of
+the originating particle.
+</p><!--  l. 138  --><p class="indent">       It is often convenient to characterize detector materials by their <i>radiation length</i>
+(<!--  l. 138  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>X</mi></mrow><mrow><mn>0</mn></mrow></msub></math>),
+which is the mean distance into the material over which high-energy electrons lose
+<!--  l. 138  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mi>e</mi></mrow></mfrac></math> of their energy due to
+Bremsstrahlung, and <!--  l. 138  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mn>7</mn></mrow>
+<mrow>
+<mn>9</mn></mrow></mfrac></math>
+of the mean free path of photons before pair production.
+</p><!--  l. 140  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="hadrons"><a id="x33-110000"></a>Hadrons</h5>
+<!--  l. 142  --><p class="noindent">Finally, high energy hadrons can also interact with atomic nuclei through the
+strong force, losing energy through further particle emissions which create
+their own <i>hadronic shower</i>. As a large fraction of these emitted particles are
+neutral pions, which decay immediately into photons, hadronic showers are
+also often accompanied by electromagnetic sub-showers. We can characterize
+materials for hadron detection similarly by their <i>nuclear interaction length</i>
+(<!--  l. 144  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi></math>), the
+                                                                                
+
+                                                                                
+mean free path between nuclear interactions.
+</p><!--  l. 146  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="types-of-detectors"><span class="titlemark">6.2.2   </span> <a id="x33-1110006.2.2"></a>Types of detectors</h4>
+<!--  l. 149  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="tracking-detectors"><a id="x33-112000"></a>Tracking detectors</h5>
+<!--  l. 151  --><p class="noindent">The earliest particle detectors were gaseous <i>ionization chambers</i>. Charged particles
+passing through these detectors ionize the gas along their trajectory, creating visible
+tracks, which can be captured, for example, by using an electric field to push the ions
+towards photographic film. The most notable examples are cloud chambers, which were
+prominent in the first half of the 20th century, and led to the discovery of the positron,
+muon, and kaon via cosmic rays. The Nobel Prize was awarded to Charles Wilson in
+1927 and Carl Anderson in 1936 for the invention and development of the cloud
+chamber, respectively.
+                                                                                
+
+                                                                                
+</p><!--  l. 160  --><p class="indent">       Tracking detectors have since continuously evolved, such as through the use of
+liquid media in <i>bubble chambers</i> and charged wires to produce electric fields and read
+out ionization signals electronically in <i>wire chambers</i>, both of which again led to Nobel
+Prizes for their inventors, Donald Glaser and Georges Charpak, respectively. The
+Gargamelle bubble chamber at CERN notably led to the discovery of weak neutral
+currents [<a href="Bibliography.html#XGargamelleNeutrino_1973jyy">138</a>] (see Chapter <a href="Electroweakinteractions.html#weak-interactions">4.2.1<!--  tex4ht:ref: sec:01_sm_ew_weak   --></a>).
+</p><!--  l. 164  --><p class="indent">       More recently, a significant advancement in tracking detectors
+has been achieved through the use of semiconductors such as silicon. A
+<!--  l. 165  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-<!--  l. 165  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math>
+semiconductor diode [<a href="Bibliography.html#Xsparkes1994semiconductor">172</a>, <a href="Bibliography.html#XNomerotski_2009zz">173</a>] effectively forms an ionization chamber as
+well, where charged particles passing through will create electron-hole pairs
+whose charge can be collected and recorded. Semiconductor detectors can
+have lower ionization energies, higher granularity, better position and time
+resolution, and strong radiation tolerance, while also being able to leverage
+innovations and state-of-the-art fabrication techniques from the semiconductor
+industry.
+</p><!--  l. 168  --><p class="indent">       Thus, there has been a gradual shift towards their use, particularly in collider
+physics. Here, tracking detectors are crucial for (1) <i>vertexing</i> — measuring particle
+tracks precisely to determine the point of collision, or the “vertex” — and (2)
+measuring the curvature of charged-particle trajectories in a magnetic field to
+determine their momenta. Silicon trackers, for example, were employed for
+vertexing in all LEP experiments and the CDF and DØexperiments at the
+                                                                                
+
+                                                                                
+Tevatron. The CMS detector is notably the first to use silicon for its entire tracking
+volume.
+</p><!--  l. 173  --><p class="indent">       Semiconductor trackers are, however, more expensive per unit area. Hence,
+gaseous and liquid detectors remain prevalent in particle physics, particularly where
+large volumes are required, such as in neutrino experiments and the CMS muon
+system.
+</p><!--  l. 176  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="calorimeters"><a id="x33-113000"></a>Calorimeters</h5>
+<!--  l. 178  --><p class="noindent">Calorimeters are detectors designed primarily to measure the energy of particles. They
+can be either <i>homogeneous</i>, where the entire volume of the detector can both absorb
+<i>and</i> measure the energy of the shower; or, <i>sampling</i>, where separate “passive” layers
+which absorb energy and initiate the shower are interleaved with “active” layers to
+measure the energy. Sampling calorimeters are less precise than homogeneous
+calorimeters, but are more cost-effective, especially when large volumes are required.
+CMS employs both types of calorimeters, and primarily uses <i>scintillation</i> — photon
+emission due to atomic (de-)excitation from charged particles — to capture and measure
+energy.
+                                                                                
+
+                                                                                
+</p><!--  l. 183  --><p class="indent">       Generally in collider physics trackers are designed to have short
+radiation lengths, to minimize particle energy loss, and calorimeters as long a
+radiation length as possible, to capture the entire energy of electromagnetic
+or hadronic showers. In addition to their radiation and nuclear interaction
+lengths, calorimeter materials are characterized as well by their <i>Molière radius</i>
+(<!--  l. 184  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>R</mi></mrow><mrow><mi>M</mi></mrow></msub></math>),
+which is the radius of a cylinder containing, on average, 90% of an incident
+electron or photon’s electromagnetic shower energy. It is approximately related to
+<!--  l. 185  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>X</mi></mrow><mrow><mn>0</mn></mrow></msub></math> as:
+</p><table class="equation"><tr><td>
+<!--  l. 186  --><p class="indent">
+</p><!--  l. 186  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x33-113001r1"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>R</mi></mrow><mrow><mi>M</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.0265</mn><msub><mrow><mi>X</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>Z</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1.2</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(6.2.1)</td></tr></table>
+<!--  l. 189  --><p class="noindent">where <!--  l. 190  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>Z</mi></math>
+is the atomic number of the material.
+                                                                                
+
+                                                                                
+</p><!--  l. 192  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="generalpurpose-detectors"><a id="x33-114000"></a>General-purpose detectors</h5>
+<!--  l. 194  --><p class="noindent">Designing a general-purpose detector, such as CMS, requires a careful optimization of
+several factors, including high efficiency and resolution for as many of the particles in
+Table <a href="#particles-which-can-reach-and-be-detected-by-the-cms-detector-lifetimes-are-given-in-the-rest-frame-for-unstable-particles">6.1<!--  tex4ht:ref: tab:02_cms_particles   --></a>, radiation hardness, cost effectiveness, and more. A typical compromise in
+particle physics has been a “layered” detector design, as shown in Figure <a href="#layers-in-a-typical-generalpurpose-detector-in-particle-physics-and-an-illustration-of-the-interactions-of-different-particles">6.3<!--  tex4ht:ref: fig:02_cms_layers   --></a>, with a
+thin (in radiation and nuclear interaction lengths) innermost tracker for precise
+vertexing and momentum measurements, followed by thick calorimeters to measure
+particle energies, and finally dedicated detectors to identify and measure high energy
+muons that are able to penetrate the previous layers. The CMS detector follows this
+general philosophy, as shown in Figure <a href="#illustration-of-the-different-detector-layers-in-the-cms-barrel-region-and-the-expected-hits-and-energy-deposits-from-various-particles-reproduced-from-ref-davis">6.4<!--  tex4ht:ref: fig:02_cms_slice   --></a>.
+</p>
+<figure class="figure">
+<!--  l. 200  --><p class="noindent" id="layers-in-a-typical-generalpurpose-detector-in-particle-physics-and-an-illustration-of-the-interactions-of-different-particles"> <img alt="PIC" src="figures/02-CMS/cms/interactions_layers_edit2-.png" style="max-width:100%"/> <a id="x33-114001r3"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 6.3. </span></span><span class="content">Layers in a typical general-purpose detector in particle physics and
+an illustration of the interactions of different particles.                           </span></figcaption><!--  tex4ht:label?: x33-114001r3   -->
+</figure>
+<figure class="figure">
+<!--  l. 207  --><p class="noindent" id="illustration-of-the-different-detector-layers-in-the-cms-barrel-region-and-the-expected-hits-and-energy-deposits-from-various-particles-reproduced-from-ref-davis"><img alt="PIC" src="figures/02-CMS/cms/components/slice.png" style="max-width:100%"/> <a id="x33-114002r4"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 6.4. </span></span><span class="content">Illustration of the different detector layers in the CMS barrel region
+and the expected hits and energy deposits from various particles, reproduced from
+Ref. [<a href="Bibliography.html#XDavis_2205172">39</a>].                                                                       </span></figcaption><!--  tex4ht:label?: x33-114002r4   -->
+</figure>
+<nav class="crosslinks-bottom"> <a href="Overview.html">⭠</a> <a href="CMSdetectorcomponents.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

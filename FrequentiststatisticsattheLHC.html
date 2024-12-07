@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Frequentist statistics at the LHC</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="chapterToc">7 <a href="MachineLearningforHEP.html#machine-learning-for-hep">Machine Learning for HEP</a></span>
+<span class="chapterToc">8 <a href="DataAnalysisandStatisticalInterpretation.html#data-analysis-and-statistical-interpretation">Data Analysis and Statistical Interpretation</a></span>
+<span class="sectionToc">8.1 <a href="IntroductionorWhatisananalysis.html#introduction-or-what-is-an-analysis">Introduction or: What is an analysis?</a></span>
+<span class="sectionToc">8.2 <a href="#frequentist-statistics-at-the-lhc">Frequentist statistics at the LHC</a></span>
+<span class="subsectionToc">8.2.1 <a href="#the-likelihood-function-and-test-statistics">The likelihood function and test statistics</a></span>
+<span class="subsectionToc">8.2.2 <a href="#hypothesis-testing">Hypothesis testing</a></span>
+<span class="subsectionToc">8.2.3 <a href="#confidence-intervals-and-limits">Confidence intervals and limits</a></span>
+<span class="subsectionToc">8.2.4 <a href="#expected-significances-and-limits">Expected significances and limits</a></span>
+<span class="sectionToc">8.3 <a href="Asymptoticformulae.html#asymptotic-formulae">Asymptotic formulae</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="IntroductionorWhatisananalysis.html">⭠</a> <a href="Asymptoticformulae.html">⭢</a> </nav>
+<h3 class="sectionHead" id="frequentist-statistics-at-the-lhc"><span class="titlemark">8.2   </span> <a id="x44-1690008.2"></a>Frequentist statistics at the LHC</h3>
+<!--  l. 37  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="the-likelihood-function-and-test-statistics"><span class="titlemark">8.2.1   </span> <a id="x44-1700008.2.1"></a>The likelihood function and test statistics</h4>
+<!--  l. 40  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="the-data-model"><a id="x44-171000"></a>The data model</h5>
+<a id="x44-171000doc"></a>
+<!--  l. 43  --><p class="noindent">Let us take the simplest possible case of a (one bin) counting experiment, where in our “signal region” we
+expect <!--  l. 43  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math> signal events and
+<!--  l. 43  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math> background events. The
+probability to observe <!--  l. 44  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math>
+events in our signal region is distributed as a Poisson with mean
+<!--  l. 44  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi></mrow></math>:
+</p><table class="equation"><tr><td>
+<!--  l. 45  --><p class="indent">
+</p><!--  l. 45  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-171001r1"></mstyle><!--  endlabel  -->
+<mi>P</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-punc" stretchy="false">;</mo> <mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="normal"><mi>Pois</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-punc" stretchy="false">;</mo> <mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mi>n</mi></mrow></msup><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-bin" stretchy="false">+</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow>
+<mrow>
+<mi>n</mi><mo class="MathClass-punc" stretchy="false">!</mo></mrow></mfrac>
+</mrow></math></td><td class="eq-no">(8.2.1)</td></tr></table>
+<!--  l. 48  --><p class="noindent">
+</p><!--  l. 50  --><p class="indent">       Since we have only one observation but two free parameters, this experiment is
+underconstrained. So, let’s also add a “control region” where we expect no signal and
+<!--  l. 51  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math> background events. The
+probability of observing <!--  l. 52  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math>
+events in our control region is therefore: </p><table class="equation"><tr><td>
+<!--  l. 53  --><p class="indent">
+</p><!--  l. 53  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-171002r2"></mstyle><!--  endlabel  -->
+<mstyle mathvariant="normal">
+<mi>Pois</mi>
+</mstyle>
+<mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">;</mo> <mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msup><mrow><mi>b</mi></mrow><mrow><mi>m</mi></mrow></msup><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>b</mi></mrow></msup></mrow>
+<mrow>
+<mi>m</mi><mo class="MathClass-punc" stretchy="false">!</mo></mrow></mfrac>
+</mrow></math></td><td class="eq-no">(8.2.2)</td></tr></table>
+<!--  l. 56  --><p class="noindent">Combining the two, the joint probability distribution for
+<!--  l. 57  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math> and
+<!--  l. 57  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math> is:
+</p><table class="equation"><tr><td>
+<!--  l. 58  --><p class="indent">
+</p><!--  l. 58  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-171003r3"></mstyle><!--  endlabel  -->
+<mi>P</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">;</mo> <mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="normal"><mi>Pois</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-punc" stretchy="false">;</mo> <mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">⋅</mo><mstyle mathvariant="normal"><mi>Pois</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">;</mo> <mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mi>n</mi></mrow></msup><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-bin" stretchy="false">+</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow>
+<mrow>
+<mi>n</mi><mo class="MathClass-punc" stretchy="false">!</mo></mrow></mfrac> <mo class="MathClass-bin" stretchy="false">⋅</mo><mfrac><mrow><msup><mrow><mi>b</mi></mrow><mrow><mi>m</mi></mrow></msup><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>b</mi></mrow></msup></mrow>
+<mrow>
+<mi>m</mi><mo class="MathClass-punc" stretchy="false">!</mo></mrow></mfrac>
+</mrow></math></td><td class="eq-no">(8.2.3)</td></tr></table>
+<!--  l. 61  --><p class="noindent">This is also called the model for the data and is plotted for sample
+<!--  l. 62  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi></mrow></math> values
+in Figure <a href="#sample-d-poisson-distributions">8.1<!--  tex4ht:ref: fig:03_pois   --></a>.
+</p>
+<figure class="figure">
+<!--  l. 67  --><p class="noindent" id="sample-d-poisson-distributions"><img alt="PIC" src="figures/03-Stats/01-intro/1.png" style="max-width:100%"/> <a id="x44-171004r1"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.1. </span></span><span class="content">Sample 2D Poisson distributions.                                  </span></figcaption><!--  tex4ht:label?: x44-171004r1   -->
+</figure>
+<h5 class="subsubsectionHead" id="the-likelihood-function"><a id="x44-172000"></a>The likelihood function</h5>
+<!--  l. 74  --><p class="noindent">In the <i>frequentist</i> philosophy, however, all our parameters
+<!--  l. 74  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math>,
+<!--  l. 74  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math> etc. are
+simply fixed values of nature and, hence, don’t have a probability distribution. Instead, we
+work with the <i>likelihood function</i>, which is a function only of our parameters of interest (POIs),
+<!--  l. 75  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math> in our example, and
+“nuisance parameters” (<!--  l. 75  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>),
+given fixed values for <!--  l. 75  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math>
+and <!--  l. 75  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math>:
+</p><table class="equation"><tr><td>
+<!--  l. 76  --><p class="indent">
+</p><!--  l. 76  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-172001r4"></mstyle><!--  endlabel  -->
+<mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>P</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">;</mo> <mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mi>n</mi></mrow></msup><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-bin" stretchy="false">+</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow>
+<mrow>
+<mi>n</mi><mo class="MathClass-punc" stretchy="false">!</mo></mrow></mfrac> <mo class="MathClass-bin" stretchy="false">⋅</mo><mfrac><mrow><msup><mrow><mi>b</mi></mrow><mrow><mi>m</mi></mrow></msup><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>b</mi></mrow></msup></mrow>
+<mrow>
+<mi>m</mi><mo class="MathClass-punc" stretchy="false">!</mo></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(8.2.4)</td></tr></table>
+<!--  l. 79  --><p class="noindent">Importantly, this is not a probability distribution on
+<!--  l. 80  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math> and
+<!--  l. 80  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>!
+To derive that, we would have to use Bayes’ rule to go from
+<!--  l. 80  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>P</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">;</mo> <mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">→</mo> <mi>P</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-punc" stretchy="false">;</mo> <mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>;
+however, such probability distributions don’t make sense in our frequentist world view,
+so we’re stuck with this likelihood formulation. Often, it’s more convenient to consider
+the negative log-likelihood: </p><table class="equation"><tr><td>
+<!--  l. 82  --><p class="indent">
+</p><!--  l. 82  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-172002r5"></mstyle><!--  endlabel  -->
+<mo class="MathClass-bin" stretchy="false">−</mo><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mi>L</mi> <mo class="MathClass-rel" stretchy="false">=</mo><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mi>n</mi><mo class="MathClass-punc" stretchy="false">!</mo> <mo class="MathClass-bin" stretchy="false">+</mo><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mi>m</mi><mo class="MathClass-punc" stretchy="false">!</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>2</mn><mi>b</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>n</mi><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>m</mi><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mi>b</mi>
+</mrow></math></td><td class="eq-no">(8.2.5)</td></tr></table>
+<!--  l. 85  --><p class="noindent">
+</p><!--  l. 87  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="the-profile-likelihood-ratio"><a id="x44-173000"></a>The profile likelihood ratio</h5>
+<!--  l. 89  --><p class="noindent">Fundamentally, the goal of any experiment is to test the compatibility of the observed data
+(<!--  l. 89  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi></mrow></math> here) with a
+certain hypothesis <!--  l. 89  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math>.
+We do this by mapping the data to a “test statistic”
+<!--  l. 90  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math>,
+which is just a number, and comparing it against its distribution under
+<!--  l. 90  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math>,
+<!--  l. 90  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>P</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.
+Our problem, thus, boils down to 1) choosing the most effective
+<!--  l. 91  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math> for testing
+<!--  l. 91  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math>, and 2)
+obtaining <!--  l. 91  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>P</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.
+</p><!--  l. 93  --><p class="indent">       In the case of testing a particular signal strength, we use the “profile likelihood
+ratio”: </p><table class="equation"><tr><td>
+<!--  l. 94  --><p class="indent">
+</p><!--  l. 94  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-173001r6"></mstyle><!--  endlabel  -->
+<mi>λ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo></mrow>
+<mrow>
+<mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>ŝ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.2.6)</td></tr></table>
+<!--  l. 97  --><p class="noindent">where <!--  l. 98  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ŝ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow></math>
+are the maximum-likelihood estimates (MLEs) for
+<!--  l. 98  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math> and
+<!--  l. 98  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>, given the
+observations <!--  l. 98  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi></mrow></math>,
+and <!--  l. 98  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is the
+MLE for <!--  l. 98  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>
+given <!--  l. 98  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi></mrow></math>,
+<i>and</i> <!--  l. 98  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>.
+The MLE for a parameter is simply the value of it for which the likelihood
+is maximized, and will be discussed in the next section. The numerator of
+<!--  l. 100  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>λ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+can be thought of as a way to “marginalize” over the nuisance
+parameters by simply values that maximize the likelihood for any given
+                                                                                
+
+                                                                                
+<!--  l. 100  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>,
+while the denominator is effectively a normalization factor, such that
+<!--  l. 100  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>λ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">≤</mo> <mn>1</mn></mrow></math>.
+</p><!--  l. 102  --><p class="indent">       Again, it’s often more convenient to use the (negative) logarithm: </p><table class="equation"><tr><td>
+<!--  l. 103  --><p class="indent">
+</p><!--  l. 103  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-173002r7"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>t</mi></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mi>λ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo>
+</mrow></math></td><td class="eq-no">(8.2.7)</td></tr></table>
+<!--  l. 106  --><p class="noindent">Note that <!--  l. 108  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>Max</mi></mstyle><mo class="MathClass-open" stretchy="false">[</mo><mi>λ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn> <mo class="MathClass-rel" stretchy="false">⇒</mo><mstyle mathvariant="normal"><mi>Min</mi></mstyle><mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>t</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>.
+<!--  l. 109  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>λ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and
+<!--  l. 109  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>s</mi></mrow></msub></math> are plotted
+for sample <!--  l. 109  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi></mrow></math>
+values with <!--  l. 109  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>m</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>10</mn></mrow></math>
+in Figure <a href="#the-profile-likelihood-ratio-s-left-and-the-ts-test-statistic-right-for-our-onebin-poisson-model">8.2<!--  tex4ht:ref: fig:03_plr   --></a>. The maximum (minimum) of the profile likelihood ratio
+(<!--  l. 110  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>s</mi></mrow></msub></math>) is at
+<!--  l. 110  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>m</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>10</mn></mrow></math>, as we expect; however,
+as the ratio between <!--  l. 110  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math>
+                                                                                
+
+                                                                                
+and <!--  l. 110  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math>
+decreases — i.e., the experiment becomes more noisy — the distributions broaden,
+representing the reduction in sensitivity, or the higher uncertainty on the true value of
+<!--  l. 110  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>.
+</p>
+<figure class="figure">
+<!--  l. 114  --><p class="noindent" id="the-profile-likelihood-ratio-s-left-and-the-ts-test-statistic-right-for-our-onebin-poisson-model"><img alt="PIC" src="figures/03-Stats/01-intro/2.png" style="max-width:100%"/> <a id="x44-173003r2"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.2.              </span></span><span class="content">The              profile              likelihood              ratio
+<!--  l. 115  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>λ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+(left)                                              and                                              the
+<!--  l. 115  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>s</mi></mrow></msub></math>
+test statistic (right) for our one-bin Poisson model.                              </span></figcaption><!--  tex4ht:label?: x44-173003r2   -->
+</figure>
+<!--  l. 119  --><p class="indent">       Note that the likelihood ratio and
+<!--  l. 119  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>s</mi></mrow></msub></math> are
+also broadened due to the nuisance parameter; i.e., because we are missing information
+about <!--  l. 119  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>.
+This can be demonstrated by plotting them with
+<!--  l. 120  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>b</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>m</mi></mrow></math>, emulating perfect
+information of <!--  l. 120  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>
+(Figure <a href="#the-profile-likelihood-ratio-s-left-and-the-ts-test-statistic-right-with-b-m-demonstrating-the-effect-of-decreasing-uncertainties-on-our-nuisance-parameters">8.3<!--  tex4ht:ref: fig:03_plr_nob   --></a>), and indeed, we see the functions are narrower than in Figure <a href="#the-profile-likelihood-ratio-s-left-and-the-ts-test-statistic-right-for-our-onebin-poisson-model">8.2<!--  tex4ht:ref: fig:03_plr   --></a>. More
+generally, increasing (decreasing) the uncertainties on the nuisance parameters will
+broaden (narrow) the test statistic distribution. This is which is why experimentally we
+want to constrain them through auxiliary measurements as much as possible.
+</p>
+<figure class="figure">
+<!--  l. 126  --><p class="noindent" id="the-profile-likelihood-ratio-s-left-and-the-ts-test-statistic-right-with-b-m-demonstrating-the-effect-of-decreasing-uncertainties-on-our-nuisance-parameters"><img alt="PIC" src="figures/03-Stats/01-intro/3.png" style="max-width:100%"/> <a id="x44-173004r3"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.3. </span></span><span class="content">The profile likelihood ratio <!--  l. 127  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>λ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+(left) and the <!--  l. 127  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>s</mi></mrow></msub></math>
+test statistic (right) with <!--  l. 127  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>b</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>m</mi></mrow></math>,
+demonstrating the effect of decreasing uncertainties on our nuisance parameters. </span></figcaption><!--  tex4ht:label?: x44-173004r3   -->
+</figure>
+<h5 class="subsubsectionHead" id="maximumlikelihood-estimates"><a id="x44-174000"></a>Maximum-likelihood estimates</h5>
+<!--  l. 133  --><p class="noindent">MLEs for <!--  l. 133  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>
+and <!--  l. 133  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>
+can be found for this example by setting the derivative of the negative log-likelihood to
+0 (more generally, this would require numerical minimization):
+</p><!--  tex4ht:inline  --><!--  l. 138  --><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align" columnalign="left" displaystyle="true">
+<mtr><mtd class="align-odd" columnalign="right"><mfrac><mrow><mi>∂</mi><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow>
+<mrow>
+<mi mathvariant="italic">∂s</mi></mrow></mfrac> </mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mfrac><mrow><mi>n</mi></mrow>
+<mrow>
+<mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x44-174001r8"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.2.8)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"><mfrac><mrow><mi>∂</mi><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow>
+<mrow>
+<mi mathvariant="italic">∂b</mi></mrow></mfrac> </mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mfrac><mrow><mi>n</mi></mrow>
+<mrow>
+<mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi></mrow></mfrac> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mi>m</mi></mrow>
+<mrow>
+<mi>b</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x44-174002r9"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.2.9)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr></mtable></math>
+<!--  l. 139  --><p class="noindent">Solving simultaneously yields, as you might expect: </p><table class="equation"><tr><td>
+<!--  l. 140  --><p class="indent">
+</p><!--  l. 140  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-174003r10"></mstyle><!--  endlabel  -->
+<mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>ŝ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.2.10)</td></tr></table>
+<!--  l. 143  --><p class="noindent">Or just for <!--  l. 144  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+from Eq. <a href="#x44-174001r8">8.2.8<!--  tex4ht:ref: eq:03_cmle_b   --></a>: </p><table class="equation"><tr><td>
+<!--  l. 145  --><p class="indent">
+</p><!--  l. 145  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-174004r11"></mstyle><!--  endlabel  -->
+<mn>2</mn><msup><mrow><mi>b</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mi>s</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>n</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo><mi>b</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi mathvariant="italic">ms</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn>
+</mrow></math></td><td class="eq-no">(8.2.11)</td></tr></table>
+<!--  l. 148  --><p class="noindent">Plugging this back in, we can get <!--  l. 149  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>λ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+and <!--  l. 149  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>s</mi></mrow></msub></math> for
+any given <!--  l. 149  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>.
+                                                                                
+
+                                                                                
+</p><!--  l. 154  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="alternative-test-statistic"><a id="x44-175000"></a>Alternative test statistic</h5>
+<!--  l. 156  --><p class="noindent">So far, our construction allows for <!--  l. 156  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>0</mn></mrow></math>;
+however, physically the number of signal events can’t be negative. Rather than
+incorporating this constraint in the model, it’s more convenient to impose this in the
+test statistic, by defining: </p><table class="equation"><tr><td>
+<!--  l. 158  --><p class="indent">
+</p><!--  l. 158  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-175001r12"></mstyle><!--  endlabel  --><mover accent="true"><mrow><mi>λ</mi></mrow><mo accent="true">~</mo></mover>
+<mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">{</mo><mrow> <mtable align="axis" class="array" columnlines="none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="left"> <mfrac><mrow><mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo></mrow>
+<mrow>
+<mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>ŝ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo> </mtd>
+<mtd class="array-td" columnalign="left"> <mstyle class="mbox"><mtext></mtext><mstyle class="math"><mi>ŝ</mi> <mo class="MathClass-rel" stretchy="false">≥</mo> <mn>0</mn></mstyle><mtext></mtext></mstyle><mo class="MathClass-punc" stretchy="false">.</mo> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="left"> <mfrac><mrow><mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo></mrow>
+<mrow>
+<mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mn>0</mn></mrow><mo accent="true">^</mo></mover><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo></mrow></mfrac><mo class="MathClass-punc" stretchy="false">,</mo> </mtd><mtd class="array-td" columnalign="left"> <mstyle class="mbox"><mtext></mtext><mstyle class="math"><mi>ŝ</mi> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>0</mn></mstyle><mtext></mtext></mstyle><mo class="MathClass-punc" stretchy="false">.</mo> </mtd></mtr>
+<!--  ll  --></mtable> </mrow><mo fence="true" form="postfix"></mo></mrow><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.2.12)</td></tr></table>
+<!--  l. 166  --><p class="noindent">and </p><table class="equation"><tr><td>
+<!--  l. 168  --><p class="indent">
+</p><!--  l. 168  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-175002r13"></mstyle><!--  endlabel  --><msub><mrow>
+<mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover>
+</mrow><mrow><mi>s</mi></mrow></msub>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>2</mn><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mover accent="true"><mrow><mi>λ</mi></mrow><mo accent="true">~</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo>
+</mrow></math></td><td class="eq-no">(8.2.13)</td></tr></table>
+<!--  l. 171  --><p class="noindent">
+</p><!--  l. 173  --><p class="indent">       The difference between the nominal and alternative test statistics is highlighted in
+Figure <a href="#comparing-the-nominal-vs-alternative-test-statistic">8.4<!--  tex4ht:ref: fig:03_alt_ts   --></a>. For <!--  l. 174  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mi>m</mi></mrow></math>,
+the <!--  l. 174  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mover accent="true"><mrow><mi>λ</mi></mrow><mo accent="true">~</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math> and
+<!--  l. 174  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math> values
+are at <!--  l. 174  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>,
+since physically that is what fits best with our data (even though the math says
+otherwise).
+</p>
+<figure class="figure">
+<!--  l. 178  --><p class="noindent" id="comparing-the-nominal-vs-alternative-test-statistic"><img alt="PIC" src="figures/03-Stats/01-intro/4.png" style="max-width:100%"/> <a id="x44-175003r4"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.4. </span></span><span class="content">Comparing the nominal vs alternative test statistic.                </span></figcaption><!--  tex4ht:label?: x44-175003r4   -->
+</figure>
+<!--  l. 184  --><p class="indent">       Next, we want to translate this to a probability distribution of
+<!--  l. 184  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub></math> under a particular
+signal hypothesis (<!--  l. 184  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mi>s</mi></mrow></msub></math>) (i.e.,
+an assumed value of <!--  l. 184  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>):
+<!--  l. 184  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msub><mrow><mi>H</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, or
+just <!--  l. 184  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+for simplicity.
+</p>
+<h4 class="subsectionHead" id="hypothesis-testing"><span class="titlemark">8.2.2   </span> <a id="x44-1760008.2.2"></a>Hypothesis testing</h4>
+<!--  l. 190  --><p class="noindent">The goal of any experiment is to test whether our data support or exclude a particular
+hypothesis <!--  l. 190  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math>,
+and quantify the (dis)agreement. For example, to what degree did our search for the
+Higgs boson agree or disagree with the standard model hypothesis?
+</p><!--  l. 192  --><p class="indent">       We have already discussed the process of mapping data to a scalar test statistic
+<!--  l. 192  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math> that we can
+use to test <!--  l. 192  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math>.
+However, we need to know the probability distribution of
+<!--  l. 193  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math> under
+                                                                                
+
+                                                                                
+<!--  l. 193  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math>
+to quantify the (in)consistency of the observed data with
+<!--  l. 193  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math> and decide whether
+or not to exclude <!--  l. 193  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math>.
+</p><!--  l. 195  --><p class="indent">       We must also recognize that there’s always a chance that we will exclude
+<!--  l. 195  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math>
+even if it’s true (called a Type I error, or a false positive), or not exclude
+<!--  l. 195  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math> when
+it’s false (Type II error, or false negative). The probability of each is referred to as
+<!--  l. 196  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math> and
+<!--  l. 196  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>β</mi></math>,
+respectively. This is summarized handily in Table <a href="#table-of-error-types-reproduced-from-ref-enwiki">8.1<!--  tex4ht:ref: tab:03_error_types   --></a>.
+</p>
+<div class="table">
+<!--  l. 199  --><p class="indent"> </p><figure class="float" id="x44-176001r1"><span id="table-of-error-types-reproduced-from-ref-enwiki"></span>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Table 8.1. </span></span><span class="content">Table of error types, reproduced from Ref. [<a href="Bibliography.html#Xenwiki_1259353735">60</a>].                     </span></figcaption><!--  tex4ht:label?: x44-176001r1   -->
+<div class="tabular">
+<table class="tabular" id="TBL-37" rules="groups"><colgroup id="TBL-37-1g"><col id="TBL-37-1"/></colgroup><colgroup id="TBL-37-2g"><col id="TBL-37-2"/></colgroup><colgroup id="TBL-37-3g"><col id="TBL-37-3"/></colgroup><colgroup id="TBL-37-4g"><col id="TBL-37-4"/></colgroup><tr id="TBL-37-1-"><td class="td11" colspan="2" id="TBL-37-1-1" style="text-align:center; white-space:nowrap;"> <div class="multicolumn" style="text-align:center; white-space:nowrap;"><div class="multirow"><!--   rows=0   -->
+Table of error types</div></div>
+</td><td class="td11" colspan="2" id="TBL-37-1-3" style="text-align:center; white-space:nowrap;"> <div class="multicolumn" style="text-align:center; white-space:nowrap;">Null hypothesis (<!--  l. 207  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mn>0</mn></mrow></msub></math>) is</div>
+</td></tr><tr class="cline"><td></td><td></td><td style="border-top:1px solid #000;"></td><td style="border-top:1px solid #000;"></td></tr><tr id="TBL-37-3-"><td class="td11" colspan="2" id="TBL-37-3-1" style="text-align:center; white-space:nowrap;"> <div class="multicolumn" style="text-align:center; white-space:nowrap;"></div>
+</td><td class="td11" id="TBL-37-3-3" style="text-align:center; white-space:nowrap;">                                         True                                                                </td>
+<td class="td11" id="TBL-37-3-4" style="text-align:center; white-space:nowrap;">                                        False                                                                </td>
+</tr><tr id="TBL-37-4-"><td class="td11" id="TBL-37-4-1" style="text-align:center; white-space:nowrap;"> <div class="multirow"><!--   rows=0   -->
+<!--  tex4ht:inline  --><div class="tabular"> <table class="tabular" id="TBL-38"><colgroup id="TBL-38-1g"><col id="TBL-38-1"/></colgroup><tr id="TBL-38-1-"><td class="td00" id="TBL-38-1-1" style="text-align:center; white-space:nowrap;">                                    Decision                                                        </td></tr><tr id="TBL-38-2-"><td class="td00" id="TBL-38-2-1" style="text-align:center; white-space:nowrap;"> about null</td>
+</tr><tr id="TBL-38-3-"><td class="td00" id="TBL-38-3-1" style="text-align:center; white-space:nowrap;">hypothesis (<!--  l. 210  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mn>0</mn></mrow></msub></math>)</td></tr></table></div></div> </td><td class="td11" id="TBL-37-4-2" style="text-align:center; white-space:nowrap;"> Fail to reject  </td><td class="td11" id="TBL-37-4-3" style="text-align:center; white-space:nowrap;"> <!--  tex4ht:inline  --><div class="tabular"> <table class="tabular" id="TBL-39"><colgroup id="TBL-39-1g"><col id="TBL-39-1"/></colgroup><tr id="TBL-39-1-"><td class="td00" id="TBL-39-1-1" style="text-align:center; white-space:nowrap;">                                 Correct inference                                                    </td>
+</tr><tr id="TBL-39-2-"><td class="td00" id="TBL-39-2-1" style="text-align:center; white-space:nowrap;">                                  (true negative)                                                      </td>
+</tr><tr id="TBL-39-3-"><td class="td00" id="TBL-39-3-1" style="text-align:center; white-space:nowrap;">(probability = <!--  l. 210  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>α</mi></mrow></math>)</td></tr></table></div> </td><td class="td11" id="TBL-37-4-4" style="text-align:center; white-space:nowrap;"> <!--  tex4ht:inline  --><div class="tabular"> <table class="tabular" id="TBL-40"><colgroup id="TBL-40-1g"><col id="TBL-40-1"/></colgroup><tr id="TBL-40-1-"><td class="td00" id="TBL-40-1-1" style="text-align:center; white-space:nowrap;">                                   Type II error                                                       </td>
+</tr><tr id="TBL-40-2-"><td class="td00" id="TBL-40-2-1" style="text-align:center; white-space:nowrap;">                                  (false negative)                                                      </td>
+</tr><tr id="TBL-40-3-"><td class="td00" id="TBL-40-3-1" style="text-align:center; white-space:nowrap;">(probability = <!--  l. 210  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>β</mi></math>)</td></tr></table></div> </td>
+</tr><tr class="cline"><td></td><td style="border-top:1px solid #000;"></td><td style="border-top:1px solid #000;"></td><td style="border-top:1px solid #000;"></td></tr><tr id="TBL-37-6-"><td class="td11" id="TBL-37-6-1" style="text-align:center; white-space:nowrap;"> </td>
+<td class="td11" id="TBL-37-6-2" style="text-align:center; white-space:nowrap;">    Reject      </td>
+<td class="td11" id="TBL-37-6-3" style="text-align:center; white-space:nowrap;"> <!--  tex4ht:inline  --><div class="tabular"> <table class="tabular" id="TBL-41"><colgroup id="TBL-41-1g"><col id="TBL-41-1"/></colgroup><tr id="TBL-41-1-"><td class="td00" id="TBL-41-1-1" style="text-align:center; white-space:nowrap;">                                   Type I error                                                       </td>
+</tr><tr id="TBL-41-2-"><td class="td00" id="TBL-41-2-1" style="text-align:center; white-space:nowrap;">                                   (false positive)                                                      </td>
+</tr><tr id="TBL-41-3-"><td class="td00" id="TBL-41-3-1" style="text-align:center; white-space:nowrap;">(probability = <!--  l. 211  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math>)</td></tr></table></div> </td>
+<td class="td11" id="TBL-37-6-4" style="text-align:center; white-space:nowrap;"> <!--  tex4ht:inline  --><div class="tabular"> <table class="tabular" id="TBL-42"><colgroup id="TBL-42-1g"><col id="TBL-42-1"/></colgroup><tr id="TBL-42-1-"><td class="td00" id="TBL-42-1-1" style="text-align:center; white-space:nowrap;">                                 Correct inference                                                    </td>
+</tr><tr id="TBL-42-2-"><td class="td00" id="TBL-42-2-1" style="text-align:center; white-space:nowrap;">                                   (true positive)                                                       </td>
+</tr><tr id="TBL-42-3-"><td class="td00" id="TBL-42-3-1" style="text-align:center; white-space:nowrap;">(probability = <!--  l. 211  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>β</mi></mrow></math>)</td></tr></table></div> </td>
+</tr></table> </div>
+</figure>
+</div>
+<!--  l. 217  --><p class="indent">       Before the test, we should decide on a probability of making a Type I error,
+<!--  l. 217  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math>, that
+we are comfortable with, called a “significance level”. Typical values are 5% and 1%,
+although if we’re claiming something crazy like a new particle, we better be very sure
+this isn’t a false positive; hence, we set a much lower significance level for these tests of
+<!--  l. 217  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>7</mn></mrow></msup></mrow></math>. (The
+<i>significance</i> of this value will be explained in Section <a href="#x44-178000doc">8.2.2.<!--  tex4ht:ref: sec:03_significance   --></a> below.)
+</p>
+<h5 class="subsubsectionHead" id="deriving-p-tss"><a id="x44-177000"></a>Deriving <!--  l. 220  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math></h5>
+<!--  l. 222  --><p class="noindent">We can approximate <!--  l. 222  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+by generating several pseudo- or “toy” datasets assuming
+<!--  l. 222  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>
+expected signal events. In this case, this means sampling possible values for
+<!--  l. 223  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi></mrow></math> from our
+probability model. We will continue with our simple counting experiment (Section <a href="#x44-171000doc">8.2.1.<!--  tex4ht:ref: sec:03_data_model   --></a>),
+for which such toy datasets are generated and then used to create histograms for
+<!--  l. 224  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> in
+                                                                                
+
+                                                                                
+Figure <a href="#estimating-p-tss-through-toys">8.5<!--  tex4ht:ref: fig:03_p_tilde_t   --></a>. Note that one complication in generating these toys is that the
+<!--  l. 225  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi></mrow></math>
+distributions from which we want to sample (Eq. <a href="#x44-171003r3">8.2.3<!--  tex4ht:ref: eq:03_pois3   --></a>) also depend on the nuisance
+parameter <!--  l. 225  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>.
+However, we see from the figure that this does not matter as much as we might
+expect.
+</p>
+<figure class="figure">
+<!--  l. 230  --><p class="noindent" id="estimating-p-tss-through-toys"><img alt="PIC" src="figures/03-Stats/02-hypothesis-testing/1.png" style="max-width:100%"/> <a id="x44-177001r5"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.5. </span></span><span class="content">Estimating
+<!--  l. 232  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+through toys.                                                                   </span></figcaption><!--  tex4ht:label?: x44-177001r5   -->
+</figure>
+<!--  l. 236  --><p class="indent">       We make two important observations:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+1. 
+</dt><dd class="enumerate-enumitem"><!--  l. 238  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+does     not     depend     on     nuisance     parameters     as     long     as
+we     have     sufficiently     large     statistics     (in     this     case,     when
+<!--  l. 238  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>
+is sufficiently large). This is a key reason for basing our test statistic on the
+profile likelihood.
+</dd>
+<dt class="enumerate-enumitem">
+2. 
+</dt><dd class="enumerate-enumitem">In fact, <!--  l. 240  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+doesn’t even depend on the POI <!--  l. 240  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>!
+(Again, as long as <!--  l. 240  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>
+is large.)</dd></dl>
+<!--  l. 243  --><p class="indent">       Reference [<a href="Bibliography.html#XCowan_2010js">291</a>] shows that, asymptotically, this distribution follows a
+<!--  l. 243  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup></math>
+distribution with degrees of freedom equal to the number of POIs, as illustrated in
+Figure <a href="#asymptotic-form-of-p-tss">8.6<!--  tex4ht:ref: fig:03_p_tilde_t_asym   --></a>.<span class="footnote-mark"><a href="#fn37x9" id="fn37x9-bk"><sup class="textsuperscript">1</sup></a></span><a id="x44-177004f1"></a>
+We can see that the asymptotic form looks accurate even for
+<!--  l. 244  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi></mrow></math> as low
+as <!--  l. 244  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">∼</mo> <mn>5</mn></mrow></math>.
+Note that for cases where we can’t use the asymptotic form, Ref. [<a href="Bibliography.html#XCranmer_2014lly">57</a>] recommends using
+                                                                                
+
+                                                                                
+<!--  l. 245  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>b</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> when
+generating toys, so that we (approximately) maximize the agreement with the
+hypothesis.
+</p>
+<figure class="figure">
+<!--  l. 250  --><p class="noindent" id="asymptotic-form-of-p-tss"><img alt="PIC" src="figures/03-Stats/02-hypothesis-testing/2.png" style="max-width:100%"/> <a id="x44-177006r6"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.6. </span></span><span class="content">Asymptotic form of
+<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.</span></figcaption><!--  tex4ht:label?: x44-177006r6   -->
+</figure>
+<h5 class="subsubsectionHead" id="pvalues-and-significance"><a id="x44-178000"></a><!--  l. 256  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-values
+and significance</h5>
+<a id="x44-178000doc"></a>
+<!--  l. 259  --><p class="noindent">Now that we know the distribution of the test statistic
+<!--  l. 259  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msub><mrow><mi>H</mi></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">≡</mo> <mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, we can
+finally test <!--  l. 259  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mi>s</mi></mrow></msub></math>
+with our experiment. We just need to calculate the “observed” test statistic
+<!--  l. 260  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup></math> from our observations,
+and compare it to the <!--  l. 260  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.
+</p>
+<div class="newtheorem">
+<!--  l. 262  --><p class="noindent"><span class="head">
+<a id="x44-178001r1"></a>
+<span class="ec-lmbx-12">Example 8.2.1.</span>
+</span>     Let’s     say     we’re     testing     the     hypothesis     of
+<!--  l. 264  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>10</mn></mrow></math>
+signal        events        in        our        model        and        we        observe
+                                                                                
+
+                                                                                
+<!--  l. 264  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>20</mn><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>5</mn></mrow></math>
+events.     We     can     map     this     observation     to     our     test     statistic
+<!--  l. 265  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>10</mn><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>n</mi></mrow><mrow><mstyle mathvariant="normal">
+<mi>obs</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>20</mn><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>5</mn><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1.07</mn></mrow></math>,
+and see where this falls in our <!--  l. 266  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+distribution (Figure <a href="#testing-hs-in-exampleref-expvalue">8.7<!--  tex4ht:ref: fig:03_Hs   --></a>).
+</p>
+</div>
+<!--  l. 267  --><p class="indent">
+</p>
+<figure class="figure">
+<!--  l. 271  --><p class="noindent" id="testing-hs-in-exampleref-expvalue"><img alt="PIC" src="figures/03-Stats/02-hypothesis-testing/3.png" style="max-width:60%"/> <a id="x44-178002r7"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.7. </span></span><span class="content">Testing
+<!--  l. 273  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mi>s</mi></mrow></msub></math>
+in Example <a href="#x44-178001r1">8.2.1<!--  tex4ht:ref: ex:03_pvalue   --></a>.                                                              </span></figcaption><!--  tex4ht:label?: x44-178002r7   -->
+</figure>
+<!--  l. 277  --><p class="indent">       Ultimately, we care about, given
+<!--  l. 277  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, the probability of
+obtaining <!--  l. 277  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup></math> <i>or a value
+more inconsistent</i> with <!--  l. 277  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mi>s</mi></mrow></msub></math>;
+i.e., the green shaded region above. This is referred to as the
+<!--  l. 278  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math><i>-value</i>
+of the observation: </p><table class="equation"><tr><td>
+<!--  l. 279  --><p class="indent">
+</p><!--  l. 279  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-178003r14"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>p</mi></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo><msubsup><mrow><mo> ∫
+ <!--  nolimits  --></mo><!--  nolimits  --></mrow><mrow><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub></mrow><mrow><mi>∞</mi></mrow></msubsup><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow>
+<mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><mstyle mathvariant="normal"><mi>d</mi></mstyle><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.2.14)</td></tr></table>
+<!--  l. 282  --><p class="noindent">which is <!--  l. 283  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.30</mn></mrow></math>
+for this example, where </p><table class="equation"><tr><td>
+<!--  l. 284  --><p class="indent">
+</p><!--  l. 284  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-178004r15"></mstyle><!--  endlabel  -->
+<mi>F</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><msubsup><mrow><mo> ∫
+ <!--  nolimits  --></mo><!--  nolimits  --></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>∞</mi></mrow><mrow><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub>
+</mrow></msubsup><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msubsup><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow><mrow><mi>′</mi></mrow></msubsup><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><mstyle mathvariant="normal"><mi>d</mi></mstyle><msubsup><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow>
+<mi>s</mi></mrow><mrow><mi>′</mi></mrow></msubsup>
+</mrow></math></td><td class="eq-no">(8.2.15)</td></tr></table>
+<!--  l. 287  --><p class="noindent">is the cumulative distribution function (CDF) of
+<!--  l. 288  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub></math>. We reject the hypothesis if
+this <!--  l. 289  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value is less than our
+chosen significance level <!--  l. 289  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math>;
+the idea being that if <!--  l. 289  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mi>s</mi></mrow></msub></math>
+were true and we repeated this measurement many times, then the probability of a false-positive
+(<!--  l. 289  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value
+<!--  l. 289  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≤</mo> <mi>α</mi></mrow></math>) is
+exactly <!--  l. 289  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math>,
+as we intended.
+</p><!--  l. 291  --><p class="indent">       The <!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value is typically
+converted into a <i>significance</i> (<!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>Z</mi></math>),
+which is the corresponding number of standard deviations away from the mean in a
+Gaussian distribution: </p><table class="equation"><tr><td>
+<!--  l. 292  --><p class="indent">
+</p><!--  l. 292  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-178005r16"></mstyle><!--  endlabel  -->
+<mi>Z</mi> <mo class="MathClass-rel" stretchy="false">=</mo><msup><mrow> <mi mathvariant="normal">Φ</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>p</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.2.16)</td></tr></table>
+<!--  l. 295  --><p class="noindent">where <!--  l. 296  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">Φ</mi></math>
+is the CDF of the standard Gaussian. This is more easily illustrated in Figure <a href="#relationship-between-significance-z-and-the-pvalue-reproduced-from-ref-cranmerlly">8.8<!--  tex4ht:ref: fig:03_significance   --></a>,
+where <!--  l. 297  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>φ</mi></math>
+is the standard Gaussian distribution:
+</p>
+<figure class="figure">
+<!--  l. 301  --><p class="noindent" id="relationship-between-significance-z-and-the-pvalue-reproduced-from-ref-cranmerlly"><img alt="PIC" src="figures/03-Stats/02-hypothesis-testing/significance.png" style="max-width:60%"/> <a id="x44-178006r8"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.8.               </span></span><span class="content">Relationship               between               significance
+<!--  l. 302  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>Z</mi></math>
+and the <!--  l. 302  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value,
+reproduced from Ref. [<a href="Bibliography.html#XCranmer_2014lly">57</a>].                                                      </span></figcaption><!--  tex4ht:label?: x44-178006r8   -->
+</figure>
+<!--  l. 306  --><p class="indent">       The significance in Example <a href="#x44-178001r1">8.2.1<!--  tex4ht:ref: ex:03_pvalue   --></a> is, therefore,
+<!--  l. 306  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi mathvariant="normal">Φ</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>0.30</mn><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.53</mn></mrow></math>. We
+sometimes say that our measurement is (in)consistent or (in)compatible with
+<!--  l. 307  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math> at the
+<!--  l. 307  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.53</mn><mi>σ</mi></mrow></math> level, or
+within <!--  l. 307  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mi>σ</mi></mrow></math>,
+etc.
+</p>
+<h5 class="subsubsectionHead" id="signal-discovery"><a id="x44-179000"></a>Signal discovery</h5>
+<!--  l. 311  --><p class="noindent">So far, we have been testing the signal hypothesis, but usually when
+searching for a particle, we instead test the “background-only” hypothesis
+<!--  l. 311  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mn>0</mn></mrow></msub></math>
+and decide whether or not to reject it. This means we want
+<!--  l. 312  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mn>0</mn></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup></math> and
+<!--  l. 312  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+(Figure <a href="#testing-the-backgroundonly-hypothesis-in-exampleref-expvalue">8.9<!--  tex4ht:ref: fig:03_H0   --></a>).<span class="footnote-mark"><a href="#fn38x9" id="fn38x9-bk"><sup class="textsuperscript">2</sup></a></span><a id="x44-179001f2"></a>
+</p>
+<figure class="figure">
+<!--  l. 316  --><p class="noindent" id="testing-the-backgroundonly-hypothesis-in-exampleref-expvalue"><img alt="PIC" src="figures/03-Stats/02-hypothesis-testing/4.png" style="max-width:60%"/> <a id="x44-179003r9"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.9. </span></span><span class="content">Testing the background-only hypothesis in Example <a href="#x44-178001r1">8.2.1<!--  tex4ht:ref: ex:03_pvalue   --></a>.         </span></figcaption><!--  tex4ht:label?: x44-179003r9   -->
+</figure>
+<!--  l. 322  --><p class="indent">       We could say for this experiment, therefore, that we exclude the background-only
+hypothesis at the “3 sigma” level. However, for an actual search for a new particle at the
+LHC, this is insufficient to claim a discovery, as the probability of a false positive at
+<!--  l. 323  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>σ</mi></mrow></math>,
+ 1/1000, is too high. The standard is instead set at
+<!--  l. 324  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>5</mn><mi>σ</mi></mrow></math> for discovering new signals,
+corresponding to the <!--  l. 324  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>7</mn></mrow></msup></mrow></math>
+significance level quoted earlier, as we really don’t want to be making
+a mistake if we’re claiming to have discovered a new particle!
+<!--  l. 325  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>σ</mi></mrow></math>,
+<!--  l. 325  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>σ</mi></mrow></math>, and
+<!--  l. 325  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>5</mn><mi>σ</mi></mrow></math> are
+commonly referred to as “evidence”, “observation”, and “discovery”, respectively, of the
+signals we’re searching for.
+</p><!--  l. 329  --><p class="indent">       In summary, the framework for hypothesis testing comprises:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+1. 
+</dt><dd class="enumerate-enumitem">Defining a test statistic <!--  l. 332  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math>
+to map data <!--  l. 332  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>
+(in our example, <!--  l. 332  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mi>n</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>)
+to a single number.
+</dd>
+<dt class="enumerate-enumitem">
+                                                                                
+
+                                                                                
+2. 
+</dt><dd class="enumerate-enumitem">Deriving the distribution of <!--  l. 333  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math>
+under the hypothesis being tested <!--  l. 333  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+by          sampling          from          “toy”          datasets          assuming
+<!--  l. 333  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math>.
+</dd>
+<dt class="enumerate-enumitem">
+3. 
+</dt><dd class="enumerate-enumitem">Quantifying      the      compatibility      of      the      observed      data
+<!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub></math>
+with <!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math>
+with the <!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value
+or significance <!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>Z</mi></math>
+of <!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub></math>
+relative to <!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-rel" stretchy="false">|</mo><mi>H</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.</dd></dl>
+<!--  l. 337  --><p class="indent">       This <!--  l. 337  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value
+/ significance is what we then use to decide whether or not to exclude
+<!--  l. 337  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi></math>. A
+particularly important special case of this, as discussed above, is testing the
+background-only hypothesis when trying to discover a signal.
+</p>
+<h4 class="subsectionHead" id="confidence-intervals-and-limits"><span class="titlemark">8.2.3   </span> <a id="x44-1800008.2.3"></a>Confidence intervals and limits</h4>
+<!--  l. 343  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="confidence-intervals-using-the-neyman-construction"><a id="x44-181000"></a>Confidence intervals using the Neyman construction</h5>
+<!--  l. 345  --><p class="noindent">Next, we discuss going beyond hypothesis testing to setting intervals and limits for
+parameters of interest. The machinery from Section <a href="#hypothesis-testing">8.2.2<!--  tex4ht:ref: sec:03_hypothesis_testing   --></a> can be extended
+straightforwardly to extracting “confidence intervals” for our parameters of interest
+(POIs): a range of values of the POIs that are allowed, based on the experiment, at a
+certain “confidence level” (CL), e.g. 68% or 95%. Very similar to the idea of the
+significance level, the CL is defined such that if we were to repeat the experiment many
+times, a 95%-confidence-interval must contain, or <i>cover</i>, the true value of the parameter
+95% of the time.
+</p><!--  l. 349  --><p class="indent">       This can be ensured for any given CL by solving Eq. <a href="#x44-178003r14">8.2.14<!--  tex4ht:ref: eq:03_pvalue   --></a> for a
+<!--  l. 349  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value
+of <!--  l. 349  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo><mstyle mathvariant="normal"><mi>CL</mi></mstyle></mrow></math>:
+</p><table class="equation"><tr><td>
+<!--  l. 350  --><p class="indent">
+</p><!--  l. 350  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-181001r17"></mstyle><!--  endlabel  -->
+<mi>p</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo><mstyle mathvariant="normal"><mi>CL</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo><msubsup><mrow><mo> ∫
+ <!--  nolimits  --></mo><!--  nolimits  --></mrow><mrow><msubsup><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup></mrow><mrow><mi>∞</mi></mrow></msubsup><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow>
+<mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msub><mrow><mi>s</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">±</mo></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mstyle mathvariant="normal"><mi>d</mi></mstyle><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.2.17)</td></tr></table>
+<!--  l. 353  --><p class="noindent">where <!--  l. 354  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>s</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo></mrow></msub></math> and
+<!--  l. 354  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>s</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">+</mo></mrow></msub></math> are the lower and
+upper limits on <!--  l. 354  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>,
+respectively.
+</p><!--  l. 356  --><p class="indent">       This can be solved by scanning <!--  l. 356  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>
+and finding the values of <!--  l. 356  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>
+for which the RHS <!--  l. 356  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo><mstyle mathvariant="normal"><mi>CL</mi></mstyle></mrow></math>,
+as demonstrated in Figure <a href="#demonstration-of-the-neyman-construction-for-a-confidence-interval-for-the-experiment-in-exampleref-expvalue-n-obs-m-obs-">8.10<!--  tex4ht:ref: fig:03_neymanconstruction   --></a> for the experiment in Example <a href="#x44-178001r1">8.2.1<!--  tex4ht:ref: ex:03_pvalue   --></a>
+(<!--  l. 356  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>n</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>20</mn><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>5</mn></mrow></math>).
+This procedure of inverting the hypothesis test by scanning along the values of the POIs
+is called the “Neyman construction”.
+</p>
+<figure class="figure">
+<!--  l. 361  --><p class="noindent" id="demonstration-of-the-neyman-construction-for-a-confidence-interval-for-the-experiment-in-exampleref-expvalue-n-obs-m-obs-"><img alt="PIC" src="figures/03-Stats/03-intervals-and-limits/1.png" style="max-width:100%"/> <a id="x44-181002r10"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.10.     </span></span><span class="content">Demonstration     of     the     Neyman     construction     for
+a    95%    confidence    interval    for    the    experiment    in    Example <a href="#x44-178001r1">8.2.1<!--  tex4ht:ref: ex:03_pvalue   --></a>
+(<!--  l. 365  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>n</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>20</mn><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>5</mn></mrow></math>).
+Left: Scanning <!--  l. 365  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+using        10,000        toys        each        for        different        values        of
+<!--  l. 365  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>.
+Right:       Converting       this       to       a       contour       plot       of       the
+<!--  l. 365  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-values
+for different <!--  l. 365  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub></math>’s
+as a function of <!--  l. 365  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>,
+with the observed <!--  l. 365  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>t</mi></mrow><mrow><mi>s</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup></math>
+in red. The points at which <!--  l. 365  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>t</mi></mrow><mrow><mi>s</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup></math>
+intersects with the <!--  l. 365  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value
+=       0.05       contour       are       marked       in       black       and       signify
+the        limits        of        the        95%        confidence        interval        for
+<!--  l. 365  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>
+- in this case, <!--  l. 365  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>6.0</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>25</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>8</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>.</span></figcaption><!--  tex4ht:label?: x44-181002r10   -->
+</figure>
+<!--  l. 369  --><p class="indent">       One subtlety to remember is that, in principle, we should also be scanning over the nuisance
+parameters (<!--  l. 369  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>) when
+estimating the <!--  l. 369  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-values.
+However, this would be very computationally expensive so in practice, we continue to
+use <!--  l. 369  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>b</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>,
+to always (approximately) maximize the agreement with the hypothesis. Ref. [<a href="Bibliography.html#XCranmer_2014lly">57</a>] calls
+this trick “profile construction”.
+</p>
+<h5 class="subsubsectionHead" id="upper-limits"><a id="x44-182000"></a>Upper limits</h5>
+<a id="x44-182000doc"></a>
+<!--  l. 374  --><p class="noindent">Typically if a search does not have enough sensitivity to directly observe a new signal,
+we instead quote an upper limit on the signal strength. This is similar in practice to the
+Neyman construction for confidence intervals, solving Eq. <a href="#x44-181001r17">8.2.17<!--  tex4ht:ref: eq:03_cl   --></a> only for the upper
+boundary. However, an important difference is that when setting upper limits, we have to
+modify the test statistic so that a best-fit signal strength <i>greater</i> than the expected signal
+(<!--  l. 375  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ŝ</mi> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mi>s</mi></mrow></math>) does not lower the
+compatibility with <!--  l. 375  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mi>s</mi></mrow></msub></math>:
+                                                                                
+
+                                                                                
+<!--  tex4ht:inline  --></p><!--  l. 376  --><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mtable class="gather" displaystyle="true">
+<mtr>
+<mtd><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">{</mo><mrow> <mtable align="axis" class="array" columnlines="none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="left"> <mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo> </mtd>
+<mtd class="array-td" columnalign="left"> <mstyle class="mbox"><mtext></mtext><mstyle class="math"><mi>ŝ</mi> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mi>s</mi></mstyle><mtext></mtext></mstyle><mo class="MathClass-punc" stretchy="false">.</mo> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="left"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo> </mtd><mtd class="array-td" columnalign="left"> <mstyle class="mbox"><mtext></mtext><mstyle class="math"><mi>ŝ</mi> <mo class="MathClass-rel" stretchy="false">≥</mo> <mi>s</mi></mstyle><mtext></mtext></mstyle><mo class="MathClass-punc" stretchy="false">.</mo> </mtd></mtr>
+<!--  ll  --></mtable> </mrow><mo fence="true" form="postfix"></mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">{</mo><mrow> <mtable align="axis" class="array" columnlines="none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="left"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mover accent="true"><mrow><mi>λ</mi></mrow><mo accent="true">~</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo> </mtd>
+<mtd class="array-td" columnalign="left"> <mstyle class="mbox"><mtext></mtext><mstyle class="math"><mi>ŝ</mi> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mi>s</mi></mstyle><mtext></mtext></mstyle><mo class="MathClass-punc" stretchy="false">.</mo> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="left"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo> </mtd><mtd class="array-td" columnalign="left"> <mstyle class="mbox"><mtext></mtext><mstyle class="math"><mi>ŝ</mi> <mo class="MathClass-rel" stretchy="false">≥</mo> <mi>s</mi></mstyle><mtext></mtext></mstyle><mo class="MathClass-punc" stretchy="false">.</mo> </mtd></mtr>
+<!--  ll  --></mtable> </mrow><mo fence="true" form="postfix"></mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">{</mo><mrow> <mtable align="axis" class="array" columnlines="none" displaystyle="true" equalcolumns="false" equalrows="false" style=""> <mtr class="array-row"><mtd class="array-td" columnalign="left"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mfrac><mrow><mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo></mrow>
+<mrow>
+<mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo></mrow></mfrac><mo class="MathClass-punc" stretchy="false">,</mo> </mtd>
+<mtd class="array-td" columnalign="left"> <mstyle class="mbox"><mtext></mtext><mstyle class="math"><mi>ŝ</mi> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>0</mn></mstyle><mtext></mtext></mstyle><mo class="MathClass-punc" stretchy="false">.</mo> </mtd>
+</mtr> <mtr class="array-row"><mtd class="array-td" columnalign="left"> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>2</mn><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mfrac><mrow><mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover></mrow><mo accent="true">^</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo></mrow>
+<mrow>
+<mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>ŝ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mover accent="true"><mrow><mi>b</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">,</mo> </mtd><mtd class="array-td" columnalign="left"> <mstyle class="mbox"><mtext>0 </mtext><mstyle class="math"> <mo class="MathClass-rel" stretchy="false">≤</mo><mi>ŝ</mi> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mi>s</mi></mstyle><mtext></mtext></mstyle><mo class="MathClass-punc" stretchy="false">.</mo> </mtd>
+</mtr>
+<mtr class="array-row"><mtd class="array-td" columnalign="left"> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo> </mtd>
+<mtd class="array-td" columnalign="left"> <mstyle class="mbox"><mtext></mtext><mstyle class="math"><mi>ŝ</mi> <mo class="MathClass-rel" stretchy="false">≥</mo> <mi>s</mi></mstyle><mtext></mtext></mstyle><mo class="MathClass-punc" stretchy="false">.</mo> </mtd></mtr>
+<!--  ll  --></mtable> </mrow><mo fence="true" form="postfix"></mo></mrow></mtd>
+<mtd><mstyle class="label" id="x44-182001r18"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(8.2.18)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace></mtd></mtr></mtable>
+</mrow></math>
+<!--  l. 397  --><p class="nopar">
+</p><!--  l. 399  --><p class="indent">       The upper limit test statistic <!--  l. 399  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+is set to <!--  l. 399  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math> for
+<!--  l. 399  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ŝ</mi> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mi>s</mi></mrow></math> so that this situation does
+not contribute to the <!--  l. 399  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value
+integral in Eq. <a href="#x44-178003r14">8.2.14<!--  tex4ht:ref: eq:03_pvalue   --></a>. Figure <a href="#comparing-ts-and-qs">8.11<!--  tex4ht:ref: fig:03_q_tilde_s   --></a> demonstrates this, and the difference between
+<!--  l. 400  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub></math> and
+<!--  l. 400  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub></math>, for
+different sample observations.
+</p>
+<figure class="figure">
+<!--  l. 404  --><p class="noindent" id="comparing-ts-and-qs"><img alt="PIC" src="figures/03-Stats/03-intervals-and-limits/2.png" style="max-width:70%"/> <a id="x44-182002r11"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.11. </span></span><span class="content">Comparing
+<!--  l. 406  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub></math>
+and
+<!--  l. 406  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub></math>.</span></figcaption><!--  tex4ht:label?: x44-182002r11   -->
+</figure>
+<!--  l. 410  --><p class="indent">       Note that (as one may expect from Figure <a href="#comparing-ts-and-qs">8.11<!--  tex4ht:ref: fig:03_q_tilde_s   --></a>) the distribution
+<!--  l. 410  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> no longer behaves
+like a standard <!--  l. 410  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup></math> but,
+instead, as a “half-<!--  l. 410  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup></math>”.
+This is essentially a <!--  l. 411  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup></math>
+plus a delta function at 0 (since, under the signal hypothesis, on
+average there will be an over-fluctuation half the time, for which
+<!--  l. 411  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>), as
+shown in Figure <a href="#comparing-p-tss-and-p-qss-p-qss-asymptotically-follows-a-half-distribution-green">8.12<!--  tex4ht:ref: fig:03_p_tilde_q   --></a>.
+</p>
+<figure class="figure">
+<!--  l. 415  --><p class="noindent" id="comparing-p-tss-and-p-qss-p-qss-asymptotically-follows-a-half-distribution-green"><img alt="PIC" src="figures/03-Stats/03-intervals-and-limits/3.png" style="max-width:100%"/> <a id="x44-182003r12"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.12. </span></span><span class="content">Comparing <!--  l. 416  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+and <!--  l. 416  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.
+<!--  l. 416  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+asymptotically follows a half-<!--  l. 416  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup></math>
+distribution (green).                                                            </span></figcaption><!--  tex4ht:label?: x44-182003r12   -->
+</figure>
+<!--  l. 420  --><p class="indent">       We can now revisit Example <a href="#x44-178001r1">8.2.1<!--  tex4ht:ref: ex:03_pvalue   --></a> to set an upper limit on
+<!--  l. 420  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>
+rather than a confidence interval (Figure <a href="#extending-the-neyman-construction-to-an-upper-limit-on-s">8.13<!--  tex4ht:ref: fig:03_upperlimits   --></a>).
+<!--  l. 421  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is shifted to the left
+with respect to <!--  l. 421  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>; hence,
+the upper limit of <!--  l. 421  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>24</mn></mrow></math>
+is slightly lower than the upper bound of the 95% confidence interval we derived using
+<!--  l. 421  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub></math>.
+</p>
+<figure class="figure">
+<!--  l. 425  --><p class="noindent" id="extending-the-neyman-construction-to-an-upper-limit-on-s"><img alt="PIC" src="figures/03-Stats/03-intervals-and-limits/4.png" style="max-width:100%"/> <a id="x44-182004r13"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.13.  </span></span><span class="content">Extending  the  Neyman  construction  to  an  upper  limit  on
+<!--  l. 429  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>.
+Left:      Scanning      the      upper      limit      test      statistic      distribution
+<!--  l. 429  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+using        10,000        toys        each        for        different        values        of
+<!--  l. 429  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>.
+Right:       Converting       this       to       a       contour       plot       of       the
+<!--  l. 429  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-values
+for different <!--  l. 429  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub></math>’s
+as a function of <!--  l. 429  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math>,
+with the observed <!--  l. 429  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>q</mi></mrow><mrow><mi>s</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup></math>
+in red. The point at which <!--  l. 429  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>q</mi></mrow><mrow><mi>s</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup></math>
+intersects with the <!--  l. 429  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value
+= 0.05 contour is marked in black and signifies the upper limit at 95% CL.      </span></figcaption><!--  tex4ht:label?: x44-182004r13   -->
+</figure>
+<h5 class="subsubsectionHead" id="the-cls-criterion"><a id="x44-183000"></a>The CL<!--  l. 433  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow></mrow><mrow><mi>s</mi></mrow></msub></math>
+criterion</h5>
+<a id="x44-183000doc"></a>
+<!--  l. 436  --><p class="noindent">We now introduce two conventions related to hypothesis testing
+and searches in particle physics. Firstly (the simple one), the POI
+<!--  l. 437  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math> is usually
+re-parametrized as <!--  l. 437  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-rel" stretchy="false">→</mo> <mi>μ</mi> <mo class="MathClass-bin" stretchy="false">⋅</mo> <mi>s</mi></mrow></math>,
+where <!--  l. 438  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>
+is now considered the POI, referred to as the “signal strength”, and
+<!--  l. 438  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math> is a fixed
+value representing the number of signal events we expect to see for the nominal signal
+strength <!--  l. 438  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math> of
+<!--  l. 438  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math>. For the example in
+Figure <a href="#extending-the-neyman-construction-to-an-upper-limit-on-s">8.13<!--  tex4ht:ref: fig:03_upperlimits   --></a>, if we expect <!--  l. 439  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>10</mn></mrow></math>
+signal events, then we would quote the upper limit as
+<!--  l. 439  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>24</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mi>s</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2.4</mn></mrow></math> on
+<!--  l. 439  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math> at
+95% CL.
+                                                                                
+
+                                                                                
+</p><!--  l. 441  --><p class="indent">       The second, important, convention is that we use a slightly different criterion for confidence
+intervals, called “CL<!--  l. 441  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow></mrow><mrow><mi>s</mi></mrow></msub></math>”.
+This is motivated by situations where we have little sensitivity to the signal we’re
+searching for, as in the below example.
+</p>
+<div class="newtheorem">
+<!--  l. 444  --><p class="noindent"><span class="head">
+<a id="x44-183001r2"></a>
+<span class="ec-lmbx-12">Example 8.2.2.</span>
+</span> Let’s say we expect <!--  l. 446  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>10</mn></mrow></math>
+and observe <!--  l. 446  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>70</mn></mrow></math>,
+<!--  l. 446  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>m</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>100</mn></mrow></math>.
+Really,  what  this  should  indicate  is  that  our  search  is  not  at  all  sensitive,
+since  our  search  region  is  completely  dominated  by  background  and,  hence,
+we  should  not  draw  strong  conclusions  about  the  signal  strength.  However,
+if  we  follow  the  above  procedure  for  calculating  the  upper  limit,  we  get
+<!--  l. 448  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">≤</mo> <mn>0.001</mn></mrow></math>
+at 95% CL.
+</p>
+</div>
+<!--  l. 449  --><p class="indent">
+</p><!--  l. 451  --><p class="indent">       This is an extremely aggressive limit on
+<!--  l. 451  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>, where we’re excluding
+the nominal <!--  l. 451  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math> signal
+at a high confidence level. Given the complete lack of sensitivity to the signal, this is not a sensible
+result. The CL<!--  l. 453  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow></mrow><mrow><mi>s</mi></mrow></msub></math>
+method solves this problem by considering both the
+<!--  l. 453  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value of the signal +
+background hypothesis <!--  l. 453  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mi>s</mi></mrow></msub></math>
+(referred to as <!--  l. 453  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mi>s</mi><mo class="MathClass-bin" stretchy="false">+</mo><mi>b</mi></mrow></msub></math> or
+just <!--  l. 453  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow></msub></math> for short), <i>and</i>
+the <!--  l. 453  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value of the
+background-only hypothesis <!--  l. 453  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mn>0</mn></mrow></msub></math>
+(<!--  l. 453  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mi>b</mi></mrow></msub></math>), to
+define a new criterion: </p><table class="equation"><tr><td>
+<!--  l. 454  --><p class="indent">
+</p><!--  l. 454  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-183002r19"></mstyle><!--  endlabel  -->
+<msubsup><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow></msub></mrow>
+<mrow>
+<mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>p</mi></mrow><mrow><mi>b</mi></mrow></msub></mrow></mfrac>
+</mrow></math></td><td class="eq-no">(8.2.19)</td></tr></table>
+<!--  l. 457  --><p class="noindent">
+</p><!--  l. 459  --><p class="indent">       In cases where the signal region is completely background-dominated,
+the compatibility with the background-only hypothesis should be high, so
+<!--  l. 459  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>p</mi></mrow><mrow><mi>b</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">∼</mo> <mn>1</mn></mrow></math> and,
+hence, <!--  l. 459  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msubsup></math>
+will be increased. On the other hand, for more sensitive regions, compatibility should be
+lower <!--  l. 460  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">⇒</mo> <msub><mrow><mi>p</mi></mrow><mrow><mi>b</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">∼</mo> <mn>0</mn></mrow></math>
+and <!--  l. 460  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">∼</mo> <msub><mrow><mi>p</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub></mrow></math>.
+</p><!--  l. 462  --><p class="indent">       To be explicit, here </p><table class="equation"><tr><td>
+<!--  l. 463  --><p class="indent">
+</p><!--  l. 463  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x44-183003r20"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>p</mi></mrow><mrow><mi>b</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo><msubsup><mrow><mo> ∫
+ <!--  nolimits  --></mo><!--  nolimits  --></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>∞</mi></mrow><mrow><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub>
+</mrow></msubsup><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo><mstyle mathvariant="normal"><mi>d</mi></mstyle><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(8.2.20)</td></tr></table>
+<!--  l. 466  --><p class="noindent">
+</p><!--  l. 468  --><p class="indent">       where we should note that:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+1. 
+</dt><dd class="enumerate-enumitem">We’re looking at the distribution of <!--  l. 470  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub></math>
+— <i>not</i> <!--  l. 470  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mn>0</mn></mrow></msub></math>
+— under the background-only hypothesis, since the underlying test is of
+<!--  l. 470  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mi>s</mi></mrow></msub></math>,
+not <!--  l. 470  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mn>0</mn></mrow></msub></math>;
+and
+</dd>
+<dt class="enumerate-enumitem">
+2. 
+</dt><dd class="enumerate-enumitem">We’re integrating <i>up to</i> <!--  l. 471  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msub></math>,
+unlike for <!--  l. 471  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mi>s</mi></mrow></msub></math>,
+because lower <!--  l. 471  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></math>
+means greater compatibility with the background-only hypothesis.</dd></dl>
+<!--  l. 474  --><p class="indent">       The effect of the CL<!--  l. 474  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow></mrow><mrow><mi>s</mi></mrow></msub></math>
+criterion is demonstrated in Figure <a href="#demonstration-of-cls-criterion-for-examplesref-expvalue-left-andref-excls-right">8.14<!--  tex4ht:ref: fig:03_cls   --></a> for Examples <a href="#x44-178001r1">8.2.1<!--  tex4ht:ref: ex:03_pvalue   --></a> and <a href="#x44-183001r2">8.2.2<!--  tex4ht:ref: ex:03_cls   --></a>. In
+                                                                                
+
+                                                                                
+the former, the background-only distribution is shifted to the right of the
+<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi></mrow></math>
+distribution. This indicates that the experiment is sensitive to
+<!--  l. 476  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math> and, indeed,
+we find <!--  l. 476  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">∼</mo> <msub><mrow><mi>p</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub></mrow></math>.
+In Example <a href="#x44-183001r2">8.2.2<!--  tex4ht:ref: ex:03_cls   --></a>, however, the search is not sensitive and, hence, the background-only
+and <!--  l. 477  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi></mrow></math>
+distributions almost completely overlap, meaning
+<!--  l. 477  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>p</mi></mrow><mrow><mi>b</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">∼</mo> <mn>1</mn></mrow></math> and
+<!--  l. 477  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">&gt;</mo><mo class="MathClass-rel" stretchy="false">&gt;</mo> <msub><mrow><mi>p</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub></mrow></math>.<span class="footnote-mark"><a href="#fn39x9" id="fn39x9-bk"><sup class="textsuperscript">3</sup></a></span><a id="x44-183006f3"></a>
+</p>
+<figure class="figure">
+<!--  l. 482  --><p class="noindent" id="demonstration-of-cls-criterion-for-examplesref-expvalue-left-andref-excls-right"><img alt="PIC" src="figures/03-Stats/03-intervals-and-limits/5.png" style="max-width:100%"/> <a id="x44-183008r14"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.14. </span></span><span class="content">Demonstration of
+CL<!--  l. 484  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow></mrow><mrow><mi>s</mi></mrow></msub></math>
+criterion for Examples <a href="#x44-178001r1">8.2.1<!--  tex4ht:ref: ex:03_pvalue   --></a> (left) and <a href="#x44-183001r2">8.2.2<!--  tex4ht:ref: ex:03_cls   --></a> (right).                             </span></figcaption><!--  tex4ht:label?: x44-183008r14   -->
+</figure>
+<!--  l. 488  --><p class="indent">       Finally, if we repeat the Neyman construction using the
+CL<!--  l. 488  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow></mrow><mrow><mi>s</mi></mrow></msub></math> criterion
+<!--  l. 488  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msubsup></math> instead of
+<!--  l. 488  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow></msub></math> for Example <a href="#x44-183001r2">8.2.2<!--  tex4ht:ref: ex:03_cls   --></a>, we
+can find an upper limit of <!--  l. 488  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">≤</mo> <mn>1.2</mn></mrow></math>
+at 95% CL, which is indeed a looser, more conservative, upper
+limit. The upper limit for Example <a href="#x44-178001r1">8.2.1<!--  tex4ht:ref: ex:03_pvalue   --></a> remains unchanged at
+<!--  l. 489  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">≤</mo> <mn>2.4</mn></mrow></math>, as we
+would expect.
+</p>
+<h4 class="subsectionHead" id="expected-significances-and-limits"><span class="titlemark">8.2.4   </span> <a id="x44-1840008.2.4"></a>Expected significances and limits</h4>
+<!--  l. 495  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="expected-significance"><a id="x44-185000"></a>Expected significance</h5>
+<!--  l. 497  --><p class="noindent">The focus so far has been only on evaluating the <i>results</i> of experiments. However, it is
+                                                                                
+
+                                                                                
+equally important to characterize the expected sensitivity of the experiment <i>before</i>
+running it (or before looking at the data).
+</p>
+<div class="newtheorem">
+<!--  l. 500  --><p class="noindent"><span class="head">
+<a id="x44-185001r3"></a>
+<span class="ec-lmbx-12">Example 8.2.3.</span>
+</span>                Concretely,                  we                  continue
+with the simple one-bin counting experiment (Section <a href="#x44-171000doc">8.2.1.<!--  tex4ht:ref: sec:03_data_model   --></a>). Let’s say we expect
+<!--  l. 503  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>b</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>10</mn></mrow></math>
+background     events     and     —     at     the     nominal     signal     strength
+<!--  l. 503  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>
+—
+<!--  l. 503  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>10</mn></mrow></math>
+signal events. How do we tell if this experiment is at all useful for discovering this
+signal, i.e., does it have any sensitivity to the signal?
+</p>
+</div>
+<!--  l. 505  --><p class="indent">
+</p><!--  l. 507  --><p class="indent">       One way is to calculate the significance with which we expect to exclude the
+background-only hypothesis if the signal were, in fact, to exist. Practically, this means we are
+testing <!--  l. 508  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mn>0</mn></mrow></msub></math> and,
+hence, need <!--  l. 508  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+as before. However, now we also need the distribution of the test statistic
+<!--  l. 508  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mn>0</mn></mrow></msub></math> under the <i>background
++ signal</i> hypothesis <!--  l. 508  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.
+Then, by calculating the significance for each sampled
+<!--  l. 509  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mn>0</mn></mrow></msub></math> under
+<!--  l. 509  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mi>μ</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow></msub></math>, we
+can estimate the distribution of expected significances. This is illustrated for
+Example <a href="#x44-185001r3">8.2.3<!--  tex4ht:ref: ex:03_expsig   --></a> in Figure <a href="#left-distributions-of-t-under-the-backgroundonly-and-background-signal-hypotheses-using-toys-each">8.15<!--  tex4ht:ref: fig:03_expZ   --></a>.
+</p>
+<figure class="figure">
+<!--  l. 514  --><p class="noindent" id="left-distributions-of-t-under-the-backgroundonly-and-background-signal-hypotheses-using-toys-each"><img alt="PIC" src="figures/03-Stats/04-expected/1.png" style="max-width:100%"/> <a id="x44-185002r15"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.15.                    </span></span><span class="content">Left:                    Distributions                    of
+<!--  l. 518  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mn>0</mn></mrow></msub></math>
+under  the  background-only  and  background  +  signal  hypotheses  using  30,000
+toys each. The median of the latter is marked in red. Right: Distribution of the
+significances (with respect to the background-only hypothesis) of each sampled
+<!--  l. 518  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mn>0</mn></mrow></msub></math>
+under the signal hypothesis.                                                    </span></figcaption><!--  tex4ht:label?: x44-185002r15   -->
+</figure>
+<!--  l. 522  --><p class="indent">       Importantly, we usually quote the <strong>median</strong> of this distribution as the expected
+significance, since the median is “invariant” to monotonic transformations (i.e., the median
+<!--  l. 522  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value will always correspond
+to the median <!--  l. 522  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>Z</mi></math> as well, whereas
+the mean <!--  l. 522  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value will not
+correspond to the mean <!--  l. 522  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>Z</mi></math>).
+Similarly, we quote the <!--  l. 523  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>16</mn><mi>%</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>84</mn><mi>%</mi></mrow></math>
+and <!--  l. 523  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>%</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>98</mn><mi>%</mi></mrow></math> quantiles
+as the <!--  l. 523  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">±</mo> <mn>1</mn><mi>σ</mi></mrow></math>
+and <!--  l. 523  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">±</mo> <mn>2</mn><mi>σ</mi></mrow></math>,
+respectively, expected significances. These quantiles correspond to the cumulative
+probabilities for a standard Gaussian (Figure <a href="#gaussian-quantiles-reproduced-from-ref-stillerthesis">8.16<!--  tex4ht:ref: fig:03_gaussian_quantiles   --></a>). For Example <a href="#x44-185001r3">8.2.3<!--  tex4ht:ref: ex:03_expsig   --></a>, we thus find the
+median expected significance to be 1.83.
+</p>
+<figure class="figure">
+<!--  l. 529  --><p class="noindent" id="gaussian-quantiles-reproduced-from-ref-stillerthesis"><img alt="PIC" src="figures/03-Stats/04-expected/gaussian_quantiles.png" style="max-width:60%"/> <a id="x44-185003r16"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.16. </span></span><span class="content">Gaussian quantiles, reproduced from Ref. [<a href="Bibliography.html#XStiller_thesis">58</a>].                   </span></figcaption><!--  tex4ht:label?: x44-185003r16   -->
+</figure>
+<!--  l. 535  --><p class="indent">       Note that instead of converting each sampled
+<!--  l. 535  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></math> under
+<!--  l. 535  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mi>μ</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow></msub></math> into a
+significance and finding the median of that distribution, as in Figure <a href="#left-distributions-of-t-under-the-backgroundonly-and-background-signal-hypotheses-using-toys-each">8.15<!--  tex4ht:ref: fig:03_expZ   --></a> (right), we can
+take advantage of the invariance of the median and directly use the significance of the
+median <!--  l. 535  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></math>
+under <!--  l. 535  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>H</mi></mrow><mrow><mi>μ</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow></msub></math>
+(Figure <a href="#left-distributions-of-t-under-the-backgroundonly-and-background-signal-hypotheses-using-toys-each">8.15<!--  tex4ht:ref: fig:03_expZ   --></a>, left). We will do this below for the expected limit.
+</p>
+<h5 class="subsubsectionHead" id="expected-limits"><a id="x44-186000"></a>Expected limits</h5>
+<!--  l. 540  --><p class="noindent">The other figure of merit we care about in searches is the upper exclusion
+limit set on the signal strength. To derive the <i>expected</i> limit, we do the
+opposite of the above and ask, if the signal were not to exist, what value of
+<!--  l. 541  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math> would we expect to
+exclude at the 95% CL.<span class="footnote-mark"><a href="#fn40x9" id="fn40x9-bk"><sup class="textsuperscript">4</sup></a></span><a id="x44-186001f4"></a>
+</p><!--  l. 543  --><p class="indent">       This means we need:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+                                                                                
+
+                                                                                
+1. 
+</dt><dd class="enumerate-enumitem">The distribution <!--  l. 545  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>μ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+to solve for <!--  l. 545  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>μ</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">+</mo></mrow></msup></math>
+in  Eq. <a href="#x44-181001r17">8.2.17<!--  tex4ht:ref: eq:03_cl   --></a>  and  be  able  to  do  the  upper  limit  calculation  (as  in
+Section <a href="#x44-182000doc">8.2.3.<!--  tex4ht:ref: sec:03_upper_limits   --></a>);
+</dd>
+<dt class="enumerate-enumitem">
+2. 
+</dt><dd class="enumerate-enumitem"><!--  l. 546  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+to      get      the      median      (and      other      quantiles’)      expected
+<!--  l. 546  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>obs</mi></mstyle></mrow></msubsup></math>
+for different signal strengths under the background-only hypothesis; and,
+furthermore,
+</dd>
+<dt class="enumerate-enumitem">
+3. 
+</dt><dd class="enumerate-enumitem">To    scan    over    the    different    signal    strengths    to    find    the
+<!--  l. 547  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>
+that results in a median <!--  l. 547  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-value
+of <!--  l. 547  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.05</mn></mrow></math>
+— or, rather, <!--  l. 547  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msubsup></math>-value
+(Eq. <a href="#x44-183002r19">8.2.19<!--  tex4ht:ref: eq:03_pmu_prime   --></a>), since we’re using the CL<!--  l. 547  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow></mrow><mrow><mi>s</mi></mrow></msub></math>
+method for upper limits (Section <a href="#x44-183000doc">8.2.3.<!--  tex4ht:ref: sec:03_cls   --></a>).</dd></dl>
+<!--  l. 550  --><p class="indent">       First, let’s look at the first two steps for just the
+<!--  l. 550  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>
+signal strength in Example <a href="#x44-185001r3">8.2.3<!--  tex4ht:ref: ex:03_expsig   --></a>. These steps are similar to, and essentially an
+inversion of, the procedure for the expected significance: we’re now finding the
+<!--  l. 551  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mi>μ</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><mi>′</mi></mrow></msubsup></math>-value
+                                                                                
+
+                                                                                
+with respect to the signal + background hypothesis, for the median
+<!--  l. 551  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow></msub></math>
+sampled under the background-only hypothesis. This is demonstrated in Figure <a href="#calculating-the-median-expected-p-value-with-respect-to-the-signal-background-hypothesis-for-test-statistics-q-sampled-under-the-backgroundonly-hypothesis">8.17<!--  tex4ht:ref: fig:03_explim   --></a>.
+</p>
+<figure class="figure">
+<!--  l. 556  --><p class="noindent" id="calculating-the-median-expected-p-value-with-respect-to-the-signal-background-hypothesis-for-test-statistics-q-sampled-under-the-backgroundonly-hypothesis"><img alt="PIC" src="figures/03-Stats/04-expected/2.png" style="max-width:70%"/> <a id="x44-186006r17"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.17.            </span></span><span class="content">Calculating            the            median            expected
+<!--  l. 559  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mi>μ</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><mi>′</mi></mrow></msubsup></math>-value
+with   respect   to   the   signal   +   background   hypothesis,   for   test   statistics
+<!--  l. 559  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow></msub></math>
+sampled            under            the            background-only            hypothesis.
+<!--  l. 559  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+and <!--  l. 559  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+are     estimated     using     30,000     toys     each.     Then,     the     median
+<!--  l. 559  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+(red) is used to calculate the <!--  l. 559  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msubsup></math>-value
+following the CL<!--  l. 559  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow></mrow><mrow><mi>s</mi></mrow></msub></math>
+criterion.                                                                       </span></figcaption><!--  tex4ht:label?: x44-186006r17   -->
+</figure>
+<!--  l. 563  --><p class="indent">       The key difference with respect to calculating the expected
+significance is step 3, in which this procedure has to be repeated for a
+range of signal strengths to find the value that gives a median (and
+<!--  l. 563  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">±</mo> <mn>1</mn><mi>σ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mo class="MathClass-bin" stretchy="false">±</mo><mn>2</mn><mi>σ</mi></mrow></math> quantile-)
+<!--  l. 563  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msubsup></math> of
+<!--  l. 563  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.05</mn></mrow></math>. This is thus the
+minimum value of <!--  l. 564  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>
+that we expect to be able to exclude at 95% CL, as shown in Figure <a href="#left-the-expected-median-and-quantiles-of-p-for-different-s-the-intersection-of-these-with-p-gray-corresponds-to-the-expected-exclusion-limits-right-the-median-and-expected-limits-at-cls-on-">8.18<!--  tex4ht:ref: fig:03_explim2   --></a>.
+</p>
+<figure class="figure">
+<!--  l. 568  --><p class="noindent" id="left-the-expected-median-and-quantiles-of-p-for-different-s-the-intersection-of-these-with-p-gray-corresponds-to-the-expected-exclusion-limits-right-the-median-and-expected-limits-at-cls-on-"><img alt="PIC" src="figures/03-Stats/04-expected/3.png" style="max-width:100%"/> <a id="x44-186007r18"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.18.          </span></span><span class="content">Left:          The          expected          median          and
+<!--  l. 569  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">±</mo> <mn>1</mn><mi>σ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mo class="MathClass-bin" stretchy="false">±</mo><mn>2</mn><mi>σ</mi></mrow></math>
+quantiles of <!--  l. 569  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msubsup></math>
+for different <!--  l. 569  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>’s.
+The intersection of these with <!--  l. 569  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.05</mn></mrow></math>
+(gray)  corresponds  to  the  expected  exclusion  limits.  Right:  The  median  and
+<!--  l. 569  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">±</mo> <mn>1</mn><mi>σ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mo class="MathClass-bin" stretchy="false">±</mo><mn>2</mn><mi>σ</mi></mrow></math>
+expected limits at 95% CL<!--  l. 569  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow></mrow><mrow><mi>s</mi></mrow></msub></math>
+on <!--  l. 569  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>.</span></figcaption><!--  tex4ht:label?: x44-186007r18   -->
+</figure>
+<!--  l. 574  --><p class="indent">       Thus, we have our expected limits. The right plot of Figure <a href="#left-the-expected-median-and-quantiles-of-p-for-different-s-the-intersection-of-these-with-p-gray-corresponds-to-the-expected-exclusion-limits-right-the-median-and-expected-limits-at-cls-on-">8.18<!--  tex4ht:ref: fig:03_explim2   --></a> is colloquially
+known as a “Brazil-band plot”, and is the standard way of representing limits. For
+example, Figure <a href="#expected-and-observed-cls-upper-limits-for-the-sm-higgs-by-atlas-in-for-different-hypothetical-higgs-masses-atlasyve">8.19<!--  tex4ht:ref: fig:03_atlas_higgs   --></a> is the corresponding plot by ATLAS for the Higgs discovery
+(scanning over the Higgs mass).
+</p>
+<figure class="figure">
+<!--  l. 580  --><p class="noindent" id="expected-and-observed-cls-upper-limits-for-the-sm-higgs-by-atlas-in-for-different-hypothetical-higgs-masses-atlasyve"><img alt="PIC" src="figures/03-Stats/04-expected/atlas_limits.png" style="max-width:60%"/> <a id="x44-186008r19"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 8.19. </span></span><span class="content">Expected and observed 95% CL<!--  l. 581  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow></mrow><mrow><mi>s</mi></mrow></msub></math>
+upper limits for the SM Higgs by ATLAS in 2012, for different hypothetical Higgs
+masses [<a href="Bibliography.html#XATLAS_2012yve">59</a>].                                                                    </span></figcaption><!--  tex4ht:label?: x44-186008r19   -->
+</figure>
+<nav class="crosslinks-bottom"> <a href="IntroductionorWhatisananalysis.html">⭠</a> <a href="Asymptoticformulae.html">⭢</a> </nav> <div class="footnotes"><a id="x44-177005x"></a>
+<!--  l. 243  --><p class="indent"> <span class="footnote-mark"><a href="#fn37x9-bk" id="fn37x9"><sup class="textsuperscript">1</sup></a></span><span class="ec-lmr-10">One can find the derivation in the reference therein; essentially, like with most things in
+physics, this follows from Taylor expanding around the minimum...</span></p><a id="x44-179002x"></a>
+<!--  l. 312  --><p class="indent"> <span class="footnote-mark"><a href="#fn38x9-bk" id="fn38x9"><sup class="textsuperscript">2</sup></a></span><span class="ec-lmr-10">Ref. [</span><a href="Bibliography.html#XCowan_2010js"><span class="ec-lmr-10">291</span></a><span class="ec-lmr-10">] refers to the special case of the test statistic</span>
+<!--  l. 312  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub></math> <span class="ec-lmr-10">for</span>
+<!--  l. 312  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math> <span class="ec-lmr-10">as</span>
+<!--  l. 312  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>q</mi></mrow><mrow><mn>0</mn></mrow></msub></math><span class="ec-lmr-10">.</span></p><a id="x44-183007x"></a>
+<!--  l. 478  --><p class="indent"> <span class="footnote-mark"><a href="#fn39x9-bk" id="fn39x9"><sup class="textsuperscript">3</sup></a></span><span class="ec-lmr-10">Note that, unlike </span><!--  l. 478  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>s</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math><span class="ec-lmr-10">,</span>
+<!--  l. 478  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>s</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> <i>doesn’t</i> <span class="ec-lmr-10">follow a simple</span>
+<!--  l. 478  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup></math><span class="ec-lmr-10">; asymptotically, it is
+closer to a </span><i>noncentral</i> <!--  l. 478  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup></math><span class="ec-lmr-10">,
+as will be discussed in Section </span><a href="Asymptoticformulae.html#asymptotic-form-of-the-profile-likelihood-ratio"><span class="ec-lmr-10">8.3.2</span><!--  tex4ht:ref: sec:03_asymptotic_plr   --></a><span class="ec-lmr-10">.</span> </p><a id="x44-186002x"></a>
+<!--  l. 541  --><p class="indent"> <span class="footnote-mark"><a href="#fn40x9-bk" id="fn40x9"><sup class="textsuperscript">4</sup></a></span><!--  l. 541  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>95</mn><mi>%</mi></mrow></math>
+<span class="ec-lmr-10">is the standard CL for upper limits in HEP.</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

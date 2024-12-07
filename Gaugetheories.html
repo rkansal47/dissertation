@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Gauge theories</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="chapterToc">1 <a href="IntroductiontotheStandardModel.html#introduction-to-the-standard-model">Introduction to the Standard Model</a></span>
+<span class="chapterToc">2 <a href="Symmetriesinphysics.html#symmetries-in-physics">Symmetries in physics</a></span>
+<span class="chapterToc">3 <a href="Quantumfieldtheory.html#quantum-field-theory">Quantum field theory</a></span>
+<span class="sectionToc">3.1 <a href="Freescalarfieldtheory.html#free-scalar-field-theory">Free scalar field theory</a></span>
+<span class="sectionToc">3.2 <a href="Interactions.html#interactions">Interactions</a></span>
+<span class="sectionToc">3.3 <a href="#gauge-theories">Gauge theories</a></span>
+<span class="subsectionToc">3.3.1 <a href="#maxwell-theory">Maxwell Theory</a></span>
+<span class="subsectionToc">3.3.2 <a href="#quantum-electrodynamics">Quantum electrodynamics</a></span>
+<span class="subsectionToc">3.3.3 <a href="#yangmills-theory">Yang-Mills Theory</a></span>
+<span class="subsectionToc">3.3.4 <a href="#running-couplings-and-asymptotic-freedom">Running couplings and asymptotic freedom</a></span>
+<span class="sectionToc">3.4 <a href="TheABEGHHKHiggsmechanism.html#the-abeghhk-higgs-mechanism">The ABEGHHK (Higgs) mechanism</a></span>
+<span class="chapterToc">4 <a href="TheStandardModelofParticlePhysics.html#the-standard-model-of-particle-physics">The Standard Model of Particle Physics</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="Interactions.html">⭠</a> <a href="TheABEGHHKHiggsmechanism.html">⭢</a> </nav>
+<h3 class="sectionHead" id="gauge-theories"><span class="titlemark">3.3   </span> <a id="x21-610003.3"></a>Gauge theories</h3>
+<!--  l. 785  --><p class="noindent"><i>Nature seems to take advantage of the simple mathematical representations of the
+symmetry laws. When one pauses to consider the elegance and the beautiful perfection of
+the mathematical reasoning involved and contrast it with the complex and far-reaching
+physical consequences, a deep sense of respect for the power of the symmetry laws never
+fails to develop.</i> — C. N. Yang
+</p><!--  l. 791  --><p class="indent">        
+</p><!--  l. 793  --><p class="indent">       So far, we have discussed spin-<!--  l. 793  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math>
+scalar bosons (and the spin-<!--  l. 793  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac></math>
+fermions in Appendix <span class="ec-lmbx-12">??</span>); the last set of SM particles are the
+spin-<!--  l. 793  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math>
+<i>gauge bosons</i>. These are the particles which mediate all three fundamental forces in the
+                                                                                
+
+                                                                                
+SM: electromagnetism, the weak force, and the strong force. Fortunately, compared to
+spinors, they live in the simpler and familiar vector representation of the Lorentz
+group.
+</p><!--  l. 797  --><p class="indent">       On the other hand, they are intrinsically tied to a unique type of internal, <i>local</i>,
+symmetry in QFT: <i>gauge symmetry</i>. Unlike, say, Lorentz or spacetime translation
+invariance, this is not a fundamental physical symmetry of nature, and is not associated
+with any consrervation law. Instead, it simply describes a redundancy in our
+mathematical formulation of the gauge theory, stemming from the fact that the
+vector fields used to describe the gauge bosons have more degrees of freedom
+(DoFs) than the physical particles themselves. The DoFs are thereby reduced by
+identifying fields related by a gauge symmetry transformation to be the same
+physical state, known as the principle of <i>gauge invariance</i>. This is entirely
+analogous to requiring that a change of coordinate system not affect the physics. A
+deeper discussion of the motivations behind gauge invariance can be found in
+Appendix <span class="ec-lmbx-12">??</span>.
+</p><!--  l. 805  --><p class="indent">       In this section, we first introduce the simplest gauge boson, the photon, and its
+associated <!--  l. 805  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+gauge symmetry in Section <a href="#maxwell-theory">3.3.1<!--  tex4ht:ref: sec:01_qft_gt_maxwell   --></a>. Coupling this to matter and quantizing the theory
+gives us QED, the relativistic quantum theory of electromagnetism (Section <a href="#quantum-electrodynamics">3.3.2<!--  tex4ht:ref: sec:01_qft_gt_qed   --></a>). We
+then generalize this to, and quantize, non-abelian gauge theories, known as
+Yang-Mills theories, in Sections <a href="#yangmills-theory">3.3.3<!--  tex4ht:ref: sec:01_qft_gt_yangmills   --></a> and <a href="#x21-70000doc">3.3.3.<!--  tex4ht:ref: sec:01_qft_gt_ymquant   --></a>, respectively. We conclude
+with a discussion of renormalization and the <i>running</i> of coupling constants in
+                                                                                
+
+                                                                                
+Section <a href="#running-couplings-and-asymptotic-freedom">3.3.4<!--  tex4ht:ref: sec:01_qft_gt_asymptotic   --></a>.
+</p><!--  l. 811  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="maxwell-theory"><span class="titlemark">3.3.1   </span> <a id="x21-620003.3.1"></a>Maxwell Theory</h4>
+<!--  l. 814  --><p class="noindent">Gauge symmetries are a generalization of internal global symmetries, such as the
+<!--  l. 814  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+symmetry from Section <a href="Freescalarfieldtheory.html#symmetries-and-noethers-theorem">3.1.2<!--  tex4ht:ref: sec:01_qft_classical_symmetries   --></a>, to a <i>local</i> symmetry, where the symmetry transformation
+can be a function of spacetime. We are most familiar with this concept from
+classical E&amp;, in which Maxwell’s laws are invariant under transformations of the
+<!--  l. 815  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>4</mn></math>-vector
+potential <!--  l. 815  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mi>ϕ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>A</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+of the form: </p><table class="equation"><tr><td>
+<!--  l. 816  --><p class="indent">
+</p><!--  l. 816  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-62001r1"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">→</mo> <msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mi>e</mi></mrow></mfrac><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><mi>α</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.1)</td></tr></table>
+<!--  l. 819  --><p class="noindent">for an arbitrary function <!--  l. 820  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>α</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>,
+where <!--  l. 820  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>e</mi></math>
+is a conventional constant that we will soon interpret as the coupling constant of the
+theory.
+</p><!--  l. 823  --><p class="indent">       Recall that <!--  l. 823  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub></math> is related to
+the electric and magnetic fields, <!--  l. 823  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>E</mi></mstyle></math>
+and <!--  l. 823  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>B</mi></mstyle></math>,
+by: </p><table class="equation"><tr><td>
+<!--  l. 824  --><p class="indent">
+</p><!--  l. 824  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-62002r2"></mstyle><!--  endlabel  -->
+<mstyle mathvariant="bold">
+<mi>E</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi class="MathClass-op">∇</mi><mo> ⁡<!--  FUNCTION APPLICATION  --></mo><mi>ϕ</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>∂</mi></mrow><mrow><mi>t</mi></mrow></msub><mstyle mathvariant="bold"><mi>A</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mspace class="qquad" width="2em"></mspace><mstyle mathvariant="bold"><mi>B</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mi class="MathClass-op">∇</mi><mo> ⁡<!--  FUNCTION APPLICATION  --></mo><mo class="MathClass-bin" stretchy="false">×</mo><mstyle mathvariant="bold"><mi>A</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.2)</td></tr></table>
+<!--  l. 827  --><p class="noindent">and the Maxwell equations can be derived from the Lagrangian: </p><table class="equation"><tr><td>
+<!--  l. 829  --><p class="indent">
+</p><!--  l. 829  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-62003r3"></mstyle><!--  endlabel  -->
+<mstyle mathvariant="script"><mi>L</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>4</mn></mrow></mfrac><msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub><msup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.3)</td></tr></table>
+<!--  l. 832  --><p class="noindent">where </p><table class="equation"><tr><td>
+<!--  l. 834  --><p class="indent">
+</p><!--  l. 834  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-62004r4"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><msub><mrow><mi>A</mi></mrow><mrow><mi>ν</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>∂</mi></mrow><mrow><mi>ν</mi></mrow></msub><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub>
+</mrow></math></td><td class="eq-no">(3.3.4)</td></tr></table>
+<!--  l. 837  --><p class="noindent">is the <i>field strength</i> tensor. One can confirm that (1)
+<!--  l. 839  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub></math> and,
+                                                                                
+
+                                                                                
+hence, the Lagrangian is invariant under the gauge transformation in Eq. <a href="#x21-62001r1">3.3.1<!--  tex4ht:ref: eq:01_qft_gt_maxwell_gauge   --></a>, and (2)
+the resulting E-L EOMs are exactly the homogeneous Maxwell equations. Thus, classical
+E&amp; was our earliest and simplest gauge theory, although the significance
+and generalization of gauge invariance only became clear with the advent of
+QFT.
+</p><!--  l. 842  --><p class="indent">       Gauge invariance significantly restricts the possible terms in the Lagrangian
+(and thus considerably simplifies the theory). Notably, mass terms like
+<!--  l. 843  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>m</mi></mrow><mrow><mn>2</mn></mrow></msup><msubsup><mrow><mi>A</mi></mrow><mrow>
+<mi>μ</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></math>
+<i>violate</i> gauge invariance, which is why gauge bosons are necessarily massless, without
+something special like the Higgs mechanism (Section <a href="TheABEGHHKHiggsmechanism.html#the-abeghhk-higgs-mechanism">3.4<!--  tex4ht:ref: sec:01_qft_higgs   --></a>). As discussed in Appendix <span class="ec-lmbx-12">??</span>,
+gauge invariance also ensures the renormalizability of the theory and reduces the DoFs
+of <!--  l. 844  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub></math>
+such that, once quantized, we can identify it as the photonic field.
+</p><!--  l. 848  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="interactions-with-scalars"><a id="x21-63000"></a>Interactions with scalars</h5>
+<!--  l. 850  --><p class="noindent">The <!--  l. 850  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+nature of the gauge transformation becomes more apparent when we try to couple the
+photon to other particles. Note that our Lagrangian above contains terms of the form
+                                                                                
+
+                                                                                
+<!--  l. 851  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><msub><mrow><mi>A</mi></mrow><mrow><mi>ν</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup></math> so
+<!--  l. 851  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub></math> (and indeed all
+spin-<!--  l. 851  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math> fields) have
+dimension <!--  l. 851  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math>.
+</p><!--  l. 854  --><p class="indent">       Let us consider a scalar field <!--  l. 854  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>:
+we can write renormalizable, scalar terms like
+<!--  l. 854  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mn>2</mn></mrow></msubsup><msup><mrow><mi>ϕ</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math> and
+<!--  l. 854  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub><mi>ϕ</mi><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><mi>ϕ</mi></mrow></math>;
+however, they do not look gauge invariant. To make them so, we must require that
+<!--  l. 855  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math> <i>also</i>
+transforms under the same gauge transformation in a way that compensates the change
+in <!--  l. 855  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub></math>.
+</p><!--  l. 857  --><p class="indent">       The simplest way is to take <!--  l. 857  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>
+to be a <i>complex</i> scalar field and “promote” its inherent global
+<!--  l. 857  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+symmetry to a local one: </p><table class="equation"><tr><td>
+<!--  l. 858  --><p class="indent">
+</p><!--  l. 858  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-63001r5"></mstyle><!--  endlabel  -->
+<mi>ϕ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">→</mo> <msup><mrow><mi>e</mi></mrow><mrow><mi>i</mi><msub><mrow><mi>Q</mi></mrow><mrow><mi>ϕ</mi></mrow></msub><mi>α</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup><mi>ϕ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.5)</td></tr></table>
+<!--  l. 861  --><p class="noindent">where we say <!--  l. 862  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>Q</mi></mrow><mrow><mi>ϕ</mi></mrow></msub></math>
+represents the charge of <!--  l. 862  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>
+under the <!--  l. 862  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+symmetry.<span class="footnote-mark"><a href="#fn19x4" id="fn19x4-bk"><sup class="textsuperscript">10</sup></a></span><a id="x21-63002f10"></a>
+We can then define the <i>covariant derivative</i> acting on
+<!--  l. 864  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>
+as:<span class="footnote-mark"><a href="#fn20x4" id="fn20x4-bk"><sup class="textsuperscript">11</sup></a></span><a id="x21-63004f11"></a>
+</p><table class="equation"><tr><td>
+<!--  l. 867  --><p class="indent">
+</p><!--  l. 867  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-63006r6"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>D</mi></mrow><mrow><mi>μ</mi></mrow></msub><mi>ϕ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi mathvariant="italic">ie</mi><msub><mrow><mi>Q</mi></mrow><mrow><mi>ϕ</mi></mrow></msub><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mi>ϕ</mi><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.6)</td></tr></table>
+<!--  l. 870  --><p class="noindent">where <!--  l. 871  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>e</mi></math>
+is the same coupling constant from Eq. <a href="#x21-62001r1">3.3.1<!--  tex4ht:ref: eq:01_qft_gt_maxwell_gauge   --></a>.
+</p><!--  l. 873  --><p class="indent">       One can check that <!--  l. 873  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>D</mi></mrow><mrow><mi>μ</mi></mrow></msub><mi>ϕ</mi></mrow></math>
+transforms under the gauge transformation as: </p><table class="equation"><tr><td>
+<!--  l. 874  --><p class="indent">
+</p><!--  l. 874  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-63007r7"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>D</mi></mrow><mrow><mi>μ</mi></mrow></msub><mi>ϕ</mi> <mo class="MathClass-rel" stretchy="false">→</mo> <msup><mrow><mi>e</mi></mrow><mrow><mi>i</mi><msub><mrow><mi>Q</mi></mrow><mrow><mi>ϕ</mi></mrow></msub><mi>α</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup><msub><mrow><mi>D</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub><mi>ϕ</mi><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.7)</td></tr></table>
+<!--  l. 877  --><p class="noindent">meaning <!--  l. 878  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>D</mi></mrow><mrow><mi>μ</mi></mrow></msub><mi>ϕ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-bin" stretchy="false">†</mo></mrow></msup><msup><mrow><mi>D</mi></mrow><mrow><mi>μ</mi></mrow></msup><mi>ϕ</mi></mrow></math>
+provides us with a gauge invariant interaction term for the Lagrangian. Thus, we have a
+gauge invariant <i>scalar</i> QED Lagrangian: </p><table class="equation"><tr><td>
+<!--  l. 880  --><p class="indent">
+</p><!--  l. 880  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-63008r8"></mstyle><!--  endlabel  -->
+<mstyle mathvariant="script"><mi>L</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>4</mn></mrow></mfrac><msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub><msup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>D</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub><mi>ϕ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-bin" stretchy="false">†</mo></mrow></msup><msup><mrow><mi>D</mi></mrow><mrow><mi>μ</mi></mrow></msup><mi>ϕ</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>m</mi></mrow><mrow><mn>2</mn></mrow></msup><msup><mrow> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>ϕ</mi></mrow><mo fence="true" form="postfix">|</mo></mrow></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(3.3.8)</td></tr></table>
+<!--  l. 883  --><p class="noindent">
+</p><!--  l. 885  --><p class="indent">       Note that the commutator of the covariant derivative is in fact not a derivative at
+all, but proportional to the field strength tensor: </p><table class="equation"><tr><td>
+<!--  l. 886  --><p class="indent">
+</p><!--  l. 886  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-63009r9"></mstyle><!--  endlabel  -->
+<mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>D</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>D</mi></mrow><mrow><mi>ν</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo><mi>ϕ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>∂</mi></mrow><mrow><mi>ν</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mi mathvariant="italic">ie</mi><mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>A</mi></mrow><mrow><mi>ν</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mi mathvariant="italic">ie</mi><mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>∂</mi></mrow><mrow><mi>ν</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-close" stretchy="false">)</mo><mi>ϕ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi mathvariant="italic">ie</mi><msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub><mi>ϕ</mi><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(3.3.9)</td></tr></table>
+<!--  l. 888  --><p class="noindent">Thus, we can define <!--  l. 889  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">≡</mo> <mfrac><mrow><mi>i</mi></mrow>
+<mrow>
+<mi>e</mi></mrow></mfrac><mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>D</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>D</mi></mrow><mrow><mi>ν</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>,
+which will prove useful for non-abelian gauge symmetries later in this section.
+</p><!--  l. 892  --><p class="indent">       Generally, we choose the normalization
+<!--  l. 892  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>Q</mi></mrow><mrow><mi>e</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></math> for the electron
+                                                                                
+
+                                                                                
+field, so <!--  l. 892  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>e</mi></math>
+becomes our familiar elementary charge (in natural units) and
+<!--  l. 892  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>α</mi> <mo class="MathClass-rel" stretchy="false">≡</mo> <mfrac><mrow><msup><mrow><mi>e</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow>
+<mrow><mn>4</mn><mi>π</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">≈</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>137</mn></mrow></mfrac></mrow></math> is the famous dimensionless
+fine structure constant.<span class="footnote-mark"><a href="#fn21x4" id="fn21x4-bk"><sup class="textsuperscript">12</sup></a></span><a id="x21-63010f12"></a>
+</p><!--  l. 894  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="interactions-with-spinors"><a id="x21-64000"></a>Interactions with spinors</h5>
+<!--  l. 896  --><p class="noindent">The case for spinors is not so different. The definition of the covariant derivative remains
+the same, so combining the “covariant” Dirac Lagrangian with the free photonic yields
+the QED Lagrangian: </p><table class="equation"><tr><td>
+<!--  l. 898  --><p class="indent">
+</p><!--  l. 898  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-64001r10"></mstyle><!--  endlabel  -->
+<mstyle mathvariant="script"><mi>L</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>4</mn></mrow></mfrac><msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub><msup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mover accent="true"><mrow><mi>ψ</mi></mrow><mo accent="true">¯</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>i</mi><menclose notation="updiagonalstrike"><mi>D</mi></menclose> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo><mi>ψ</mi><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(3.3.10)</td></tr></table>
+<!--  l. 901  --><p class="noindent">This is in fact the most general possible Lorentz-invariant, renormalizable,
+<!--  l. 902  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>P</mi></math>-symmetric Lagrangian
+for a spinor field with a <!--  l. 902  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+gauge symmetry, and can thus be derived from the requirement of gauge invariance
+alone (as done in e.g. Peskin and Shroeder [<a href="Bibliography.html#XPeskin_1995ev">76</a>] Chapter 15.1). This is a general feature
+of the SM: every possible term permitted by gauge invariance and the usual physical
+requirements of Lorentz invariance etc. is included in the Lagrangian (with one possible
+exception that forms the basis for the strong CP problem [<a href="Bibliography.html#XWu_1991rw">97</a>, <a href="Bibliography.html#XMannel_2007zz">98</a>]).
+</p><!--  l. 905  --><p class="indent">       Expanding out the Lagrangian, we have: </p><table class="equation"><tr><td>
+<!--  l. 906  --><p class="indent">
+</p><!--  l. 906  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-64002r11"></mstyle><!--  endlabel  -->
+<mstyle mathvariant="script"><mi>L</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>4</mn></mrow></mfrac><msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub><msup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mover accent="true"><mrow><mi>ψ</mi></mrow><mo accent="true">¯</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>i</mi><msup><mrow><mi>γ</mi></mrow><mrow><mi>μ</mi></mrow></msup><msub><mrow><mi>∂</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo><mi>ψ</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>e</mi><mover accent="true"><mrow><mi>ψ</mi></mrow><mo accent="true">¯</mo></mover><msup><mrow><mi>γ</mi></mrow><mrow><mi>μ</mi></mrow></msup><mi>ψ</mi><msub><mrow><mi>A</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.11)</td></tr></table>
+<!--  l. 909  --><p class="noindent">where we see this interaction term is simply
+<!--  l. 910  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>e</mi><msup><mrow><mi>j</mi></mrow><mrow><mi>μ</mi></mrow></msup><msub><mrow><mi>A</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub></mrow></math> with
+<!--  l. 910  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>j</mi></mrow><mrow><mi>μ</mi></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mover accent="true"><mrow><mi>ψ</mi></mrow><mo accent="true">¯</mo></mover><msup><mrow><mi>γ</mi></mrow><mrow><mi>μ</mi></mrow></msup><mi>ψ</mi></mrow></math> the conserved current
+associated with the <i>global</i> <!--  l. 910  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+                                                                                
+
+                                                                                
+symmetry we found in Section <span class="ec-lmbx-12">??</span>. One can check that the E-L EOMs for
+<!--  l. 911  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub></math>
+now correspond to the <i>inhomogeneous</i> Maxwell equations with a source term
+<!--  l. 911  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>J</mi></mrow><mrow><mi>μ</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">≡</mo><mo class="MathClass-bin" stretchy="false">−</mo><mi>e</mi><msub><mrow><mi>j</mi></mrow><mrow><mi>μ</mi></mrow></msub></mrow></math>:
+</p><table class="equation"><tr><td>
+<!--  l. 912  --><p class="indent">
+</p><!--  l. 912  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-64003r12"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>J</mi></mrow><mrow><mi>ν</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.12)</td></tr></table>
+<!--  l. 915  --><p class="noindent">reproducing our beloved E&amp; from this field theory formulation!
+</p><!--  l. 919  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="quantum-electrodynamics"><span class="titlemark">3.3.2   </span> <a id="x21-650003.3.2"></a>Quantum electrodynamics</h4>
+<!--  l. 922  --><p class="noindent">The quantized version of the above is what we call <i>quantum electrodynamics</i> (QED): the
+QFT of electromagnetic interactions. It has proven an extraordinarily successful theory,
+serving as a model for the remainder of the SM as well as theories for condensed matter
+phenomena.
+</p><!--  l. 925  --><p class="indent">       The exact path to quantizing <!--  l. 925  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub></math>
+depends on the choice of gauge. We will forego those details and simply use physical
+intuition — namely, that the photon has only two physical, transverse polarizations —
+to motivate the result: </p><table class="equation"><tr><td>
+<!--  l. 927  --><p class="indent">
+</p><!--  l. 927  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-65001r13"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><mo> ∫
+ <!--  nolimits  --></mo><!--  nolimits  --> <mfrac><mrow><msup><mrow><mi>d</mi></mrow><mrow><mn>3</mn></mrow></msup><mi>p</mi></mrow>
+<mrow><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mi>π</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>3</mn>
+</mrow></msup></mrow></mfrac> <mfrac>
+<mrow>
+<mn>1</mn></mrow>
+<mrow>
+<msqrt>
+<mrow>
+<mn>2</mn><msub><mrow><mi>E</mi></mrow><mrow><mi>p</mi></mrow></msub></mrow></msqrt></mrow></mfrac><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>λ</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><mn>2</mn></mrow></munderover> <mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mi>𝜖</mi></mrow><mrow>
+<mi>μ</mi></mrow><mrow><mi>λ</mi></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi>p</mi><mo class="MathClass-close" stretchy="false">)</mo><msubsup><mrow><mi>â</mi></mrow><mrow>
+<mi>p</mi></mrow><mrow><mi>λ</mi></mrow></msubsup><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi mathvariant="italic">ip</mi><mo class="MathClass-bin" stretchy="false">⋅</mo><mi>x</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msubsup><mrow><mi>𝜖</mi></mrow><mrow>
+<mi>μ</mi></mrow><mrow><mi>λ</mi><mo class="MathClass-bin" stretchy="false">∗</mo></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi>p</mi><mo class="MathClass-close" stretchy="false">)</mo><msubsup><mrow><mi>â</mi></mrow><mrow>
+<mi>p</mi></mrow><mrow><mi>λ</mi><mo class="MathClass-bin" stretchy="false">†</mo></mrow></msubsup><msup><mrow><mi>e</mi></mrow><mrow><mi mathvariant="italic">ip</mi><mo class="MathClass-bin" stretchy="false">⋅</mo><mi>x</mi></mrow></msup></mrow><mo fence="true" form="postfix">)</mo></mrow> <mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.13)</td></tr></table>
+<!--  l. 930  --><p class="noindent">where <!--  l. 931  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>𝜖</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>λ</mi></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi>p</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+are the two transverse polarization basis vectors and
+<!--  l. 931  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>a</mi></mrow><mrow><mi>p</mi></mrow><mrow><mi>λ</mi></mrow></msubsup></math> and
+                                                                                
+
+                                                                                
+<!--  l. 931  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>a</mi></mrow><mrow><mi>p</mi></mrow><mrow><mi>λ</mi><mo class="MathClass-bin" stretchy="false">†</mo></mrow></msubsup></math> are
+the photon annihilation and creation operators.
+</p><!--  l. 933  --><p class="indent">       The photon propagator depends as well on the choice of gauge. Expanding the
+homogeneous photon EOM, Eq. <a href="#x21-64003r12">3.3.12<!--  tex4ht:ref: eq:01_qft_gt_maxwell_qed_inhomo_eqs   --></a>, gives: </p><table class="equation"><tr><td>
+<!--  l. 935  --><p class="indent">
+</p><!--  l. 935  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-65002r14"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><msup><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msup><msub><mrow><mi>A</mi></mrow><mrow>
+<mi>ν</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>∂</mi></mrow><mrow><mi>ν</mi></mrow></msub><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><msup><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>J</mi></mrow><mrow>
+<mi>ν</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.14)</td></tr></table>
+<!--  l. 938  --><p class="noindent">which in momentum space becomes: </p><table class="equation"><tr><td>
+<!--  l. 940  --><p class="indent">
+</p><!--  l. 940  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-65003r15"></mstyle><!--  endlabel  -->
+<mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><msup><mrow><mi>p</mi></mrow><mrow><mn>2</mn></mrow></msup><msub><mrow><mi>η</mi></mrow><mrow>
+<mi mathvariant="italic">μν</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow></msub><msub><mrow><mi>p</mi></mrow><mrow><mi>ν</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>J</mi></mrow><mrow><mi>ν</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(3.3.15)</td></tr></table>
+<!--  l. 943  --><p class="noindent">Recall that the propagator is the inverse of the operator on the LHS
+for a delta-function source; however, due to the redundant DoFs of
+<!--  l. 944  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub></math>, this
+is not directly invertible without first fixing a gauge.
+</p><!--  l. 946  --><p class="indent">       The cleanest way to do so is to add a “Lagrange multiplier” term representing the
+gauge fixing condition to the Lagrangian. The most common choice is the <i>Lorenz gauge</i>,
+<!--  l. 947  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><msup><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>,
+which makes Lorentz-invariance manifest and to enforce which we can include the term
+<!--  l. 947  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn><mi>ξ</mi></mrow></mfrac><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><msup><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup></mrow></math>. One can confirm
+that the EOM for <!--  l. 948  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ξ</mi></math>
+is exactly the Lorenz gauge condition. Inverting the new EOM for
+<!--  l. 949  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub></math> gives
+us the (Feynman) photon propagator: </p><table class="equation"><tr><td>
+<!--  l. 950  --><p class="indent">
+</p><!--  l. 950  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-65004r16"></mstyle><!--  endlabel  -->
+<msub><mrow><mi mathvariant="normal">Δ</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>p</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>i</mi></mrow>
+<mrow><msup><mrow>
+<mi>p</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mi mathvariant="italic">i𝜖</mi></mrow></mfrac> <mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>η</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>ξ</mi><mo class="MathClass-close" stretchy="false">)</mo><mfrac><mrow><msub><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow></msub><msub><mrow><mi>p</mi></mrow><mrow><mi>ν</mi></mrow></msub></mrow>
+<mrow><msup><mrow>
+<mi>p</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></mfrac> </mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(3.3.16)</td></tr></table>
+<!--  l. 953  --><p class="noindent">This is called the <!--  l. 954  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>R</mi></mrow><mrow><mi>ξ</mi></mrow></msub></math> gauge
+and different values of <!--  l. 954  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ξ</mi></math>
+correspond to different propagators, each with their own advantages
+and disadvantages for calculations. In QED, we typically take
+<!--  l. 955  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>ξ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>,
+called the Feynman-’t Hooft gauge, for simplicity: </p><table class="equation"><tr><td>
+<!--  l. 956  --><p class="indent">
+</p><!--  l. 956  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-65005r17"></mstyle><!--  endlabel  -->
+<msub><mrow><mi mathvariant="normal">Δ</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>p</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>i</mi><msub><mrow><mi>η</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub></mrow>
+<mrow><msup><mrow>
+<mi>p</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mi mathvariant="italic">i𝜖</mi></mrow></mfrac><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(3.3.17)</td></tr></table>
+<!--  l. 959  --><p class="noindent">
+</p>
+<div class="newtheorem">
+<!--  l. 961  --><p class="noindent"><span class="head">
+<a id="x21-65006r1"></a>
+<span class="ec-lmbx-12">Definition 3.3.1.</span>
+</span>          With           this,           we           can           write
+down        the        Feynman        rules        for        QED,        with        spinor
+(<!--  l. 963  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math>,
+<!--  l. 963  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>β</mi></math>)
+and <!--  l. 963  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>4</mn></math>-vector
+(<!--  l. 963  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math>,
+<!--  l. 963  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ν</mi></math>)
+indices labeled explicitly for clarity:
+</p>
+</div>
+<!--  l. 967  --><p class="indent">
+</p><!--  l. 971  --><p class="indent">       These Feynman rules can be applied to simple tree-level
+processes similarly to Yukawa theory (see Sections <a href="Interactions.html#feynman-diagrams">3.2.3<!--  tex4ht:ref: sec:01_qft_interactions_feynman   --></a> and <span class="ec-lmbx-12">??</span>). These
+include several important processes such as electron-electron scattering
+<!--  l. 972  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo></mrow></msup><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo></mrow></msup> <mo class="MathClass-rel" stretchy="false">→</mo> <msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo></mrow></msup><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo></mrow></msup></mrow></math> via a virtual photon,
+Compton scattering <!--  l. 972  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>γ</mi><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo></mrow></msup> <mo class="MathClass-rel" stretchy="false">→</mo> <mi>γ</mi><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo></mrow></msup></mrow></math>,
+                                                                                
+
+                                                                                
+electron-positron annihilation <!--  l. 972  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">+</mo></mrow></msup><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo></mrow></msup> <mo class="MathClass-rel" stretchy="false">→</mo> <mi mathvariant="italic">γγ</mi></mrow></math>,
+and electron-positron (or Bhabha) scattering
+<!--  l. 972  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">+</mo></mrow></msup><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo></mrow></msup> <mo class="MathClass-rel" stretchy="false">→</mo> <msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">+</mo></mrow></msup><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo></mrow></msup></mrow></math>. The
+former (and its variations with other charged particles) is what we generally experience
+as electromagnetism, and can recover the Coloumb potential in the non-relativistic
+limit.
+</p><!--  l. 977  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="yangmills-theory"><span class="titlemark">3.3.3   </span> <a id="x21-660003.3.3"></a>Yang-Mills Theory</h4>
+<!--  l. 980  --><p class="noindent">Following the remarkable success of QED and GR, a generalization of such gauge
+theories to <i>non-abelian</i> symmetries was proposed by Chen Ning Yang and
+Robert Mills in 1953 [<a href="Bibliography.html#XYang_1954ek">99</a>], today referred to as <i>Yang-Mills</i> theories. These
+theories picked up steam in the 1960s when the concept of spontaneous symmetry
+breaking was developed to give mass to the gauge bosons (Section <a href="TheABEGHHKHiggsmechanism.html#the-abeghhk-higgs-mechanism">3.4<!--  tex4ht:ref: sec:01_qft_higgs   --></a>) and it
+was realized that both the weak and strong interactions can be described by
+<!--  l. 981  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SU</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and
+<!--  l. 981  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SU</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+Yang-Mills theories, respectively. They are hence a cornerstone of the
+SM, and we will now briefly outline their construction, generalizing the
+                                                                                
+
+                                                                                
+<!--  l. 982  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> gauge
+symmetry from the previous section.
+</p><!--  l. 986  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="nonabelian-gauge-transformations"><a id="x21-67000"></a>Non-abelian gauge transformations</h5>
+<!--  l. 988  --><p class="noindent">In Yang-Mills theory, we allow non-gauge fields to transform locally under <i>any</i> Lie group
+<!--  l. 988  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>G</mi></math>, in an arbitrary
+representation <!--  l. 988  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>R</mi></math> of the group
+(generally, in the SM, <!--  l. 988  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>R</mi></math>
+is either the fundamental or trivial representation). This means the fields
+<!--  l. 989  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ψ</mi></math> are actually vectors
+of <!--  l. 989  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>R</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> (on top of their
+usual spinor or <!--  l. 989  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>4</mn></math>-vector
+indices etc.), and transform as: </p><table class="equation"><tr><td>
+<!--  l. 990  --><p class="indent">
+</p><!--  l. 990  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-67001r18"></mstyle><!--  endlabel  -->
+<mi>ψ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">→</mo> <msup><mrow><mi>ψ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>e</mi></mrow><mrow><mi>i</mi><msup><mrow><mi>α</mi></mrow><mrow><mi>a</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo><msubsup><mrow><mi>T</mi></mrow><mrow><mi>R</mi></mrow><mrow><mi>a</mi></mrow></msubsup>
+</mrow></msup><mi>ψ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">≡</mo> <mi>V</mi> <mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo><mi>ψ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.18)</td></tr></table>
+<!--  l. 993  --><p class="noindent">where <!--  l. 994  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>T</mi></mrow><mrow><mi>R</mi></mrow><mrow><mi>a</mi></mrow></msubsup></math> are the
+generators of <!--  l. 994  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>G</mi></math> in the
+representation <!--  l. 994  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>R</mi></math> and
+<!--  l. 994  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>V</mi> <mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>e</mi></mrow><mrow><mi>i</mi><msup><mrow><mi>α</mi></mrow><mrow><mi>a</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo><msubsup><mrow><mi>T</mi></mrow><mrow><mi>R</mi></mrow><mrow><mi>a</mi></mrow></msubsup></mrow></msup></mrow></math> is the gauge transformation.
+To construct a <!--  l. 995  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>G</mi></math>-invariant
+Lagrangian, we again need to define a covariant derivative with gauge fields
+<!--  l. 995  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>a</mi></mrow></msubsup></math> connecting the local
+transformations of <!--  l. 995  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ψ</mi></math>
+across spacetime: </p><table class="equation"><tr><td>
+<!--  l. 996  --><p class="indent">
+</p><!--  l. 996  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-67002r19"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>D</mi></mrow><mrow><mi>μ</mi></mrow></msub><mi>ψ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi mathvariant="italic">ig</mi><msubsup><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>a</mi></mrow></msubsup><msubsup><mrow><mi>T</mi></mrow><mrow>
+<mi>R</mi></mrow><mrow><mi>a</mi></mrow></msubsup><mo class="MathClass-close" stretchy="false">)</mo><mi>ψ</mi><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(3.3.19)</td></tr></table>
+<!--  l. 999  --><p class="noindent">Observe that we must have as many gauge fields as there are
+group generators to counter all possible gauge transformations
+<!--  l. 1000  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>V</mi> <mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>; i.e.,
+there are <!--  l. 1000  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>G</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+<!--  l. 1000  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub></math>s, living in the <i>adjoint</i>
+representation of <!--  l. 1000  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>G</mi></math>
+(see Chapter <a href="#x16-17010r2.2">2.2<!--  tex4ht:ref: sec:01_symmetries_so3   --></a>). The gauge field is often represented more conveniently as a
+“Lie-algebra-valued” field (i.e., as an object in the Lie algebra): </p><table class="equation"><tr><td>
+<!--  l. 1002  --><p class="indent">
+</p><!--  l. 1002  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-67003r20"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">≡</mo> <msubsup><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>a</mi></mrow></msubsup><msup><mrow><mi>T</mi></mrow><mrow><mi>a</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(3.3.20)</td></tr></table>
+<!--  l. 1005  --><p class="noindent">
+</p><!--  l. 1007  --><p class="indent">       We can derive how <!--  l. 1007  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub></math>
+transforms by requiring the covariant derivative to transform identically to
+<!--  l. 1007  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ψ</mi></math> (the same as in the
+abelian case):<span class="footnote-mark"><a href="#fn22x4" id="fn22x4-bk"><sup class="textsuperscript">13</sup></a></span><a id="x21-67004f13"></a>
+</p><table class="equation"><tr><td>
+<!--  l. 1008  --><p class="indent">
+</p><!--  l. 1008  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-67006r21"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>D</mi></mrow><mrow><mi>μ</mi></mrow></msub><mi>ψ</mi> <mo class="MathClass-rel" stretchy="false">→</mo> <msubsup><mrow><mi>D</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msubsup><mi>ψ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>∂</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi mathvariant="italic">ig</mi><msubsup><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msubsup><mo class="MathClass-close" stretchy="false">)</mo><mi>V</mi> <mi>ψ</mi><mover class="overset"><mrow> <mo class="MathClass-rel" stretchy="false">=</mo> </mrow><mrow><mo class="MathClass-punc" stretchy="false">!</mo></mrow></mover><mi>V</mi> <msub><mrow><mi>D</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub><mi>ψ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.21)</td></tr></table>
+<!--  l. 1011  --><p class="noindent">where <!--  l. 1012  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math>
+is the coupling constant. One can check this is satisfied for the transformed gauge field:
+</p><table class="equation"><tr><td>
+<!--  l. 1014  --><p class="indent">
+</p><!--  l. 1014  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-67007r22"></mstyle><!--  endlabel  -->
+<msubsup><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>V</mi> <msub><mrow><mi>A</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub><msup><mrow><mi>V</mi> </mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <mfrac><mrow><mi>i</mi></mrow>
+<mrow>
+<mi>g</mi></mrow></mfrac><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><mi>V</mi> <mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mi>V</mi> </mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(3.3.22)</td></tr></table>
+<!--  l. 1017  --><p class="noindent">For infinitesimal gauge transformations <!--  l. 1018  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>V</mi> <mo class="MathClass-rel" stretchy="false">≃</mo> <mn>1</mn> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>i</mi><msup><mrow><mi>α</mi></mrow><mrow><mi>a</mi></mrow></msup><msubsup><mrow><mi>T</mi></mrow><mrow>
+<mi>R</mi></mrow><mrow><mi>a</mi></mrow></msubsup></mrow></math>,
+this can be written in terms of the components as: </p><table class="equation"><tr><td>
+<!--  l. 1019  --><p class="indent">
+</p><!--  l. 1019  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-67008r23"></mstyle><!--  endlabel  --><msubsup><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow><mrow><msup><mrow></mrow><mrow><mi>′</mi></mrow></msup>
+<mi>a</mi></mrow></msubsup><msup><mrow><mi>T</mi></mrow><mrow><mi>a</mi></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>A</mi></mrow><mrow>
+<mi>μ</mi></mrow><mrow><mi>a</mi></mrow></msubsup><msup><mrow><mi>T</mi></mrow><mrow><mi>a</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mi>g</mi></mrow></mfrac><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><msup><mrow><mi>α</mi></mrow><mrow><mi>a</mi></mrow></msup><msup><mrow><mi>T</mi></mrow><mrow><mi>a</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo><mi>i</mi><msubsup><mrow><mi>A</mi></mrow><mrow>
+<mi>μ</mi></mrow><mrow><mi>a</mi></mrow></msubsup><msup><mrow><mi>α</mi></mrow><mrow><mi>b</mi></mrow></msup><mo class="MathClass-open" stretchy="false">[</mo><msup><mrow><mi>T</mi></mrow><mrow><mi>b</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>T</mi></mrow><mrow><mi>a</mi></mrow></msup><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>A</mi></mrow><mrow>
+<mi>μ</mi></mrow><mrow><mi>a</mi></mrow></msubsup><msup><mrow><mi>T</mi></mrow><mrow><mi>a</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mi>g</mi></mrow></mfrac><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><msup><mrow><mi>α</mi></mrow><mrow><mi>a</mi></mrow></msup><msup><mrow><mi>T</mi></mrow><mrow><mi>a</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo><msup><mrow><mi>f</mi></mrow><mrow><mi mathvariant="italic">abc</mi></mrow></msup><msubsup><mrow><mi>A</mi></mrow><mrow>
+<mi>μ</mi></mrow><mrow><mi>a</mi></mrow></msubsup><msup><mrow><mi>α</mi></mrow><mrow><mi>b</mi></mrow></msup><msup><mrow><mi>T</mi></mrow><mrow><mi>c</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.23)</td></tr></table>
+<!--  l. 1022  --><p class="noindent">where <!--  l. 1023  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>f</mi></mrow><mrow><mi mathvariant="italic">abc</mi></mrow></msup></math>
+are the structure constants of the Lie algebra of
+<!--  l. 1023  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>G</mi></math>. The
+second term represents the gauge transformation, same as in the abelian case, while the
+third term is new and is the transformation property for a field in the adjoint
+representation.
+</p><!--  l. 1027  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="the-field-strength-tensor"><a id="x21-68000"></a>The field strength tensor</h5>
+<!--  l. 1029  --><p class="noindent">The final piece we need for the Lagrangian is a gauge-invariant kinetic term
+for the gauge fields, generalizing the electromagnetic field strength tensor
+<!--  l. 1029  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub></math>. We
+can construct this, as in the abelian case, using the commutator of covariant derivatives:
+</p><table class="equation"><tr><td>
+<!--  l. 1031  --><p class="indent">
+</p><!--  l. 1031  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-68001r24"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">≡</mo> <mfrac><mrow><mi>i</mi></mrow>
+<mrow>
+<mi>g</mi></mrow></mfrac><mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>D</mi></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>D</mi></mrow><mrow><mi>ν</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub><msubsup><mrow><mi>A</mi></mrow><mrow><mi>ν</mi></mrow><mrow><mi>a</mi></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>∂</mi></mrow><mrow>
+<mi>ν</mi></mrow></msub><msubsup><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow><mrow><mi>a</mi></mrow></msubsup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mi mathvariant="italic">ig</mi><mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>A</mi></mrow><mrow>
+<mi>μ</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>A</mi></mrow><mrow><mi>ν</mi></mrow></msub><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(3.3.24)</td></tr></table>
+<!--  l. 1034  --><p class="noindent">Again, this reduces to the E&amp; tensor for an abelian symmetry, where the commutator term
+is <!--  l. 1035  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math>. In the
+non-abelian case, the commutator term adds new <i>self-interaction</i> terms to the gauge fields. One
+can check that <!--  l. 1037  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub></math>
+transforms as: </p><table class="equation"><tr><td>
+<!--  l. 1038  --><p class="indent">
+</p><!--  l. 1038  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-68002r25"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">→</mo> <mi>V</mi> <msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub><msup><mrow><mi>V</mi> </mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.25)</td></tr></table>
+<!--  l. 1041  --><p class="noindent">or, infinitesimally, in terms of components as: </p><table class="equation"><tr><td>
+<!--  l. 1043  --><p class="indent">
+</p><!--  l. 1043  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-68003r26"></mstyle><!--  endlabel  -->
+<msubsup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow><mrow><mi>a</mi></mrow></msubsup><msup><mrow><mi>T</mi></mrow><mrow><mi>a</mi></mrow></msup> <mo class="MathClass-rel" stretchy="false">→</mo> <msubsup><mrow><mi>F</mi></mrow><mrow>
+<mi mathvariant="italic">μν</mi></mrow><mrow><mi>a</mi></mrow></msubsup><msup><mrow><mi>T</mi></mrow><mrow><mi>a</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mi>f</mi></mrow><mrow><mi mathvariant="italic">abc</mi></mrow></msup><msubsup><mrow><mi>F</mi></mrow><mrow>
+<mi mathvariant="italic">μν</mi></mrow><mrow><mi>b</mi></mrow></msubsup><msup><mrow><mi>α</mi></mrow><mrow><mi>c</mi></mrow></msup><msup><mrow><mi>T</mi></mrow><mrow><mi>a</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.26)</td></tr></table>
+<!--  l. 1046  --><p class="noindent">which we can recognize as the transformation of a field in the adjoint representation
+(Eq. <a href="#x21-67008r23">3.3.23<!--  tex4ht:ref: eq:01_qft_gt_yangmills_gauge_transformation_A_infinitesimal   --></a> without the gauge transformation term).
+</p><!--  l. 1049  --><p class="indent">       Clearly, for non-abelian theories, the field-strength tensor alone, or even
+<!--  l. 1049  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub><msup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msup></mrow></math>, is no
+longer gauge-invariant; however, its <i>trace</i> is: </p><table class="equation"><tr><td>
+<!--  l. 1050  --><p class="indent">
+</p><!--  l. 1050  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-68004r27"></mstyle><!--  endlabel  -->
+<mstyle mathvariant="normal">
+<mi>Tr</mi>
+</mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub><msup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msup>
+</mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle mathvariant="normal"><mi>Tr</mi></mstyle> <mrow><mo fence="true" form="prefix">[</mo><mrow><mi>V</mi> <msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub><msup><mrow><mi>V</mi> </mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><mi>V</mi> <msup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msup><msup><mrow><mi>V</mi> </mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="normal"><mi>Tr</mi></mstyle> <mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>F</mi></mrow><mrow>
+<mi mathvariant="italic">μν</mi></mrow></msub><msup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msup></mrow><mo fence="true" form="postfix">]</mo></mrow>
+</mrow></math></td><td class="eq-no">(3.3.27)</td></tr></table>
+<!--  l. 1053  --><p class="noindent">using the cyclic property of the trace, providing us with a gauge-invariant kinetic term
+for the gauge fields. In terms of components, this is: </p><table class="equation"><tr><td>
+<!--  l. 1056  --><p class="indent">
+</p><!--  l. 1056  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-68005r28"></mstyle><!--  endlabel  -->
+<mstyle mathvariant="normal">
+<mi>Tr</mi>
+</mstyle>
+<mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub><msup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msup>
+</mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow><mrow><mi>a</mi></mrow></msubsup><msup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">aμν</mi></mrow></msup><mspace class="thinspace" width="0.17em"></mspace><mstyle mathvariant="normal"><mi>Tr</mi></mstyle> <mrow><mo fence="true" form="prefix">[</mo><mrow><msup><mrow><mi>T</mi></mrow><mrow><mi>a</mi></mrow></msup><msup><mrow><mi>T</mi></mrow><mrow><mi>a</mi></mrow></msup></mrow><mo fence="true" form="postfix">]</mo></mrow>
+</mrow></math></td><td class="eq-no">(3.3.28)</td></tr></table>
+<!--  l. 1059  --><p class="noindent">The value of <!--  l. 1060  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="normal"><mi>Tr</mi></mstyle> <mrow><mo fence="true" form="prefix">[</mo><mrow><msup><mrow><mi>T</mi></mrow><mrow><mi>a</mi></mrow></msup><msup><mrow><mi>T</mi></mrow><mrow><mi>a</mi></mrow></msup></mrow><mo fence="true" form="postfix">]</mo></mrow></math>
+is a normalization constant that is conventionally chosen to be
+                                                                                
+
+                                                                                
+<!--  l. 1060  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac></math>
+for the fundamental representation. Expanding out
+<!--  l. 1061  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><msubsup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow><mrow><mi>a</mi></mrow></msubsup><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup></math> gives
+us cubic and quartic self-interaction terms for the gauge fields.
+</p><!--  l. 1063  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="the-yangmills-lagrangian"><a id="x21-69000"></a>The Yang-Mills Lagrangian</h5>
+<!--  l. 1065  --><p class="noindent">Combining all of the above, we have the gauge-invariant Yang-Mills Lagrangian:
+</p><table class="equation"><tr><td>
+<!--  l. 1066  --><p class="indent">
+</p><!--  l. 1066  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-69001r29"></mstyle><!--  endlabel  -->
+<mstyle mathvariant="script"><mi>L</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac><mstyle mathvariant="normal"><mi>Tr</mi></mstyle> <mrow><mo fence="true" form="prefix">[</mo><mrow><msub><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msub><msup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow></msup></mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-bin" stretchy="false">+</mo> <mover accent="true"><mrow><mi>ψ</mi></mrow><mo accent="true">¯</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mi>i</mi><menclose notation="updiagonalstrike"><mi>D</mi></menclose> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo><mi>ψ</mi><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(3.3.29)</td></tr></table>
+<!--  l. 1069  --><p class="noindent">or, in explicit, component form: </p><table class="equation"><tr><td>
+<!--  l. 1071  --><p class="indent">
+</p><!--  l. 1071  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x21-69002r30"></mstyle><!--  endlabel  -->
+<mstyle mathvariant="script"><mi>L</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>4</mn></mrow></mfrac><msubsup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">μν</mi></mrow><mrow><mi>a</mi></mrow></msubsup><msup><mrow><mi>F</mi></mrow><mrow><mi mathvariant="italic">aμν</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo><msub><mrow> <mover accent="true"><mrow><mi>ψ</mi></mrow><mo accent="true">¯</mo></mover></mrow><mrow>
+<mi>i</mi></mrow></msub><mo class="MathClass-open" stretchy="false">[</mo><msub><mrow><mi>δ</mi></mrow><mrow><mi mathvariant="italic">ij</mi></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>i</mi><menclose notation="updiagonalstrike"><msub><mrow><mi>∂</mi></mrow><mrow><mi>μ</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>g</mi><menclose notation="updiagonalstrike"><msup><mrow><mi>A</mi></mrow><mrow><mi>a</mi></mrow></msup><msubsup><mrow><mi>T</mi></mrow><mrow>
+<mi mathvariant="italic">ij</mi></mrow><mrow><mi>a</mi></mrow></msubsup><mo class="MathClass-close" stretchy="false">]</mo><msub><mrow><mi>ψ</mi></mrow><mrow>
+<mi>j</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo>
+</menclose></menclose><td class="eq-no">(3.3.30)</td></mrow></math></td>
+<!--  l. 1074  --><p class="noindent">where the indices <!--  l. 1075  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>
+and <!--  l. 1075  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math>
+are running over the fermion fields in the representation
+<!--  l. 1075  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>R</mi></math>. Note again that
+a mass term <!--  l. 1076  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>m</mi></mrow><mrow><mn>2</mn></mrow></msup><msubsup><mrow><mi>A</mi></mrow><mrow>
+<mi>μ</mi></mrow><mrow><mi>a</mi></mrow></msubsup><msup><mrow><mi>A</mi></mrow><mrow><mi mathvariant="italic">aμ</mi></mrow></msup></mrow></math>
+would violate gauge invariance without the Higgs mechanism.
+</p><!--  l. 1078  --><p class="indent">       Interestingly, despite the extra self-interaction terms, there
+remains only one free parameter in the theory: the coupling constant
+<!--  l. 1078  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math>. This
+is why the SM, despite its apparent complexity, has so few free parameters,
+particularly in the “gauge sector” (the majority of free parameters are related to
+couplings in the <i>Higgs</i> sector). It is also worth emphasizing that the primary
+                                                                                
+
+                                                                                
+difference <i>physically</i> between abelian and non-abelian gauge theories is that the
+gauge bosons are charged under the gauge group in the latter (and, hence,
+self-interact).
+</p><!--  l. 1085  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="quantum-yangmills-theory"><a id="x21-70000"></a>Quantum Yang-Mills Theory</h5>
+<a id="x21-70000doc"></a>
+<!--  l. 1088  --><p class="noindent">The form of the quantized gauge fields in Yang-Mills are similar to the
+<!--  l. 1088  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+case, except now with the extra adjoint representation indices. The process
+of quantization and deriving the propagator, however, is considerably
+more involved for non-abelian theories. The core idea of adding an
+<!--  l. 1090  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>R</mi></mrow><mrow><mi>ξ</mi></mrow></msub></math>
+gauge-fixing term to the Lagrangian is similar, but due to the gauge fields’ non-trivial
+transformation property, the proper treatment necessitates the introduction of
+imaginary internal particles called <i>Faddeev-Popov ghosts</i> to cancel gauge-dependent
+terms. Somewhat similar to virtual particles, these ghosts are purely mathematical
+artifacts required to maintain gauge- and Lorentz-invariance of the quantized theory.
+The full details of this process can be found in e.g. Peskin and Shroeder [<a href="Bibliography.html#XPeskin_1995ev">76</a>] Chapter
+                                                                                
+
+                                                                                
+16; the upshot is simply some extra Feynman rules involving ghost particles in the
+theory.
+</p><!--  l. 1094  --><p class="indent">       The new Feynman rules for <i>non-abelian Yang-Mills</i> theories are shown in Figure <a href="#feynman-rules-unique-to-nonabelian-yangmills-theories-reproduced-from-ref-enwiki">3.5<!--  tex4ht:ref: fig:01_qft_gt_yangmills_feynman   --></a>.
+The gauge bosons are conventionally referred to as “gluons” but these rules are general.
+Note the cubic and quartic gauge boson vertices, as well as the ghost particle
+(<!--  l. 1096  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>c</mi></math>)
+diagrams, unique to non-abelian theories. The phenomenology of Yang-Mills theories in
+the SM will be discussed in the next chapter.
+</p>
+<figure class="figure">
+<!--  l. 1101  --><p class="noindent" id="feynman-rules-unique-to-nonabelian-yangmills-theories-reproduced-from-ref-enwiki"><img alt="PIC" src="figures/01-SM-02-QFT/Feynman/yangmills.jpg" style="max-width:80%"/> <a id="x21-70001r5"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 3.5. </span></span><span class="content">Feynman rules unique to non-abelian Yang-Mills theories, reproduced
+from Ref. [<a href="Bibliography.html#Xenwiki_1243569653">3</a>].                                                                  </span></figcaption><!--  tex4ht:label?: x21770001r5   -->
+</figure>
+<h4 class="subsectionHead" id="running-couplings-and-asymptotic-freedom"><span class="titlemark">3.3.4   </span> <a id="x21-710003.3.4"></a>Running couplings and asymptotic freedom</h4>
+<!--  l. 1110  --><p class="noindent">As discussed briefly in Section <a href="Interactions.html#interactions">3.2<!--  tex4ht:ref: sec:01_qft_interactions   --></a>, in order to handle divergences from higher order
+“loop” diagrams in perturbation theory, a class of mathematical techniques called
+<i>renormalization</i> is employed. A perhaps surprising physical consequence of this is that
+parameters of the theory are dependent on the energy scale at which they are
+probed. Their dependence is described the <i>renormalization group equations</i> or
+<i>flow</i>.
+</p><!--  l. 1114  --><p class="indent">       The renormalization group is an extremely deep subject with applications in
+many areas of physics. The most relevant result for us is the <i>running</i> of the
+coupling constants in gauge theories — i.e., the strength of the corresponding
+forces as a function of the energy scale. This is shown for the relevant
+<!--  l. 1116  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>,
+<!--  l. 1116  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SU</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, and
+<!--  l. 1116  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SU</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> gauge
+symmetries of the SM in Figure <a href="#the-running-of-the-inverse-strength-of-the-sm-coupling-constants-with-the-strong-coupling-constant-in-green-weak-in-red-and-electromagnetic-in-black-reproduced-from-ref-dias">3.6<!--  tex4ht:ref: fig:01_qft_running   --></a>.
+</p>
+<figure class="figure">
+<!--  l. 1120  --><p class="noindent" id="the-running-of-the-inverse-strength-of-the-sm-coupling-constants-with-the-strong-coupling-constant-in-green-weak-in-red-and-electromagnetic-in-black-reproduced-from-ref-dias"><img alt="PIC" src="figures/01-SM-03-SM/qcd/Running-couplings-in-the-standard-model.png" style="max-width:80%"/> <a id="x21-71001r6"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 3.6.     </span></span><span class="content">The     running     of     the     inverse     strength     of     the
+SM     coupling     constants,     with     the     strong     coupling     constant
+(<!--  l. 1121  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SU</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>)
+in green, weak (<!--  l. 1121  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SU</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>)
+in red, and electromagnetic (<!--  l. 1121  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>)
+in black, reproduced from Ref. [<a href="Bibliography.html#XDias2004">4</a>].                                              </span></figcaption><!--  tex4ht:label?: x21771001r6   -->
+</figure>
+<!--  l. 1125  --><p class="indent">       We see firstly that the electromagnetic interaction strength increases with
+energy scale. Physically, this is understood through the <i>vacuum polarization</i>
+via virtual electron-positron pair creation, which “screen” the electric charges
+of real particles more effectively at longer distances, thereby weakening the
+force.<span class="footnote-mark"><a href="#fn23x4" id="fn23x4-bk"><sup class="textsuperscript">14</sup></a></span><a id="x21-71002f14"></a>
+</p><!--  l. 1128  --><p class="indent">       A notable, Nobel-prize winning, 1973 result of Frank Wilczek,
+David Gross, and David Politzer, however, was an inverse dependence
+on energy for non-abelian gauge theories [<a href="Bibliography.html#XPolitzer_1973fx">100</a>, <a href="Bibliography.html#XGross_1973id">101</a>], as shown for the
+<!--  l. 1128  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SU</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and
+<!--  l. 1128  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SU</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> couplings in
+Figure <a href="#the-running-of-the-inverse-strength-of-the-sm-coupling-constants-with-the-strong-coupling-constant-in-green-weak-in-red-and-electromagnetic-in-black-reproduced-from-ref-dias">3.6<!--  tex4ht:ref: fig:01_qft_running   --></a>.<span class="footnote-mark"><a href="#fn24x4" id="fn24x4-bk"><sup class="textsuperscript">15</sup></a></span><a id="x21-71004f15"></a>
+This phenomenon is called <i>asymptotic freedom</i>, as in the high energy limit the theory is
+effectively one of free particles. It is a notable feature of the strong force, as will be
+discussed in Chapter <a href="Quantumchromodynamics.html#quantum-chromodynamics">4.1<!--  tex4ht:ref: sec:01_sm_qcd   --></a>.
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="Interactions.html">⭠</a> <a href="TheABEGHHKHiggsmechanism.html">⭢</a> </nav> </tr></table><div class="footnotes"><a id="x21-63003x"></a>
+<!--  l. 862  --><p class="indent"> <span class="footnote-mark"><a href="#fn19x4-bk" id="fn19x4"><sup class="textsuperscript">10</sup></a></span><span class="ec-lmr-10">Note that such a transformation is not possible with a </span><i>real</i> <span class="ec-lmr-10">field, which necessarily has</span>
+<!--  l. 862  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math> <span class="ec-lmr-10">charge
+and does not couple with the photon.</span></p><a id="x21-63005x"></a>
+<!--  l. 866  --><p class="indent"> <span class="footnote-mark"><a href="#fn20x4-bk" id="fn20x4"><sup class="textsuperscript">11</sup></a></span><span class="ec-lmr-10">As discussed above, this is the same concept as the covariant derivative in GR, with the gauge field</span>
+<!--  l. 866  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>A</mi></mrow><mrow><mi>μ</mi></mrow></msub></math> <span class="ec-lmr-10">acting as a
+connection on a </span><!--  l. 866  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+<span class="ec-lmr-10">fiber bundle analogously to the Levi-Civita connection between tangent bundles. Essentially, it encodes the change in
+the local phase of </span><!--  l. 866  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>
+<span class="ec-lmr-10">across spacetime (see Peskin and Shroeder [</span><a href="Bibliography.html#XPeskin_1995ev"><span class="ec-lmr-10">76</span></a><span class="ec-lmr-10">] Chapter 15.1 for a nice derivation of this).</span>
+</p><a id="x21-63011x"></a>
+<!--  l. 892  --><p class="indent"> <span class="footnote-mark"><a href="#fn21x4-bk" id="fn21x4"><sup class="textsuperscript">12</sup></a></span><span class="ec-lmr-10">Technically, this value varies with our energy scale, as we will discuss in Section </span><a href="#running-couplings-and-asymptotic-freedom"><span class="ec-lmr-10">3.3.4</span><!--  tex4ht:ref: sec:01_qft_gt_asymptotic   --></a><span class="ec-lmr-10">, and</span>
+<!--  l. 892  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>137</mn></mrow></mfrac></mrow></math> <span class="ec-lmr-10">is its
+asymptotic value at low energies.</span></p><a id="x21-67005x"></a>
+<!--  l. 1007  --><p class="indent"> <span class="footnote-mark"><a href="#fn22x4-bk" id="fn22x4"><sup class="textsuperscript">13</sup></a></span><span class="ec-lmr-10">For a detailed derivation see e.g. Ricardo Matheus’ QFT Lectures [</span><a href="Bibliography.html#XMatheusQFT"><span class="ec-lmr-10">78</span></a><span class="ec-lmr-10">] Part
+34.</span></p><a id="x21-71003x3.3.4"></a>
+<!--  l. 1126  --><p class="indent"> <span class="footnote-mark"><a href="#fn23x4-bk" id="fn23x4"><sup class="textsuperscript">14</sup></a></span><span class="ec-lmr-10">Interestingly, QED has a Landau pole: a finite value of the energy
+scale for which the interaction strength is infinite. However, this value is so high
+(</span><!--  l. 1126  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mn>286</mn></mrow></msup><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math><span class="ec-lmr-10">) as to
+have no practical consequence, and likely points to the breakdown of perturbation theory, that is used
+to derive the running coupling, at such a scale.</span></p><a id="x21-71005x3.3.4"></a>
+<!--  l. 1128  --><p class="indent"> <span class="footnote-mark"><a href="#fn24x4-bk" id="fn24x4"><sup class="textsuperscript">15</sup></a></span><span class="ec-lmr-10">Technically, this depends on the gauge group and the number of fermions in the theory;
+for both the weak and strong forces, this number is sufficiently small (see e.g. Peskin and Shroeder [</span><a href="Bibliography.html#XPeskin_1995ev"><span class="ec-lmr-10">76</span></a><span class="ec-lmr-10">]
+Chapter 16).</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

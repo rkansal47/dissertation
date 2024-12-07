@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>CMS detector components</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="chapterToc">5 <a href="TheCERNLargeHadronCollider.html#the-cern-large-hadron-collider">The CERN Large Hadron Collider</a></span>
+<span class="chapterToc">6 <a href="TheCMSdetector.html#the-cms-detector">The CMS detector</a></span>
+<span class="sectionToc">6.1 <a href="Overview.html#overview">Overview</a></span>
+<span class="sectionToc">6.2 <a href="Detectingparticles.html#detecting-particles">Detecting particles</a></span>
+<span class="sectionToc">6.3 <a href="#cms-detector-components">CMS detector components</a></span>
+<span class="subsectionToc">6.3.1 <a href="#the-magnet">The magnet</a></span>
+<span class="subsectionToc">6.3.2 <a href="#tracker">Tracker</a></span>
+<span class="subsectionToc">6.3.3 <a href="#ecal">ECAL</a></span>
+<span class="subsectionToc">6.3.4 <a href="#hcal">HCAL</a></span>
+<span class="subsectionToc">6.3.5 <a href="#muon-system">Muon system</a></span>
+<span class="sectionToc">6.4 <a href="Detectorreconstructionandperformance.html#detector-reconstruction-and-performance">Detector reconstruction and performance</a></span>
+<span class="sectionToc">6.5 <a href="ThePhase2Upgrade.html#the-phase-upgrade">The Phase-2 Upgrade</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="Detectingparticles.html">⭠</a> <a href="Detectorreconstructionandperformance.html">⭢</a> </nav>
+<h3 class="sectionHead" id="cms-detector-components"><span class="titlemark">6.3   </span> <a id="x34-1150006.3"></a>CMS detector components</h3>
+<!--  l. 215  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="the-magnet"><span class="titlemark">6.3.1   </span> <a id="x34-1160006.3.1"></a>The magnet</h4>
+<!--  l. 218  --><p class="noindent">The defining characteristic of the CMS detector is its strong
+<!--  l. 218  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3.8</mn><mstyle class="text"><mtext> T</mtext></mstyle></mrow></math> solenoid magnet,
+with a <!--  l. 218  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>11</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>4</mn><mstyle class="text"><mtext> T m</mtext></mstyle></mrow></math> bending power
+(Figure <a href="#the-cms-solenoid-as-it-was-being-lowered-into-the-cms-cavern-in-reproduced-from-ref-maximilien">6.5<!--  tex4ht:ref: fig:02_cms_magnet   --></a>). Its large <!--  l. 220  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>6</mn><mstyle class="text"><mtext> m</mtext></mstyle></mrow></math>
+diameter and <!--  l. 220  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>13</mn><mstyle class="text"><mtext> m</mtext></mstyle></mrow></math>
+length accommodate not only the tracker for momentum measurements, but also the
+calorimeters in order to reduce the material in front of them. The strength of the magnet was
+chosen to allow precision measurements of charged-particle momenta and to achieve a target
+<!--  l. 221  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math> resolution of
+10% for 1<!--  l. 221  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>TeV</mtext></mstyle></mrow></math>
+muons.
+</p>
+<figure class="figure">
+<!--  l. 225  --><p class="noindent" id="the-cms-solenoid-as-it-was-being-lowered-into-the-cms-cavern-in-reproduced-from-ref-maximilien"><img alt="PIC" src="figures/02-CMS/cms/components/magnet_lowering.jpg" style="max-width:100%"/> <a id="x34-116001r5"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 6.5. </span></span><span class="content">The CMS solenoid, as it was being lowered into the CMS cavern in
+2007, reproduced from Ref. [<a href="Bibliography.html#XMaximilien_1020310">40</a>].                                                </span></figcaption><!--  tex4ht:label?: x34-116001r5   -->
+</figure>
+<!--  l. 230  --><p class="indent">       As shown in Figures <a href="Overview.html#a-cutaway-view-of-the-cms-detector-showing-the-various-subdetectors-and-the-solenoid-magnet-reproduced-from-ref-cmsgfb">6.1<!--  tex4ht:ref: fig:02_cms_detector   --></a> and <a href="Detectingparticles.html#illustration-of-the-different-detector-layers-in-the-cms-barrel-region-and-the-expected-hits-and-energy-deposits-from-various-particles-reproduced-from-ref-davis">6.4<!--  tex4ht:ref: fig:02_cms_slice   --></a> in red, the solenoid is additionally surrounded
+by massive layers of steel “return yoke”, weighing 12,000 tonnes in total, for several
+complementary reasons: (1) it confines the magnetic field, improving the efficiency and
+safety of the detector, by providing a low-reluctance path for the magnetic field lines
+to return to the solenoid; (2) it is interleaved with the CMS muon system
+and provides a residual magnetic field for muon tracking; (3) it absorbs the
+remaining particles not been completely contained by the calorimeters; and,
+finally, (4) it provides structural support to the detector. The resulting magnetic
+field throughout CMS is shown in Figure <a href="#measurement-using-cosmic-rays-left-and-illustration-right-of-the-cms-magnetic-field-reproduced-from-ref-cmsmoq">6.6<!--  tex4ht:ref: fig:02_cms_magnetic_field   --></a>, where we can see a uniform
+<!--  l. 235  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3.8</mn><mstyle class="text"><mtext> T</mtext></mstyle></mrow></math> field within the
+solenoid and an <!--  l. 235  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≈</mo> <mn>2</mn><mstyle class="text"><mtext> T</mtext></mstyle></mrow></math>
+field in the return yoke.
+</p>
+<figure class="figure">
+<!--  l. 239  --><p class="noindent" id="measurement-using-cosmic-rays-left-and-illustration-right-of-the-cms-magnetic-field-reproduced-from-ref-cmsmoq"><img alt="PIC" src="figures/02-CMS/cms/components/magnetic_field.png" style="max-width:100%"/> <a id="x34-116002r6"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 6.6. </span></span><span class="content">Measurement using cosmic rays (left) and illustration (right) of the
+CMS magnetic field, reproduced from Ref. [<a href="Bibliography.html#XCMS_2009moq">41</a>].                                 </span></figcaption><!--  tex4ht:label?: x34-116002r6   -->
+</figure>
+<h4 class="subsectionHead" id="tracker"><span class="titlemark">6.3.2   </span> <a id="x34-1170006.3.2"></a>Tracker</h4>
+<figure class="figure">
+<!--  l. 249  --><p class="noindent" id="schematic-of-one-quarter-of-the-phase-cms-tracker-in-the-rz-plane-reproduced-from-ref-cmslum-in-green-are-the-pixel-detector-layers-in-red-the-singlesided-strip-modules-and-in-blue-the-doublesided-strip-modules"> <img alt="PIC" src="figures/02-CMS/cms/components/Phase1_Tracker_1Quarter-.png" style="max-width:100%"/> <a id="x34-117001r7"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 6.7.  </span></span><span class="content">Schematic  of  one  quarter  of  the  Phase-1  CMS  tracker  in  the
+<!--  l. 251  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math>-<!--  l. 251  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi></math>
+plane, reproduced from Ref. [<a href="Bibliography.html#XCMS_2017lum">42</a>]. In green are the pixel detector layers, in red the
+single-sided strip modules, and in blue the double-sided strip modules.           </span></figcaption><!--  tex4ht:label?: x34-117001r7   -->
+</figure>
+<!--  l. 255  --><p class="indent">       The CMS tracker is designed to achieve the key detector requirements of
+strong charged-particle momentum resolution and efficient online and offline
+<!--  l. 255  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>τ</mi></math> and
+<!--  l. 255  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>-jet
+reconstruction. It must additionally operate at a high efficiency at the expected average
+pileup rate of 20-60 collisions per bunch crossing in Runs 1–3 of the LHC. To do so, as
+illustrated in Figure <a href="#schematic-of-one-quarter-of-the-phase-cms-tracker-in-the-rz-plane-reproduced-from-ref-cmslum-in-green-are-the-pixel-detector-layers-in-red-the-singlesided-strip-modules-and-in-blue-the-doublesided-strip-modules">6.7<!--  tex4ht:ref: fig:02_cms_tracker   --></a>, it comprises relatively small and granular silicon <i>pixel</i>
+layers close to the interaction point for precise vertexing, followed by larger
+silicon <i>strip</i> layers. The tracker has an overall diameter of 2.5m and length of
+5.8m, and is composed of a separate co-axial “barrel” region and two “endcap”
+regions perpendicular to the beamline, to provide pseudorapidity coverage of
+<!--  l. 258  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>η</mi></mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">≲</mo> <mn>2.4</mn></mrow></math>.
+</p><!--  l. 260  --><p class="indent">       Silicon has several advantages for tracking detectors: it can be made radiation
+hard to be placed close to the interaction point [<a href="Bibliography.html#XBaselgaBacardit_2015iqn">174</a>]; it has a low ionization energy of
+<!--  l. 260  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3.6</mn></mrow></math><!--  l. 260  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> eV</mtext></mstyle></math>;
+it can be made thin — the maximum radiation and nuclear
+interaction lengths over the entire CMS tracker are around
+<!--  l. 260  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn></math> and
+<!--  l. 260  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.6</mn></mrow></math>
+respectively (Figure <a href="#total-thickness-t-of-the-tracker-material-traversed-by-a-particle-produced-at-the-nominal-interaction-point">6.8<!--  tex4ht:ref: fig:02_cms_tracker_material   --></a>); it is naturally abundant and widely used in the
+semiconductor industry; and it can be easily patterned to small dimensions for
+                                                                                
+
+                                                                                
+high granularity. This is why, as discussed in Section <a href="#cms-detector-components">6.3<!--  tex4ht:ref: sec:02_cms_detectors   --></a>, silicon has gained
+popularity in particle physics, with CMS being the first to use it for the entire
+tracker.
+</p>
+<figure class="figure">
+<!--  l. 267  --><p class="noindent" id="total-thickness-t-of-the-tracker-material-traversed-by-a-particle-produced-at-the-nominal-interaction-point"><img alt="PIC" src="figures/02-CMS/cms/components/figs_2011_cmsTracker_MaterialBudget_InteractionLengths.png" style="max-width:49%"/> <img alt="PIC" src="figures/02-CMS/cms/components/figs_2011_cmsTracker_MaterialBudget_RadLengths.png" style="max-width:49%"/> <a id="x34-117002r8"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 6.8. </span></span><span class="content">Total thickness <!--  l. 269  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math>
+of    the    tracker    material    traversed    by    a    particle    produced    at
+the    nominal    interaction    point,    as    a    function    of    pseudorapidity
+<!--  l. 269  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>η</mi></math>,
+expressed in units of radiation length <!--  l. 269  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>X</mi></mrow><mrow><mn>0</mn></mrow></msub></math>
+(left) and nuclear interaction length <!--  l. 269  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>λ</mi></mrow><mrow><mi>I</mi></mrow></msub></math>
+(right), reproduced from Ref. [<a href="Bibliography.html#XCMS_2014pgm">175</a>].                                             </span></figcaption><!--  tex4ht:label?: x34-117002r8   -->
+</figure>
+<!--  l. 273  --><p class="indent">       The pixel tracker includes three barrel layers at radii of 4.4, 7.3, and
+10.2<!--  l. 273  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> cm</mtext></mstyle></math> and two pairs
+of endcap disks at <!--  l. 273  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>z</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">±</mo><mn>34</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>5</mn></mrow></math>
+and <!--  l. 273  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-bin" stretchy="false">±</mo> <mn>46</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>5</mn><mstyle class="text"><mtext> cm</mtext></mstyle></mrow></math>.
+It contains a total of 1440 modules and 66 million pixels, of size (or “pitch”)
+<!--  l. 274  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>100</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>150</mn></mrow></math><!--  l. 274  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> </mtext><mstyle class="math"><mi>μ</mi></mstyle><mtext>m</mtext><mstyle class="math"><msup><mrow></mrow><mrow><mn>2</mn></mrow></msup></mstyle><mtext></mtext></mstyle></math>,
+and  thickness
+<!--  l. 274  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>285</mn></mrow></math><!--  l. 274  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> </mtext><mstyle class="math"><mi>μ</mi></mstyle><mtext>m</mtext></mstyle></math>.
+The planar position of the sensor provides a third position coordinate
+as well. The pixel tracker yields an overall hit position resolution of
+<!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>10</mn></mrow></math>–<!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>20</mn></mrow></math><!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> </mtext><mstyle class="math"><mi>μ</mi></mstyle><mtext>m</mtext></mstyle></math>
+in  the  transverse  direction  —
+<!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="italic">rϕ</mi></mrow></math> in the barrel — and
+<!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>20</mn></mrow></math>–<!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>40</mn></mrow></math><!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> </mtext><mstyle class="math"><mi>μ</mi></mstyle><mtext>m</mtext></mstyle></math>
+in the longitudinal direction — <!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi></math>
+in the barrel. The pixel orientation is optimized most for
+<!--  l. 277  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="italic">rϕ</mi></mrow></math>
+resolution, as that is the plane in which charged particles bend from the CMS magnetic
+field.
+</p><!--  l. 279  --><p class="indent">       Silicon strip modules are longer than pixels, providing high granularity only
+in one axis, but are more cost-effective; hence, they are used in the outer
+                                                                                
+
+                                                                                
+layers of the CMS tracker, which require a much larger area of coverage:
+<!--  l. 279  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>198</mn></mrow></math><!--  l. 279  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> m</mtext><mstyle class="math"><msup><mrow></mrow><mrow><mn>2</mn></mrow></msup></mstyle><mtext></mtext></mstyle></math>
+of  active  coverage  versus
+<!--  l. 279  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.1</mn></mrow></math><!--  l. 279  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> m</mtext><mstyle class="math"><msup><mrow></mrow><mrow><mn>2</mn></mrow></msup></mstyle><mtext></mtext></mstyle></math>
+for the pixels. The strip tracker has 10 barrel layers and three small and nine large
+endcap disks, with a total of 15,148 modules and 9.3 million strips. It contains two types
+of strip modules: standard “single-sided” modules as well as “double-sided“ modules
+mounted back-to-back at a stereo angle to effectively allow pixel-like 2D measurements
+as well, albeit at a lower granularity.
+</p><!--  l. 283  --><p class="indent">       The strip modules in the barrel are aligned parallel to the beamline with a pitch ranging from
+<!--  l. 283  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>80</mn></mrow></math>–<!--  l. 283  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>183</mn></mrow></math><!--  l. 283  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> </mtext><mstyle class="math"><mi>μ</mi></mstyle><mtext>m</mtext></mstyle></math>,
+while those in the endcaps are mounted in the radial direction with a pitch of
+<!--  l. 283  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>81</mn></mrow></math>–<!--  l. 283  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>205</mn></mrow></math><!--  l. 283  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> </mtext><mstyle class="math"><mi>μ</mi></mstyle><mtext>m</mtext></mstyle></math>.
+Overall, the strips in the inner barrel and disk layers provide an
+<!--  l. 284  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="italic">rϕ</mi></mrow></math> resolution of
+<!--  l. 284  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>13</mn></mrow></math>–<!--  l. 284  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>38</mn></mrow></math><!--  l. 284  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> </mtext><mstyle class="math"><mi>μ</mi></mstyle><mtext>m</mtext></mstyle></math>,
+while  the  outer  layers  provide
+<!--  l. 284  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>18</mn></mrow></math>–<!--  l. 284  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>47</mn></mrow></math><!--  l. 284  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> </mtext><mstyle class="math"><mi>μ</mi></mstyle><mtext>m</mtext></mstyle></math>.
+</p>
+<h4 class="subsectionHead" id="ecal"><span class="titlemark">6.3.3   </span> <a id="x34-1180006.3.3"></a>ECAL</h4>
+<!--  l. 289  --><p class="noindent">The CMS electromagnetic calorimeter (ECAL) (Figure <a href="#layout-of-the-cms-ecal-reproduced-from-ref-cookelbl-with-one-of-the-barrel-regions-highlighted-in-yellow-the-preshower-in-pink-and-the-endcap-regions-in-green">6.9<!--  tex4ht:ref: fig:02_cms_ecal   --></a>) was designed to precisely
+measure energies of electrons and photons. It was particularly optimized for sensitivity
+to the Higgs-to-two-photon decay channel, which proved crucial to the discovery of the
+Higgs boson [<a href="Bibliography.html#XCMS_2012qbp">143</a>].
+</p><!--  l. 293  --><p class="indent">       The ECAL is a homogeneous calorimeter made out of 75,848 lead-tungstate
+(PbWO<!--  l. 293  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow></mrow><mrow><mn>4</mn></mrow></msub></math>)
+crystals (Figure <a href="#pbwo-crystals-and-photodiodes-used-in-the-cms-ecal">6.10<!--  tex4ht:ref: fig:02_cms_ecal_crystals   --></a>), which are a type of highly transparent scintillators.
+PbWO<!--  l. 294  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow></mrow><mrow><mn>4</mn></mrow></msub></math> was chosen for its
+high density (8.28<!--  l. 294  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> g/cm</mtext><mstyle class="math"><msup><mrow></mrow><mrow><mn>3</mn></mrow></msup></mstyle><mtext></mtext></mstyle></math>), short
+radiation length (<!--  l. 294  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>X</mi></mrow><mrow><mn>0</mn></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.89</mn><mstyle class="text"><mtext> cm</mtext></mstyle></mrow></math>), and
+small Molière radius (<!--  l. 294  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>R</mi></mrow><mrow><mi>M</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2.2</mn><mstyle class="text"><mtext> cm</mtext></mstyle></mrow></math>),
+which allows for a compact calorimeter with fine granularity. Additionally, its fast scintillation
+response (<!--  l. 295  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≈</mo> <mn>10</mn><mstyle class="text"><mtext> ns</mtext></mstyle></mrow></math>)
+allows distinguishing between “out-of-time” (OOT) pileup — particles produced from
+adjacent bunch crossings — and particles from the primary interaction [<a href="Bibliography.html#XCMS_2020xlg">176</a>].
+The scintillation light is detected by photodiodes glued to the back of each
+crystal.
+</p>
+<figure class="figure">
+<!--  l. 301  --><p class="noindent" id="layout-of-the-cms-ecal-reproduced-from-ref-cookelbl-with-one-of-the-barrel-regions-highlighted-in-yellow-the-preshower-in-pink-and-the-endcap-regions-in-green"><img alt="PIC" src="figures/02-CMS/cms/components/ecal_layout.png" style="max-width:100%"/> <a id="x34-118001r9"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 6.9. </span></span><span class="content">Layout of the CMS ECAL, reproduced from Ref. [<a href="Bibliography.html#XCooke_2022lbl">43</a>], with one of
+the 36 barrel regions highlighted in yellow, the preshower in pink, and the endcap
+regions in green.                                                                </span></figcaption><!--  tex4ht:label?: x34-118001r9   -->
+</figure>
+<figure class="figure">
+<!--  l. 309  --><p class="noindent" id="pbwo-crystals-and-photodiodes-used-in-the-cms-ecal"><img alt="PIC" src="figures/02-CMS/cms/components/PbWO4_crystals.png" style="max-width:40%"/> <a id="x34-118002r10"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 6.10.</span>
+</span><span class="content">PbWO<!--  l. 310  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow></mrow><mrow><mn>4</mn></mrow></msub></math>
+crystals and photodiodes used in the CMS ECAL.                               </span></figcaption><!--  tex4ht:label?: x34-118002r10   -->
+</figure>
+<!--  l. 314  --><p class="indent">       Like the tracker, it has a barrel region, covering
+<!--  l. 314  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>η</mi></mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>1.48</mn></mrow></math>, and two endcap
+regions for <!--  l. 314  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.48</mn> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>η</mi></mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>3.00</mn></mrow></math>. They
+have thicknesses of <!--  l. 315  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>25</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>8</mn><msub><mrow><mi>X</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow></math>
+and <!--  l. 315  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>24</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>7</mn><msub><mrow><mi>X</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow></math>,
+respectively, and a total nuclear interaction length of around 1. This is sufficient to contain
+&gt;<!--  l. 316  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>98</mn><mi>%</mi></mrow></math> of the
+energy of <!--  l. 316  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≤</mo> <mn>1</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>TeV</mtext></mstyle></mrow></math>
+electrons and photons, and causes around two thirds of charged hadrons to shower in
+the ECAL as well.
+</p><!--  l. 318  --><p class="indent">       Additionally, the ECAL includes a “Preshower” sampling
+calorimeter in the endcap regions, which comprises two layers of
+<!--  l. 318  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><msub><mrow><mi>X</mi></mrow><mrow><mn>0</mn></mrow></msub></mrow></math> of
+lead to initiate electromagnetic showers, interleaved with active silicon strip detectors
+for measurements. The purpose of the Preshower is primarily to distinguish
+between single photons and neutral pion decays into two, close-by, photons in the
+forward regions, whose energy deposits in the ECAL would otherwise overlap
+significantly.
+</p>
+<h4 class="subsectionHead" id="hcal"><span class="titlemark">6.3.4   </span> <a id="x34-1190006.3.4"></a>HCAL</h4>
+<!--  l. 323  --><p class="noindent">The CMS hadronic calorimeter (HCAL) sits roughly
+<!--  l. 323  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>30</mn><mstyle class="text"><mtext> cm</mtext></mstyle></mrow></math>
+outside the ECAL and is designed to measure the energies of neutral and charged
+hadrons. It is composed of four major sections: the HCAL barrel (HB), the HCAL
+endcap (HE), the HCAL outer (HO), and the HCAL forward (HF) (Figure <a href="#layout-of-the-cms-detector-in-the-rz-plane-with-the-four-hcal-sections-labeled-reproduced-from-ref-cmstda">6.11<!--  tex4ht:ref: fig:02_cms_hcal   --></a>). Due
+to their much greater volume compared to the ECAL, the HB, HE, and HO are all
+chosen to be sampling calorimeters, with alternating layers of absorber material and
+plastic scintillator. The HF extends the pseudorapidity coverage of CMS up to
+<!--  l. 326  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>η</mi></mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>5.2</mn></mrow></math> and is
+a steel and quartz-fiber <i>Cherenkov calorimeter</i>.
+</p><!--  l. 328  --><p class="indent">       The HB has 14 total layers of brass absorbers and
+scintillators, with additional steel front and back plates, covering
+<!--  l. 328  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>η</mi></mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>1.4</mn></mrow></math> [<a href="Bibliography.html#XCMS_2008xjf">45</a>]. Due
+to its radial constraints, with the ECAL and magnet on either side, it has a thickness at
+<!--  l. 329  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>η</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math> of only
+<!--  l. 329  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>5.8</mn><mi>λ</mi></mrow></math>, with the ECAL
+adding another <!--  l. 329  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≈</mo> <mn>1</mn><mi>λ</mi></mrow></math>.
+</p>
+<figure class="figure">
+<!--  l. 333  --><p class="noindent" id="layout-of-the-cms-detector-in-the-rz-plane-with-the-four-hcal-sections-labeled-reproduced-from-ref-cmstda"><img alt="PIC" src="figures/02-CMS/cms/components/hcal_layout.png" style="max-width:100%"/> <a id="x34-119001r11"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 6.11.       </span></span><span class="content">Layout       of       the       CMS       detector       in       the
+<!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math>-<!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi></math>
+plane with the four HCAL sections labeled, reproduced from Ref. [<a href="Bibliography.html#XCMS_2012tda">44</a>].          </span></figcaption><!--  tex4ht:label?: x34-119001r11   -->
+</figure>
+<!--  l. 338  --><p class="indent">       To capture the remaining “tails” of hadronic showers in the barrel region, the HO
+is placed outside the solenoid. It uses the same scintillators and electronics as the HB,
+but uses the magnet and return yoke materials themselves as absorbers, adding up to
+<!--  l. 339  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>λ</mi></mrow></math> more
+of material. Figure <a href="#simulation-of-the-distribution-of-measured-incident-energy-for-pions-with-incident-energies-of-ge-emv-at-reproduced-from-ref-cmsxjf">6.12<!--  tex4ht:ref: fig:02_cms_hcal_ho   --></a> demonstrates that the HO is crucial for capturing the entire
+energy of hadronic showers: without it, we see an excess of events with the measured
+energy of hadrons lower than their incident energy, implying a loss of energy with the
+HB alone.
+</p>
+<figure class="figure">
+<!--  l. 344  --><p class="noindent" id="simulation-of-the-distribution-of-measured-incident-energy-for-pions-with-incident-energies-of-ge-emv-at-reproduced-from-ref-cmsxjf"><img alt="PIC" src="figures/02-CMS/cms/components/hcal_ho_energy.png" style="max-width:70%"/> <a id="x34-119002r12"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 6.12.      </span></span><span class="content">Simulation      of      the      distribution      of      measured
+<!--  l. 346  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">∕</mo></math>
+incident       energy       for       pions       with       incident       energies       of
+<!--  l. 346  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>200</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math>
+at <!--  l. 346  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>η</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>,
+reproduced from Ref. [<a href="Bibliography.html#XCMS_2008xjf">45</a>]. Without the HO, there is an excess of events with the
+measured energy lower than the incident, while with the HO the distribution is a
+Gaussian centered at 1, implying recovery of the total pion shower energy.       </span></figcaption><!--  tex4ht:label?: x34-119002r12   -->
+</figure>
+<!--  l. 350  --><p class="indent">       The HE covers the pseudorapidity range
+<!--  l. 350  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.3</mn> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>η</mi></mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>3.0</mn></mrow></math>
+and has 18 layers of brass and scintillators, for a total length of
+<!--  l. 350  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>10</mn><mi>λ</mi></mrow></math>
+including the ECAL. The granularity of both the HB and HE for
+<!--  l. 351  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>η</mi></mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>1.6</mn></mrow></math> is
+<!--  l. 351  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.087</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>0.087</mn></mrow></math> in
+<!--  l. 351  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>η</mi></math>-<!--  l. 351  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>,
+while for <!--  l. 351  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>η</mi></mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>1.6</mn></mrow></math> in the
+HE it increases to <!--  l. 351  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.17</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>0.17</mn></mrow></math>.
+</p><!--  l. 353  --><p class="indent">       The HF is placed 11.2<!--  l. 353  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> m</mtext></mstyle></math>
+from the interaction point to cover the very forward range
+<!--  l. 353  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3.0</mn> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>η</mi></mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>5.2</mn></mrow></math>. Its
+primary design constraints are the extremely hostile radiation levels in the high-rapidity
+region, and hence uses steel absorbers and quartz fibers that are radiation hard [<a href="Bibliography.html#XPenzo_2009zz">177</a>]. It
+contains <!--  l. 355  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.65</mn><mstyle class="text"><mtext> m</mtext></mstyle></mrow></math>
+of absorber material in each endcap, and measures energy through Cherenkov light
+emitted by charged particles moving through the longitudinal quartz fibers. It is hence
+more sensitive to the electromagnetic component of showers.
+</p><!--  l. 358  --><p class="indent">       The HF is important in measuring the energy of an event hermetically and,
+thereby, the missing energy as well. Moreover, it is crucial in identifying highly
+                                                                                
+
+                                                                                
+forward jets like those produced through VBF-production of Higgs bosons, an
+important production-mode measured in this dissertation (see Chapters <a href="TheHiggssector.html#the-higgs-sector">4.3<!--  tex4ht:ref: sec:01_higgs   --></a>
+and <span class="ec-lmbx-12">??</span>).
+</p>
+<h4 class="subsectionHead" id="muon-system"><span class="titlemark">6.3.5   </span> <a id="x34-1200006.3.5"></a>Muon system</h4>
+<!--  l. 364  --><p class="noindent">As implied by its name, detecting muons with high efficiency and precision was a key
+consideration in the design of CMS. This is because of their unique signature compared
+to the other particles in Table <a href="Detectingparticles.html#particles-which-can-reach-and-be-detected-by-the-cms-detector-lifetimes-are-given-in-the-rest-frame-for-unstable-particles">6.1<!--  tex4ht:ref: tab:02_cms_particles   --></a>, the possibility of Higgs discovery in the
+<!--  l. 365  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>H</mi> <mo class="MathClass-rel" stretchy="false">→</mo> <mi>Z</mi><msup><mrow><mi>Z</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">∗</mo></mrow></msup> <mo class="MathClass-rel" stretchy="false">→</mo> <mn>4</mn><mi>μ</mi></mrow></math>
+channel, and the relatively low isolated-muon background at the LHC. Indeed, the
+<!--  l. 366  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>μ</mi></mrow></math>
+channel was crucial to the discovery of the Higgs boson [<a href="Bibliography.html#XCMS_2012qbp">143</a>].
+</p><!--  l. 368  --><p class="indent">       Muons are detected through a combination of the silicon tracker
+inside the solenoid, and dedicated gas ionization chambers for tracking
+muons outside the solenoid, covering a total pseudorapidity range of
+<!--  l. 368  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>η</mi></mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>2.4</mn></mrow></math>. The muon
+system, being the outermost subdetector, needs to cover the largest amount of area — around
+25,000m<!--  l. 369  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow></mrow><mrow><mn>2</mn></mrow></msup></math>
+of detector layers — and hence uses gaseous detectors to minimize cost while
+                                                                                
+
+                                                                                
+maintaining reliability and robustness. Three types of gas detectors are used: drift tubes
+(DTs) in the barrel region, cathode strip chambers (CSCs) in the endcap regions, and
+resistive plate chambers (RPCs) in both, all housed between the steel flux return yoke
+layers, as shown in Figure <a href="#layout-of-the-cms-detector-in-the-rz-plane-with-the-muon-system-highlighted-and-the-steel-return-yoke-in-dark-grey-reproduced-from-ref-cmsrym">6.13<!--  tex4ht:ref: fig:02_cms_muon   --></a>.
+</p>
+<figure class="figure">
+<!--  l. 374  --><p class="noindent" id="layout-of-the-cms-detector-in-the-rz-plane-with-the-muon-system-highlighted-and-the-steel-return-yoke-in-dark-grey-reproduced-from-ref-cmsrym"> <img alt="PIC" src="figures/02-CMS/cms/components/muon_system-.png" style="max-width:100%"/> <a id="x34-120001r13"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 6.13.       </span></span><span class="content">Layout       of       the       CMS       detector       in       the
+<!--  l. 378  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math>-<!--  l. 378  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi></math>
+plane,  with  the  muon  system  highlighted  and  the  steel  return  yoke  in  dark
+grey, reproduced from Ref. [<a href="Bibliography.html#XCMS_2018rym">46</a>]. The drift tube stations (DTs) are labeled MB
+(“Muon Barrel”) and the cathode strip chambers (CSCs) are labeled ME (“Muon
+Endcap”). Resistive plate chambers (RPCs) are mounted in both the barrel and
+endcaps of CMS, where they are labeled RB and RE, respectively.               </span></figcaption><!--  tex4ht:label?: x34-120001r13   -->
+</figure>
+<!--  l. 382  --><p class="indent">       Because of the lower radiation and background levels expected
+in the barrel region, standard DT chambers are used, which are known to
+have excellent spatial and timing resolution while remaining relatively
+inexpensive. There are four muon barrel (MB) radial layers, or “stations”. The
+innermost three each contain eight chambers measuring the position in the
+<!--  l. 384  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math>-<!--  l. 384  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>
+plane and four measuring the <!--  l. 384  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi></math>
+coordinate. The outermost contains only the
+<!--  l. 385  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math>-<!--  l. 385  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>
+chambers.
+</p><!--  l. 387  --><p class="indent">       Each chamber comprises several layers of long aluminum <i>drift cells</i>, which have a transverse area of
+<!--  l. 387  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>42</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>13</mn></mrow></math><!--  l. 387  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> mm</mtext><mstyle class="math"><msup><mrow></mrow><mrow><mn>2</mn></mrow></msup></mstyle><mtext></mtext></mstyle></math>
+and are filled with a mixture of argon (Ar) and carbon dioxide
+(CO<!--  l. 387  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow></mrow><mrow><mn>2</mn></mrow></msub></math>)
+gas. They contain a single anode wire in the center, and the drift time
+of the electrons to the wire is used to calculate the muon position.
+The average single-cell spatial resolution has been measured to be
+<!--  l. 389  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>170</mn><mi>μ</mi><mstyle class="text"><mtext>m</mtext></mstyle></mrow></math>, with a combined
+per-chamber resolution of <!--  l. 389  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>100</mn><mi>μ</mi><mstyle class="text"><mtext>m</mtext></mstyle></mrow></math> in
+<!--  l. 389  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math>-<!--  l. 389  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math> [<a href="Bibliography.html#XCMS_2008xjf">45</a>].
+DT chambers also provide a time resolution on the order of
+                                                                                
+
+                                                                                
+nanoseconds, allowing local, independent triggering on muon
+<!--  l. 390  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math>.
+</p><!--  l. 392  --><p class="indent">       The endcaps are subject to much higher radiation and hence use the more
+radiation-hard CSCs, which offer fast response times and fine segmentation
+as well but are more expensive. They can also tolerate the non-uniformity
+of the magnetic field in the endcap regions (see Figure <a href="#measurement-using-cosmic-rays-left-and-illustration-right-of-the-cms-magnetic-field-reproduced-from-ref-cmsmoq">6.6<!--  tex4ht:ref: fig:02_cms_magnetic_field   --></a>). There are four
+muon endcap (ME) stations on each side, which are divided into “rings” in the
+<!--  l. 394  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math>-direction,
+and labeled as ME1/2 for the second ring in the first station and so on.
+</p><!--  l. 396  --><p class="indent">       The endcap muon system contains a total of 468 CSCs: 216 in ME1, 108 in ME2
+and ME3 each, and 36 in ME4. A single CSC is composed of six layers of multi-wire
+proportional chambers, each containing several anode wires spaced between
+2.5–3.2<!--  l. 397  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> mm</mtext></mstyle></math>
+apart and 80 cathode strips to read out position in the
+<!--  l. 397  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math>-<!--  l. 397  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>
+plane [<a href="Bibliography.html#XCMS_2013vyz">178</a>]. The CSCs overall provide a spatial resolution in
+<!--  l. 398  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math>-<!--  l. 398  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>
+of <!--  l. 398  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>75</mn><mi>μ</mi><mstyle class="text"><mtext>m</mtext></mstyle></mrow></math> in ME1/1 and ME1/2
+and <!--  l. 398  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>150</mn><mi>μ</mi><mstyle class="text"><mtext>m</mtext></mstyle></mrow></math> elsewhere, with a
+time resolution of &lt;<!--  l. 398  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>5</mn><mstyle class="text"><mtext> ns</mtext></mstyle></mrow></math> [<a href="Bibliography.html#XCMS_2008xjf">45</a>].
+This means CSCs, like the DTs, independently allow local triggering on muon
+<!--  l. 399  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math> with
+                                                                                
+
+                                                                                
+good efficiency and background rejection.
+</p><!--  l. 401  --><p class="indent">       Finally, RPCs are included as well in both the barrel and endcap regions to provide
+complementary triggering capabilities. RPCs are double-gap chambers operated in
+<i>avalanche mode</i>, which means they primarily offer fast timing information, with around
+<!--  l. 402  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1.5</mn><mstyle class="text"><mtext> ns</mtext></mstyle></mrow></math>
+resolution, but relatively poor spatial resolution [<a href="Bibliography.html#XHebbeker_2017bix">179</a>]. There are four
+RPC barrel (RB) and three RPC endcap (RE) stations, complementing
+the DTs and CSCs with faster timing information and allowing the muon
+<!--  l. 403  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math>
+trigger threshold to be lowered.
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="Detectingparticles.html">⭠</a> <a href="Detectorreconstructionandperformance.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

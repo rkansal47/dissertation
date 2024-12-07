@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>The Higgs sector</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="chapterToc">1 <a href="IntroductiontotheStandardModel.html#introduction-to-the-standard-model">Introduction to the Standard Model</a></span>
+<span class="chapterToc">2 <a href="Symmetriesinphysics.html#symmetries-in-physics">Symmetries in physics</a></span>
+<span class="chapterToc">3 <a href="Quantumfieldtheory.html#quantum-field-theory">Quantum field theory</a></span>
+<span class="chapterToc">4 <a href="TheStandardModelofParticlePhysics.html#the-standard-model-of-particle-physics">The Standard Model of Particle Physics</a></span>
+<span class="sectionToc">4.1 <a href="Quantumchromodynamics.html#quantum-chromodynamics">Quantum chromodynamics</a></span>
+<span class="sectionToc">4.2 <a href="Electroweakinteractions.html#electroweak-interactions">Electroweak interactions</a></span>
+<span class="sectionToc">4.3 <a href="#the-higgs-sector">The Higgs sector</a></span>
+<span class="subsectionToc">4.3.1 <a href="#higgs-boson-production-and-measurements-at-the-lhc">Higgs boson production and measurements at the LHC</a></span>
+<span class="subsectionToc">4.3.2 <a href="#higgs-pair-production-in-the-sm">Higgs pair production in the SM</a></span>
+<span class="subsectionToc">4.3.3             <a href="#experimental-status-of-h-h-measurements-with-cms">Experimental             status             of
+<!--  l. 133  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+measurements with CMS</a></span>
+<span class="subsectionToc">4.3.4                                                             <a href="#bsm-x-h-y-production">BSM
+<!--  l. 141  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">X</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle></mrow></math> production</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="Electroweakinteractions.html">⭠</a> <a href="ExperimentalBackground.html">⭢</a> </nav>
+<h3 class="sectionHead" id="the-higgs-sector"><span class="titlemark">4.3   </span> <a id="x26-930004.3"></a>The Higgs sector</h3>
+<!--  l. 741  --><p class="noindent">The Higgs boson, being the only scalar in the SM and uncharged under the
+<!--  l. 741  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><msub><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mstyle mathvariant="normal"><mi>EM</mi></mstyle></mrow></msub></mrow></math> and
+<!--  l. 741  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SU</mi></mstyle><msub><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mi>C</mi></mrow></msub></mrow></math>
+symmetries, may appear to be the simplest particle in the theory. However,
+these same properties also mean that the Higgs sector is not as strongly
+constrained by gauge invariance, renormalizability, etc. as the gauge and
+fermionic sectors. Indeed, the Higgs sector contains the majority of the free
+parameters of the SM: the Yukawa couplings (12 masses of the fermions
+<!--  l. 743  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">+</mo></math> 8 more
+parameters from the CKM and PMNS matrices), the Higgs VEV, and the Higgs mass (or,
+equivalently, <!--  l. 743  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi></math>
+in the Higgs potential). Without it, the SM would only have three free parameters: the
+three forces’ coupling constants!
+</p><!--  l. 746  --><p class="indent">       This is why a significant motivation for the next decades of the LHC, as well as
+future “Higgs factory” colliders, is to precisely characterize the Higgs sector. In this
+section, we first describe how this is possible at the LHC and discuss recent
+experimental constraints. We then motivate measurements of Higgs pair production,
+both in the SM and through BSM decays of heavy resonances, which are the focus of
+this dissertation and a key target of the current and upcoming LHC physics
+program.
+                                                                                
+
+                                                                                
+</p><!--  l. 755  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="higgs-boson-production-and-measurements-at-the-lhc"><span class="titlemark">4.3.1   </span> <a id="x26-940004.3.1"></a>Higgs boson production and measurements at the LHC</h4>
+<!--  l. 757  --><p class="noindent">Higgs bosons are produced at the LHC through a variety of parton-parton interactions,
+as shown in Figure <a href="#single-higgs-boson-production-modes-and-decay-channels-at-the-lhc-reproduced-from-ref-cmsdwd">4.17<!--  tex4ht:ref: fig:01_sm_higgs_production   --></a>. Because of their high mass, they have a lifetime of roughly
+<!--  l. 758  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>22</mn></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>s
+and decay immediately into two vector bosons or two fermions at tree-level,
+with further decays possible through loops. The decay probability depends on
+the strength of the respective interactions, which we see from Section <a href="Electroweakinteractions.html#electroweak-interactions">4.2<!--  tex4ht:ref: sec:01_sm_ew   --></a> are
+proportional to the mass or the mass squared for fermions and vector bosons,
+respectively, though with the probability lowered for decays that are not kinematically
+accessible (i.e., when the total mass of the decay products is greater than the
+Higgs’).
+</p><!--  l. 761  --><p class="indent">       This is illustrated in Figure <a href="#higgs-branching-fractions-predicted-in-the-sm-as-a-function-of-mh-reproduced-from-refs-dittmaiervmlhchiggscrosssectionworkinggroupypw">4.18<!--  tex4ht:ref: fig:01_sm_higgs_hbrs   --></a>, which shows the branching fractions (BFs) of
+the Higgs boson as a function of its mass. Generally, we see the higher the mass of the
+decay product, the higher the BF; however, as the Higgs mass decreases, first the
+<!--  l. 762  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>t</mi></mstyle><mover accent="false" class="mml-overline"><mrow><mstyle mathvariant="normal"><mi>t</mi></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> and later
+the <!--  l. 762  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>W</mi></math>
+and <!--  l. 762  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>Z</mi></math>
+boson decays become kinematically inaccessible, leading to decreasing decay
+probabilities.
+</p>
+<figure class="figure">
+<!--  l. 766  --><p class="noindent" id="single-higgs-boson-production-modes-and-decay-channels-at-the-lhc-reproduced-from-ref-cmsdwd"><img alt="PIC" src="figures/01-SM-03-SM/higgs/higgs_production.png" style="max-width:100%"/> <a id="x26-94001r17"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.17. </span></span><span class="content">Single Higgs boson production modes and decay channels at the
+LHC, reproduced from Ref. [<a href="Bibliography.html#XCMS_2022dwd">23</a>].                                                </span></figcaption><!--  tex4ht:label?: x26-94001r17   -->
+</figure>
+<figure class="figure">
+<!--  l. 773  --><p class="noindent" id="higgs-branching-fractions-predicted-in-the-sm-as-a-function-of-mh-reproduced-from-refs-dittmaiervmlhchiggscrosssectionworkinggroupypw"> <img alt="PIC" src="figures/01-SM-03-SM/higgs/Higgs_BR_RECT-.png" style="max-width:80%"/> <a id="x26-94002r18"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.18. </span></span><span class="content">Higgs branching fractions predicted in the SM as a function of
+<!--  l. 774  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mi>H</mi></mrow></msub></math>
+(reproduced from Refs. [<a href="Bibliography.html#XDittmaier_2012vm">24</a>, <a href="Bibliography.html#XLHCHiggsCrossSectionWorkingGroup_2016ypw">25</a>]).                                               </span></figcaption><!--  tex4ht:label?: x26-94002r18   -->
+</figure>
+<!--  l. 778  --><p class="indent">       The Higgs boson was initially observed by the CMS and ATLAS
+experiments in 2012 through a combination of several decay channels. Since
+then, the two experiments have been making steady progress in the precise
+measurements of the various Higgs properties. For example, Figure <a href="#constraints-on-higgs-to-fermion-and-vector-boson-couplings-reproduced-from-ref-cmsdwd-left-and-measurements-of-the-higgs-mass-reproduced-from-ref-cmsxrn-right-by-the-cms-experiment">4.19<!--  tex4ht:ref: fig:01_sm_higgs_constraints   --></a> shows
+the overall constraints on the Higgs to fermion and vector boson couplings
+and the Higgs mass by the CMS experiment. Constraints are based on the
+<!--  l. 781  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>κ</mi></math>-framework [<a href="Bibliography.html#XLHCHiggsCrossSectionWorkingGroup_2013rie">151</a>],
+where <!--  l. 781  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mi>X</mi></mrow></msub></math> scales the
+Higgs-<!--  l. 781  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math> coupling
+strength with <!--  l. 781  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>κ</mi></mrow><mrow><mi>X</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>
+corresponding to the SM prediction. Changes to the coupling strength
+due to new physics are thus generically captured by deviations from
+<!--  l. 782  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>κ</mi></mrow><mrow><mi>X</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>.
+</p>
+<figure class="figure" id="x26-94003r19"><span id="constraints-on-higgs-to-fermion-and-vector-boson-couplings-reproduced-from-ref-cmsdwd-left-and-measurements-of-the-higgs-mass-reproduced-from-ref-cmsxrn-right-by-the-cms-experiment"></span>
+<div class="adjustbox" id="adjustbox-3"> <img alt="PIC" src="figures/01-SM-03-SM/higgs/higgs_couplings-.png" style="max-width:49%"/></div> <div class="adjustbox" id="adjustbox-4"> <img alt="PIC" src="figures/01-SM-03-SM/higgs/higgs_mass-.png" style="max-width:49%"/></div>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.19.  </span></span><span class="content">Constraints  on  Higgs  to  fermion  and  vector  boson  couplings,
+reproduced from Ref. [<a href="Bibliography.html#XCMS_2022dwd">23</a>] (left) and measurements of the Higgs mass, reproduced
+from Ref. [<a href="Bibliography.html#XCMS_2020xrn">26</a>] (right) by the CMS experiment.                                  </span></figcaption><!--  tex4ht:label?: x26-94003r19   -->
+</figure>
+<h4 class="subsectionHead" id="higgs-pair-production-in-the-sm"><span class="titlemark">4.3.2   </span> <a id="x26-950004.3.2"></a>Higgs pair production in the SM</h4>
+<!--  l. 797  --><p class="noindent">Two couplings of the Higgs boson which have not been well-constrained are the trilinear Higgs self-coupling
+(<!--  l. 797  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>), with coupling modifier
+<!--  l. 797  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mi>λ</mi></mrow></msub></math>, and the Higgs quartic
+coupling to vector bosons (<!--  l. 797  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>),
+with modifier <!--  l. 797  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub></math>.
+As discussed in Section <a href="Electroweakinteractions.html#electroweak-symmetry-breaking">4.2.3<!--  tex4ht:ref: sec:01_sm_ew_ewsb   --></a> and illustrated in Figure <a href="#cartoon-of-the-higgs-potential-in-the-sm-and-potential-deviations-due-to-bsm-physics">4.20<!--  tex4ht:ref: fig:01_sm_higgs_potential   --></a>, measuring the Higgs
+self-coupling in particular is necessary to fully characterize the Higgs potential, deviations
+to which could hint at BSM explanations to mysteries such as baryon asymmetry [<a href="Bibliography.html#XReichert_2017puo">152</a>]. As
+we describe below, both couplings can be probed exclusively through Higgs pair production
+(<!--  l. 799  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>),
+which is why it is a key physics target for the upcoming high-luminosity era of the
+LHC.
+</p>
+<figure class="figure">
+<!--  l. 803  --><p class="noindent" id="cartoon-of-the-higgs-potential-in-the-sm-and-potential-deviations-due-to-bsm-physics"><img alt="PIC" src="figures/01-SM-03-SM/higgs/higgs_potential.png" style="max-width:50%"/> <a id="x26-95001r20"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.20. </span></span><span class="content">Cartoon of the Higgs potential in the SM and potential deviations
+due to BSM physics.                                                            </span></figcaption><!--  tex4ht:label?: x26-95001r20   -->
+</figure>
+<!--  l. 808  --><p class="indent"> <!--  l. 808  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math> production
+in the SM occurs dominantly through gluon fusion (ggF), with a small production cross section
+<!--  l. 808  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>σ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>ggF</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>31</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>0</mn><msubsup><mrow><mn>5</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>5.0</mn><mi>%</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">+</mo><mn>2.2</mn><mi>%</mi></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">±</mo> <mn>3</mn><mi>%</mi><msubsup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">PDF</mtext></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>α</mi></mrow><mrow>
+<mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>18</mn><mi>%</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">+</mo><mn>4</mn><mi>%</mi></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>m</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">t</mtext></mstyle></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mstyle class="text"><mtext> fb</mtext></mstyle></mrow></math> [<a href="Bibliography.html#XGrazzini_2018bsd">153</a>, <a href="Bibliography.html#XBaglio_2020wgt">154</a>] at a center
+of mass energy of 13<!--  l. 808  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>TeV</mtext></mstyle></mrow></math>
+and <!--  l. 808  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>m</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>125</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math>, and
+subdominantly through vector boson fusion (VBF), with a smaller production cross section
+<!--  l. 808  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>σ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>VBF</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1.72</mn><msubsup><mrow><mn>6</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>0.04</mn><mi>%</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">+</mo><mn>0.03</mn><mi>%</mi></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">±</mo> <mn>2.1</mn><mi>%</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">PDF</mtext></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>α</mi></mrow><mrow>
+<mi>s</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mstyle class="text"><mtext> fb</mtext></mstyle></mrow></math> [<a href="Bibliography.html#XLHCHiggsCrossSectionWorkingGroup_2016ypw">25</a>]. At
+leading order, the ggF production mode has contributions from diagrams that involve the
+trilinear <!--  l. 809  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+Higgs self-coupling and the emission of two Higgs bosons through a top quark loop, while
+the VBF production mode has contributions from three diagrams involving the trilinear
+<!--  l. 809  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>,
+<!--  l. 809  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>, and
+quartic <!--  l. 809  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+couplings (Figures <a href="#leadingorder-diagrams-for-nonresonant-h-h-production-via-gluon-gluon-fusion">4.21<!--  tex4ht:ref: fig:05_feynmanggf   --></a> and <a href="#leadingorder-diagrams-for-nonresonant-h-h-production-via-vector-boson-fusion-in-this-chapter-we-refer-to-the-leftmost-vbf-diagram-as-the-h-v-v-and-the-rightmost-as-the-h-h-v-v-diagram">4.22<!--  tex4ht:ref: fig:05_feynmanvbf   --></a>). It also features the distinct final state signature of
+two, typically forward, jets in addition to the two Higgs bosons.
+</p>
+<figure class="figure">
+<!--  l. 814  --><p class="noindent" id="leadingorder-diagrams-for-nonresonant-h-h-production-via-gluon-gluon-fusion"> <img alt="PIC" src="figures/05-HH/production/diagrams/feynman_02-.png" style="max-width:40%"/> <img alt="PIC" src="figures/05-HH/production/diagrams/feynman_01-.png" style="max-width:40%"/> <a id="x26-95002r21"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.21.         </span></span><span class="content">Leading-order         diagrams         for         nonresonant
+<!--  l. 816  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+production via gluon gluon fusion.                                              </span></figcaption><!--  tex4ht:label?: x26-95002r21   -->
+</figure>
+<figure class="figure">
+<!--  l. 822  --><p class="noindent" id="leadingorder-diagrams-for-nonresonant-h-h-production-via-vector-boson-fusion-in-this-chapter-we-refer-to-the-leftmost-vbf-diagram-as-the-h-v-v-and-the-rightmost-as-the-h-h-v-v-diagram"> <img alt="PIC" src="figures/05-HH/production/diagrams/feynman_04-.png" style="max-width:32%"/> <img alt="PIC" src="figures/05-HH/production/diagrams/feynman_05-.png" style="max-width:32%"/> <img alt="PIC" src="figures/05-HH/production/diagrams/feynman_03-.png" style="max-width:32%"/> <a id="x26-95003r22"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.22.         </span></span><span class="content">Leading-order         diagrams         for         nonresonant
+<!--  l. 826  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+production via vector boson fusion. In this chapter, we refer to the left-most VBF
+diagram                                             as                                             the
+<!--  l. 826  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup></math>
+and                   the                   right-most                   as                   the
+<!--  l. 826  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+diagram.                                                                       </span></figcaption><!--  tex4ht:label?: x26-95003r22   -->
+</figure>
+<!--  l. 830  --><p class="indent">       The production cross section and kinematic properties of the
+<!--  l. 830  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math> system
+are altered if values of the Higgs self-coupling, the top Yukawa coupling, and/or the quartic
+<!--  l. 830  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+coupling are modified due to beyond the SM (BSM) effects. Notably, at the
+energy scale of the LHC, the leading contribution to the VBF production
+amplitude is the scattering of longitudinal vector bosons, which scales as
+<!--  l. 831  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">∼</mo> <msubsup><mrow><mi>m</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>κ</mi></mrow><mrow>
+<mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msubsup><mrow><mi>κ</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow><mrow><mn>2</mn></mrow></msubsup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> [<a href="Bibliography.html#XBishara_2016kjn">155</a>], where,
+as above, <!--  l. 831  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mi>λ</mi></mrow></msub></math>,
+<!--  l. 831  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub></math>, and
+<!--  l. 831  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub></math> are defined to be
+multiplicative modifiers of the <!--  l. 831  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>,
+<!--  l. 831  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>, and
+<!--  l. 831  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+couplings from their SM values, respectively.
+</p><!--  l. 833  --><p class="indent">       In the SM, with <!--  l. 833  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>κ</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>,
+VBF production is suppressed since the left-most
+<!--  l. 833  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup></math> and
+right-most <!--  l. 833  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+VBF diagrams in Figure <a href="#leadingorder-diagrams-for-nonresonant-h-h-production-via-vector-boson-fusion-in-this-chapter-we-refer-to-the-leftmost-vbf-diagram-as-the-h-v-v-and-the-rightmost-as-the-h-h-v-v-diagram">4.22<!--  tex4ht:ref: fig:05_feynmanvbf   --></a> cancel; however, BSM deviations to
+<!--  l. 833  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+                                                                                
+
+                                                                                
+can spoil the cancelation, significantly enhancing this mode. This departure
+from the SM could be more visible at high energies, as illustrated
+in Figure <a href="#differential-cross-section-at-te-emv-center-of-mass-for-vbf-h-h-production-as-a-function-of-the-invariant-mass-of-the-h-h-system-m-h-h-for-different-diagrams-and-couplings">4.23<!--  tex4ht:ref: fig:05_intro_mhh   --></a>, which shows the increase and shift towards higher
+<!--  l. 834  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></msub></math> of the
+differential VBF <!--  l. 834  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+production cross section for enhanced and reduced
+<!--  l. 834  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub></math> values. Thus,
+measuring high-<!--  l. 835  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></msub></math>
+nonresonant VBF <!--  l. 835  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+production, with both Higgs bosons highly Lorentz-boosted, is a powerful probe of the
+<!--  l. 835  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+coupling.
+</p>
+<figure class="figure">
+<!--  l. 839  --><p class="noindent" id="differential-cross-section-at-te-emv-center-of-mass-for-vbf-h-h-production-as-a-function-of-the-invariant-mass-of-the-h-h-system-m-h-h-for-different-diagrams-and-couplings"> <img alt="PIC" src="figures/05-HH/production/diagrams_prelim-.png" style="max-width:70%"/> <a id="x26-95004r23"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.23. </span></span><span class="content">Differential cross section at <!--  l. 840  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>13</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>TeV</mtext></mstyle></mrow></math>
+center of mass for VBF <!--  l. 840  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+production     as     a     function     of     the     invariant     mass     of     the
+<!--  l. 840  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+system (<!--  l. 840  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></msub></math>)
+for different diagrams and couplings.                                            </span></figcaption><!--  tex4ht:label?: x26-95004r23   -->
+</figure>
+<!--  l. 844  --><p class="indent">       This is evidenced by the current <!--  l. 844  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub></math>
+constraint in CMS being dominated by the search for boosted
+<!--  l. 844  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math> in the
+<!--  l. 844  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
+channel, with an observed (expected) 95% confidence level (CL) constraint of
+<!--  l. 844  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>0.6</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>1.4</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
+(<!--  l. 844  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>0.7</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>1.4</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>),
+excluding <!--  l. 844  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>
+for the first time [<a href="Bibliography.html#XCMS_2022gjd">156</a>]. This is followed by CMS searches in the resolved
+<!--  l. 845  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> [<a href="Bibliography.html#XCMS_2022cpr">28</a>] and
+<!--  l. 845  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mi mathvariant="italic">ττ</mi></mrow></math> [<a href="Bibliography.html#XCMS_2022hgz">29</a>] channels,
+with constraints of <!--  l. 845  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>0.1</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>2.2</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
+(<!--  l. 845  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>0.4</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>2.5</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>) and
+<!--  l. 845  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>0.4</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>2.6</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
+(<!--  l. 845  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>0.6</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>2.8</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>), respectively.
+Similarly, the strongest <!--  l. 846  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub></math>
+constraint from the ATLAS experiment is from the boosted
+<!--  l. 846  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
+search [<a href="Bibliography.html#XATLAS-CONF-2024-003">157</a>], with an observed (expected) 95% CL constraint of
+<!--  l. 846  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>0.55</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>1.49</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
+(<!--  l. 846  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>0.3</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>1.7</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>).
+                                                                                
+
+                                                                                
+</p><!--  l. 848  --><p class="indent">       The success of searches in the boosted
+<!--  l. 848  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> channel motivates further
+exploration of high-<!--  l. 848  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></msub></math>
+<!--  l. 848  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+production. This dissertation presents the first search in the all-hadronic
+<!--  l. 849  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> channel, where one
+Higgs boson decays to <!--  l. 849  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
+while the other to <!--  l. 849  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle></mrow></math>
+or <!--  l. 849  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">Z</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">Z</mtext></mstyle></mrow></math>, where
+<!--  l. 849  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> and
+<!--  l. 849  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">Z</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>. The branching
+fractions for the <!--  l. 850  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
+and all-hadronic <!--  l. 850  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+decays are <!--  l. 850  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.58</mn></mrow></math> and
+<!--  l. 850  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.11</mn></mrow></math> respectively, for a total branching
+fraction <!--  l. 850  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>B</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo> <mn>4</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn> <mo class="MathClass-bin" stretchy="false">⋅</mo> <mn>0.58</mn> <mo class="MathClass-bin" stretchy="false">⋅</mo> <mn>0.11</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.13</mn></mrow></math>, which is the second
+largest behind <!--  l. 850  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>. The analysis
+primarily aims to constrain <!--  l. 851  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub></math>
+and also sets an exclusion limit on the inclusive
+<!--  l. 851  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+production cross-section. It is not expected to be sensitive to
+<!--  l. 852  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mi>λ</mi></mrow></msub></math> because of the
+focus on the high-<!--  l. 852  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></msub></math>
+                                                                                
+
+                                                                                
+regime.
+</p><!--  l. 854  --><p class="indent">       Another benefit of the high-<!--  l. 854  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></msub></math>
+regime is the significantly reduced QCD multijet background, which otherwise makes
+such all-hadronic searches extremely challenging. Because of the two Higgs bosons’ high
+Lorentz-boosts, this regime also features the unique experimental signature of the
+<!--  l. 855  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> and
+<!--  l. 855  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo> <mn>4</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow></math>
+decays each being reconstructed as single wide-radius jets. Such merged
+<!--  l. 856  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
+jets have been identified to great effect in CMS using deep neural networks
+(DNNs) [<a href="Bibliography.html#XCMS_2022gjd">156</a>, <a href="Bibliography.html#XCMS_2023tlv">158</a>], but attaining similar signal versus background discrimination for
+<!--  l. 856  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> jets
+remains an open challenge. To this end, we introduce a new attention-based
+DNN, referred to as the global particle transformer (GloParT) to
+not only enable this search but open new possibilities for searches in
+boosted-<!--  l. 857  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+channels as well (Chapter <span class="ec-lmbx-12">??</span>).
+</p>
+<h4 class="subsectionHead" id="experimental-status-of-h-h-measurements-with-cms"><span class="titlemark">4.3.3   </span> <a id="x26-960004.3.3"></a>Experimental status of <!--  l. 859  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+                                                                                
+
+                                                                                
+measurements with CMS</h4>
+<figure class="figure">
+<!--  l. 865  --><p class="noindent" id="h-h-decays-and-their-respective-branching-fractions-reproduced-from-ref-veatchuzz"><img alt="PIC" src="figures/05-HH/CMS-results/HHBRs.png" style="max-width:60%"/> <a id="x26-96001r24"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.24.</span>
+</span><span class="content"><!--  l. 866  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+decays and their respective branching fractions (reproduced from Ref. [<a href="Bibliography.html#XVeatch_2022uzz">27</a>]).     </span></figcaption><!--  tex4ht:label?: x26-96001r24   -->
+</figure>
+<!--  l. 870  --><p class="indent">       The decays and branching fractions (BFs) of the Higgs boson pairs are shown in
+Figure <a href="#h-h-decays-and-their-respective-branching-fractions-reproduced-from-ref-veatchuzz">4.24<!--  tex4ht:ref: fig:05_hhbrs   --></a>. Three of these final states have emerged as experimental “golden channels”
+— the channels expected to yield the highest signal-to-background-events ratio for SM
+<!--  l. 871  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+production: </p>
+<ul class="itemize1">
+<li class="itemize"><!--  l. 873  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>:
+This channel has the highest BF (<!--  l. 873  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>34</mn><mi>%</mi></mrow></math>)
+and, despite the large QCD multijet background due to the all-hadronic final
+state, it benefits from unique signatures of heavy-flavor b-jets, such as the
+presence of secondary vertices and displaced tracks due to the long lifetimes
+of b-hadrons. Both the resolved [<a href="Bibliography.html#XCMS_2022cpr">28</a>] and boosted [<a href="Bibliography.html#XCMS_2022gjd">156</a>] Run 2 CMS analyses
+(Figure <a href="#distribution-of-events-in-the-high-m-h-h-ggf-category-of-the-run-cms-h-h-b-b-b-b-resolved-analysis-cmscpr">4.25<!--  tex4ht:ref: fig:05_bbbb_run2   --></a>) have been highly effective, with the latter benefitting from the
+high BF of this decay mode, the exponential reduction of the QCD multijet
+background  in  the  boosted  regime,  and  significant  recent  advances  in
+<!--  l. 874  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>-jet
+classification and reconstruction (as will be discussed in Chapter <span class="ec-lmbx-12">??</span>).
+</li>
+<li class="itemize"><!--  l. 875  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mi mathvariant="italic">ττ</mi></mrow></math>:
+This has an intermediate BF of <!--  l. 875  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>7</mn><mi>%</mi></mrow></math>
+but      relatively      lower      background      of      primarily      Drell-Yan
+(<!--  l. 875  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">Z</mtext></mstyle><mo class="MathClass-bin" stretchy="false">∕</mo><msup><mrow><mi>γ</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">∗</mo></mrow></msup></mrow></math>),
+top quark pair production (<!--  l. 875  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>t</mi></mstyle><mover accent="false" class="mml-overline"><mrow><mstyle mathvariant="normal"><mi>t</mi></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>),
+and       QCD       multijet       events       (Figure <a href="#combination-of-bins-of-all-postfit-distributions-of-the-run-cms-h-h-b-b-analysis-cmshgz-ordered-according-to-the-expected-signaltosquarerootbackground-ratio-separately-for-the-h-e-left-the-h-center-and-h-h-right-channels">4.26<!--  tex4ht:ref: fig:05_bbtautau   --></a>,       reproduced
+from     Ref. [<a href="Bibliography.html#XCMS_2022hgz">29</a>]).     It     benefits     from     similar     deep     learning
+techniques      for      b-jet      tagging,      and      targets      all-hadronic
+(<!--  l. 876  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mi>h</mi></mrow></msub><msub><mrow><mi>τ</mi></mrow><mrow><mi>h</mi></mrow></msub></mrow></math>)
+and semi-leptonic (<!--  l. 876  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mi>h</mi></mrow></msub><msub><mrow><mi>τ</mi></mrow><mrow><mi>e</mi></mrow></msub></mrow></math>
+or <!--  l. 876  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mi>h</mi></mrow></msub><msub><mrow><mi>τ</mi></mrow><mrow><mi>μ</mi></mrow></msub></mrow></math>)
+<!--  l. 876  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>τ</mi></math>-lepton
+decays using a variety of traditional and ML techniques.
+</li>
+<li class="itemize"><!--  l. 877  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mi mathvariant="italic">γγ</mi></mrow></math>:
+Despite the small BF (<!--  l. 877  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.3</mn><mi>%</mi></mrow></math>)
+of this channel, the <!--  l. 877  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo> <mi mathvariant="italic">γγ</mi></mrow></math>
+decay   provides   a   clean   experimental   signature   with   a   sharply
+peaking   resonance   over   a   small   background   of   QCD   multijet   +
+<!--  l. 877  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>γ</mi></math>
+events (Figure <a href="#invariant-twophoton-mass-distribution-of-the-run-cms-h-h-b-b-analysis-cmstkr">4.27<!--  tex4ht:ref: fig:05_bbgg   --></a>, from Ref. [<a href="Bibliography.html#XCMS_2020tkr">30</a>]).</li></ul>
+<!--  l. 880  --><p class="indent">       More recently, the <!--  l. 880  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle></mrow></math>
+channel has been explored in the douple-lepton
+(<!--  l. 880  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">l</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">l</mtext></mstyle><mi mathvariant="italic">νν</mi></mrow></math>) and
+single-lepton (<!--  l. 880  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">l</mtext></mstyle><mi>ν</mi><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow></math>)
+<!--  l. 880  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle></mrow></math>
+final states [<a href="Bibliography.html#XCMS_2024rgy">31</a>], which have a large combined BF of
+<!--  l. 880  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>13</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>4</mn><mi>%</mi></mrow></math>. The
+former features a clean experimental signature of two opposite-sign leptons but a small BF
+of <!--  l. 881  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2.6</mn><mi>%</mi></mrow></math>,
+while the latter has the higher BF of 10.8% but larger top quark background as well
+(Figure <a href="#distribution-of-events-in-the-resolved-b-resolved-b-and-boosted-signal-categories-of-the-run-cms-semileptonic-h-h-b-b-w-w-analysis-cmsrgy">4.28<!--  tex4ht:ref: fig:05_bbww   --></a>). Because of this, the two channels have similar sensitivities to the
+<!--  l. 882  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math> cross
+section.
+</p>
+<figure class="figure">
+<!--  l. 886  --><p class="noindent" id="distribution-of-events-in-the-high-m-h-h-ggf-category-of-the-run-cms-h-h-b-b-b-b-resolved-analysis-cmscpr"><img alt="PIC" src="figures/05-HH/CMS-results/4b/Figure_001-e.png" style="max-width:31%"/> <img alt="PIC" src="figures/05-HH/CMS-results/4b/CMS-B2G-22-003_Figure_001-.png" style="max-width:33%"/> <img alt="PIC" src="figures/05-HH/CMS-results/4b/CMS-B2G-22-003_Figure_002-.png" style="max-width:33%"/> <a id="x26-96002r25"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.25.           </span></span><span class="content">Distribution           of           events           in           the
+high-<!--  l. 889  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></msub></math>
+ggF category of the Run 2 CMS <!--  l. 889  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
+resolved    analysis [<a href="Bibliography.html#XCMS_2022cpr">28</a>]    as    a    function    of    the    BDT    discriminant
+(left),    and    of    the    Run    2    boosted    analysis’ [<a href="Bibliography.html#XCMS_2022gjd">156</a>]    most    sensitive
+ggF     category,     as     a     function     of     the     second-highest     tagged
+<!--  l. 889  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>-jet’s
+mass      (middle),      and      VBF      categories,      as      a      function      of
+<!--  l. 889  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></msub></math>
+(right).                                                                         </span></figcaption><!--  tex4ht:label?: x26-96002r25   -->
+</figure>
+<figure class="figure">
+<!--  l. 895  --><p class="noindent" id="combination-of-bins-of-all-postfit-distributions-of-the-run-cms-h-h-b-b-analysis-cmshgz-ordered-according-to-the-expected-signaltosquarerootbackground-ratio-separately-for-the-h-e-left-the-h-center-and-h-h-right-channels"><img alt="PIC" src="figures/05-HH/CMS-results/bbtautau/Figure_005-a.png" style="max-width:32%"/> <img alt="PIC" src="figures/05-HH/CMS-results/bbtautau/Figure_005-b.png" style="max-width:32%"/> <img alt="PIC" src="figures/05-HH/CMS-results/bbtautau/Figure_005-c.png" style="max-width:32%"/> <a id="x26-96003r26"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.26. </span></span><span class="content">Combination of bins of all postfit distributions of the Run 2 CMS
+<!--  l. 898  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mi mathvariant="italic">ττ</mi></mrow></math>
+analysis [<a href="Bibliography.html#XCMS_2022hgz">29</a>], ordered according to the expected signal-to-square-root-background
+ratio,                          separately                          for                          the
+<!--  l. 898  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mi>h</mi></mrow></msub><msub><mrow><mi>τ</mi></mrow><mrow><mi>e</mi></mrow></msub></mrow></math>
+(left),                                                                                               the
+<!--  l. 898  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mi>h</mi></mrow></msub><msub><mrow><mi>τ</mi></mrow><mrow><mi>μ</mi></mrow></msub></mrow></math>
+(center),                                                                                           and
+<!--  l. 898  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mi>h</mi></mrow></msub><msub><mrow><mi>τ</mi></mrow><mrow><mi>h</mi></mrow></msub></mrow></math>
+(right) channels.                                                                </span></figcaption><!--  tex4ht:label?: x26-96003r26   -->
+</figure>
+<figure class="figure">
+<!--  l. 904  --><p class="noindent" id="invariant-twophoton-mass-distribution-of-the-run-cms-h-h-b-b-analysis-cmstkr"><img alt="PIC" src="figures/05-HH/CMS-results/bbgg.png" style="max-width:50%"/> <a id="x26-96004r27"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.27.  </span></span><span class="content">Invariant  two-photon  mass  distribution  of  the  Run  2  CMS
+<!--  l. 905  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mi mathvariant="italic">γγ</mi></mrow></math>
+analysis [<a href="Bibliography.html#XCMS_2020tkr">30</a>],  combined  for  all  signal  categories,  weighted  by  S/(S+B),  where
+S  (B)  is  the  number  of  signal  (background)  events  extracted  from  the
+signal-plus-background fit.                                                      </span></figcaption><!--  tex4ht:label?: x26-96004r27   -->
+</figure>
+<figure class="figure">
+<!--  l. 911  --><p class="noindent" id="distribution-of-events-in-the-resolved-b-resolved-b-and-boosted-signal-categories-of-the-run-cms-semileptonic-h-h-b-b-w-w-analysis-cmsrgy"> <img alt="PIC" src="figures/05-HH/CMS-results/bbww/CMS-HIG-21-005_Figure_005-a-.png" style="max-width:49%"/> <img alt="PIC" src="figures/05-HH/CMS-results/bbww/CMS-HIG-21-005_Figure_005-b-.png" style="max-width:49%"/> <a id="x26-96005r28"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.28.       </span></span><span class="content">Distribution       of       events       in       the       resolved
+<!--  l. 913  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow></math>,
+resolved <!--  l. 913  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≥</mo> <mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow></math>,
+and    boosted    signal    categories    of    the    Run    2    CMS    semi-leptonic
+<!--  l. 913  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle></mrow></math>
+analysis [<a href="Bibliography.html#XCMS_2024rgy">31</a>] as a function of their DNN discriminant in the single-lepton (left)
+and double-lepton (right) final states.                                           </span></figcaption><!--  tex4ht:label?: x26-96005r28   -->
+</figure>
+<!--  l. 917  --><p class="indent">       The limits set on the <!--  l. 917  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+cross section by each channel, and their combinations, are shown in Figure <a href="#the-expected-and-observed-limits-on-the-ratio-of-experimentally-estimated-production-cross-section-and-the-expectation-from-the-sm-in-searches-using-different-final-states-and-their-combination-reproduced-from-ref-cmspashig">4.29<!--  tex4ht:ref: fig:05_hh_comb_xsec   --></a>, and as a function
+of <!--  l. 917  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mi>λ</mi></mrow></msub></math> and
+<!--  l. 917  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub></math> in Figure <a href="#the-expected-and-observed-limits-on-the-ratio-of-experimentally-estimated-production-cross-section-and-the-theory-expectation">4.30<!--  tex4ht:ref: fig:05_hh_comb_kappa   --></a>.
+The three “golden channels” each offer roughly similar sensitivities to the cross section and
+<!--  l. 918  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mi>λ</mi></mrow></msub></math> limits; however,
+the constraint on <!--  l. 918  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub></math> is
+dominated by the boosted <!--  l. 918  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
+channel, because of the enhancement of boosted
+<!--  l. 918  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math> production
+at BSM <!--  l. 918  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub></math>
+deviations, as discussed in Section <a href="#higgs-pair-production-in-the-sm">4.3.2<!--  tex4ht:ref: sec:05_smhh   --></a>. Its observed (expected)
+<!--  l. 919  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>95</mn><mi>%</mi></mrow></math> confidence level
+(CL) constraint is <!--  l. 919  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>0.6</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>1.4</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
+(<!--  l. 919  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>0.7</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>1.4</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>). This is followed
+by the resolved <!--  l. 920  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> [<a href="Bibliography.html#XCMS_2022cpr">28</a>]
+and <!--  l. 920  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mi mathvariant="italic">ττ</mi></mrow></math> [<a href="Bibliography.html#XCMS_2022hgz">29</a>] channels,
+with constraints of <!--  l. 920  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>0.1</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>2.2</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
+(<!--  l. 920  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>0.4</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>2.5</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>) and
+<!--  l. 920  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>0.4</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>2.6</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
+(<!--  l. 920  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>0.6</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>2.8</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>), respectively.
+Similarly, the strongest <!--  l. 921  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub></math>
+                                                                                
+
+                                                                                
+constraint from the ATLAS experiment is from the recent boosted
+<!--  l. 921  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> search [<a href="Bibliography.html#XATLAS-CONF-2024-003">157</a>], with an
+observed (expected) <!--  l. 921  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>95</mn><mi>%</mi></mrow></math>
+CL constraint of <!--  l. 921  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>0.55</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>1.49</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
+(<!--  l. 921  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>0.3</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>1.7</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>).
+</p>
+<figure class="figure">
+<!--  l. 925  --><p class="noindent" id="the-expected-and-observed-limits-on-the-ratio-of-experimentally-estimated-production-cross-section-and-the-expectation-from-the-sm-in-searches-using-different-final-states-and-their-combination-reproduced-from-ref-cmspashig"> <img alt="PIC" src="figures/05-HH/CMS-results/HHcomb_xsec-.png" style="max-width:80%"/> <a id="x26-96006r29"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.29. </span></span><span class="content">The expected and observed limits on the ratio of experimentally
+estimated production cross section and the expectation from the SM in searches
+using different final states and their combination, reproduced from Ref. [<a href="Bibliography.html#XCMS-PAS-HIG-20-011">32</a>]. The
+search modes are ordered, from upper to lower, by their expected sensitivities from
+the least to the most sensitive. The overall combination of all searches is shown by
+the lowest entry.                                                                </span></figcaption><!--  tex4ht:label?: x26-96006r29   -->
+</figure>
+<figure class="figure">
+<!--  l. 933  --><p class="noindent" id="the-expected-and-observed-limits-on-the-ratio-of-experimentally-estimated-production-cross-section-and-the-theory-expectation"> <img alt="PIC" src="figures/05-HH/CMS-results/kl_limits_channels_r_paper-.png" style="max-width:49%"/> <img alt="PIC" src="figures/05-HH/CMS-results/C2V_limits_channels_rqqHH_paper-.png" style="max-width:49%"/> <a id="x26-96007r30"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.30. </span></span><span class="content">The expected and observed limits on the ratio of experimentally
+estimated production cross section and the theory expectation for different values of
+<!--  l. 935  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mi>λ</mi></mrow></msub></math>
+(left)                                                                                                and
+<!--  l. 935  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub></math>
+(right), reproduced from Ref. [<a href="Bibliography.html#XCMS-PAS-HIG-20-011">32</a>].                                              </span></figcaption><!--  tex4ht:label?: x26-96007r30   -->
+</figure>
+<!--  l. 940  --><p class="indent">       In this dissertation, we present the first search for nonresonant
+<!--  l. 940  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math> production in
+the <i>all-hadronic <!--  l. 940  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+channel</i>, where one Higgs decays to two bottom quarks, while the other to two vector bosons
+(<!--  l. 940  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>) both decaying hadronically
+to the four quark (<!--  l. 940  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow></math>)
+final state. Both the W and Z bosons are considered for the latter decay
+and collectively referred to as V bosons. The branching fractions for the
+<!--  l. 942  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> and
+<!--  l. 942  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> decays
+are <!--  l. 942  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.58</mn></mrow></math> and
+<!--  l. 942  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.25</mn></mrow></math> respectively, for a total
+branching fraction <!--  l. 942  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>B</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn> <mo class="MathClass-bin" stretchy="false">⋅</mo> <mn>0.58</mn> <mo class="MathClass-bin" stretchy="false">⋅</mo> <mn>0.25</mn> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0.29</mn></mrow></math>, which is the
+second-highest, behind only <!--  l. 942  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>.
+The all-hadronic final state in particular has a branching fraction of
+<!--  l. 943  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0.13</mn></mrow></math>. The analysis
+targets the boosted regime, which, as discussed above, has the two-fold advantage of 1) increasing
+sensitivity to <!--  l. 944  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub></math>
+deviations and 2) exponentially reducing the dominant QCD multijet background.
+                                                                                
+
+                                                                                
+</p>
+<h4 class="subsectionHead" id="bsm-x-h-y-production"><span class="titlemark">4.3.4   </span> <a id="x26-970004.3.4"></a>BSM <!--  l. 948  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">X</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle></mrow></math>
+production</h4>
+<figure class="figure">
+<!--  l. 954  --><p class="noindent" id="x-h-y-production-in-the-symmetric-left-and-asymmetric-right-cases"><img alt="PIC" src="figures/05-HH/production/xhy.png" style="max-width:100%"/> <a id="x26-97001r31"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.31.</span>
+</span><span class="content"><!--  l. 955  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">X</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle></mrow></math>
+production in the symmetric (left) and asymmetric (right) cases.                </span></figcaption><!--  tex4ht:label?: x26-97001r31   -->
+</figure>
+<!--  l. 959  --><p class="indent">       Many theoretical models predict a richer scalar sector than that in the SM to
+address aesthetic and observational inconsistencies with the SM, such as the Higgs mass
+hierarchy problem and the baryon asymmetry discussed above. These include two-Higgs
+doublet models (2HDM) [<a href="Bibliography.html#XBranco_2011iw">159</a>] that add an additional scalar doublet to the SM, such as
+the minimal supersymmetric extension of the SM (MSSM) [<a href="Bibliography.html#XCraig_2013hca">147</a>], which predicts two
+neutral CP-even scalars (H, h), one neutral CP-odd scalar (A), and two charged scalars
+(<!--  l. 960  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">±</mo></mrow></msup></math>),
+where one of the neutral CP-even scalars may be the discovered SM Higgs
+<!--  l. 960  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow><mrow><mn>125</mn></mrow></msub></math>.
+The next-to-minimal supersymmetric extension of the SM (NMSSM) [<a href="Bibliography.html#XDomingo_2022kfm">160</a>]
+adds to this a complex scalar singlet, predicting two more CP-even
+(<!--  l. 961  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">h</mtext></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>s</mi></mstyle></mrow></msub></math>) and
+CP-odd (<!--  l. 961  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">a</mtext></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>s</mi></mstyle></mrow></msub></math>)
+neutral scalars. Finally, the two-real-singlet-model (TRSM) predicts two additional
+CP-even scalar fields. Depending on the kinematics, all these models allow for cascade
+decays of a heavier scalar to symmetric and asymmetric lighter scalars, such as
+<!--  l. 963  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><msub><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow><mrow><mn>125</mn></mrow></msub><msub><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow><mrow><mn>125</mn></mrow></msub></mrow></math> and
+<!--  l. 963  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">h</mtext></mstyle><msub><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow><mrow><mn>125</mn></mrow></msub></mrow></math>,
+respectively, as shown in Figure <a href="#x-h-y-production-in-the-symmetric-left-and-asymmetric-right-cases">4.31<!--  tex4ht:ref: fig:05_xhy_production   --></a>.
+</p><!--  l. 965  --><p class="indent">       We search for this broad class of signals, looking for generic decays of the form
+<!--  l. 965  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">X</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle></mrow></math>,
+                                                                                
+
+                                                                                
+where X is the heavier and Y the lighter scalar resonance, with H decaying to
+<!--  l. 965  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> and Y
+to <!--  l. 965  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo> <mn>4</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow></math>.
+Many models, such as the TRSM, predict branching ratios for the
+lighter scalar similar to or the same as the SM Higgs. In this case, the
+<!--  l. 967  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> decay modes are dominant
+for <!--  l. 967  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>m</mi></mrow><mrow><mi>Y</mi> </mrow></msub> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>140</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math> (Figure <a href="#higgs-branching-fractions-predicted-in-the-sm-as-a-function-of-mh-reproduced-from-refs-dittmaiervmlhchiggscrosssectionworkinggroupypw">4.18<!--  tex4ht:ref: fig:01_sm_higgs_hbrs   --></a>)
+and, hence, the <!--  l. 967  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> and
+<!--  l. 967  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> will be the dominant
+final states for the <!--  l. 967  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">X</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle></mrow></math>
+signal. Thus, the <!--  l. 968  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+channel represents the highest BF in these models.
+</p><!--  l. 970  --><p class="indent">       There are several published and ongoing CMS searches for
+<!--  l. 970  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">X</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle></mrow></math> production
+in a variety of regimes and final states with the Run 2 dataset, such as the boosted [<a href="Bibliography.html#XBoostedXHY4b">161</a>]
+<!--  l. 970  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> final state, the symmetric-only
+<!--  l. 970  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle></mrow></math> semi-leptonic final state [<a href="Bibliography.html#XCMS_2024rgy">31</a>],
+the resolved <!--  l. 970  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mi mathvariant="italic">γγ</mi></mrow></math> [<a href="Bibliography.html#XCMS_2023boe">162</a>],
+and the resolved <!--  l. 970  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mi mathvariant="italic">ττ</mi></mrow></math> [<a href="Bibliography.html#XCMS_2021yci">163</a>]
+final state. This dissertation presents the first search in the
+<!--  l. 971  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> all-hadronic state,
+and the first in the <!--  l. 971  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+state for the asymmetric case, representing a significant increase in the covered phase space
+                                                                                
+
+                                                                                
+for <!--  l. 971  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">X</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle></mrow></math>
+searches.
+</p><!--  l. 973  --><p class="indent">       The search comprises two distinct topologies depending on
+the ratio of the X and Y masses: a highly-boosted fully-merged
+<!--  l. 973  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> topology
+for <!--  l. 973  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>m</mi></mrow><mrow><mi>X</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">≫</mo> <msub><mrow><mi>m</mi></mrow><mrow><mi>Y</mi> </mrow></msub></mrow></math>, with
+both <!--  l. 973  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+bosons’ decay products highly collimated into a single wide-radius
+jet; and a relatively less-boosted semi-merged topology, where the
+<!--  l. 973  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> bosons are well
+separated and each <!--  l. 973  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow></math>
+decay is reconstructed as its own wide-radius jet. These two
+phases are illustrated in Figure <a href="#the-fraction-of-y-v-v-jets-containing-three-or-four-generatorlevel-quarks-for-the-resonant-x-h-b-b-y-v-v-signal-as-a-function-of-the-x-and-y-boson-masses">4.32<!--  tex4ht:ref: fig:05_xhy_fraction_3q4q   --></a>, showing the fraction of
+<!--  l. 974  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+jets containing three or four generator-level quarks as a function of
+the X and Y boson masses, with the transition occurring around
+<!--  l. 974  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>m</mi></mrow><mrow><mi>X</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">≈</mo> <mn>10</mn><msub><mrow><mi>m</mi></mrow><mrow><mi>Y</mi> </mrow></msub></mrow></math>. This
+dissertation focuses on a search for the fully-merged topology only, i.e. for
+<!--  l. 975  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>m</mi></mrow><mrow><mi>X</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">≳</mo> <mn>10</mn><msub><mrow><mi>m</mi></mrow><mrow><mi>Y</mi> </mrow></msub></mrow></math>, and
+is complementary to an ongoing CMS search in the semi-merged topology. Thus, in terms of
+the analysis strategy and techniques, this search is similar to the boosted nonresonant
+<!--  l. 976  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math> search
+in that they both target highly-boosted Higgs boson decays with single wide-radius jets
+                                                                                
+
+                                                                                
+for both H or Y bosons.
+</p>
+<figure class="figure">
+<!--  l. 981  --><p class="noindent" id="the-fraction-of-y-v-v-jets-containing-three-or-four-generatorlevel-quarks-for-the-resonant-x-h-b-b-y-v-v-signal-as-a-function-of-the-x-and-y-boson-masses"> <img alt="PIC" src="figures/05-HH/production/fraction_3q4q-.png" style="max-width:80%"/> <a id="x26-97002r32"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.32.                       </span></span><span class="content">The                      fraction                      of
+<!--  l. 982  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+jets   containing   three   or   four   generator-level   quarks   for   the   resonant
+<!--  l. 982  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">X</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo> <mo class="MathClass-open" stretchy="false">(</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-open" stretchy="false">(</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+signal as a function of the X and Y boson masses.                               </span></figcaption><!--  tex4ht:label?: x26-97002r32   -->
+</figure>
+<h5 class="subsubsectionHead" id="acknowledgements1"><a id="x26-98000"></a>Acknowledgements</h5>
+<!--  l. 994  --><p class="noindent">Chapters <a href="#higgs-pair-production-in-the-sm">4.3.2<!--  tex4ht:ref: sec:05_smhh   --></a> and <a href="#bsm-x-h-y-production">4.3.4<!--  tex4ht:ref: sec:05_bsmxhy   --></a> are in part, currently being prepared for the publication of the
+material by the CMS collaboration. The dissertation author was the primary
+investigator and author of these papers.
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="Electroweakinteractions.html">⭠</a> <a href="ExperimentalBackground.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

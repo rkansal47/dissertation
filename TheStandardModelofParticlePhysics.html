@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>4 The Standard Model of Particle Physics</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="chapterToc">1 <a href="IntroductiontotheStandardModel.html#introduction-to-the-standard-model">Introduction to the Standard Model</a></span>
+<span class="chapterToc">2 <a href="Symmetriesinphysics.html#symmetries-in-physics">Symmetries in physics</a></span>
+<span class="chapterToc">3 <a href="Quantumfieldtheory.html#quantum-field-theory">Quantum field theory</a></span>
+<span class="chapterToc">4 <a href="#the-standard-model-of-particle-physics">The Standard Model of Particle Physics</a></span>
+<span class="sectionToc">4.1 <a href="Quantumchromodynamics.html#quantum-chromodynamics">Quantum chromodynamics</a></span>
+<span class="sectionToc">4.2 <a href="Electroweakinteractions.html#electroweak-interactions">Electroweak interactions</a></span>
+<span class="sectionToc">4.3 <a href="TheHiggssector.html#the-higgs-sector">The Higgs sector</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="TheABEGHHKHiggsmechanism.html">⭠</a> <a href="Quantumchromodynamics.html">⭢</a> </nav>
+<h2 class="chapterHead" id="the-standard-model-of-particle-physics"><span class="titlemark">Chapter 4</span><br/><a id="x23-750004"></a>The Standard Model of Particle Physics</h2>
+<div class="center">
+<!--  l. 10  --><p class="noindent">
+</p><!--  l. 12  --><p class="noindent"><i>Before I came here, I was confused about this subject. Having listened to your
+lecture, I am still confused. But on a higher level.</i> — Enrico
+                                                                                
+
+                                                                                
+Fermi<span class="footnote-mark"><a href="#fn27x5" id="fn27x5-bk"><sup class="textsuperscript">1</sup></a></span><a id="x23-75001f1"></a></p></div>
+<figure class="figure">
+<!--  l. 20  --><p class="noindent" id="a-graphical-summary-of-the-sm-reproduced-from-ref-smmostcompletediagram"><img alt="PIC" src="figures/01-SM-03-SM/Standard_Model_Of_Particle_Physics--Most_Complete_Diagram.png" style="max-width:100%"/> <a id="x23-75003r1"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 4.1. </span></span><span class="content">A graphical summary of the SM, reproduced from Ref. [<a href="Bibliography.html#XSMMostCompleteDiagram">6</a>].        </span></figcaption><!--  tex4ht:label?: x23-75003r1   -->
+</figure>
+<!--  l. 25  --><p class="indent">       We are now ready to describe the standard model (SM)! It is a
+renormalizable, quantum Yang-Mills theory, and is illustrated nicely in
+Figure <a href="#a-graphical-summary-of-the-sm-reproduced-from-ref-smmostcompletediagram">4.1<!--  tex4ht:ref: fig:01_sm_summary   --></a>. Before electroweak symmetry breaking (EWSB) — a form of
+spontaneous symmetry breaking (SSB) — it possessed the gauge symmetry
+<!--  l. 27  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SU</mi></mstyle><msub><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mstyle mathvariant="normal"><mi>C</mi></mstyle></mrow></msub> <mo class="MathClass-bin" stretchy="false">×</mo><mstyle mathvariant="normal"><mi>SU</mi></mstyle><msub><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mstyle mathvariant="normal"><mi>L</mi></mstyle></mrow></msub> <mo class="MathClass-bin" stretchy="false">×</mo><mstyle mathvariant="normal"><mi>U</mi></mstyle><msub><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mstyle mathvariant="normal"><mi>Y</mi></mstyle></mrow></msub></mrow></math>, with
+<!--  l. 27  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi></math>,
+<!--  l. 27  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi></math>, and
+<!--  l. 27  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>Y</mi> </mrow></math> standing
+for color, left, and hypercharge, respectively. These three groups correspond to the
+strong, weak, and electromagnetic forces, with eight, three, and one generators or gauge
+bosons, respectively. The relative strengths of each interaction, as well as gravity’s, are
+shown in Table <a href="#approximate-magnitude-of-the-strengths-of-the-four-fundamental-forces-at-an-energy-scale-of-around-me-emv-">4.1<!--  tex4ht:ref: tab:01_sm_coupling_constants   --></a>, based on the equivalent of the fine structure constant of each force,
+<!--  l. 30  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>α</mi></mrow><mrow><mi>f</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mi>g</mi></mrow><mrow><mi>f</mi></mrow></msub></mrow>
+<mrow><mn>4</mn><mi>π</mi></mrow></mfrac></mrow></math>,
+where <!--  l. 30  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>g</mi></mrow><mrow><mi>f</mi></mrow></msub></math>
+is the respective coupling constant.
+</p><!--  l. 32  --><p class="indent">       The SM contains six fermions charged and uncharged under the
+<!--  l. 32  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SU</mi></mstyle><msub><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mstyle mathvariant="normal"><mi>C</mi></mstyle></mrow></msub></mrow></math> symmetry
+each, called the “quarks” and “leptons”, respectively. The left-handed fermions live as pairs
+in <!--  l. 34  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SU</mi></mstyle><msub><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mstyle mathvariant="normal"><mi>L</mi></mstyle></mrow></msub></mrow></math>
+doublets, while the right-handed fermions in singlets. The six types of fermions are
+referred to as different “flavors”, grouped into three generations as in Figure <a href="#a-graphical-summary-of-the-sm-reproduced-from-ref-smmostcompletediagram">4.1<!--  tex4ht:ref: fig:01_sm_summary   --></a>.
+                                                                                
+
+                                                                                
+</p><!--  l. 37  --><p class="indent">       The SM also contains a complex scalar
+<!--  l. 37  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SU</mi></mstyle><msub><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mstyle mathvariant="normal"><mi>Y</mi></mstyle></mrow></msub></mrow></math>-doublet
+called the Higgs field, which is associated with EWSB. As shown in Figure <a href="#a-graphical-summary-of-the-sm-reproduced-from-ref-smmostcompletediagram">4.1<!--  tex4ht:ref: fig:01_sm_summary   --></a>, it
+initially is at the center of a “sombrero” potential because of which, before EWSB, the
+gauge bosons, fermions, and the Higgs field are all massless.
+</p><!--  l. 41  --><p class="indent">       EWSB is hypothesized to have occurred during the electroweak epoch (see Figure <a href="Introduction.html#the-timeline-and-evolution-of-forces-in-the-early-universe">1<!--  tex4ht:ref: fig:00_timeline   --></a>), where the
+<!--  l. 41  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SU</mi></mstyle><msub><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mstyle mathvariant="normal"><mi>L</mi></mstyle></mrow></msub> <mo class="MathClass-bin" stretchy="false">×</mo><mstyle mathvariant="normal"><mi>U</mi></mstyle><msub><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mstyle mathvariant="normal"><mi>Y</mi></mstyle></mrow></msub></mrow></math> global symmetry
+broke to the <!--  l. 41  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><msub><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mstyle mathvariant="normal"><mi>EM</mi></mstyle></mrow></msub></mrow></math>
+of QED. Through this, the Higgs field obtained a non-zero vacuum expectation value
+(VEV), imbuing all the fermions, three of the gauge bosons, and the Higgs boson with
+mass — a process referred to as the Higgs mechanism. The outcome is the state of the
+universe and physics as we know it.
+</p><!--  l. 45  --><p class="indent">       Of course, as outlined in the introduction, this picture does not explain myriad
+phenomena in fundamental physics, including dark matter, dark energy, baryon
+asymmetry, and neutrino masses. This is why it is crucial to test the SM as rigorously
+and in as broad a phase space as possible, in order to identify any cracks that may point
+to new physics.
+</p>
+<div class="table">
+<!--  l. 51  --><p class="indent"> </p><figure class="float" id="x23-75004r1"><span id="approximate-magnitude-of-the-strengths-of-the-four-fundamental-forces-at-an-energy-scale-of-around-me-emv-"></span>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Table 4.1.      </span></span><span class="content">Approximate      magnitude      of      the      strengths      of
+the     four     fundamental     forces     at     an     energy     scale     of     around
+100<!--  l. 53  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>MeV</mtext></mstyle></mrow></math>.</span></figcaption><!--  tex4ht:label?: x23-75004r1   -->
+<div class="tabular">
+<table class="tabular" id="TBL-23"><colgroup id="TBL-23-1g"><col id="TBL-23-1"/><col id="TBL-23-2"/></colgroup><tr id="TBL-23-1-"><td class="td11" id="TBL-23-1-1" style="text-align:left; white-space:nowrap;"> <strong>Force</strong> </td>
+<td class="td11" id="TBL-23-1-2" style="text-align:left; white-space:nowrap;"> <strong>Strength</strong> </td>
+</tr><tr id="TBL-23-2-"><td class="td11" id="TBL-23-2-1" style="text-align:left; white-space:nowrap;"> Electromagnetic  </td>
+<td class="td11" id="TBL-23-2-2" style="text-align:left; white-space:nowrap;"> <!--  l. 60  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>α</mi></mrow><mrow><mstyle mathvariant="normal"><mi>EM</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">≈</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>137</mn></mrow></mfrac></mrow></math> </td>
+</tr><tr id="TBL-23-3-"><td class="td11" id="TBL-23-3-1" style="text-align:left; white-space:nowrap;"> Weak               </td><td class="td11" id="TBL-23-3-2" style="text-align:left; white-space:nowrap;"> <!--  l. 62  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>α</mi></mrow><mrow><mi>W</mi> </mrow></msub> <mo class="MathClass-rel" stretchy="false">≈</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>30</mn></mrow></mfrac></mrow></math> </td>
+</tr><tr id="TBL-23-4-"><td class="td11" id="TBL-23-4-1" style="text-align:left; white-space:nowrap;"> Strong              </td>
+<td class="td11" id="TBL-23-4-2" style="text-align:left; white-space:nowrap;"> <!--  l. 64  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>α</mi></mrow><mrow><mi>s</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">≈</mo> <mn>1</mn></mrow></math> </td>
+</tr><tr id="TBL-23-5-"><td class="td11" id="TBL-23-5-1" style="text-align:left; white-space:nowrap;"> Gravity             </td>
+<td class="td11" id="TBL-23-5-2" style="text-align:left; white-space:nowrap;"> <!--  l. 66  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>α</mi></mrow><mrow><mi>G</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">≈</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>38</mn></mrow></msup></mrow></math> </td>
+</tr></table> </div>
+</figure>
+</div>
+<!--  l. 72  --><p class="indent">       In this chapter, we will briefly walk through different areas of the SM. Having
+discussed QED in Chapter <a href="Gaugetheories.html#gauge-theories">3.3<!--  tex4ht:ref: sec:01_qft_gt   --></a>, we begin with the remaining two fundamental
+interactions: quantum chromodynamics (Section <a href="Quantumchromodynamics.html#quantum-chromodynamics">4.1<!--  tex4ht:ref: sec:01_sm_qcd   --></a>); and weak interactions and
+electroweak unification (Section <a href="Electroweakinteractions.html#electroweak-interactions">4.2<!--  tex4ht:ref: sec:01_sm_ew   --></a>). Finally, in Section <a href="TheHiggssector.html#the-higgs-sector">4.3<!--  tex4ht:ref: sec:01_higgs   --></a>, we will discuss the
+Higgs sector and pair production of the Higgs boson, which is the focus of this
+dissertation.
+</p>
+<div class="sectionTOCS">
+<span class="sectionToc">4.1 <a href="Quantumchromodynamics.html#quantum-chromodynamics">Quantum chromodynamics</a></span>
+<br/> <span class="sectionToc">4.2 <a href="Electroweakinteractions.html#electroweak-interactions">Electroweak interactions</a></span>
+<br/> <span class="sectionToc">4.3 <a href="TheHiggssector.html#the-higgs-sector">The Higgs sector</a></span>
+</div>
+<nav class="crosslinks-bottom"> <a href="TheABEGHHKHiggsmechanism.html">⭠</a> <a href="Quantumchromodynamics.html">⭢</a> </nav> <div class="footnotes"><a id="x23-75002x4"></a>
+<!--  l. 13  --><p class="noindent"><span class="footnote-mark"><a href="#fn27x5-bk" id="fn27x5"><sup class="textsuperscript">1</sup></a></span><span class="ec-lmr-10">Also an accurate representation of my understanding of the SM before and after my PhD.</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Introduction or: What is an analysis?</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="chapterToc">7 <a href="MachineLearningforHEP.html#machine-learning-for-hep">Machine Learning for HEP</a></span>
+<span class="chapterToc">8 <a href="DataAnalysisandStatisticalInterpretation.html#data-analysis-and-statistical-interpretation">Data Analysis and Statistical Interpretation</a></span>
+<span class="sectionToc">8.1 <a href="#introduction-or-what-is-an-analysis">Introduction or: What is an analysis?</a></span>
+<span class="sectionToc">8.2 <a href="FrequentiststatisticsattheLHC.html#frequentist-statistics-at-the-lhc">Frequentist statistics at the LHC</a></span>
+<span class="sectionToc">8.3 <a href="Asymptoticformulae.html#asymptotic-formulae">Asymptotic formulae</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="DataAnalysisandStatisticalInterpretation.html">⭠</a> <a href="FrequentiststatisticsattheLHC.html">⭢</a> </nav>
+<h3 class="sectionHead" id="introduction-or-what-is-an-analysis"><span class="titlemark">8.1   </span> <a id="x43-1680008.1"></a>Introduction or: What is an analysis?</h3>
+<!--  l. 12  --><p class="noindent">Once our data is collected by the CMS detector and reconstructed offline, it is analyzed
+to search and measure processes of interest. Typically, the raw data is entirely
+dominated by irrelevant background processes which we want to filter out in favor of the
+signal. The first step towards this is through appropriate online triggers, followed by
+offline selections to isolate the signal. The advent of machine learning, and later deep
+learning (DL), allows for more sophisticated selections, using increasingly lower-level
+information such as individual particles in jets, tracks and clusters, and even detector
+hits, as we introduced in Chapter <a href="MachineLearningforHEP.html#machine-learning-for-hep">7<!--  tex4ht:ref: sec:03_ml   --></a>.
+</p><!--  l. 18  --><p class="indent">       Optimizing the event selection for all but a handful of data-driven searches
+requires simulations of the signal and background processes. Additionally, once the
+selections and phase space in which to perform the measurement have been finalized, the
+expected signal and background yields have to be carefully estimated, which often again
+necessitates simulations, as well as data-driven methods via unbiased control regions.
+Given the importance of simulations, it is critical to ensure sufficient quality and
+quantity of simulations in the HL-LHC era; Part <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">IV<!--  tex4ht:ref: part:ml4sim   --></a> will discuss efforts towards using
+                                                                                
+
+                                                                                
+DL.
+</p><!--  l. 22  --><p class="indent">       Once we have our observations, and signal and background estimates, the final
+critical step is to interpret the results in a robust statistical framework. At the
+LHC, this is typically done using a frequentist, likelihood-based approach.
+In this chapter, this approach is introduced by way of simple experimental
+examples.
+</p><!--  l. 26  --><p class="indent">       The chapter is organized as follows. Section <a href="FrequentiststatisticsattheLHC.html#the-likelihood-function-and-test-statistics">8.2.1<!--  tex4ht:ref: sec:03_likelihood   --></a> introduces
+the concepts of the likelihood functions and test statistics, with
+Section <a href="FrequentiststatisticsattheLHC.html#hypothesis-testing">8.2.2<!--  tex4ht:ref: sec:03_hypothesis_testing   --></a> discussing the framework for hypothesis testing, including
+<!--  l. 27  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>-values,
+significances, and the statistical definition of a “discovery”. Sections <a href="FrequentiststatisticsattheLHC.html#confidence-intervals-and-limits">8.2.3<!--  tex4ht:ref: sec:03_intervals   --></a> and <a href="FrequentiststatisticsattheLHC.html#expected-significances-and-limits">8.2.4<!--  tex4ht:ref: sec:03_expected   --></a>
+then describe frequentist confidence intervals and upper limits, and the important
+concepts of expected significances and limits, respectively. Finally, asymptotic
+approximations to simplify these computations are discussed Section <a href="Asymptoticformulae.html#asymptotic-formulae">8.3<!--  tex4ht:ref: sec:03_asymptotic   --></a>.
+</p><!--  l. 31  --><p class="indent">       The chapter is based primarily on the highly useful Refs. [<a href="Bibliography.html#XCranmer_2014lly">57</a>, <a href="Bibliography.html#XCowan_2010js">291</a>]. The code for
+all the plots and results in this chapter is available at  <a href="https://rkansal47.github.io/stats-for-hep">rkansal47.github.io/stats-for-hep</a>;
+it makes extensive use of the <span class="ec-lmtt-12">NumPy</span> [<a href="Bibliography.html#Xharris2020array">292</a>], <span class="ec-lmtt-12">SciPy</span> [<a href="Bibliography.html#X2020SciPy-NMeth">293</a>], and <span class="ec-lmtt-12">matplotlib</span> [<a href="Bibliography.html#XHunter_2007">294</a>] Python
+libraries.
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="DataAnalysisandStatisticalInterpretation.html">⭠</a> <a href="FrequentiststatisticsattheLHC.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

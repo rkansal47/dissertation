@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>1 Introduction to the Standard Model</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="chapterToc">1 <a href="#introduction-to-the-standard-model">Introduction to the Standard Model</a></span>
+<span class="chapterToc">2 <a href="Symmetriesinphysics.html#symmetries-in-physics">Symmetries in physics</a></span>
+<span class="chapterToc">3 <a href="Quantumfieldtheory.html#quantum-field-theory">Quantum field theory</a></span>
+<span class="chapterToc">4 <a href="TheStandardModelofParticlePhysics.html#the-standard-model-of-particle-physics">The Standard Model of Particle Physics</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="TheoreticalBackground.html">⭠</a> <a href="Symmetriesinphysics.html">⭢</a> </nav>
+<h2 class="chapterHead" id="introduction-to-the-standard-model"><span class="titlemark">Chapter 1</span><br/><a id="x13-120001"></a>Introduction to the Standard Model</h2>
+<div class="center">
+<!--  l. 7  --><p class="noindent">
+</p><!--  l. 9  --><p class="noindent"><i>God used beautiful mathematics in creating the world.</i> — Paul Dirac [<a href="Bibliography.html#Xpagels2012cosmic">68</a>]</p></div>
+<!--  l. 15  --><p class="noindent">The standard model (SM) of particle physics is perhaps the greatest scientific theory of
+all time. It is a mathematical representation of three fundamental forces, all known
+elementary particles, and their collective interactions. In a broader sense, it is also
+the culmination of centuries of iterative, syncretic experimental results and
+theoretical advances, from Newton’s laws of motion up to the discovery of
+the Higgs boson. That such a wide array of seemingly idiosyncratic physical
+phenomena and theories — electricity, magnetism, radioactive decays, quantum
+mechanics, special relativity, the structure of the atom, the binding of the nucleus,
+the behavior of elementary particles, and more — can all be encapsulated at
+their most primordial level into a single theory exemplifies the beauty of the
+SM.
+</p><!--  l. 22  --><p class="indent">       This beauty is perhaps most apparent when viewing the SM through the lens of
+<i>symmetries</i>. Symmetries provide an elegant way to precisely describe the extremely
+complex physics mentioned above. Indeed, superficially, the SM can be viewed simply
+as a classification of elementary particles and their interactions according to
+their behavior under different symmetries of the universe and its mathematical
+description.
+                                                                                
+
+                                                                                
+</p><!--  l. 26  --><p class="indent">       This is illustrated in Figure <a href="#particles-and-their-classifications-in-the-sm-reproduced-from-ref-enwiki">1.1<!--  tex4ht:ref: fig:01_sm   --></a>, listing the SM particles and their properties.
+They are first divided into two classes, fermions and bosons, based on how they behave
+under Lorentz transformations — a fundamental physical symmetry of nature. This
+simple distinction has profound implications: fermions constitute matter, i.e. what all
+the “stuff” in the universe is made out of, while bosons are the particles responsible for
+forces and their interactions. Specifically, the photon mediates electromagnetism, the
+<!--  l. 29  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>W</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">±</mo></mrow></msup></math> and
+<!--  l. 29  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>Z</mi></math>
+bosons the weak force, and gluons the strong force. There is also the Higgs boson, which
+is special: it does not mediate a force in the classical sense, but its interactions with
+elementary particles are what imbues them with mass.
+</p>
+<figure class="figure">
+<!--  l. 35  --><p class="noindent" id="particles-and-their-classifications-in-the-sm-reproduced-from-ref-enwiki"><img alt="PIC" src="figures/01-SM/sm_diagram.png" style="max-width:80%"/> <a id="x13-12001r1"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 1.1.  </span></span><span class="content">Particles  and  their  classifications  in  the  SM,  reproduced  from
+Ref. [<a href="Bibliography.html#Xenwiki_1238968997">1</a>].                                                                        </span></figcaption><!--  tex4ht:label?: x13-12001r1   -->
+</figure>
+<!--  l. 40  --><p class="indent">       Each force is intimately tied to a symmetry in the SM, and particles are further
+distinguished by their behavior under these symmetries — or, equivalently, how they are
+affected by this force. Fermions are divided by those interacting (quarks) and
+not interacting (leptons) with the nuclear strong force, while each of their
+rows in Figure <a href="#particles-and-their-classifications-in-the-sm-reproduced-from-ref-enwiki">1.1<!--  tex4ht:ref: fig:01_sm   --></a> further separates them by different “charges” under the
+weak force. Additionally, each particle’s mass and electric charge represent the
+strength of its interaction with the Higgs and electromagnetic fields, respectively.
+Finally, we can see a mysterious <i>almost</i>-symmetry: there are three copies, or
+“flavors” or “generations”, of each fermion, which are entirely identical but
+for their masses (e.g. the electron, muon, and tau family of particles). Such a
+structure may suggest the presence of new, yet-to-be-discovered forces tied to this
+symmetry.
+</p><!--  l. 46  --><p class="indent">       The goal of Part <a href="TheoreticalBackground.html#theoretical-background">I<!--  tex4ht:ref: part:sm   --></a> is to make this picture more precise, and lay the theoretical
+foundation for the work discussed in this dissertation. The mathematical frameworks
+needed to do so are called group theory and quantum field theory (QFT), and are the
+subjects of Chapters <a href="Symmetriesinphysics.html#symmetries-in-physics">2<!--  tex4ht:ref: sec:01_symmetries   --></a> and <a href="Quantumfieldtheory.html#quantum-field-theory">3<!--  tex4ht:ref: sec:01_qft   --></a>, respectively. Equipped with these tools, we
+then describe the SM in Chapter <a href="TheStandardModelofParticlePhysics.html#the-standard-model-of-particle-physics">4<!--  tex4ht:ref: sec:01_sm   --></a>, including the interactions discussed above
+and, of most relevance to the subject of this dissertation, the phenomenon of
+jets, the Higgs sector, and Higgs boson pair production within and beyond the
+SM.
+</p><!--  l. 50  --><p class="indent">       These chapters build off of several great resources, including: </p>
+<ul class="itemize1">
+<li class="itemize">David Tong’s extremely useful and insightful lecture notes on QFT [<a href="Bibliography.html#XTongQFT">69</a>],
+gauge theories [<a href="Bibliography.html#XTongGT">70</a>], and the standard model [<a href="Bibliography.html#XTongSM">71</a>];
+</li>
+<li class="itemize">John McGreevy’s great course on symmetry in physics [<a href="Bibliography.html#XMcGreevyGT">72</a>] (which I had the
+pleasure of attending in the Fall of 2020);
+</li>
+<li class="itemize">Frederic Schuller’s precise lectures on the geometric anatomy of theoretical
+physics [<a href="Bibliography.html#XSchullerGATP">73</a>];
+</li>
+<li class="itemize">Tony Zee’s <i>Group Theory in a Nutshell for Physicists</i> [<a href="Bibliography.html#XZee_2016fuk">74</a>] and <i>Quantum
+Field Theory in a Nutshell</i> [<a href="Bibliography.html#XZee_2003mt">75</a>];
+</li>
+<li class="itemize">Peskin   and   Schroeder’s   classic   <i>An   Introduction   to   Quantum   Field
+Theory</i> [<a href="Bibliography.html#XPeskin_1995ev">76</a>];
+                                                                                
+
+                                                                                
+</li>
+<li class="itemize">Gavin Salam’s lectures on <i>Elements of QCD for hadron colliders</i> [<a href="Bibliography.html#XSalam_2010zt">21</a>];
+</li>
+<li class="itemize">and Hong Liu [<a href="Bibliography.html#XLiuRQFT">77</a>] and Ricardo Matheus’ [<a href="Bibliography.html#XMatheusQFT">78</a>] clear, recorded lectures on
+QFT.</li></ul>
+<nav class="crosslinks-bottom"> <a href="TheoreticalBackground.html">⭠</a> <a href="Symmetriesinphysics.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

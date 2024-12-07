@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Introduction</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="chapterToc">7 <a href="MachineLearningforHEP.html#machine-learning-for-hep">Machine Learning for HEP</a></span>
+<span class="sectionToc">7.1 <a href="#introduction1">Introduction</a></span>
+<span class="subsectionToc">7.1.1 <a href="#basics-of-ml">Basics of ML</a></span>
+<span class="subsectionToc">7.1.2 <a href="#the-importance-of-generalization-and-calibration">The importance of generalization and calibration</a></span>
+<span class="subsectionToc">7.1.3 <a href="#artificial-neural-networks-and-deep-learning">Artificial neural networks and deep learning</a></span>
+<span class="subsectionToc">7.1.4 <a href="#the-importance-of-being-physicsinformed">The importance of being physics-informed</a></span>
+<span class="sectionToc">7.2 <a href="Equivariantneuralnetworks.html#equivariant-neural-networks">Equivariant neural networks</a></span>
+<span class="sectionToc">7.3 <a href="Autoencodersandgenerativemodels.html#autoencoders-and-generative-models">Autoencoders and generative models</a></span>
+<span class="chapterToc">8 <a href="DataAnalysisandStatisticalInterpretation.html#data-analysis-and-statistical-interpretation">Data Analysis and Statistical Interpretation</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="MachineLearningforHEP.html">⭠</a> <a href="Equivariantneuralnetworks.html">⭢</a> </nav>
+<h3 class="sectionHead" id="introduction1"><span class="titlemark">7.1   </span> <a id="x39-1350007.1"></a>Introduction</h3>
+<!--  l. 6  --><p class="noindent">Machine learning (ML) and deep learning (DL) are revolutionizing data analysis,
+computing, and even real-time triggers in high-energy physics (HEP). Significant
+contributions of this dissertation include ML advancements for Higgs boson searches and
+beyond and fast detector simulations for the HL-LHC. In this chapter, to motivate
+                                                                                
+
+                                                                                
+them, we introduce some core concepts of ML, especially as they relate to HEP
+applications.
+</p><!--  l. 11  --><p class="indent">       ML refers to a general class of algorithms that “learn” from data to solve
+problems. This is in contrast to traditional, hand-engineered bespoke algorithms
+designed by domain experts to address specific tasks. A relevant example in HEP is
+selecting a high-purity, in terms of signal versus background, region of data: a
+traditional approach would be to manually define a set of selections on individual
+kinematic features based on physical reasoning; for example, when measuring Higgs
+boson production, we select for events exhibiting resonances around the Higgs
+mass.
+</p><!--  l. 15  --><p class="indent">       However, as we enter the regime of extremely large quantities of
+high-dimensional data and measurements of ever more complex processes (such as the
+<!--  l. 15  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+searches described in this dissertation), it soon becomes intractable,
+or at least suboptimal, to manually define selections over the
+<!--  l. 15  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="script"><mi>O</mi></mstyle></math>(10–100)
+event features that can help distinguish signal from background. This is where we turn
+to ML algorithms, such as boosted decision trees (BDTs) [<a href="Bibliography.html#Xhastie2009boosting">202</a>], which can
+automatically compute optimal, non-linear selections in this high-dimensional feature
+space.
+</p><!--  l. 18  --><p class="indent">       More recently, the advent of artificial neural networks (ANNs) and deep learning
+(DL), along with increased data availability and computing power, has led to orders of
+                                                                                
+
+                                                                                
+magnitude increases in the dimensionality of data that can be exploited and the
+complexity and expressivity of the models built. A relevant example of their significant
+impact in HEP is in jet identification: jets are extremely high-dimensional
+objects, composed of hundreds of particles, tracks, and vertices each with several
+distinguishing features. Traditionally, this information had to be aggregated into
+hand-engineered, high-level features, such as the jet mass, number of prongs, and vertex
+displacements.
+</p><!--  l. 22  --><p class="indent">       DL, on the other hand, allows us to leverage the full set of low particle- and vertex-level
+features. This leads to powerful classifiers that significantly outperform traditional methods
+and improve the sensitivity of our jet-based measurements. This is exemplified by the
+new <!--  l. 24  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+jet identification algorithm we introduce in Chapter <span class="ec-lmbx-12">??</span> and apply to searches for
+<!--  l. 24  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+production in Chapter <span class="ec-lmbx-12">??</span>. As we argue in Section <a href="Autoencodersandgenerativemodels.html#autoencoders-and-generative-models">7.3<!--  tex4ht:ref: sec:03_genaes   --></a>, DL also has the potential to
+alleviate the computational challenges we foresee in the HL-LHC era, particularly with
+respect to detector simulations, which are the focus of Part <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">IV<!--  tex4ht:ref: part:ml4sim   --></a>.
+</p><!--  l. 27  --><p class="indent">       ANNs have proven to be extremely flexible building blocks out of which to
+construct diverse and sophisticated models for a variety of tasks in HEP, from
+classification and regression to simulation and anomaly detection, and more. Indeed, the
+development of DL algorithms in HEP is a rapidly growing subfield in its own
+right, and its various applications are visualized as a “nomological net” in
+Figure <a href="#a-nomological-net-of-ml-applications-in-hep-reproduced-from-ref-lincolninstrumentation">7.1<!--  tex4ht:ref: fig:03_ml_nomological_net   --></a>; a comprehensive “living” review is available in Ref. [<a href="Bibliography.html#Xhepmllivingreview">203</a>]. As we discuss
+                                                                                
+
+                                                                                
+below, however, with more complex data and models also comes the need for
+more sophisticated methods to validate, calibrate, and trust them; this is the
+subject of Chapters <span class="ec-lmbx-12">??</span> and <span class="ec-lmbx-12">??</span>, on evaluating generative models and calibrating
+<!--  l. 29  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> jet
+taggers, respectively.
+</p><!--  l. 31  --><p class="indent">       In this chapter, we first provide a brief introduction to ML and DL, emphasizing
+key aspects relevant to HEP. These include the importance of: 1) generalization and
+calibration of models trained on simulations (Section <a href="#the-importance-of-generalization-and-calibration">7.1.2<!--  tex4ht:ref: sec:03_ml_calibration   --></a>); and 2) the importance of
+building thoughtful, physics-informed models and representations for our data
+(Section <a href="#the-importance-of-being-physicsinformed">7.1.4<!--  tex4ht:ref: sec:03_ml_physics   --></a>). In the same spirit, we then discuss <i>equivariant neural networks</i> in
+Section <a href="Equivariantneuralnetworks.html#equivariant-neural-networks">7.2<!--  tex4ht:ref: sec:03_ml_equivariantnns   --></a>, which are designed to respect the symmetries of physical data, such as
+Lorentz transformations in HEP. Finally, we detail two types of unsupervised learning
+algorithms, autoencoders and generative models, that are relevant to the work in this
+dissertation in Section <a href="Autoencodersandgenerativemodels.html#autoencoders-and-generative-models">7.3<!--  tex4ht:ref: sec:03_genaes   --></a>.
+</p>
+<figure class="figure">
+<!--  l. 38  --><p class="noindent" id="a-nomological-net-of-ml-applications-in-hep-reproduced-from-ref-lincolninstrumentation"> <img alt="PIC" src="figures/03-ML/nomological_net-.png" style="max-width:100%"/> <a id="x39-135001r1"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 7.1. </span></span><span class="content">A “nomological net” of ML applications in HEP, reproduced from
+Ref. [<a href="Bibliography.html#Xlincoln2024instrumentation">49</a>].                                                                       </span></figcaption><!--  tex4ht:label?: x39-135001r1   -->
+</figure>
+<h4 class="subsectionHead" id="basics-of-ml"><span class="titlemark">7.1.1   </span> <a id="x39-1360007.1.1"></a>Basics of ML</h4>
+<!--  l. 46  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="supervised-and-unsupervised-learning"><a id="x39-137000"></a>Supervised and unsupervised learning</h5>
+<!--  l. 48  --><p class="noindent">ML algorithms can be broadly categorized as <i>supervised</i> and <i>unsupervised</i>
+learning. The former involves learning a mapping between some input data
+<!--  l. 49  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math> and a specific
+output <!--  l. 49  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>y</mi></mstyle></math>;
+for example, classifying jets as originating from a Higgs boson or QCD
+background. Other examples include regression tasks where the target output is a
+continuous variable, such as predicting the mass of a jet or the energy of a
+particle. Algorithms used for supervised learning include support vector machines
+(SVMs) [<a href="Bibliography.html#Xcortes1995support">204</a>], (boosted) decision trees (BDTs) [<a href="Bibliography.html#Xhastie2009boosting">202</a>, <a href="Bibliography.html#Xbreiman1984classification">205</a>], and neural networks.
+Such algorithms necessitate a <i>labeled</i> training dataset of input-output pairs
+<!--  l. 52  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mstyle mathvariant="bold"><mi>y</mi></mstyle></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.
+                                                                                
+
+                                                                                
+</p><!--  l. 54  --><p class="indent">       Tasks for which we do not have straightforward labeled data are considered
+unsupervised learning problems, in which the model must learn the properties and structure
+of the data <!--  l. 54  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>x</mi></mstyle></math>
+without explicit target outputs. Examples include clustering algorithms, which aim to
+group similar data points together, and generative and anomaly detection models, both
+of which aim to learn the underlying distribution of the data in some manner for the
+purposes of generating new data or identifying outliers, respectively. The latter two will
+be discussed in more detail in Section <a href="Autoencodersandgenerativemodels.html#autoencoders-and-generative-models">7.3<!--  tex4ht:ref: sec:03_genaes   --></a>.
+</p><!--  l. 58  --><p class="indent">       Note that these two categories are not mutually exclusive but rather
+two ends of a spectrum, with the middle ground including paradigms such as
+weakly-supervised [<a href="Bibliography.html#Xchapelle2006semisupervised">206</a>] and self-supervised learning [<a href="Bibliography.html#Xbalestriero2023cookbookselfsupervisedlearning">207</a>].
+</p><!--  l. 60  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="linear-models"><a id="x39-138000"></a>Linear models</h5>
+<!--  l. 62  --><p class="noindent">Perhaps the simplest example of an ML task is linear regression, which entails fitting a
+linear model: </p><table class="equation"><tr><td>
+<!--  l. 63  --><p class="indent">
+</p><!--  l. 63  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x39-138001r1"></mstyle><!--  endlabel  -->
+<mi>f</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-rel" stretchy="false">|</mo><mi>w</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="bold"><mi>w</mi></mstyle> <mo class="MathClass-bin" stretchy="false">⋅</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle>
+</mrow></math></td><td class="eq-no">(7.1.1)</td></tr></table>
+<!--  l. 66  --><p class="noindent">to a set of data points <!--  l. 67  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>y</mi></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>,
+where <!--  l. 67  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>w</mi></mstyle></math>
+are the model <i>weights</i> which need to be learned. To do so, we define a <i>loss function</i>
+<!--  l. 69  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi></math> that
+quantifies the difference between the model’s prediction and our desired output, such as
+the mean squared error: </p><table class="equation"><tr><td>
+<!--  l. 70  --><p class="indent">
+</p><!--  l. 70  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x39-138002r2"></mstyle><!--  endlabel  -->
+<mi>L</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mi>N</mi></mrow></mfrac><munderover accent="false" accentunder="false"><mrow><mo>∑</mo>
+</mrow><mrow><mi>i</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><mi>N</mi></mrow></munderover><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>f</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>x</mi></mrow><mrow>
+<mi>i</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><mi>w</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>y</mi></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(7.1.2)</td></tr></table>
+<!--  l. 73  --><p class="noindent">The learning objective of our model is hence to minimize
+<!--  l. 74  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi></math> with respect
+to the weights <!--  l. 74  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>w</mi></mstyle></math>.
+</p><!--  l. 76  --><p class="indent">       For linear regression, the minimum can in fact be found analytically to be:
+</p><table class="equation"><tr><td>
+<!--  l. 77  --><p class="indent">
+</p><!--  l. 77  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x39-138003r3"></mstyle><!--  endlabel  -->
+<mstyle mathvariant="bold">
+<mi>w</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mi>T</mi> </mrow></msup><mstyle mathvariant="bold"><mi>X</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup><msup><mrow><mstyle mathvariant="bold"><mi>X</mi></mstyle></mrow><mrow><mi>T</mi> </mrow></msup><mstyle mathvariant="bold"><mi>y</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(7.1.3)</td></tr></table>
+<!--  l. 80  --><p class="noindent">where <!--  l. 81  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>X</mi></mstyle></math> is the matrix
+of input data and <!--  l. 81  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="bold"><mi>y</mi></mstyle></math>
+the vector of target outputs. However, for more complex models (or even in linear
+regression when the matrix inversion is too expensive), numerical optimization
+techniques are required. The most common is <i>gradient descent</i>.
+                                                                                
+
+                                                                                
+</p><!--  l. 85  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="gradient-descent"><a id="x39-139000"></a>Gradient descent</h5>
+<!--  l. 87  --><p class="noindent">Gradient descent is an optimization algorithm that iteratively adjusts the weights of a
+model in the direction of steepest descent, i.e., the gradient: </p><table class="equation"><tr><td>
+<!--  l. 88  --><p class="indent">
+</p><!--  l. 88  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x39-139001r4"></mstyle><!--  endlabel  --><msub><mrow>
+<mstyle mathvariant="bold">
+<mi>w</mi></mstyle>
+</mrow><mrow><mi>t</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn></mrow></msub>
+<mo class="MathClass-rel" stretchy="false">=</mo><msub><mrow> <mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mi>t</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>η</mi><msub><mrow><mi class="MathClass-op">∇</mi><mo> ⁡<!--  FUNCTION APPLICATION  --></mo></mrow><mrow><mi>w</mi></mrow></msub><mi>L</mi><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(7.1.4)</td></tr></table>
+<!--  l. 91  --><p class="noindent">where <!--  l. 92  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mi>t</mi></mrow></msub></math> are the
+weights at iteration <!--  l. 92  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math>,
+and <!--  l. 92  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>η</mi></math> is
+the step size or <i>learning rate</i> (LR). This process is visualized for two learnable
+parameters in Figure <a href="#illustration-of-gradient-descent-in-a-d-parameter-space-of-">7.2<!--  tex4ht:ref: fig:03_ml_gradientdescent   --></a>.
+</p>
+<figure class="figure">
+<!--  l. 97  --><p class="noindent" id="illustration-of-gradient-descent-in-a-d-parameter-space-of-"> <img alt="PIC" src="figures/03-ML/gradientdescent-.png" style="max-width:60%"/> <a id="x39-139002r2"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 7.2.  </span></span><span class="content">Illustration  of  gradient  descent  in  a  2D  parameter  space  of
+<!--  l. 98  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>𝜃</mi></mrow><mrow><mn>0</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>𝜃</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.</span></figcaption><!--  tex4ht:label?: x39-139002r2   -->
+</figure>
+<!--  l. 102  --><p class="indent">       Gradient descent is the backbone of all deep learning optimization algorithms;
+though this basic idea is typically modified to improve convergence and efficiency. The
+most common variants are <i>stochastic</i> and <i>mini-batch</i> gradient descent, which
+compute the gradient on a subset of the data at each iteration. This has the dual
+benefit of computational efficiency and the introduction of stochasticity into the
+optimization process, which can help the model escape local minima of the loss
+function.
+</p><!--  l. 106  --><p class="indent">       Other powerful ideas include <i>adaptive learning rates</i>, which adjust the LR during
+training based on the history of the gradients and/or number of iterations; and
+<i>momentum</i>, which retains some fraction of the previous gradients to smooth out
+oscillations in the optimization process. Popular optimizers which incorporate these
+techniques include RMSprop [<a href="Bibliography.html#Xhinton2012rmsprop">208</a>] and Adam [<a href="Bibliography.html#Xkingma2015adam">209</a>], both of which are prominently used
+for the work in this dissertation.
+</p>
+<h4 class="subsectionHead" id="the-importance-of-generalization-and-calibration"><span class="titlemark">7.1.2   </span> <a id="x39-1400007.1.2"></a>The importance of generalization and calibration</h4>
+<!--  l. 112  --><p class="noindent">It is crucial in ML that the model not only learns the training data but can also
+<i>generalize</i> to new, unseen data. This is what signifies that the model has effectively
+learned the underlying patterns and relationships, rather than merely memorizing, or
+                                                                                
+
+                                                                                
+<i>overfitting</i> to, the training samples.
+</p><!--  l. 115  --><p class="indent">       A standard procedure to evaluate generalization is to split the available dataset
+into three subsets: training, validation, and testing. The former is the only dataset used
+to update the learnable parameters of the model themselves, and is typically the largest
+subset. The validation set is used to tune <i>hyperparameters</i> of the model — those
+parameters such as model size and learning rates that cannot be “learned” through
+gradient descent — as well as assess the model’s performance on unseen data during
+training: if the performance on the validation set is significantly worse than on the
+training set, the model is likely overfitting. Finally, in case a bias is introduced by
+tuning the hyperparameters on the validation set, it is good practice to evaluate the
+model on the testing set at the end, which is never used to make decisions on the
+model.
+</p><!--  l. 120  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="the-biasvariance-tradeoff"><a id="x39-141000"></a>The bias-variance tradeoff</h5>
+<!--  l. 122  --><p class="noindent">Selecting the right model and hyperparameters involves making a <i>bias-variance tradeoff</i>.
+This is a fundamental concept in ML that describes the balance between two sources of
+error in a predictive model. <i>Bias</i> is the error due to overly simplistic assumptions in the
+learning algorithm — for example, using a linear model to capture non-linear
+                                                                                
+
+                                                                                
+relationships; while <i>variance</i> is the error due to a model which is too complex capturing
+noise in the training data.
+</p><!--  l. 126  --><p class="indent">       A model with high bias may have systematic inaccuracies, or <i>underfit</i> the data,
+while a model with high variance may overfit and fail to generalize. Model
+selection involves using the performances on the training and validation datasets
+to find an optimal balance between these two errors. Common techniques to
+improve bias include improving the model design and increasing its complexity,
+while to address variance, there are several established <i>regularization</i> methods
+to reduce overfitting, such as early stopping [<a href="Bibliography.html#Xprechelt2012early">210</a>], dropout [<a href="Bibliography.html#Xsrivastava2014dropout">211</a>], and batch
+normalization [<a href="Bibliography.html#Xioffe2015batch">212</a>].
+</p><!--  l. 131  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="model-calibration"><a id="x39-142000"></a>Model calibration</h5>
+<!--  l. 133  --><p class="noindent">A related and unique aspect of ML in HEP is the reliance on theory and detector
+simulations to generate large quantities of labeled data for model training.
+The aim though, of course, is to deploy on and model correctly the real data
+collected by the experiments. It is hence crucial to verify how well the models
+generalize accurately to the latter, rather than overfitting to mismodeling in the
+former.
+                                                                                
+
+                                                                                
+</p><!--  l. 137  --><p class="indent">       This process is sometimes referred to as <i>calibration</i>, where the performance of the
+ML model is compared between simulation and data to derive possible corrections to the
+model’s predictions and quantify the systematic uncertainties associated with them. As
+models become more complex and high-dimensional, calibration becomes increasingly
+challenging (and often overlooked)! To this end, significant contributions of this
+dissertation are the development of novel methods to efficiently and sensitively validate
+the performance of ML-based simulations (Chapter <span class="ec-lmbx-12">??</span>), and improving the calibration
+of <!--  l. 139  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> jet
+identification algorithms (Chapter <span class="ec-lmbx-12">??</span>).
+</p><!--  l. 142  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="artificial-neural-networks-and-deep-learning"><span class="titlemark">7.1.3   </span> <a id="x39-1430007.1.3"></a>Artificial neural networks and deep learning</h4>
+<!--  l. 144  --><p class="noindent">ANNs are ML models loosely inspired by the structure of the human brain. They were
+originally proposed in the 1940s, and improved over the 20th century through
+the perceptron [<a href="Bibliography.html#Xrosenblatt1958perceptron">213</a>] and backpropagation [<a href="Bibliography.html#Xrumelhart1986learning">214</a>] algorithms, but had limited
+success in practical applications compared to algorithms like SVMs and decision
+trees.
+</p><!--  l. 147  --><p class="indent">       Only in the 2010s was it recognized that their flexibility in both architecture
+and training makes them ideal for exploiting the recent exponential increase
+                                                                                
+
+                                                                                
+in data and computing power, propelling ANNs to the forefront of ML and
+sparking the so-called DL revolution. Through the development of large and
+innovative, so-called <i>deep</i> neural networks (DNNs), they have led to significant
+breakthroughs in the fields of computer vision, natural language processing, and
+indeed HEP. Specific types of models, or “architectures”, include convolutional
+neural networks (CNNs) for image data, graph neural networks (GNNs) for
+graph data, and transformers for sets and sequences, all of which we discuss
+below.
+</p><!--  l. 153  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="artificial-neurons-and-multilayer-perceptrons"><a id="x39-144000"></a>Artificial neurons and multilayer perceptrons</h5>
+<!--  l. 155  --><p class="noindent">The building blocks of ANNs are single “artificial neurons”, or <i>perceptrons</i> [<a href="Bibliography.html#Xrosenblatt1958perceptron">213</a>]. They are
+similar to the linear models discussed above, but with an additional non-linear function
+<!--  l. 156  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>σ</mi></math> —
+known as the <i>activation function</i>, applied to the output (Figure <a href="#left-a-single-perceptron-and-right-a-neural-network-built-using-multiple-layers-of-perceptrons-mlps">7.3<!--  tex4ht:ref: fig:03_ml_perceptron   --></a>, left):
+</p><table class="equation"><tr><td>
+<!--  l. 157  --><p class="indent">
+</p><!--  l. 157  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x39-144001r5"></mstyle><!--  endlabel  -->
+<mi>f</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-rel" stretchy="false">|</mo><mi>w</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>σ</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>w</mi></mstyle> <mo class="MathClass-bin" stretchy="false">⋅</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(7.1.5)</td></tr></table>
+<!--  l. 160  --><p class="noindent">where <!--  l. 161  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>
+is a constant, learned <i>bias</i> term. Common choices for the activation include the sigmoid,
+hyperbolic tangent, and piecewise linear functions.
+</p><!--  l. 164  --><p class="indent">       By combining multiple perceptrons in a <i>multilayer perceptron</i> (MLP)
+architecture, i.e., an ANN, we can build a powerful and flexible model capable of
+learning complex, non-linear relationships in the data (Figure <a href="#left-a-single-perceptron-and-right-a-neural-network-built-using-multiple-layers-of-perceptrons-mlps">7.3<!--  tex4ht:ref: fig:03_ml_perceptron   --></a>, right). In fact, the
+famous <i>universal approximation theorem</i> [<a href="Bibliography.html#Xhornik1989multilayer">215</a>] states that, in theory, neural
+networks can approximate any continuous function to arbitrary accuracy given a
+sufficiently large number of neurons and layers (although in practice it is not so
+straightforward).
+</p>
+<figure class="figure">
+<!--  l. 169  --><p class="noindent" id="left-a-single-perceptron-and-right-a-neural-network-built-using-multiple-layers-of-perceptrons-mlps"><img alt="PIC" src="figures/03-ML/perceptron.png" style="max-width:49%"/> <img alt="PIC" src="figures/03-ML/nn.png" style="max-width:49%"/> <a id="x39-144002r3"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 7.3. </span></span><span class="content">(Left) a single perceptron and (right) a neural network built using
+multiple layers of perceptrons (MLPs).                                          </span></figcaption><!--  tex4ht:label?: x39-144002r3   -->
+</figure>
+<!--  l. 175  --><p class="indent">       Another key characteristic of ANNs is their ability to learn hierarchical
+representations of the data, with each layer, in principle, learning progressively
+more abstract features from the previous layer’s output. Intelligently designed
+“deep” networks with many layers can hence learn powerful, nonlinear, high-level
+representations of the high-dimensional input data, which can then be used to perform
+the desired task (assuming enough data and computing power to train them effectively).
+This is why this subfield of ML is also sometimes referred to as <i>representation learning</i>.
+As we discuss in Section <a href="#the-importance-of-being-physicsinformed">7.1.4<!--  tex4ht:ref: sec:03_ml_physics   --></a>, it is thus crucial to use representations and design
+architectures well-suited to the data and task at hand; naively adopting a specific
+architecture or input representation from another domain may not lead to the most
+optimal feature learning.
+</p>
+<h5 class="subsubsectionHead" id="backpropagation"><a id="x39-145000"></a>Backpropagation</h5>
+<!--  l. 183  --><p class="noindent">Part of the effectiveness and popularity of DNNs is due to the backpropagation
+algorithm [<a href="Bibliography.html#Xrumelhart1986learning">214</a>], which allows for efficient training of arbitrarily deep networks.
+Backpropagation is, essentially, the repeated application of the chain rule of calculus to
+iteratively propagate gradients of the loss function backwards through the network. For
+a simple two-layer network, for example: </p><table class="equation"><tr><td>
+<!--  l. 186  --><p class="indent">
+</p><!--  l. 186  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x39-145001r6"></mstyle><!--  endlabel  -->
+<mi>f</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-rel" stretchy="false">|</mo><mi>w</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>b</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>σ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup> <mo class="MathClass-bin" stretchy="false">⋅</mo> <mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>σ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup> <mo class="MathClass-bin" stretchy="false">⋅</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-bin" stretchy="false">+</mo><msup><mrow> <mstyle mathvariant="bold"><mi>b</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">+</mo><msup><mrow> <mstyle mathvariant="bold"><mi>b</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(7.1.6)</td></tr></table>
+<!--  l. 189  --><p class="noindent">where the superscript denotes the layer of the network, the gradient of the loss function
+<!--  l. 190  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi></math> with
+respect to <!--  l. 190  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></math>
+is: </p><table class="equation"><tr><td>
+<!--  l. 191  --><p class="indent">
+</p><!--  l. 191  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x39-145002r7"></mstyle><!--  endlabel  -->
+<mfrac>
+<mrow>
+<mi mathvariant="italic">∂L</mi></mrow>
+<mrow>
+<mi>∂</mi><msup><mrow><mi>w</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow></mfrac>
+<mo class="MathClass-rel" stretchy="false">=</mo><munder class="msub"><mrow><munder accentunder="false"><mrow> <mfrac><mrow><mi mathvariant="italic">∂L</mi></mrow>
+<mrow>
+<mi mathvariant="italic">∂f</mi></mrow></mfrac> <mfrac><mrow><mi mathvariant="italic">∂f</mi></mrow>
+<mrow>
+<mi>∂</mi><msup><mrow><mi>σ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow></mfrac> <mfrac>
+<mrow>
+<mi>∂</mi><msup><mrow><mi>σ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow>
+<mrow>
+<mi>∂</mi><msup><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow></mfrac></mrow><mo>⏟</mo></munder> </mrow><mrow> <mfrac><mrow><mi mathvariant="italic">∂L</mi></mrow>
+<mrow>
+<mi>∂</mi><msup><mrow><mi>w</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow></mfrac> </mrow></munder><munder class="msub"><mrow><munder accentunder="false"><mrow> <mfrac>
+<mrow>
+<mi>∂</mi><msup><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow>
+<mrow>
+<mi>∂</mi><msup><mrow><mi>σ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow></mfrac> <mfrac>
+<mrow>
+<mi>∂</mi><msup><mrow><mi>σ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow>
+<mrow>
+<mi>∂</mi><msup><mrow><mstyle mathvariant="bold"><mi>w</mi></mstyle></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow></mfrac></mrow><mo>⏟</mo></munder> </mrow><mrow><mfrac><mrow><mi>∂</mi><msup><mrow><mi>w</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow>
+<mrow>
+<mi>∂</mi><msup><mrow><mi>w</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow></mfrac> </mrow></munder><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(7.1.7)</td></tr></table>
+<!--  l. 195  --><p class="noindent">This tells us that <!--  l. 196  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mfrac><mrow><mi mathvariant="italic">∂L</mi></mrow>
+<mrow>
+<mi>∂</mi><msup><mrow><mi>w</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow></mfrac></mrow></math>
+can be computed using the gradient with respect to
+<!--  l. 196  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>w</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></math> —
+which needs to be calculated anyway — and, more generally, by walking backwards
+through the network operations and taking the product of the derivatives at each
+step. This simple but powerful idea scales well to large and diverse network
+architectures, and is why huge DNNs can be trained effectively with relative
+ease.
+</p><!--  l. 199  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="convolutional-neural-networks"><a id="x39-146000"></a>Convolutional neural networks</h5>
+<!--  l. 201  --><p class="noindent">We now walk through some popular ANN architectures, starting with CNNs. CNNs are
+a type of NN designed to process grid-like data and, particularly, images. They
+contributed the first major breakthrough in DL by achieving impressive performances in
+computer vision tasks, with models such as AlexNet [<a href="Bibliography.html#Xkrizhevsky2012imagenet">216</a>] in 2012 and ResNet [<a href="Bibliography.html#Xhe2016deep">217</a>] in
+2016.
+</p><!--  l. 205  --><p class="indent">       A single CNN convolutional layer convolves a set of discrete “kernels”
+(essentially, learnable matrices) through the input image or data (Figure <a href="#schematic-of-a-convolutional-neural-network-reproduced-from-ref-iulianaconvolutional">7.4<!--  tex4ht:ref: fig:03_ml_cnn   --></a>), each of
+which detect useful features such as edges or textures. A CNN comprises multiple
+                                                                                
+
+                                                                                
+convolutional layers, interspersed with operations such as pooling or compression to
+reduce the spatial dimensions of the data, and then typically MLPs at the end as in
+Figure <a href="#schematic-of-a-convolutional-neural-network-reproduced-from-ref-iulianaconvolutional">7.4<!--  tex4ht:ref: fig:03_ml_cnn   --></a> to produce the final output.
+</p>
+<figure class="figure">
+<!--  l. 211  --><p class="noindent" id="schematic-of-a-convolutional-neural-network-reproduced-from-ref-iulianaconvolutional"><img alt="PIC" src="figures/06-ML4Jets/equivariantnns/sensors-19-04933-g001.png" style="max-width:100%"/> <a id="x39-146001r4"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 7.4.  </span></span><span class="content">Schematic  of  a  convolutional  neural  network,  reproduced  from
+Ref. [<a href="Bibliography.html#Xiuliana2019convolutional">50</a>].                                                                       </span></figcaption><!--  tex4ht:label?: x39-146001r4   -->
+</figure>
+<h5 class="subsubsectionHead" id="graph-neural-networks"><a id="x39-147000"></a>Graph neural networks</h5>
+<!--  l. 219  --><p class="noindent">GNNs are designed for graph-structured data, such as social networks or molecular
+structures. They are also useful for operating on <i>point clouds</i>: sets of unordered data
+points in some space, which we argue in Section <a href="#the-importance-of-being-physicsinformed">7.1.4<!--  tex4ht:ref: sec:03_ml_physics   --></a> are the perfect data structures for
+representing particles in an event or hits in a detector. This is why GNNs have been
+extremely successful in HEP, generally outperforming standard MLP or CNN
+approaches.
+</p><!--  l. 223  --><p class="indent">       The idea behind GNNs is to learn representations per-node or per-edge, based on
+information aggregated from their neighbors. Some generic methods to do so
+include local graph convolutions — similar to CNNs, but with graph-based
+kernels; and message-passing neural networks (MPNNs), which deliver and
+aggregate learned messages between nodes. An example of an MPNN is shown in
+Figure <a href="#schematic-of-a-message-passing-graph-neural-network">7.5<!--  tex4ht:ref: fig:03_ml_gnn   --></a>, and is the basis for a novel GNN generative model introduced in
+Chapter <span class="ec-lmbx-12">??</span>.
+</p>
+<figure class="figure">
+<!--  l. 230  --><p class="noindent" id="schematic-of-a-message-passing-graph-neural-network"> <img alt="PIC" src="figures/06-ML4Jets/equivariantnns/mpnn_box_line-.png" style="max-width:70%"/> <a id="x39-147001r5"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 7.5. </span></span><span class="content">Schematic of a message passing graph neural network.             </span></figcaption><!--  tex4ht:label?: x39-147001r5   -->
+</figure>
+<h5 class="subsubsectionHead" id="attention-and-transformers"><a id="x39-148000"></a>Attention and transformers</h5>
+<!--  l. 238  --><p class="noindent">The final architecture we discuss is the transformer, introduced in 2017 [<a href="Bibliography.html#Xvaswani2017attention">218</a>], which is
+the powerhouse behind the recent revolution in natural language processing (NLP) and
+AI chatbots such as GPT-3 [<a href="Bibliography.html#Xbrown2020language">219</a>] and its successors. Transformers are built around the
+idea of <i>attention</i>, which encourages the model to learn to attend to different parts of an
+input set or sequence in each layer.
+</p><!--  l. 241  --><p class="indent">       Explicitly, each element, or node’s, features in the input set are first embedded via MLPs
+into <i>key</i> (<!--  l. 241  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math>)
+and <i>value</i> (<!--  l. 241  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>V</mi> </mrow></math>)
+pairs, while each node in the output set is embedded into a <i>query</i>
+(<!--  l. 241  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>Q</mi></math>).
+The attention mechanism is then defined as: </p><table class="equation"><tr><td>
+<!--  l. 243  --><p class="indent">
+</p><!--  l. 243  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x39-148001r8"></mstyle><!--  endlabel  -->
+<mi>A</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>Q</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>K</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>V</mi> <mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="normal"><mi>softmax</mi></mstyle> <mrow><mo fence="true" form="prefix">(</mo><mrow><mfrac><mrow><mi>Q</mi><msup><mrow><mi>K</mi></mrow><mrow><mi>T</mi> </mrow></msup></mrow>
+<mrow>
+<msqrt>
+<mrow><msub><mrow>
+<mi>d</mi></mrow><mrow><mi>k</mi></mrow></msub></mrow></msqrt>
+</mrow>
+</mfrac> </mrow><mo fence="true" form="postfix">)</mo></mrow> <mi>V</mi><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(7.1.8)</td></tr></table>
+<!--  l. 246  --><p class="noindent">where <!--  l. 247  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>d</mi></mrow><mrow><mi>k</mi></mrow></msub></math> is the dimension of
+the keys and queries, and <!--  l. 247  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="normal"><mi>softmax</mi></mstyle> <mrow><mo fence="true" form="prefix">(</mo><mrow><mfrac><mrow><mi>Q</mi><msup><mrow><mi>K</mi></mrow><mrow><mi>T</mi></mrow></msup></mrow>
+<mrow>
+<msqrt>
+<mrow><msub><mrow>
+<mi>d</mi></mrow><mrow><mi>k</mi></mrow></msub></mrow></msqrt>
+</mrow>
+</mfrac> </mrow><mo fence="true" form="postfix">)</mo></mrow></math>
+are the “attention scores” between each pair of input and output nodes. This output
+<!--  l. 248  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math> is
+finally used to update the features of the output nodes. Figure <a href="#schematic-of-set-selfattention">7.6<!--  tex4ht:ref: fig:04_gapt_attention   --></a> shows a schematic of
+the special case of <i>self-attention</i>, in which the input set is also the output
+set; i.e., each node’s features are updated based on the features of all other
+nodes.
+</p><!--  l. 251  --><p class="indent">       Transformers can be thought of as a type of fully-connected GNN, with
+attention a (particularly efficient) form of message-passing. They have proven
+extremely successful and durable in NLP and other sequence-based tasks, and are
+also gaining prominence in computer vision and HEP. We introduce two novel
+transformer-based models for jet simulations and tagging in Chapters <span class="ec-lmbx-12">??</span> and <span class="ec-lmbx-12">??</span>,
+respectively.
+</p>
+<figure class="figure">
+<!--  l. 258  --><p class="noindent" id="schematic-of-set-selfattention"> <img alt="PIC" src="figures/04-ML4Sim/igapt/attention-.png" style="max-width:100%"/> <a id="x39-148002r6"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 7.6. </span></span><span class="content">Schematic of set self-attention.                                    </span></figcaption><!--  tex4ht:label?: x39-148002r6   -->
+</figure>
+<h4 class="subsectionHead" id="the-importance-of-being-physicsinformed"><span class="titlemark">7.1.4   </span> <a id="x39-1490007.1.4"></a>The importance of being physics-informed</h4>
+<!--  l. 268  --><p class="noindent">The success of specific DNN models largely depends on the in-built <i>inductive biases</i> —
+assumptions or design choices — towards certain types of data. This is why it is
+important in HEP to build physics-informed models and representations that respect
+the symmetries and biases of our data. In this section, we outline the relevant properties
+of HEP data, such as jets and calorimeter showers, and the inductive biases
+of CNNs, GNNs, and transformers, arguing that the latter two are stronger
+fits.
+</p><!--  l. 272  --><p class="indent">       The power of CNNs, in addition to their ease of computation, comes from
+their biases towards natural images, namely: <i>translation invariance</i> — the
+same features are learned regardless of input translations — and <i>locality</i> — the
+convolution operation is inherently local in space, suited to the structure of
+natural images. This led to CNNs leading the DL revolution in the 2010s and
+achieving results on par with or surpassing human performance in computer
+vision.
+</p><!--  l. 275  --><p class="indent">       Consequently, this also led to early work in HEP applying CNNs to
+jets and calorimeter showers. Jets can, in principle, be represented as
+images by projecting the particle constituents onto a discretized angular
+                                                                                
+
+                                                                                
+<!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>η</mi></math>-<!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>
+plane, and taking the intensity of each “pixel” in this grid to be
+a monotonically increasing function of the corresponding particle
+<!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math> [<a href="Bibliography.html#XdeOliveira_2015xxd">220</a>]
+(Figure <a href="#examples-of-a-jet-left-and-calorimeter-shower-right-represented-as-d-and-d-images-respectively">7.7<!--  tex4ht:ref: fig:03_ml_jetshowerimage   --></a>, left). Showers can similarly be represented as 3D images of the energy
+deposited in the calorimeter cells (Figure <a href="#examples-of-a-jet-left-and-calorimeter-shower-right-represented-as-d-and-d-images-respectively">7.7<!--  tex4ht:ref: fig:03_ml_jetshowerimage   --></a>, right).
+</p><!--  l. 279  --><p class="indent">       At the time of the work of this dissertation, such image-based models were
+leading the field in tasks such as jet classification [<a href="Bibliography.html#XCMS_2020poo">221</a>] and shower generation [<a href="Bibliography.html#XATL-SOFT-PUB-2018-001">222</a>].
+However, we argue that, despite these early successes, CNNs and images are not
+ideal for the physics and structure of our data, due to HEP data’s following
+characteristics:
+</p>
+<dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+1. 
+</dt><dd class="enumerate-enumitem"><i>Sparsity</i>: particles in a jet and hits in the detector tend to be extremely sparse
+relative to the total angular momentum phase space and total number of cells,
+respectively. Indeed, we see in Figure <a href="#examples-of-a-jet-left-and-calorimeter-shower-right-represented-as-d-and-d-images-respectively">7.7<!--  tex4ht:ref: fig:03_ml_jetshowerimage   --></a> that the resulting “images” tend to
+be extremely sparse, with typically fewer than 10% of pixels nonempty [<a href="Bibliography.html#XQu_2019gqs">223</a>].
+</dd>
+<dt class="enumerate-enumitem">
+2. 
+</dt><dd class="enumerate-enumitem"><i>High  granularity</i>:  LHC  detectors  are  highly  granular,  which  means  the
+discretization process often lowers the spatial resolution (as with the ATLAS
+FastCaloGAN [<a href="Bibliography.html#XATL-SOFT-PUB-2018-001">222</a>]),  unless  the  pixels  are  chosen  to  exactly  match  the
+detector cells; however, this is often computationally intractable due to the
+large number of cells, and the property we describe next.
+                                                                                
+
+                                                                                
+</dd>
+<dt class="enumerate-enumitem">
+3. 
+</dt><dd class="enumerate-enumitem"><i>Irregular  geometry</i>:  jets  and  showers  are  not  naturally  square  grid-like
+objects, and must be made to conform to this structure for use with CNNs.
+This is again often intractable or, at best, suboptimal.
+</dd>
+<dt class="enumerate-enumitem">
+4. 
+</dt><dd class="enumerate-enumitem"><i>Global structure</i>: jets and particle showers each originate from a single or
+small set of sources, which leads to global correlations between the final-state
+particles and hits, independent of the spatial distance between them, that
+are vital to understanding the underlying physics.</dd></dl>
+<!--  l. 289  --><p class="noindent">Properties 1–3 strongly suggest that HEP data is not conducive to image-based representations.
+This is exemplified by the upcoming CMS HGCAL (Chapter <a href="ThePhase2Upgrade.html#hgcal">6.5.4<!--  tex4ht:ref: sec:02_cms_hgcal   --></a>): its high granularity,
+sparsity, hexagonal geometry, and non-uniform cell sizes all make HGCAL showers
+extremely challenging to represent as an image. Finally, Property 4 implies that local
+operations such as convolutions are ill-suited to the global structure of our
+data.
+</p>
+<figure class="figure">
+<!--  l. 295  --><p class="noindent" id="examples-of-a-jet-left-and-calorimeter-shower-right-represented-as-d-and-d-images-respectively"><img alt="PIC" src="figures/03-ML/jetimage.png" style="max-width:30%"/>                <img alt="PIC" src="figures/03-ML/caloimage.png" style="max-width:38%"/> <a id="x39-149005r7"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 7.7. </span></span><span class="content">Examples of a jet (left) and calorimeter shower (right) represented
+as 2D and 3D images, respectively.                                              </span></figcaption><!--  tex4ht:label?: x39-149005r7   -->
+</figure>
+<!--  l. 302  --><p class="indent">       In contrast, GNNs and transformers are naturally: <i>sparse</i> — only the particles or
+hits need be represented, rather than a dense grid of mostly empty pixels; and <i>flexible</i> to
+the underlying geometry and granularity. Moreover, they are <i>permutation invariant</i> —
+learned features are independent of the order of the inputs, which means there is no
+need to impose an artificial ordering on particles or hits (as opposed to with an MLP,
+for example).
+</p><!--  l. 305  --><p class="indent">       Finally, in the case of GNNs, the graph topology (i.e. the connections between
+nodes) can be tuned or even learned to reflect the physical nature of the data. For
+example, for local data, such as 3D point clouds of natural objects, connections can be
+defined based on the Euclidean distance between points, while in the case of jets or
+particle showers in a calorimeter, we can choose a fully-connected topology to
+reflect their global correlations (as we emphasize in Chapter <span class="ec-lmbx-12">??</span>). The attention
+mechanism in transformers is by definition fully connected, and hence well-suited as
+well.
+</p><!--  l. 309  --><p class="indent">       This is why we advocate for point-cloud representations and GNN and transformer
+models as natural choices for HEP data. Indeed, major contributions of this dissertation
+are the development of the first point-cloud based generative models for jet simulations
+(Chapter <span class="ec-lmbx-12">??</span>), which achieve breakthrough performance for an ML simulator in terms of
+accuracy and efficiency, and the first transformer-based jet tagging algorithm (Chapter <span class="ec-lmbx-12">??</span>)
+for <!--  l. 310  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+jet-tagging, powering a significant boost in the sensitivity of the
+                                                                                
+
+                                                                                
+<!--  l. 310  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+search. Finally, in Chapter <span class="ec-lmbx-12">??</span>, we push the inductive biases of ML models
+further by incorporating <i>equivariance</i> to Lorentz-symmetries, as we introduce
+next.
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="MachineLearningforHEP.html">⭠</a> <a href="Equivariantneuralnetworks.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>
