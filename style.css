@@ -50,7 +50,7 @@ main{
 @media screen and (min-width: 50rem) {
   body{
     display: grid;
-    grid-template-columns: 17rem 1fr;
+    grid-template-columns: 20rem 1fr;
     max-width: 65rem;
   }
   main.main-content, div.footnote-text, div.maketitle{
@@ -136,7 +136,7 @@ nav.TOC a, nav.TOC a:visited{
 /* ************** */
 
 
-body{background-color:#001d3d;}
+body{background-color:#780000;}
 
 main.main-content, div.maketitle{
   background-color:white;

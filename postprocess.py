@@ -14,14 +14,13 @@ def edit_file(file_path: Path, edit_function: callable):
 
 def edit_main(soup: BeautifulSoup):
     # move the title and abstract inside the main content
-    maketitle_div = soup.find("div", {"class": "maketitle"})
-    date_div = maketitle_div.find("div", {"class": "date"})  # remove the date
-    date_div.decompose()
-
-    abstract_section = soup.find("section", {"class": "abstract"})
     main_content_main = soup.find("main", {"class": "main-content"})
+    
+    maketitle_div = soup.find("div", {"class": "maketitle"})
     main_content_main.insert(0, maketitle_div)
-    main_content_main.insert(1, abstract_section)
+
+    # abstract_section = soup.find("section", {"class": "abstract"})
+    # main_content_main.insert(1, abstract_section)
 
     # Remove the weird default "Next" link
     last_paragraph = main_content_main.find_all("p")[-1]

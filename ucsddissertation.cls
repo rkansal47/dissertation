@@ -498,13 +498,15 @@ command!}{Uh oh}}
 		\renewcommand\listofalgorithms{\listofalgorithm}%
 	\fi
 	\pretocmd\thebibliography{%
-		\clearpage
-		\setsinglespacing
-		\ifdefined\bibsep
-			\setlength\bibsep{\baselineskip}%
+		\unless\ifdefined\HCode
+			\clearpage
+			\setsinglespacing
+			\ifdefined\bibsep
+				\setlength\bibsep{\baselineskip}%
+			\fi
+			\csuse{phantomsection}%
+			\addcontentsline{toc}{chapter}{\bibname}%
 		\fi
-		\csuse{phantomsection}%
-		\addcontentsline{toc}{chapter}{\bibname}%
 	}{}{\ucsd@patchfailed}%
 }
 
