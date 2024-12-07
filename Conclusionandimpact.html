@@ -38,6 +38,9 @@ and iGAPT, which leverage the success of generative adversarial networks
 (GANs) in computer vision, but incorporate critical physical inductive biases
 of our data to achieve breakthrough performance in simulating high-energy
 jets. Specifically, they use permutation invariant graph- and attention-based
+                                                                                
+
+                                                                                
 architectures, respectively, to operate on point cloud representations of jets and model
 the interactions of their particle constituents and global correlations. In the
 case of iGAPT, we further introduce the novel “induced particle attention
@@ -49,9 +52,6 @@ of magnitude faster than traditional simulators.
 </p><!--  l. 468  --><p class="indent">       We also discussed the critical challenge of validating such models, to ensure trust
 in their applications in HEP. Several methods were reviewed and systematically
 evaluated, and the novel Fréchet and kernel physics distances (FPD and KPD)
-                                                                                
-
-                                                                                
 were introduced as efficient, interpretable, and highly sensitive metrics for
 evaluating generative models in HEP. Their performance, along with Wasserstein
 (<!--  l. 470  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>W</mi></mrow><mrow><mn>1</mn></mrow></msub></math>)
@@ -63,13 +63,16 @@ distances as effective metrics for evaluating fast simulators, and recommend the
 adoption by CMS and other collaborations in validating the next generation of
 simulators.
 </p><!--  l. 473  --><p class="indent">       This work has proven impactful in the HEP community, leading to
+                                                                                
+
+                                                                                
 several follow-up studies on point-cloud generative modeling in HEP using the
 <span class="small-caps">JetNet</span> dataset and our proposed evaluation metrics, benchmarked against
-MPGAN and iGAPT [<a href="Bibliography.html#XKach_2022qnf">361</a>–<a href="Bibliography.html#XJiang_2024ohg">371</a>]. <span class="small-caps">JetNet</span> and our metrics have been used to
+MPGAN and iGAPT [<a href="Bibliography.html#XKach_2022qnf">363</a>–<a href="Bibliography.html#XJiang_2024ohg">373</a>]. <span class="small-caps">JetNet</span> and our metrics have been used to
 develop and benchmark a variety of novel architectures such as diffusion and
-conditional flow-matching models [<a href="Bibliography.html#XMikuni_2023dvk">365</a>, <a href="Bibliography.html#XBuhmann_2023zgc">370</a>–<a href="Bibliography.html#XJiang_2024bwr">372</a>], foundation models [<a href="Bibliography.html#XMikuni_2024qsr">373</a>],
-equivariant models [<a href="Bibliography.html#XHao_2022zns">63</a>] and even quantum GNNs [<a href="Bibliography.html#XChen_2024rna">374</a>] on myriad applications
-including calorimeter and future detector simulations [<a href="Bibliography.html#XKrause_2024avx">375</a>, <a href="Bibliography.html#XAraz_2024bom">376</a>], anomaly
+conditional flow-matching models [<a href="Bibliography.html#XMikuni_2023dvk">367</a>, <a href="Bibliography.html#XBuhmann_2023zgc">372</a>–<a href="Bibliography.html#XJiang_2024bwr">374</a>], foundation models [<a href="Bibliography.html#XMikuni_2024qsr">375</a>],
+equivariant models [<a href="Bibliography.html#XHao_2022zns">65</a>] and even quantum GNNs [<a href="Bibliography.html#XChen_2024rna">376</a>] on myriad applications
+including calorimeter and future detector simulations [<a href="Bibliography.html#XKrause_2024avx">377</a>, <a href="Bibliography.html#XAraz_2024bom">378</a>], anomaly
 detection, and jet classification. Ongoing work explores the adoption of our
 metrics in the CMS release validation pipeline and our models for CMS fast
 simulation.

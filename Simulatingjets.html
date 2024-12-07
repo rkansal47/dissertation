@@ -47,15 +47,15 @@ jet.
 initial particle, which produces the jet, and outputting the final set of particles a.k.a. the
 jet constituents. Typically in HEP the parton shower and hadronization are steps that
 are simulated sequentially using MC event generators such as <span class="small-caps">pythia</span> [<span class="ec-lmbx-12">? </span>] or
-<span class="small-caps">herwig</span> [<a href="Bibliography.html#Xherwig">301</a>]. Simulating either process exactly is not possible because of
+<span class="small-caps">herwig</span> [<a href="Bibliography.html#Xherwig">303</a>]. Simulating either process exactly is not possible because of
 the nonperturbative nature of QCD at low energies, and instead these event
 generators fit simplified physics-inspired stochastic models, such as the Lund
 string model for hadronization [<span class="ec-lmbx-12">? </span>], to existing data using MC methods. The
+present work can be seen as an extension of this idea, using a simpler, ML-based
+model, also fitted to data, for generating the jet in one shot. Effectively, we are
                                                                                 
 
                                                                                 
-present work can be seen as an extension of this idea, using a simpler, ML-based
-model, also fitted to data, for generating the jet in one shot. Effectively, we are
 trading the interpretability of MC methods for the speed of GPU-accelerated ML
 generators.
                                                                                 

@@ -49,9 +49,9 @@ architectures composed of an <i>encoder</i> network, which maps the input into
 a typically lower dimensional latent space — called a “bottleneck” — and
 a <i>decoder</i>, which attempts to reconstruct the original input from the latent
 features (Figure <a href="#diagram-of-an-image-autoencoder-reproduced-from-ref-wengvae">7.11<!--  tex4ht:ref: fig:03_ml_autoencoder   --></a>). The bottleneck encourages AEs to learn a compressed
-representation of data that captures salient properties [<a href="Bibliography.html#Xautoencoders">238</a>], which can be
+representation of data that captures salient properties [<a href="Bibliography.html#Xautoencoders">240</a>], which can be
 valuable in HEP for compressing the significant volumes of data collected at the
-LHC [<a href="Bibliography.html#XGuglielmo">239</a>].
+LHC [<a href="Bibliography.html#XGuglielmo">241</a>].
 </p><!--  l. 504  --><p class="indent">       The learned representation can also be exploited for later downstream tasks, such
 as anomaly detection, where an autoencoder is trained to reconstruct data considered
 “background” to our signal, with the expectation that it will reconstruct the signal
@@ -59,18 +59,18 @@ worse than the background. Thus, examining the reconstruction loss of a trained
 autoencoder may allow the identification of anomalous data. This can be an advantage
 in searches for new physics, since instead of having to specify a particular signal
 hypothesis, a broader search can be performed for data incompatible with the
-background. This approach has been successfully demonstrated in Refs. [<a href="Bibliography.html#XHeimel_2018mkt">240</a>–<a href="Bibliography.html#XDillon-lower-dimension">248</a>]. Two
+background. This approach has been successfully demonstrated in Refs. [<a href="Bibliography.html#XHeimel_2018mkt">242</a>–<a href="Bibliography.html#XDillon-lower-dimension">250</a>]. Two
 recent exciting examples from CMS include a model-agnostic search for di-jet
-resonances with Run 2 data [<a href="Bibliography.html#XCMS-PAS-EXO-22-026">249</a>], which prominently uses AEs for multiple search
+resonances with Run 2 data [<a href="Bibliography.html#XCMS-PAS-EXO-22-026">251</a>], which prominently uses AEs for multiple search
 strategies, and a new AE-based online Level-1 trigger paths implemented in Run
-3 [<a href="Bibliography.html#XCMS-DP-2023-079">250</a>, <a href="Bibliography.html#XCMS-DP-2024-059">251</a>].
+3 [<a href="Bibliography.html#XCMS-DP-2023-079">252</a>, <a href="Bibliography.html#XCMS-DP-2024-059">253</a>].
                                                                                 
 
                                                                                 
 </p><!--  l. 510  --><p class="indent">       Furthermore, there are many possible variations to the general autoencoder
-framework for alternative tasks [<a href="Bibliography.html#XAE-review-1">252</a>, <a href="Bibliography.html#XAE-review-2">253</a>], such as variational autoencoders
-(VAEs) [<a href="Bibliography.html#XVAE">254</a>], which we discuss in the next section. While there have been some recent
-efforts at GNN-based autoencoder models [<a href="Bibliography.html#XTsan_2021brw">62</a>, <a href="Bibliography.html#XAtkinson_2021nlt">255</a>], in this dissertation, we present the
+framework for alternative tasks [<a href="Bibliography.html#XAE-review-1">254</a>, <a href="Bibliography.html#XAE-review-2">255</a>], such as variational autoencoders
+(VAEs) [<a href="Bibliography.html#XVAE">256</a>], which we discuss in the next section. While there have been some recent
+efforts at GNN-based autoencoder models [<a href="Bibliography.html#XTsan_2021brw">64</a>, <a href="Bibliography.html#XAtkinson_2021nlt">257</a>], in this dissertation, we present the
 first Lorentz-equivariant autoencoder for jets in Chapter <span class="ec-lmbx-12">??</span>. We focus on data
 compression and anomaly detection but note that our model can be extended to further
 applications, such as fast simulations in HEP.
@@ -105,23 +105,23 @@ result.
 </p><!--  l. 535  --><p class="indent">       Normalizing flows have a number of advantages, such as their simple and
 intuitive training objective — maximizing the likelihood of each data point — and a
 tractable likelihood evaluation. These have led to successful applications to density
-estimation and generation tasks in both computer vision [<a href="Bibliography.html#Xdinh2017density">256</a>, <a href="Bibliography.html#Xkingma2018glow">257</a>] and HEP [<a href="Bibliography.html#XKrause_2021ilc">258</a>].
+estimation and generation tasks in both computer vision [<a href="Bibliography.html#Xdinh2017density">258</a>, <a href="Bibliography.html#Xkingma2018glow">259</a>] and HEP [<a href="Bibliography.html#XKrause_2021ilc">260</a>].
 However, the constraint of invertible transformations with tractable Jacobians turns out
-to be extremely restrictive on the model design and expressivity in practice [<a href="Bibliography.html#Xfjelde2024flow">259</a>, <a href="Bibliography.html#Xhawley2024flow">260</a>],
+to be extremely restrictive on the model design and expressivity in practice [<a href="Bibliography.html#Xfjelde2024flow">261</a>, <a href="Bibliography.html#Xhawley2024flow">262</a>],
 generally resulting in worse performance on high-dimensional data compared to the
 models we discuss below. Recently, over the last year, a related (in spirit) class of
 models without the normalization constraint, called “flow-matching” models, have
 emerged with extremely promising and, in some cases, state-of-the-art (SOTA) results
-on images [<a href="Bibliography.html#Xliu2023flow">261</a>, <a href="Bibliography.html#Xlee2024improving">262</a>].
+on images [<a href="Bibliography.html#Xliu2023flow">263</a>, <a href="Bibliography.html#Xlee2024improving">264</a>].
 </p><!--  l. 540  --><p class="indent">       Another example of a likelihood-based model is the variational autoencoder
-(VAE) [<a href="Bibliography.html#XVAE">254</a>], which is structurally similar to an AE in that it has an encoder mapping
+(VAE) [<a href="Bibliography.html#XVAE">256</a>], which is structurally similar to an AE in that it has an encoder mapping
 an input data point into a latent representation, and a decoder mapped that back to the
 original. They key novelty, however, is that the latent space is encouraged through the
 loss function to follow a well-defined simple distribution to sample from — again,
 typically, a Gaussian. Explicitly, the VAE loss function is a combination of the
 reconstruction loss of a standard AE and the Kullback-Leibler divergence between the
 learned latent distribution and the assumed prior. Together, this can be shown to
-approximate the evidence lower bound (ELBO) of the true likelihood [<a href="Bibliography.html#XVAE">254</a>], which is
+approximate the evidence lower bound (ELBO) of the true likelihood [<a href="Bibliography.html#XVAE">256</a>], which is
 why VAEs are thought of as likelihood-based.
 </p><!--  l. 545  --><p class="indent">       VAEs were one of the early success stories in generative modeling, with a
                                                                                 
@@ -132,8 +132,8 @@ are restrictive, this time due to the strong assumption imposed on the latent sp
 which actually competes with the reconstruction objective, and which, if incorrect,
 limits the performance. Indeed, our early studies in HEP showed that the learned latent
 space of VAEs is manifestly non-Gaussian for jets, leading to suboptimal performance
-with a Gaussian latent prior [<a href="Bibliography.html#XOrzari_2023">263</a>]. This is why VAEs also generally yield poorer
-performance than <i>generative adversarial networks</i> (GANs) [<a href="Bibliography.html#XGoodfellow_2014upx">264</a>], which we discuss
+with a Gaussian latent prior [<a href="Bibliography.html#XOrzari_2023">265</a>]. This is why VAEs also generally yield poorer
+performance than <i>generative adversarial networks</i> (GANs) [<a href="Bibliography.html#XGoodfellow_2014upx">266</a>], which we discuss
 next.
 </p><!--  l. 550  --><p class="noindent">
 </p>
@@ -153,16 +153,16 @@ discriminator.
 </p><!--  l. 558  --><p class="indent">       GANs have an interesting game-theoretic interpretation as a minimax
 game, where the Nash equilibrium, or global optimum, is achieved through
 minimizing the Jensen-Shannon divergence between the real and generated data
-distributions [<a href="Bibliography.html#XGoodfellow_2014upx">264</a>]. Several variations of GANs have also been proposed, including the
-Wasserstein-GAN [<a href="Bibliography.html#Xarjovsky2017wasserstein">265</a>], which instead aims to minimize the Wasserstein distance
+distributions [<a href="Bibliography.html#XGoodfellow_2014upx">266</a>]. Several variations of GANs have also been proposed, including the
+Wasserstein-GAN [<a href="Bibliography.html#Xarjovsky2017wasserstein">267</a>], which instead aims to minimize the Wasserstein distance
 between the two distributions.
 </p><!--  l. 561  --><p class="indent">       Due to the adversarial nature of the training, GANs are notoriously difficult to
-train [<a href="Bibliography.html#Xarjovsky2017wasserstein">265</a>–<a href="Bibliography.html#Xmescheder2018training">268</a>]. However, their formulation poses no restrictions on the form of the
+train [<a href="Bibliography.html#Xarjovsky2017wasserstein">267</a>–<a href="Bibliography.html#Xmescheder2018training">270</a>]. However, their formulation poses no restrictions on the form of the
 generator while providing a powerful loss function and feedback mechanism. When
 trained successfully, this leads to expressive, flexible, and extremely successful
 generative models in a wide variety of domains. Indeed, at the time of the work of
-this dissertation, GANs were the SOTA in computer vision [<a href="Bibliography.html#Xkarras2019style">269</a>–<a href="Bibliography.html#Xkarras2020analyzing">271</a>] and
-had shown promising signs in HEP as well [<a href="Bibliography.html#XATL-SOFT-PUB-2018-001">222</a>, <a href="Bibliography.html#XPaganini_2017dwg">272</a><span class="ec-lmbx-12">? ? ? </span>, <a href="Bibliography.html#XATL-SOFT-PUB-2020-006">273</a>]. However,
+this dissertation, GANs were the SOTA in computer vision [<a href="Bibliography.html#Xkarras2019style">271</a>–<a href="Bibliography.html#Xkarras2020analyzing">273</a>] and
+had shown promising signs in HEP as well [<a href="Bibliography.html#XATL-SOFT-PUB-2018-001">224</a>, <a href="Bibliography.html#XPaganini_2017dwg">274</a><span class="ec-lmbx-12">? ? ? </span>, <a href="Bibliography.html#XATL-SOFT-PUB-2020-006">275</a>]. However,
 as we highlight below, there had been no successful application of GANs, or
 indeed any generative model, to point cloud data and GNNs or transformers in
 HEP.
@@ -170,7 +170,7 @@ HEP.
 </p>
 <h5 class="subsubsectionHead" id="scorebased-diffusion-models"><a id="x41-161000"></a>Score-based diffusion models</h5>
 <!--  l. 569  --><p class="noindent">Finally, we briefly note the recent development in the past two years of a new class of
-generative models, called <i>diffusion</i> or <i>score-based</i> models [<a href="Bibliography.html#Xho2020denoising">274</a>, <a href="Bibliography.html#Xsong2021score">275</a>]. These models
+generative models, called <i>diffusion</i> or <i>score-based</i> models [<a href="Bibliography.html#Xho2020denoising">276</a>, <a href="Bibliography.html#Xsong2021score">277</a>]. These models
 iteratively “denoise” initial Gaussian noise into something resembling samples from the
 true data distribution; conceptually, this is related to diffusion in physical systems. The
 breakthrough with these models came from recognizing that, with the right learning
@@ -180,7 +180,7 @@ log-likelihood function, AKA the <i>score</i>.
 models, but without the restrictive constraints (as the score does not need to be
 normalized!), thereby offering the flexibility of a GAN along with a far more stable
 training procedure. This, combined with several innovations in training and inference
-techniques, has led to diffusion models surpassing GANs in computer vision [<a href="Bibliography.html#Xdhariwal2021diffusion">276</a>], and
+techniques, has led to diffusion models surpassing GANs in computer vision [<a href="Bibliography.html#Xdhariwal2021diffusion">278</a>], and
 showing promising signs over the last year in HEP as well (in part enabled by
 the work in this dissertation, as we discuss in Chapter <a href="Conclusionandimpact.html#conclusion-and-impact">12<!--  tex4ht:ref: sec:04_outlook   --></a>). However, so far,
 diffusion models remain computationally expensive, with inference naively
@@ -202,8 +202,8 @@ partly due to the work presented in this dissertation, as we discuss in Chapter�
 <h5 class="subsubsectionHead" id="generative-modeling-in-hep"><a id="x41-163000"></a>Generative modeling in HEP</h5>
 <!--  l. 587  --><p class="noindent">Past work in generative modeling in HEP exclusively used image-based representations for
 HEP data. The benefit of images is the ability to employ CNN-based generative models,
-which have been highly successful on computer vision tasks. References [<a href="Bibliography.html#XATL-SOFT-PUB-2018-001">222</a>, <a href="Bibliography.html#XPaganini_2017dwg">272</a><span class="ec-lmbx-12">? ? ?</span>
-, <a href="Bibliography.html#XATL-SOFT-PUB-2020-006">273</a>], for example, build upon CNN-based GANs, and Ref. [<a href="Bibliography.html#Xsarm">277</a>] uses an autoregressive
+which have been highly successful on computer vision tasks. References [<a href="Bibliography.html#XATL-SOFT-PUB-2018-001">224</a>, <a href="Bibliography.html#XPaganini_2017dwg">274</a><span class="ec-lmbx-12">? ? ?</span>
+, <a href="Bibliography.html#XATL-SOFT-PUB-2020-006">275</a>], for example, build upon CNN-based GANs, and Ref. [<a href="Bibliography.html#Xsarm">279</a>] uses an autoregressive
 model, to output jet- and detector-data-images.
 </p><!--  l. 592  --><p class="indent">       However, as highlighted in Section <a href="Introduction1.html#the-importance-of-being-physicsinformed">7.1.4<!--  tex4ht:ref: sec:03_ml_physics   --></a>, the high sparsity of the images can lead
 to training difficulties in GANs, while the irregular geometry of the data poses a
@@ -211,8 +211,8 @@ challenge for CNNs which require uniform matrices. While these challenges can
                                                                                 
 
                                                                                 
-be mitigated to an extent with techniques such as batch normalization [<a href="Bibliography.html#Xioffe2015batch">212</a>]
-and using larger/more regular pixels [<a href="Bibliography.html#XATL-SOFT-PUB-2020-006">273</a>], the approach we develop avoids
+be mitigated to an extent with techniques such as batch normalization [<a href="Bibliography.html#Xioffe2015batch">214</a>]
+and using larger/more regular pixels [<a href="Bibliography.html#XATL-SOFT-PUB-2020-006">275</a>], the approach we develop avoids
 both issues by generating particle-cloud-representations of the data, which are
 inherently sparse data structures and completely flexible to the underlying
 geometry.
@@ -228,7 +228,7 @@ Ref. [<a href="Bibliography.html#XDBLP_journals_corr_GadelhaMW17">56</a>].     
 </figure>
 <!--  l. 611  --><p class="indent">       Prior to this work, point cloud generative approaches had not yet been developed
 in HEP; however, there had been some work in computer vision, primarily for 3D
-objects like those from the ShapeNet dataset [<a href="Bibliography.html#Xshapenet">278</a>]. As shown in Figure <a href="#sample-point-clouds-from-the-shapenet-dataset-reproduced-from-ref-dblpjournalscorrgadelhamw">7.13<!--  tex4ht:ref: fig:03_ml_shapenet   --></a>, ShapeNet
+objects like those from the ShapeNet dataset [<a href="Bibliography.html#Xshapenet">280</a>]. As shown in Figure <a href="#sample-point-clouds-from-the-shapenet-dataset-reproduced-from-ref-dblpjournalscorrgadelhamw">7.13<!--  tex4ht:ref: fig:03_ml_shapenet   --></a>, ShapeNet
 comprises point clouds derived by sampling everyday objects in position space, and are
 thus naively analogous to the particle cloud representations in momentum space we
 employ for jets. However, as we note next, there are important differences in the
@@ -255,17 +255,17 @@ type.
 of elements in some physical space, hence we first test existing point cloud GANs as
 baseline comparisons on <span class="small-caps">JetNet</span>. There are several published generative models in this
 area; however, the majority exploit inductive biases specific to their respective datasets,
-such as ShapeNet-based [<a href="Bibliography.html#Xpcgan">279</a>–<a href="Bibliography.html#XShapeGF">282</a>] and molecular [<a href="Bibliography.html#Xkohler20">283</a>–<a href="Bibliography.html#Xgschnet">285</a>] point clouds, which are not
+such as ShapeNet-based [<a href="Bibliography.html#Xpcgan">281</a>–<a href="Bibliography.html#XShapeGF">284</a>] and molecular [<a href="Bibliography.html#Xkohler20">285</a>–<a href="Bibliography.html#Xgschnet">287</a>] point clouds, which are not
 appropriate for jets. A more detailed discussion, including some experimental results,
 can be found in App. <span class="ec-lmbx-12">??</span>.
-</p><!--  l. 628  --><p class="indent">       There do exist some more general-purpose GAN models, namely r-GAN [<a href="Bibliography.html#Xrgan">286</a>],
-GraphCNN-GAN [<a href="Bibliography.html#Xgraphcnngan">287</a>], and TreeGAN [<a href="Bibliography.html#Xtreegan">288</a>], and we test these on <span class="small-caps">JetNet</span>. r-GAN uses a
+</p><!--  l. 628  --><p class="indent">       There do exist some more general-purpose GAN models, namely r-GAN [<a href="Bibliography.html#Xrgan">288</a>],
+GraphCNN-GAN [<a href="Bibliography.html#Xgraphcnngan">289</a>], and TreeGAN [<a href="Bibliography.html#Xtreegan">290</a>], and we test these on <span class="small-caps">JetNet</span>. r-GAN uses a
 fully-connected (FC) network, GraphCNN-GAN uses graph convolutions based on dynamic
 <!--  l. 629  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math>-nn
 graphs in intermediate feature spaces, and TreeGAN iteratively up-samples the
 graphs with information passing from ancestor to descendant nodes. In terms of
-discriminators, past work has used either an FC or a PointNet [<a href="Bibliography.html#Xpointnet">289</a>]-style network.
-Ref. [<a href="Bibliography.html#Xwang2020rethinking">290</a>] is the first work to study point cloud discriminator design in detail and
+discriminators, past work has used either an FC or a PointNet [<a href="Bibliography.html#Xpointnet">291</a>]-style network.
+Ref. [<a href="Bibliography.html#Xwang2020rethinking">292</a>] is the first work to study point cloud discriminator design in detail and
 finds amongst a number of PointNet and graph convolutional models that
 PointNet-Mix, which uses both max- and average-pooled features, is the most
 performant.

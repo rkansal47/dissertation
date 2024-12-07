@@ -41,21 +41,21 @@
 MMD, precision, and recall on high momentum gluon jets from the <span class="small-caps">JetNet</span> dataset. As
 discussed in Section <a href="Evaluationmetricsforgenerativemodels.html#evaluation-metrics-for-generative-models">11.1<!--  tex4ht:ref: sec:04_evaluating_metrics   --></a>, we test all metrics on two sets of features per jet: (i)
 physically meaningful high-level features and (ii) features derived from a pretrained
-classifier. We choose a set of 36 energy flow polynomials (EFPs) [<a href="Bibliography.html#XKomiske_2017aww">309</a>] (all
-                                                                                
-
-                                                                                
+classifier. We choose a set of 36 energy flow polynomials (EFPs) [<a href="Bibliography.html#XKomiske_2017aww">311</a>] (all
 EFPs of degree less than five) for the former, as they form a complete basis for
 all infrared- and collinear-safe observables. The classifier features are derived
-from the activations of the penultimate layer of the SOTA ParticleNet [<a href="Bibliography.html#XQu_2019gqs">223</a>]
+from the activations of the penultimate layer of the SOTA ParticleNet [<a href="Bibliography.html#XQu_2019gqs">225</a>]
 classifier, as described in Section <a href="MessagepassingGANs.html#message-passing-gans">10.1<!--  tex4ht:ref: sec:04_mpgan   --></a>. Finally, we test the binary classifier
-metric as in Refs. [<a href="Bibliography.html#Xkrause_caloflow">351</a>, <a href="Bibliography.html#Xcalochallenge">352</a>] using both ParticleNet directly on the low-level jet
+metric as in Refs. [<a href="Bibliography.html#Xkrause_caloflow">353</a>, <a href="Bibliography.html#Xcalochallenge">354</a>] using both ParticleNet directly on the low-level jet
 features and a two-layer fully connected network (FCN) on the high-level EFPs.
-We note that Refs. [<a href="Bibliography.html#Xkrause_caloflow">351</a>, <a href="Bibliography.html#Xcalochallenge">352</a>] do not provide a recipe for measuring the null
+We note that Refs. [<a href="Bibliography.html#Xkrause_caloflow">353</a>, <a href="Bibliography.html#Xcalochallenge">354</a>] do not provide a recipe for measuring the null
 distribution, instead relying on direct comparisons between area under the
 curve (AUC) values, which is a limitation of this classifier-based metric. We
 first describe the dataset and tested distortions, and then the experimental
 results.
+                                                                                
+
+                                                                                
 </p><!--  l. 300  --><p class="noindent">
 </p>
 <h5 class="subsubsectionHead" id="dataset"><a id="x56-253000"></a>Dataset</h5>

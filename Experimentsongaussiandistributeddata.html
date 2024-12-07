@@ -39,9 +39,6 @@
 <!--  l. 170  --><p class="noindent">As a first test and filtering of the many metrics discussed, we evaluate each metric’s
 performance on simple 2D (mixture of) Gaussian-distributed datasets. Below, we
 describe the specific metrics tested, the distributions we evaluate, and experimental
-                                                                                
-
-                                                                                
 results.
 </p><!--  l. 174  --><p class="noindent">
 </p>
@@ -49,6 +46,9 @@ results.
 <a id="x55-247000doc"></a>
 <!--  l. 177  --><p class="noindent">We test several metrics discussed in Section <a href="Evaluationmetricsforgenerativemodels.html#evaluation-metrics-for-generative-models">11.1<!--  tex4ht:ref: sec:04_evaluating_metrics   --></a>, with implementation details provided
 below. Values are measured for different numbers of test samples, using the mean of five
+                                                                                
+
+                                                                                
 measurements each and their standard deviation as the error, for all metrics but
 <!--  l. 178  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math> and
 MMD. The sample size was increased until the metric was observed to have converged,
@@ -60,12 +60,9 @@ Appendix <span class="ec-lmbx-12">??</span>.
 <dl class="enumerate-enumitem"><dt class="enumerate-enumitem">   
 1. 
 </dt><dd class="enumerate-enumitem"><strong>Wasserstein distance</strong> is estimated by solving the linear program described
-in, for example, Ref. [<a href="Bibliography.html#Xbertsimas_linearopt">359</a>], using the Python optimal transport library [<a href="Bibliography.html#Xflamary_pot">360</a>].
+in, for example, Ref. [<a href="Bibliography.html#Xbertsimas_linearopt">361</a>], using the Python optimal transport library [<a href="Bibliography.html#Xflamary_pot">362</a>].
 </dd>
 <dt class="enumerate-enumitem">
-                                                                                
-
-                                                                                
 2. 
 </dt><dd class="enumerate-enumitem"><!--  l. 185  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="bold"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math>
 is calculated by measuring FGD for 10 batch sizes, between a minimum
@@ -75,9 +72,12 @@ performed of the FGD as a function of the reciprocal of the batch size, and
 is defined to be the <!--  l. 186  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math>
 intercept—it, thus, corresponds to the infinite batch size limit. The error
 is taken to be the standard error of the intercept. This closely follows the
-recommendation of Ref. [<a href="Bibliography.html#Xchong_unbiasedfid">343</a>], except empirically we find it necessary to
+recommendation of Ref. [<a href="Bibliography.html#Xchong_unbiasedfid">345</a>], except empirically we find it necessary to
 increase the minimum batch size from 5,000 to 20,000 and to use the average
 of 20 measurements at each batch size in the linear fit, in order to obtain
+                                                                                
+
+                                                                                
 <!--  l. 189  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math>
 intervals with <!--  l. 189  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">&gt;</mo></mrow></math>68%
 coverage of the true value.<span class="footnote-mark"><a href="#fn56x12" id="fn56x12-bk"><sup class="textsuperscript">4</sup></a></span><a id="x55-247003f4"></a>
@@ -85,7 +85,7 @@ coverage of the true value.<span class="footnote-mark"><a href="#fn56x12" id="fn
 <dt class="enumerate-enumitem">
 3. 
 </dt><dd class="enumerate-enumitem"><strong>MMD</strong> is calculated using the unbiased quadratic time estimator defined in
-Ref. [<a href="Bibliography.html#Xgretton_mmd">329</a>]. We test 3rd (as in KID) and 4th order polynomial kernels. We
+Ref. [<a href="Bibliography.html#Xgretton_mmd">331</a>]. We test 3rd (as in KID) and 4th order polynomial kernels. We
 find MMD measurements to be extremely sensitive to outlier sets of samples,
 hence we use the median of 10 measurements each per sample size as our
 estimates, and half the difference between the 16th and 84th percentile as
@@ -93,15 +93,12 @@ the error. We find empirically that this interval has 74% coverage of the true
 value when testing on the true distribution.
 </dd>
 <dt class="enumerate-enumitem">
-                                                                                
-
-                                                                                
 4. 
-</dt><dd class="enumerate-enumitem"><strong>Precision and recall</strong> [<a href="Bibliography.html#Xkynkaanniemi_pr">347</a>] and
+</dt><dd class="enumerate-enumitem"><strong>Precision and recall</strong> [<a href="Bibliography.html#Xkynkaanniemi_pr">349</a>] and
 </dd>
 <dt class="enumerate-enumitem">
 5. 
-</dt><dd class="enumerate-enumitem"><strong>Diversity     and     coverage</strong> [<a href="Bibliography.html#Xnaeem_dc">348</a>]     are     both     calculated     using
+</dt><dd class="enumerate-enumitem"><strong>Diversity     and     coverage</strong> [<a href="Bibliography.html#Xnaeem_dc">350</a>]     are     both     calculated     using
 the recommendations of their respective authors, apart from the maximum
 batch size, which we vary.</dd></dl>
 <!--  l. 198  --><p class="noindent">
@@ -175,7 +172,7 @@ kernel for MMD is shown as it proved most sensitive. We see that indeed
 and MMD are effectively unbiased, while the values of others depend on the
 sample size. This is a significant drawback; even if the same number of samples
 is specified for each metric to mitigate the effect of the bias, as discussed in
-Ref. [<a href="Bibliography.html#Xchong_unbiasedfid">343</a>], in general there is no guarantee that the level of bias <i>for a given
+Ref. [<a href="Bibliography.html#Xchong_unbiasedfid">345</a>], in general there is no guarantee that the level of bias <i>for a given
 sample size</i> is the same across different distributions. One possible solution is
 to use a sufficiently large number of samples to ensure convergence within a
 certain percentage of the true value. However, from a practical standpoint,
@@ -275,7 +272,7 @@ forward.
 </p>
 <nav class="crosslinks-bottom"> <a href="Evaluationmetricsforgenerativemodels.html">⭠</a> <a href="Experimentsonjetdata.html">⭢</a> </nav> <div class="footnotes"><a id="x55-247004x4"></a>
 <!--  l. 189  --><p class="noindent"><span class="footnote-mark"><a href="#fn56x12-bk" id="fn56x12"><sup class="textsuperscript">4</sup></a></span><span class="ec-lmr-10">The tests of coverage are performed on the jet distributions described in Section </span><a href="Experimentsonjetdata.html#experiments-on-jet-data"><span class="ec-lmr-10">11.3</span><!--  tex4ht:ref: sec:04_evaluating_jetdata   --></a><span class="ec-lmr-10">, with
-the true FGD estimated as the FGD between batch sizes of 150,000, similar to Ref. [</span><a href="Bibliography.html#Xchong_unbiasedfid"><span class="ec-lmr-10">343</span></a><span class="ec-lmr-10">].</span></p><a id="x55-251002x"></a>
+the true FGD estimated as the FGD between batch sizes of 150,000, similar to Ref. [</span><a href="Bibliography.html#Xchong_unbiasedfid"><span class="ec-lmr-10">345</span></a><span class="ec-lmr-10">].</span></p><a id="x55-251002x"></a>
 <!--  l. 250  --><p class="indent"> <span class="footnote-mark"><a href="#fn57x12-bk" id="fn57x12"><sup class="textsuperscript">5</sup></a></span><span class="ec-lmr-10">We note that this is not necessarily the case, particularly for the Wasserstein distance,
 which has a biased estimator. However, this is not a significant limitation, because, as can be seen in
 Table </span><a href="#values-significances-and-errors-of-metrics-as-defined-in-sectionref-secevaluatingtoydata-for-each-mixture-of-gaussian-distributions-for-the-largest-sample-size-tested"><span class="ec-lmr-10">11.1</span><!--  tex4ht:ref: tab:04_evaluating_toy_results   --></a><span class="ec-lmr-10">, there is rarely a significant overlap between the null and alternative distributions which

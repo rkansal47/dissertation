@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Introduction</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="chapterToc">13 <a href="BoostedHiggsidentification.html#boosted-higgs-identification">Boosted Higgs identification</a></span>
+<span class="chapterToc">14                            <a href="HighenergyHHsearchesintheallhadronicbbVVchannel.html#high-energy-h-h-searches-in-the-allhadronic-bbvv-channel">High                            energy
+<!--  l. 406  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+searches in the all-hadronic bbVV channel</a></span>
+<span class="sectionToc">14.1 <a href="#introduction2">Introduction</a></span>
+<span class="sectionToc">14.2 <a href="Overviewofanalysisstrategy.html#overview-of-analysis-strategy">Overview of analysis strategy</a></span>
+<span class="sectionToc">14.3 <a href="EventSelection.html#event-selection">Event Selection</a></span>
+<span class="sectionToc">14.4 <a href="Backgroundestimation.html#background-estimation">Background estimation</a></span>
+<span class="sectionToc">14.5 <a href="Systematicuncertainties.html#systematic-uncertainties">Systematic uncertainties</a></span>
+<span class="sectionToc">14.6 <a href="Results.html#results4">Results</a></span>
+<span class="sectionToc">14.7 <a href="SummaryandOutlook.html#summary-and-outlook">Summary and Outlook</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="HighenergyHHsearchesintheallhadronicbbVVchannel.html">⭠</a> <a href="Overviewofanalysisstrategy.html">⭢</a> </nav>
+<h3 class="sectionHead" id="introduction2"><span class="titlemark">14.1   </span> <a id="x66-26600014.1"></a>Introduction</h3>
+<!--  l. 17  --><p class="noindent">We now present two searches for the simultaneous production of two highly energetic
+Higgs bosons using the CMS detector at the LHC and the AI developments
+described in the previous chapter. The first search targets <strong>nonresonant</strong> Higgs pair
+(<!--  l. 18  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>)
+production as predicted by the standard model (SM) to measure critical SM parameters;
+while the second looks for <strong>resonant</strong> Higgs (H) and Higgs-like (Y) production resulting
+from new beyond-SM (BSM) particles (X) in the high energy Higgs sector,
+to explain mysteries such as the hierarchy problem and matter-antimatter
+asymmetry.
+                                                                                
+
+                                                                                
+</p><!--  l. 20  --><p class="indent">       In the SM, <!--  l. 20  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+production is expected to be an extremely rare process: out of the 1,000,000,000,000,000
+collisions observed by CMS in Run 2 of the LHC, only 6000 of them are expected to
+produce two Higgs bosons. On top of that, the each Higgs decays into a variety of
+different particles, or “final states”, splintering the signal further into myriad different
+experimental signatures, or “channels” (shown in Figure <a href="TheHiggssector.html#h-h-decays-and-their-respective-branching-fractions-reproduced-from-ref-veatchuzz">4.24<!--  tex4ht:ref: fig:05_hhbrs   --></a>).
+</p><!--  l. 23  --><p class="indent">       However, as detailed in Chapter <a href="TheHiggssector.html#the-higgs-sector">4.3<!--  tex4ht:ref: sec:01_higgs   --></a>, its measurement can uniquely probe the Higgs trilinear
+self- (<!--  l. 23  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>c</mi></mrow><mrow><mi>λ</mi></mrow></msub></math>) and quartic
+two-vector-boson- (<!--  l. 23  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn><mi>V</mi> </mrow></msub></math>)
+couplings, the former being critical to understanding the Higgs potential and the nature of
+electroweak symmetry breaking. Indeed, this is why it is considered one of the flagship
+measurements of the CMS and ATLAS experiments’ HL-LHC programs. Due to the rarity
+of <!--  l. 25  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+production, the current measurements of these couplings are some of our least precise, with
+<!--  l. 25  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>c</mi></mrow><mrow><mi>λ</mi></mrow></msub></math> constrained
+to <!--  l. 25  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mo class="MathClass-bin" stretchy="false">−</mo><mn>1.39</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>7.02</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> and
+<!--  l. 25  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn><mi>V</mi> </mrow></msub></math> to
+<!--  l. 25  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">[</mo><mn>0.62</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>1.42</mn><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> times their SM
+prediction at <!--  l. 25  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>95</mn><mi>%</mi></mrow></math>
+confidence level (CL) by CMS [<a href="Bibliography.html#XCMS-PAS-HIG-20-011">32</a>]. This calls for new, innovative techniques to cover the vast
+phase space of <!--  l. 26  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+decays.
+                                                                                
+
+                                                                                
+</p><!--  l. 28  --><p class="indent">       This chapter presents one such idea, measuring for the first time the all-hadronic
+<!--  l. 28  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+channel: where one Higgs decays into a pair of bottom quarks
+(<!--  l. 28  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>), and the other into a pair
+of vector bosons (<!--  l. 28  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>), which
+then decay into four quarks (<!--  l. 28  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow></math>)
+(Figure <a href="HighenergyHHsearchesintheallhadronicbbVVchannel.html#the-boosted-h-h-b-b-v-v-q-left-and-x-h-b-b-y-v-v-q-right-processes">14.1<!--  tex4ht:ref: fig:05_hhbbvv   --></a>, left). While not a traditional “golden channel” (Chapter <a href="TheHiggssector.html#experimental-status-of-h-h-measurements-with-cms">4.3.3<!--  tex4ht:ref: sec:05_smhh_golden_channels   --></a>), due to its
+complicated and noisy experimental signature, by 1) targeting the extremely high energy
+<!--  l. 29  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+regime, where both Higgs bosons are produced highly Lorentz-boosted; and 2)
+exploiting and developing advanced ML techniques for identifying such boosted Higgs
+bosons (Chapter <a href="BoostedHiggsidentification.html#boosted-higgs-identification">13<!--  tex4ht:ref: sec:05_jet_tagging   --></a>), we are able to achieve competitive sensitivity to boosted
+<!--  l. 29  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math> production
+and the <!--  l. 29  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>c</mi></mrow><mrow><mn>2</mn><mi>V</mi> </mrow></msub></math>
+coupling.
+</p><!--  l. 32  --><p class="indent">       By measuring <!--  l. 32  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+production and couplings, especially in the boosted regime, the nonresonant search is
+also indirectly sensitive to new physics in the very high energy Higgs sector, which could
+manifest as deviations from SM predictions. To complement this, this chapter also
+presents a <i>resonant</i> search for direct evidence of such new physics, in the form of new
+particles in the Higgs sector: specifically, a heavy scalar X which can decay into a Higgs
+and Higgs-like boson Y, in the same final state (Figure <a href="HighenergyHHsearchesintheallhadronicbbVVchannel.html#the-boosted-h-h-b-b-v-v-q-left-and-x-h-b-b-y-v-v-q-right-processes">14.1<!--  tex4ht:ref: fig:05_hhbbvv   --></a>, right). As described in
+Chapter <a href="TheHiggssector.html#bsm-x-h-y-production">4.3.4<!--  tex4ht:ref: sec:05_bsmxhy   --></a>, such additions to the Higgs sector are motivated by a variety
+                                                                                
+
+                                                                                
+of BSM models, such as composite Higgs models, supersymmetry, and extra
+dimensions, to solve the matter-antimatter asymmetry and hierarchy problems. The
+<!--  l. 35  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> channel is
+particularly important for this search because for heavy Y boson masses, assuming SM Higgs-like
+couplings, the <!--  l. 35  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+decay modes are completely dominant (Figure <a href="TheHiggssector.html#higgs-branching-fractions-predicted-in-the-sm-as-a-function-of-mh-reproduced-from-refs-dittmaiervmlhchiggscrosssectionworkinggroupypw">4.18<!--  tex4ht:ref: fig:01_sm_higgs_hbrs   --></a>). Hence, the
+<!--  l. 36  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+channel is expected to have the highest branching fraction. The resonant search exploits
+the same techniques and developments as the nonresonant, but searches more broadly
+for excesses, or “bumps”, in the resonant di-Higgs mass spectrum corresponding to the
+mass of the new particle X.
+</p><!--  l. 40  --><p class="indent">       This chapter is organized as follows. Section <a href="Overviewofanalysisstrategy.html#overview-of-analysis-strategy">14.2<!--  tex4ht:ref: sec:05_analysis_strategy   --></a> outlines the analysis strategy
+for both searches, based on the ML techniques described in Chapter <a href="BoostedHiggsidentification.html#boosted-higgs-identification">13<!--  tex4ht:ref: sec:05_jet_tagging   --></a> for
+identifying boosted Higgs jets, before detailing the online and offline event
+selection for both the nonresonant and resonant searches in Section <a href="EventSelection.html#event-selection">14.3<!--  tex4ht:ref: sec:05_selection   --></a>. The
+background estimation strategy and systematic uncertainties are then described
+in Sections <a href="Backgroundestimation.html#background-estimation">14.4<!--  tex4ht:ref: sec:05_bgestimation   --></a> and <a href="Systematicuncertainties.html#systematic-uncertainties">14.5<!--  tex4ht:ref: sec:05_hh_systematics   --></a>, respectively, followed by the Run 2 results of the
+nonresonant and expected results of the resonant searches in Section <a href="Results.html#results4">14.6<!--  tex4ht:ref: sec:05_results   --></a>.
+Finally, we conclude in Section <a href="SummaryandOutlook.html#summary-and-outlook">14.7<!--  tex4ht:ref: sec:05_outlook   --></a> with a summary and outlook for boosted
+<!--  l. 44  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+analyses in Run 3 and the HL-LHC.
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="HighenergyHHsearchesintheallhadronicbbVVchannel.html">⭠</a> <a href="Overviewofanalysisstrategy.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

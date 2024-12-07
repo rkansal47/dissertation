@@ -43,6 +43,9 @@ effectively simulate point clouds in HEP, which have demonstrated promising
 results in both speed and quality. However, for an experimental collaboration to
 apply one of these techniques in real data analyses, we require methods to
 objectively compare the performance of different simulation techniques and
+                                                                                
+
+                                                                                
 extensively validate the produced simulations. This calls for the study and
 adoption of standard quantitative evaluation metrics for generative modeling in
 HEP.
@@ -54,20 +57,20 @@ inspired by both domains, we develop two novel metrics we call the Fréchet and 
 physics distances (FPD and KPD, respectively). We find them to collectively
 have excellent sensitivity to all tested data mismodeling, as well as to satisfy
 practical requirements for evaluation and comparison of generative models in
-                                                                                
-
-                                                                                
 HEP.
 </p><!--  l. 16  --><p class="indent">       We conclude our experiments by recommending the adoption of FPD and KPD,
 along with quantifying differences in individual feature distributions using the
 Wasserstein 1-distance, and demonstrate their use in evaluating the MPGAN and
 GAPT-based models. Implementations for the new metrics are provided in the <span class="small-caps">JetNet</span>
-library [<a href="Bibliography.html#Xkansal_jetnet_library">322</a>].
+library [<a href="Bibliography.html#Xkansal_jetnet_library">324</a>].
 </p><!--  l. 19  --><p class="indent">       This section is structured as follows. In Section <a href="Evaluationmetricsforgenerativemodels.html#evaluation-metrics-for-generative-models">11.1<!--  tex4ht:ref: sec:04_evaluating_metrics   --></a> we define our criteria for
 evaluation metrics in HEP and review existing metrics. We present results on the
 performance of these metrics on Gaussian-distributed synthetic toy data and simulated
 high energy jets in Sections <a href="Experimentsongaussiandistributeddata.html#experiments-on-gaussiandistributed-data">11.2<!--  tex4ht:ref: sec:04_evaluating_toydata   --></a> and <a href="Experimentsonjetdata.html#experiments-on-jet-data">11.3<!--  tex4ht:ref: sec:04_evaluating_jetdata   --></a> respectively. Based on these experiments, we
 provide our recommendations and concretely illustrate their application by evaluating
+                                                                                
+
+                                                                                
 and comparing the aforementioned models discussed in Section <a href="DemonstrationonparticlecloudGANs.html#demonstration-on-particle-cloud-gans">11.4<!--  tex4ht:ref: sec:04_evaluating_models   --></a>. Finally, we
 conclude in Section <a href="Summary.html#summary4">11.5<!--  tex4ht:ref: sec:04_evaluating_conclusion   --></a>.
 </p>

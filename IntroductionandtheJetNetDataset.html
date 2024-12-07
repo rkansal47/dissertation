@@ -46,9 +46,6 @@ sensitivity to a given signal process.
 1. 
 </dt><dd class="enumerate-enumitem">Event generation: simulating the hard collision process, parton showering,
 hadronization,   and   underlying   event   interactions   (see   Chapter <a href="Quantumchromodynamics.html#quantum-chromodynamics">4.1<!--  tex4ht:ref: sec:01_sm_qcd   --></a>),
-                                                                                
-
-                                                                                
 outputting generator-level or “gen-level” particles.
 </dd>
 <dt class="enumerate-enumitem">
@@ -65,6 +62,9 @@ ECAL/HCAL clusters, which can then be reconstructed further into physical
 <!--  l. 30  --><p class="indent">       The first two steps are inherently stochastic processes due to the randomness of
 quantum mechanical decays and interactions between particles and materials. This
 means that the complete analytic form for the probability densities of collision and
+                                                                                
+
+                                                                                
 detector outputs is intractable. Instead, traditionally, the event generation relies on
 Monte Carlo (MC) methods to sample from probability distributions of decays and
 interactions, while the detector simulation propagates the resulting particles through the
@@ -73,11 +73,8 @@ each step.
 </p><!--  l. 34  --><p class="indent">       These methods have proven extremely effective at modeling collisions
 and the detector response for decades in HEP, but are computationally
 expensive: the full simulation of a single collision in CMS takes
-<!--  l. 34  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>10</mn><mstyle class="text"><mtext> s</mtext></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> [<a href="Bibliography.html#XPedro_2018jqu">300</a>]. To
+<!--  l. 34  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>10</mn><mstyle class="text"><mtext> s</mtext></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> [<a href="Bibliography.html#XPedro_2018jqu">302</a>]. To
 maximize the physics potential of the upcoming era of high luminosity, the CMS experiment
-                                                                                
-
-                                                                                
 will need to reconstruct 300 billion real collision events, and simulate and reconstruct
 2–3<!--  l. 36  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">×</mo></math> more,
 a monumental task to which current methods cannot scale. Indeed, we are expected to fall
@@ -90,6 +87,9 @@ even porting a conservative fraction can improve computing capacity by
 alternative (FastSim): 50% of CMS analyses switching to this would mean a
 10<!--  l. 42  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">×</mo></math>
 speed-up in simulations, which are in total expected to require 40% of CPU resources [<span class="ec-lmbx-12">?</span>
+                                                                                
+
+                                                                                
 ]. However, they each carry risks: of simulations not translating well to GPUs due to
 their sequential nature, and of inadequate FastSim performance leading to insufficient
 adoption by analyzers.
@@ -100,9 +100,6 @@ learning (DL) generative models, and efficient and sensitive techniques for thei
 validation.
 </p><!--  l. 49  --><p class="indent">       We first introduce below the problem of simulating high energy jets and
 introduce the <span class="small-caps">JetNet</span> benchmark dataset used for all studies in the chapter. As
-                                                                                
-
-                                                                                
 highlighted in Chapter <a href="MachineLearningforHEP.html#machine-learning-for-hep">7<!--  tex4ht:ref: sec:03_ml   --></a>, a key contribution of this work is use of particle-cloud
 representations of jets, which we argued are more natural for HEP data than the more
 common (at the time) image- and vector-based algorithms.
@@ -114,6 +111,9 @@ fast simulation techniques and propose two new, sensitive methods to do so
 (Section <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">11<!--  tex4ht:ref: sec:04_evaluating   --></a>). We will finally conclude with the outlook for these techniques in
 Chapter <a href="Conclusionandimpact.html#conclusion-and-impact">12<!--  tex4ht:ref: sec:04_outlook   --></a>, discussing as well how this work has sparked a new, vibrant subfield of ML
 research in HEP.
+                                                                                
+
+                                                                                
 </p>
 <div class="sectionTOCS">
 <span class="sectionToc">9.1 <a href="Simulatingjets.html#simulating-jets">Simulating jets</a></span>

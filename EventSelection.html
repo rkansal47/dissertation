@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Event Selection</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="chapterToc">13 <a href="BoostedHiggsidentification.html#boosted-higgs-identification">Boosted Higgs identification</a></span>
+<span class="chapterToc">14                            <a href="HighenergyHHsearchesintheallhadronicbbVVchannel.html#high-energy-h-h-searches-in-the-allhadronic-bbvv-channel">High                            energy
+<!--  l. 406  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+searches in the all-hadronic bbVV channel</a></span>
+<span class="sectionToc">14.1 <a href="Introduction2.html#introduction2">Introduction</a></span>
+<span class="sectionToc">14.2 <a href="Overviewofanalysisstrategy.html#overview-of-analysis-strategy">Overview of analysis strategy</a></span>
+<span class="sectionToc">14.3 <a href="#event-selection">Event Selection</a></span>
+<span class="subsectionToc">14.3.1 <a href="#triggers">Triggers</a></span>
+<span class="subsectionToc">14.3.2 <a href="#nonresonant-offline-selection">Nonresonant offline selection</a></span>
+<span class="subsectionToc">14.3.3 <a href="#resonant-offline-selection">Resonant offline selection</a></span>
+<span class="sectionToc">14.4 <a href="Backgroundestimation.html#background-estimation">Background estimation</a></span>
+<span class="sectionToc">14.5 <a href="Systematicuncertainties.html#systematic-uncertainties">Systematic uncertainties</a></span>
+<span class="sectionToc">14.6 <a href="Results.html#results4">Results</a></span>
+<span class="sectionToc">14.7 <a href="SummaryandOutlook.html#summary-and-outlook">Summary and Outlook</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="Overviewofanalysisstrategy.html">⭠</a> <a href="Backgroundestimation.html">⭢</a> </nav>
+<h3 class="sectionHead" id="event-selection"><span class="titlemark">14.3   </span> <a id="x68-26800014.3"></a>Event Selection</h3>
+<!--  l. 78  --><p class="noindent">The primary physics objects considered in this analysis are large-radius, AK8 jets representing
+                                                                                
+
+                                                                                
+the two Higgs bosons. AK4 jets are also used in the online triggers and to identify nonresonant
+VBF <!--  l. 79  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+production. As we do not expect any isolated leptons in our signal, events containing
+any isolated electrons and muons are vetoed. The online trigger selections are described
+in Section <a href="#triggers">14.3.1<!--  tex4ht:ref: sec:05_triggers   --></a>, and the offline selections for the nonresonant and resonant searches in
+Sections <a href="#nonresonant-offline-selection">14.3.2<!--  tex4ht:ref: sec:05_selection_nonresonant   --></a> and <a href="#resonant-offline-selection">14.3.3<!--  tex4ht:ref: sec:05_selection_resonant   --></a>, respectively.
+</p><!--  l. 83  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="triggers"><span class="titlemark">14.3.1   </span> <a id="x68-26900014.3.1"></a>Triggers</h4>
+<!--  l. 86  --><p class="noindent">No dedicated online trigger algorithms were available in Run 2 for boosted Higgs
+classification. Instead, a combination of high level triggers (HLTs) is considered, which require
+high hadronic activity and/or AK8 jets with high transverse momentum, as well as jet mass
+and/or b-tagging requirements. The efficiencies of these triggers as a function of AK8 jet
+<!--  l. 88  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math>, soft-drop mass [<a href="Bibliography.html#XLarkoski_2014wba">382</a>],
+and <!--  l. 88  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>-tagging
+score are measured in data in an unbiased semi-leptonic
+<!--  l. 88  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>t</mi></mstyle><mover accent="false" class="mml-overline"><mrow><mstyle mathvariant="normal"><mi>t</mi></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
+region, defined using single muon triggers and offline selections on the
+muon and an AK8 jet. This measurement is shown in Figure <a href="#trigger-efficiencies-for-the-dataset-measured-in-bins-of-the-ak-jet-p-t-soft-drop-mass-masssd-and-t-xbb-score-">14.2<!--  tex4ht:ref: fig:05_triggers_eff_2018   --></a>
+                                                                                
+
+                                                                                
+for the 2018 dataset. The triggers are generally fully efficient for jet
+<!--  l. 90  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>500</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math>, while for
+<!--  l. 90  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>400</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math> the
+efficiency is <!--  l. 90  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≲</mo> <mn>10</mn><mi>%</mi></mrow></math>.
+<strong>This is a significant limitation of the analysis</strong> and generally of boosted Higgs
+searches in Run 2, which is addressed in Run 3 by the introduction of dedicated triggers
+for boosted Higgs searches [<a href="Bibliography.html#XVarghese_2023bue">385</a>].
+</p>
+<figure class="figure">
+<!--  l. 95  --><p class="noindent" id="trigger-efficiencies-for-the-dataset-measured-in-bins-of-the-ak-jet-p-t-soft-drop-mass-masssd-and-t-xbb-score-"> <img alt="PIC" src="figures/05-HH/selection/2018_txbb_effs-.png" style="max-width:100%"/> <a id="x68-269001r2"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 14.2.          </span></span><span class="content">Trigger          efficiencies          for          the          2018
+dataset         measured         in         bins         of         the         AK8         jet
+<!--  l. 98  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math>,
+soft drop mass (MassSD) and <!--  l. 98  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Xbb</mi></mstyle></mrow></msub></math>
+score.                                                                          </span></figcaption><!--  tex4ht:label?: x68-269001r2   -->
+</figure>
+<h4 class="subsectionHead" id="nonresonant-offline-selection"><span class="titlemark">14.3.2   </span> <a id="x68-27000014.3.2"></a>Nonresonant offline selection</h4>
+<!--  l. 104  --><p class="noindent">In the nonresonant analysis, both the <!--  l. 104  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
+and <!--  l. 104  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+decays are targeted through an offline selection for two highly boosted AK8 jets with a
+minimum <!--  l. 104  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math>
+of <!--  l. 104  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>300</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math> and
+<!--  l. 104  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>η</mi></mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>2.4</mn></mrow></math>. ParticleNet is used to
+isolate the signal <!--  l. 105  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> jets against
+background QCD jets, using the <!--  l. 105  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Xbb</mi></mstyle></mrow></msub></math>
+discriminant derived from its outputs (Eq. <a href="ParticleNetfortexorpdfstringbbbarbbjettaggingandmassregression.html#x62-261001r1">13.1.1<!--  tex4ht:ref: eq:05_txbb   --></a>), while our new GloParT model is leveraged to
+identify the <!--  l. 105  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo> <mn>4</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow></math> jet.
+Both networks have been decorrelated from the mass of the jets by enforcing a uniform distribution
+in jet mass and <!--  l. 107  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math>
+in the training samples [<a href="Bibliography.html#XCMS_2023tlv">160</a>], to aid with their calibration. Additionally, as the jet mass
+resolution is crucial to the sensitivity of the search, we optimize the mass reconstruction for all
+AK8 jets using the ParticleNet-based regression algorithm, the output of which we refer to as
+<!--  l. 108  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow></msub></math>. The jet with the
+higher (lower) <!--  l. 109  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Xbb</mi></mstyle></mrow></msub></math> score
+is considered the <!--  l. 109  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>-
+                                                                                
+
+                                                                                
+(<!--  l. 109  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>-)
+candidate jet.
+</p><!--  l. 111  --><p class="indent">       The VBF process produces two, likely forward, jets with large invariant masses and
+pseudorapidity separations. To identify this mode, we select up to two AK4 jets per event, required
+to have <!--  l. 112  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>25</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math>,
+<!--  l. 112  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mrow><mo fence="true" form="prefix">|</mo><mrow><mi>η</mi></mrow><mo fence="true" form="postfix">|</mo></mrow> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>4.7</mn></mrow></math>, and a
+<!--  l. 112  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi mathvariant="normal">Δ</mi><mi>R</mi></mrow></math> separation of 1.2 and 0.8,
+respectively, from the <!--  l. 112  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>-
+and <!--  l. 112  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>-candidate
+AK8 jets. The pseudorapidity separation between and invariant mass of the two highest
+<!--  l. 113  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math> jets
+passing these requirements are used as input variables in a boosted decision tree (BDT) to
+discriminate against QCD and other backgrounds. Other input variables include outputs
+from the GloParT tagger and the two selected AK8 jet kinematics. The variables are
+optimized to provide the highest BDT performance while remaining decorrelated from the
+<!--  l. 115  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>-candidate
+jet’s mass.
+</p><!--  l. 117  --><p class="indent">       The BDT is optimized simultaneously for both the SM ggF and BSM VBF
+<!--  l. 117  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>κ</mi></mrow><mrow><mn>2</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>
+signals, and separate “ggF” and “VBF” signal regions are defined
+using the BDT probabilities for the respective processes, referred to as
+<!--  l. 117  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>BDT</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>ggF</mi></mstyle></mrow></msub></math> and
+                                                                                
+
+                                                                                
+<!--  l. 117  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>BDT</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>VBF</mi></mstyle></mrow></msub></math>.
+Concretely, the VBF region is defined by selections on the
+<!--  l. 118  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Xbb</mi></mstyle></mrow></msub></math> and
+<!--  l. 118  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>BDT</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>VBF</mi></mstyle></mrow></msub></math>
+discriminants, corresponding to VBF signal (background) efficiencies of 40%
+(<!--  l. 118  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≈</mo> <mn>0.1</mn><mi>%</mi></mrow></math>) and
+20% (<!--  l. 118  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≈</mo> <mn>0.003</mn><mi>%</mi></mrow></math>),
+respectively, chosen to optimize the expected exclusion limit on the VBF signal. The
+ggF region is defined by a veto on events passing the VBF selections plus selections on
+the <!--  l. 119  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Xbb</mi></mstyle></mrow></msub></math>
+and <!--  l. 119  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>BDT</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>ggF</mi></mstyle></mrow></msub></math>
+discriminants, corresponding to ggF signal (background) efficiencies of 60%
+(<!--  l. 119  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≈</mo> <mn>0.3</mn><mi>%</mi></mrow></math>) and
+7% (<!--  l. 119  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≈</mo> <mn>0.01</mn><mi>%</mi></mrow></math>),
+respectively, similarly chosen to optimize the limit on the ggF signal.
+These selections are henceforth referred to as the ggF and VBF
+<!--  l. 120  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Xbb</mi></mstyle></mrow></msub></math> and BDT working
+points (WPs). The <!--  l. 121  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Xbb</mi></mstyle></mrow></msub></math>
+discriminant’s signal efficiencies are calibrated using boosted gluon splitting to bottom quark
+(<!--  l. 121  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">g</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>) jets in data and
+simulations [<a href="Bibliography.html#XCMS_2023tlv">160</a>], with <!--  l. 121  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math>-dependent
+scale factors and uncertainties applied to the
+<!--  l. 121  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+                                                                                
+
+                                                                                
+signals. The uncertainty on the BDT signal efficiency is dominated by that of the
+GloParT tagger and is calibrated based on a new technique using the ratio of the
+primary Lund jet plane [<a href="Bibliography.html#XDreyer_2018nbf">60</a>] densities of each individual quark-subjet, described below
+in Section <a href="CalibratingtexorpdfstringhyvvHY→VVtaggers.html#calibrating-h-y-v-v-taggers">13.3<!--  tex4ht:ref: sec:05_hww_calibration   --></a>.
+</p><!--  l. 124  --><p class="indent">       The search is performed by constructing a likelihood in the pass region as a function of the
+<!--  l. 124  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>-candidate jet’s
+regressed mass (<!--  l. 124  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>bb</mi></mstyle></mrow></msubsup></math>).
+The QCD multijet background contribution in the pass region is estimated through data in
+a “fail” region, defined using the same baseline selections on the two AK8 jets, but with
+the <!--  l. 125  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Xbb</mi></mstyle></mrow></msub></math>
+selection inverted, as described in Section <a href="Backgroundestimation.html#background-estimation">14.4<!--  tex4ht:ref: sec:05_bgestimation   --></a> below. A summary of all offline
+selections is provided in Table <span class="ec-lmbx-12">??</span>, and the signal and fail region selections in terms of
+the <!--  l. 126  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Xbb</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>bb</mi></mstyle></mrow></msubsup></math>
+and BDT scores are illustrated in Figure <a href="#illustration-of-the-signal-and-fail-nonresonant-analysis-region-selections-in-terms-of-the-t-xbb-bb-and-bdt-scores">14.3<!--  tex4ht:ref: fig:05_selection_nonresonant   --></a>.
+</p>
+<div class="table">
+<!--  l. 129  --><p class="indent"> </p><figure class="float" id="x68-270001r1"><span id="offline-selection-criteria-for-the-signal-and-fail-nonresonant-analysis-regions"></span>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Table 14.1. </span></span><span class="content">Offline selection criteria for the signal and fail nonresonant analysis
+regions.                                                                        </span></figcaption><!--  tex4ht:label?: x68-270001r1   -->
+<div class="pic-tabular">
+<img alt="-----------------------------|----------------------------|-----------------------
+        VBF   Region         |        ggF Region          |     Fail Region
+----------------------------------------------------------------------------------
+
+                              No electrons or muons
+
+
+                                  ≥  2 AK8  jets
+
+                              pT &gt; 300GeV  (all jets)
+
+                                |η| &lt; 2.4 (all jets)
+
+                          50 &lt; mreg &lt;  250GeV  (all jets)
+
+                           TXbb &gt; 0.8 (at least one jet)
+
+                                 Jet assignment:
+
+                           H →  b ¯b: highest TXbb score
+
+              H →  VV:  out of remaining jets, highest GloParT  score
+-----------------------------|----------------------------|-----------------------
+                             |                            |
+                             |Not passing VBF   selections |
+     bb                      |     bb                      |  bb
+   T Xbb ≥ VBF  TXbb WP      |   TXbb ≥ ggF  TXbb WP      |T Xbb &lt; ggF TXbb WP
+                             |                            |
+ BDTVBF   ≥  VBF  BDT   WP     BDTggF  ≥  ggF BDT   WP
+-----------------------------|----------------------------------------------------
+                             |  " src="main-ccecd26ce43f1e451331dcf3ac721d40.svg"/></div>
+</figure>
+</div>
+<figure class="figure">
+<!--  l. 161  --><p class="noindent" id="illustration-of-the-signal-and-fail-nonresonant-analysis-region-selections-in-terms-of-the-t-xbb-bb-and-bdt-scores"> <img alt="PIC" src="figures/05-HH/selection/Nonresonant_Selections-.png" style="max-width:70%"/> <a id="x68-270002r3"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 14.3.                                                                </span></span><span class="content">Illustration
+of  the  signal  and  fail  nonresonant  analysis  region  selections  in  terms  of  the
+<!--  l. 162  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Xbb</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>bb</mi></mstyle></mrow></msubsup></math>
+and BDT scores.                                                               </span></figcaption><!--  tex4ht:label?: x68-270002r3   -->
+</figure>
+<h4 class="subsectionHead" id="resonant-offline-selection"><span class="titlemark">14.3.3   </span> <a id="x68-27100014.3.3"></a>Resonant offline selection</h4>
+<!--  l. 170  --><p class="noindent">The resonant analysis similarly selects for two wide-radius jets representing the two
+<!--  l. 170  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> and
+<!--  l. 170  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+processes. Specifically, we select for two boosted AK8 jets with
+<!--  l. 171  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">≥</mo> <mn>350</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math>, with at least
+one of <!--  l. 171  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">≥</mo> <mn>400</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math>, and
+pseudorapidity <!--  l. 171  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-rel" stretchy="false">|</mo><mi>η</mi><mo class="MathClass-rel" stretchy="false">|</mo><mo class="MathClass-rel" stretchy="false">≤</mo> <mn>2.4</mn></mrow></math>.
+Out of all AK8 jets in the event passing these requirements, the one with the highest
+<!--  l. 172  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Xbb</mi></mstyle></mrow></msub></math> discriminant score
+is considered our <!--  l. 172  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
+candidate jet, and is required to pass the high purity WP and have a jet mass close to the SM
+Higgs mass: <!--  l. 172  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>110</mn> <mo class="MathClass-rel" stretchy="false">≤</mo><mstyle mathvariant="normal"><mi>mass</mi></mstyle> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>145</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math>.
+As in the nonresonant case, the jet mass resolution is crucial to the sensitivity of the search
+and hence we use the ParticleNet-based regression algorithm to reconstruct the jet mass,
+<!--  l. 173  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow></msub></math>, here
+as well.
+</p><!--  l. 175  --><p class="indent">       The mass-decorrelated GloParT tagger is again used to identify the
+                                                                                
+
+                                                                                
+<!--  l. 175  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo> <mn>4</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow></math> jet, using the
+discriminant <!--  l. 175  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi></mstyle></mrow></msub></math>
+targeting the <!--  l. 175  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo> <mn>4</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow></math>
+final state derived from its outputs (Eq. <a href="GloParTfortexorpdfstringhyvvHY→VVclassification.html#x63-262001r1">13.2.1<!--  tex4ht:ref: eq:05_thww   --></a>). The AK8 jet passing the above
+<!--  l. 176  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math> and
+<!--  l. 176  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>η</mi></math> kinematic selections
+with the highest <!--  l. 176  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi></mstyle></mrow></msub></math> score
+is considered the <!--  l. 176  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+candidate jet,<span class="footnote-mark"><a href="#fn58x15" id="fn58x15-bk"><sup class="textsuperscript">1</sup></a></span><a id="x68-271001f1"></a> and
+is required to have a <!--  l. 177  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi></mstyle></mrow></msub></math>
+score <!--  l. 177  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>0.6</mn></mrow></math>,
+corresponding to a <!--  l. 177  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≈</mo> <mn>60</mn><mi>%</mi></mrow></math>
+(<!--  l. 177  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≈</mo> <mn>1</mn><mi>%</mi></mrow></math>)
+signal (background) efficiency. The signal efficiency is calibrated
+based the Lund jet plane as described in Chapter <a href="CalibratingtexorpdfstringhyvvHY→VVtaggers.html#calibrating-h-y-v-v-taggers">13.3<!--  tex4ht:ref: sec:05_hww_calibration   --></a>. All the
+<!--  l. 179  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math> and
+tagger selections were jointly optimized for the lowest expected exclusion limits for a range
+of <!--  l. 179  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>m</mi></mrow><mrow><mi>X</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>m</mi></mrow><mrow><mi>Y</mi> </mrow></msub></mrow></math>
+points.
+</p><!--  l. 181  --><p class="indent">       The search is performed in events passing these selections,
+referred to as the signal or “pass” region, in the 2D plane of the
+<!--  l. 181  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>-candidate jet regressed
+mass (<!--  l. 181  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>VV</mi></mstyle></mrow></msubsup></math>) and the
+                                                                                
+
+                                                                                
+invariant mass of the <!--  l. 181  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>-
+and <!--  l. 181  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>-candidate
+jets (<!--  l. 181  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>jj</mi></mstyle></mrow></msup></math>),
+representing the potential Y and X boson masses, respectively. An orthogonal
+control, or “fail”, region is defined by inverting the two tagger selections for
+both jets to estimate the QCD background in the pass region, as detailed in
+Section <a href="Backgroundestimation.html#background-estimation">14.4<!--  tex4ht:ref: sec:05_bgestimation   --></a>. Finally, separate “validation” pass and fail regions using the
+<!--  l. 183  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
+candidate jet’s mass sidebands are used to validate the background estimation technique
+before unblinding the analysis. A summary of the offline selections is provided in
+Table <a href="#offline-selection-criteria-for-analysis-regions-for-the-fullymerged-y-topology">14.2<!--  tex4ht:ref: table:EvtSel-mergedY   --></a>.
+</p>
+<div class="table">
+<!--  l. 187  --><p class="indent"> </p><figure class="float" id="x68-271003r2"><span id="offline-selection-criteria-for-analysis-regions-for-the-fullymerged-y-topology"></span>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Table 14.2. </span></span><span class="content">Offline selection criteria for analysis regions for the fully-merged Y
+topology.
+</span></figcaption><!--  tex4ht:label?: x68-271003r2   -->
+<div class="pic-tabular"><img alt="-----------------------------------|--------------------------------------------------
+                                   |
+----------Signal-Region----------------------------Validation-Region------------------
+
+                                    ≥ 2 AK8   jets
+
+                                pT &gt; 350GeV  (all jets)
+
+                                  |η | &lt; 2.4 (all jets)
+
+                           pT &gt; 400GeV   (jet leading in pT)
+
+
+                                   Jet assignment:
+
+                             H →  bb¯: highest TXbb score
+
+                 Y  →  VV:  out of remaining jets, highest THVV score
+-----------------------------------|--------------------------------------------------
+       110 ≤ mbb  &lt; 145GeV         |92.5 ≤ mbb  &lt; 110GeV   or 145 ≤ mbb  &lt; 162.5GeV
+---------------reg----------------------------reg-----------------------reg--------------
+                 |                 |                |
+      Pass       |      Fail       |     Pass       |              Fail
+-----------------|-----------------|----------------|---------------------------------
+ T    ≥ HP  WP   |T    &lt;  HP  WP   |T    ≥ HP  WP   |        T    &lt;  HP  WP
+  Xbb            |  Xbb            | Xbb            |          Xbb
+   T     ≥ 0.6   |  T     &lt;  0.6    |  T     ≥ 0.6   |          T     &lt;  0.6
+----HVV----------|----HVV--------------HVV-----------------------HVV------------------
+                 |  " src="main-ebe6d896535e83238b68fecd5585d123.svg"/></div>
+</figure>
+</div>
+<nav class="crosslinks-bottom"> <a href="Overviewofanalysisstrategy.html">⭠</a> <a href="Backgroundestimation.html">⭢</a> </nav> <div class="footnotes"><a id="x68-271002x14.3.3"></a>
+<!--  l. 176  --><p class="indent"> <span class="footnote-mark"><a href="#fn58x15-bk" id="fn58x15"><sup class="textsuperscript">1</sup></a></span><span class="ec-lmr-10">In the rare (</span><!--  l. 176  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>0.1</mn><mi>%</mi></mrow></math>
+<span class="ec-lmr-10">of signal events) case where the same jet has the highest</span>
+<!--  l. 176  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Xbb</mi></mstyle></mrow></msub></math> <span class="ec-lmr-10">and</span>
+<!--  l. 176  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi></mstyle></mrow></msub></math> <span class="ec-lmr-10">score, that jet is
+considered the </span><!--  l. 176  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> <span class="ec-lmr-10">candidate,
+and the second-highest </span><!--  l. 176  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi></mstyle></mrow></msub></math>
+<span class="ec-lmr-10">scoring jet is the </span><!--  l. 176  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+<span class="ec-lmr-10">candidate.</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Background estimation</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="chapterToc">13 <a href="BoostedHiggsidentification.html#boosted-higgs-identification">Boosted Higgs identification</a></span>
+<span class="chapterToc">14                            <a href="HighenergyHHsearchesintheallhadronicbbVVchannel.html#high-energy-h-h-searches-in-the-allhadronic-bbvv-channel">High                            energy
+<!--  l. 406  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+searches in the all-hadronic bbVV channel</a></span>
+<span class="sectionToc">14.1 <a href="Introduction2.html#introduction2">Introduction</a></span>
+<span class="sectionToc">14.2 <a href="Overviewofanalysisstrategy.html#overview-of-analysis-strategy">Overview of analysis strategy</a></span>
+<span class="sectionToc">14.3 <a href="EventSelection.html#event-selection">Event Selection</a></span>
+<span class="sectionToc">14.4 <a href="#background-estimation">Background estimation</a></span>
+<span class="sectionToc">14.5 <a href="Systematicuncertainties.html#systematic-uncertainties">Systematic uncertainties</a></span>
+<span class="sectionToc">14.6 <a href="Results.html#results4">Results</a></span>
+<span class="sectionToc">14.7 <a href="SummaryandOutlook.html#summary-and-outlook">Summary and Outlook</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="EventSelection.html">⭠</a> <a href="Systematicuncertainties.html">⭢</a> </nav>
+<h3 class="sectionHead" id="background-estimation"><span class="titlemark">14.4   </span> <a id="x69-27200014.4"></a>Background estimation</h3>
+<!--  l. 222  --><p class="noindent">The QCD multijet background is the primary background of both searches. It is estimated
+with a data-driven approach, using the shape of the data minus other MC backgrounds,
+whose uncertainties are incorporated into the fit, in a control region multiplied by a
+polynomial transfer factor to the signal regions, whose order is determined by an
+<!--  l. 223  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math>-test.
+This is described in more detail below. The parameters of the transfer factor are
+estimated with a simultaneous fit in the signal and fail regions. Other minor
+backgrounds include top quark and vector boson plus jets, which are estimated from
+MC simulation.
+</p><!--  l. 228  --><p class="indent">       Correction factors are applied to the W and Z boson samples to match the generator-level
+<!--  l. 228  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math> distributions
+with those predicted by the highest available order in the perturbative expansion. The
+<!--  l. 229  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle><mo class="MathClass-bin" stretchy="false">+</mo></mrow></math>jets and
+<!--  l. 229  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">Z</mtext></mstyle><mo class="MathClass-bin" stretchy="false">+</mo></mrow></math>jets
+MC samples are corrected to approximately NNLO in QCD and then
+further reweighted to incorporate the reduction of the cross section at high
+<!--  l. 229  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math> due
+to higher-order electroweak effects (EWK).
+</p><!--  l. 231  --><p class="indent">       The QCD event yields in the signal, or “pass”, and fail
+                                                                                
+
+                                                                                
+regions are related by a smoothly parametrized transfer factor
+<!--  l. 231  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>R</mi></mrow><mrow><mstyle mathvariant="normal"><mi>P</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mi>F</mi></mstyle></mrow></msub></math>:
+</p><table class="equation"><tr><td>
+<!--  l. 232  --><p class="indent">
+</p><!--  l. 232  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x69-272001r1"></mstyle><!--  endlabel  -->
+<mi>n</mi><msubsup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="normal"><mi>QCD</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mi>b</mi></mrow><mrow><mstyle mathvariant="normal"><mi>pass</mi></mstyle></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>R</mi></mrow><mrow><mstyle mathvariant="normal">
+<mi>P</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mi>F</mi></mstyle></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-close" stretchy="false">)</mo><mspace class="thinspace" width="0.17em"></mspace><mi>n</mi><msubsup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="normal"><mi>QCD</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mi>b</mi></mrow><mrow><mstyle mathvariant="normal"><mi>fail</mi></mstyle></mrow></msubsup><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(14.4.1)</td></tr></table>
+<!--  l. 234  --><p class="noindent">
+</p><!--  l. 236  --><p class="indent">       where <!--  l. 236  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi><msub><mrow><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="normal"><mi>QCD</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mi>b</mi></mrow></msub></mrow></math> is the
+QCD yield in bin <!--  l. 236  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi></math>,
+and <!--  l. 236  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>n</mi><msubsup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="normal"><mi>QCD</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mi>b</mi></mrow><mrow><mstyle mathvariant="normal"><mi>fail</mi></mstyle></mrow></msubsup></mrow></math> is
+estimated to be the data in the fail region minus non-QCD backgrounds. In
+the nonresonant case, separate transfer factors are used for each signal region
+<!--  l. 237  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>R</mi></math>
+(<!--  l. 237  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">∈</mo></mrow></math>
+{ggF, VBF}), each of which is parametrized by the coefficients
+<!--  l. 237  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>a</mi></mrow><mrow><mi>k</mi></mrow><mrow><mi>R</mi></mrow></msubsup></math> of the set of
+                                                                                
+
+                                                                                
+<!--  l. 237  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>n</mi></mrow><mrow><mi>R</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn></mrow></math> Bernstein basis
+polynomials <!--  l. 237  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>b</mi></mrow><mrow><mi>k</mi><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>n</mi></mrow><mrow><mi>R</mi></mrow></msup></mrow></msub></math>
+of order <!--  l. 237  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>n</mi></mrow><mrow><mi>R</mi></mrow></msup></math>
+in <!--  l. 237  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>bb</mi></mstyle></mrow></msubsup></math>:
+</p><table class="equation"><tr><td>
+<!--  l. 238  --><p class="indent">
+</p><!--  l. 238  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x69-272002r2"></mstyle><!--  endlabel  -->
+<msubsup><mrow><mi>R</mi></mrow><mrow><mi>P</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mi>F</mi><mspace class="nbsp" width="0.33em"></mspace><mstyle class="text"><mtext class="textrm" mathvariant="normal">nonresonant</mtext></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>Region</mi><mspace class="nbsp" width="0.33em"></mspace><mi>R</mi></mstyle></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal">
+<mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>bb</mi></mstyle></mrow></msubsup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>k</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mrow><mrow><msubsup><mrow><mi>n</mi></mrow><mrow><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>bb</mi></mstyle></mrow></msubsup></mrow><mrow><mi>R</mi></mrow></msubsup>
+</mrow></munderover><msubsup><mrow><mi>a</mi></mrow><mrow><mi>k</mi></mrow><mrow><mi>R</mi></mrow></msubsup><msub><mrow><mi>b</mi></mrow><mrow>
+<mi>k</mi><mo class="MathClass-punc" stretchy="false">,</mo><msubsup><mrow><mi>n</mi></mrow><mrow><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>bb</mi></mstyle></mrow></msubsup></mrow><mrow><mi>R</mi></mrow></msubsup></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>bb</mi></mstyle></mrow></msubsup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(14.4.2)</td></tr></table>
+<!--  l. 240  --><p class="noindent">while in the resonant case it is generalised to two dimensions, as a function of
+<!--  l. 241  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>jj</mi></mstyle></mrow></msup></math> and
+<!--  l. 241  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>VV</mi></mstyle></mrow></msubsup></math>:
+</p><table class="equation"><tr><td>
+<!--  l. 242  --><p class="indent">
+</p><!--  l. 242  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x69-272003r3"></mstyle><!--  endlabel  --><msub><mrow><mi>R</mi></mrow><mrow><mi>P</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mi>F</mi><mspace class="nbsp" width="0.33em"></mspace><mstyle class="text"><mtext class="textrm" mathvariant="normal">resonant</mtext></mstyle></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>jj</mi></mstyle></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal">
+<mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>VV</mi></mstyle></mrow></msubsup><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>k</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mrow><mrow><msub><mrow><mi>n</mi></mrow><mrow><msup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>jj</mi></mstyle></mrow></msup></mrow></msub>
+</mrow></munderover><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>l</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>0</mn></mrow><mrow><msub><mrow><mi>n</mi></mrow><mrow><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>VV</mi></mstyle></mrow></msubsup></mrow></msub>
+</mrow></munderover><msub><mrow><mi>a</mi></mrow><mrow><mi>k</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>l</mi></mrow></msub><mstyle mathsize="1.19em"><mrow><mo fence="true" form="prefix">[</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle><msub><mrow><mi>b</mi></mrow><mrow><mi>k</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>n</mi></mrow><mrow><msup><mrow>
+<mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>jj</mi></mstyle></mrow></msup></mrow></msub></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>jj</mi></mstyle></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mspace class="thinspace" width="0.17em"></mspace><msub><mrow><mi>b</mi></mrow><mrow>
+<mi>l</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>n</mi></mrow><mrow><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>VV</mi></mstyle></mrow></msubsup></mrow></msub></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>VV</mi></mstyle></mrow></msubsup><mo class="MathClass-close" stretchy="false">)</mo><mstyle mathsize="1.19em"><mrow><mo fence="true" form="prefix">]</mo><mrow></mrow><mo fence="true" form="postfix"></mo></mrow></mstyle><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(14.4.3)</td></tr></table>
+<!--  l. 244  --><p class="noindent">
+</p><!--  l. 246  --><p class="indent">       The optimal orders of the polynomials are determined to be
+<!--  l. 246  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>n</mi></mrow><mrow><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>bb</mi></mstyle></mrow></msubsup></mrow><mrow><mstyle mathvariant="normal"><mi>ggF</mi></mstyle></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>,
+<!--  l. 246  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>n</mi></mrow><mrow><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>bb</mi></mstyle></mrow></msubsup></mrow><mrow><mstyle mathvariant="normal"><mi>VBF</mi></mstyle></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>,
+<!--  l. 246  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>n</mi></mrow><mrow><msup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>jj</mi></mstyle></mrow></msup></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></mrow></math>, and
+<!--  l. 246  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>n</mi></mrow><mrow><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>VV</mi></mstyle></mrow></msubsup></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math> by a Fisher
+F-test. This iteratively tests each polynomial order, starting from the lowest considered,
+against higher order polynomials to see if the latter provide significantly better fits. The
+lowest order tested is 0 for all but the nonresonant VBF region, for which we require the
+transfer factor to be at least linear to account for observed shift in the simulated QCD
+<!--  l. 248  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>bb</mi></mstyle></mrow></msubsup></math> shape (due to
+the higher <!--  l. 248  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></msub></math>
+phase space of this region).
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="EventSelection.html">⭠</a> <a href="Systematicuncertainties.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

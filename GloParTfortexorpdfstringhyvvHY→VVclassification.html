@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>GloParT for H∕Y → VV classification</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="chapterToc">13 <a href="BoostedHiggsidentification.html#boosted-higgs-identification">Boosted Higgs identification</a></span>
+<span class="sectionToc">13.1                         <a href="ParticleNetfortexorpdfstringbbbarbbjettaggingandmassregression.html#particlenet-for-b-b-jet-tagging-and-mass-regression">ParticleNet                         for
+<!--  l. 396  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>-jet
+tagging and mass regression</a></span>
+<span class="sectionToc">13.2                           <a href="#glopart-for-h-y-v-v-classification">GloParT                           for
+<!--  l. 398  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mo class="MathClass-bin" stretchy="false">∕</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> classification</a></span>
+<span class="sectionToc">13.3                                                      <a href="CalibratingtexorpdfstringhyvvHY→VVtaggers.html#calibrating-h-y-v-v-taggers">Calibrating
+<!--  l. 402  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mo class="MathClass-bin" stretchy="false">∕</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> taggers</a></span>
+<span class="chapterToc">14                            <a href="HighenergyHHsearchesintheallhadronicbbVVchannel.html#high-energy-h-h-searches-in-the-allhadronic-bbvv-channel">High                            energy
+<!--  l. 406  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+searches in the all-hadronic bbVV channel</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="ParticleNetfortexorpdfstringbbbarbbjettaggingandmassregression.html">⭠</a> <a href="CalibratingtexorpdfstringhyvvHY→VVtaggers.html">⭢</a> </nav>
+<h3 class="sectionHead" id="glopart-for-h-y-v-v-classification"><span class="titlemark">13.2   </span> <a id="x63-26200013.2"></a>GloParT for <!--  l. 48  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mo class="MathClass-bin" stretchy="false">∕</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+classification</h3>
+<!--  l. 51  --><p class="noindent">To target the <!--  l. 51  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mo class="MathClass-bin" stretchy="false">∕</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo> <mn>4</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow></math>
+                                                                                
+
+                                                                                
+jets, as well as several additional signatures, we introduce a new transformer-based model,
+based on the ParT [<a href="Bibliography.html#XQu_2022mxj">379</a>] architecture, called “Global Particle Transformer” (GloParT). It is
+trained to classify between background QCD jets and a wide variety of fully hadronic
+and semi-leptonic Higgs and top quark processes. The full set of training classes is
+illustrated in Figure <a href="#full-set-of-training-jet-classes-for-glopart">13.2<!--  tex4ht:ref: fig:05_part_classes   --></a>. As for the ParticleNet tagger, to achieve mass-decorrelation,
+the masses of Higgs- and top-quark-like resonances are varied in the training samples;
+specifically, Higgs-like topologies are simulated using spin-0 particles (G) decaying to
+<!--  l. 54  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math> and top-quark-like topologies
+with G decaying to <!--  l. 54  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>t</mi></mstyle><mover accent="false" class="mml-overline"><mrow><mstyle mathvariant="normal"><mi>t</mi></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>,
+where the H and t masses are varied between 15 and
+250<!--  l. 54  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math>.
+For <!--  l. 55  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+decays, the W and Z boson masses are also varied, either linearly with
+the H mass—for SM Higgs boson searches such as the nonresonant
+<!--  l. 55  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
+search, or independently, motivated by BSM scenarios such as the resonant
+<!--  l. 55  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">X</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle></mrow></math>
+search.
+</p><!--  l. 57  --><p class="indent">       The final states for each process are grouped by the number of quarks and
+leptons per jet, and then further separated by heavy flavors. Notably, fully hadronic
+<!--  l. 58  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> jets are
+separated into 4- and 3-pronged jets (qqqq and qqq), to account for boosted jets which may not
+capture all four <!--  l. 58  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+                                                                                
+
+                                                                                
+daughter quarks. The inputs to the model are AK8 jets with up to 128 PF candidates
+and 7 secondary vertices, with features listed in Table <a href="#the-complete-set-of-input-features-into-glopart-three-types-of-inputs-are-considered-charged-pf-candidates-neutral-pf-candidates-and-secondary-vertices-svs">13.1<!--  tex4ht:ref: tab:05_part_inputs   --></a>, and the outputs are the
+probabilities of the jet to have originated from each of the aforementioned processes and
+final states.
+</p><!--  l. 61  --><p class="indent">       In the resonant analysis (and to evaluate the performance of the tagger
+for nonresonant signals), we focus on discriminating between the hadronic
+<!--  l. 61  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
+final states and top quark and QCD multijet backgrounds using the
+<!--  l. 61  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi></mstyle></mrow></msub></math>
+discriminator defined as </p><table class="equation"><tr><td>
+<!--  l. 62  --><p class="indent">
+</p><!--  l. 62  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x63-262001r1"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi></mstyle></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msub><mrow><mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi><mn>4</mn><mi>q</mi></mstyle></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi><mn>3</mn><mi>q</mi></mstyle></mrow></msub></mrow>
+<mrow><msub><mrow>
+<mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>QCD</mi></mstyle></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Top</mi></mstyle></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi><mn>4</mn><mi>q</mi></mstyle></mrow></msub> <mo class="MathClass-bin" stretchy="false">+</mo> <msub><mrow><mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi><mn>3</mn><mi>q</mi></mstyle></mrow></msub></mrow></mfrac><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(13.2.1)</td></tr></table>
+<!--  l. 65  --><p class="noindent">where <!--  l. 66  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi><mn>4</mn><mi>q</mi></mstyle></mrow></msub></math>,
+<!--  l. 66  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi><mn>3</mn><mi>q</mi></mstyle></mrow></msub></math>,
+<!--  l. 66  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>QCD</mi></mstyle></mrow></msub></math>, and
+                                                                                
+
+                                                                                
+<!--  l. 66  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Top</mi></mstyle></mrow></msub></math> are the sum of
+the predicted probabilities of their respective sub-categories. The performance of this discriminant
+on <!--  l. 67  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>-candidate
+jets passing loose a preselection for boosted jets is shown in Figure <a href="#receiver-operating-characteristic-roc-curve-for-the-t-hvv-discriminator-on-v-v-candidate-jets-passing-the-ak-online-and-offline-selections-for-a-subset-of-nonresonant-and-resonant-signals-versus-qcd-and-t-t-backgrounds">13.3<!--  tex4ht:ref: fig:05_part_roc   --></a>. In the nonresonant
+analysis, the raw <!--  l. 68  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi><mn>4</mn><mi>q</mi></mstyle></mrow></msub></math>,
+<!--  l. 68  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi><mn>3</mn><mi>q</mi></mstyle></mrow></msub></math>,
+<!--  l. 68  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>QCD</mi></mstyle></mrow></msub></math>, and
+<!--  l. 68  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>Top</mi></mstyle></mrow></msub></math> are
+used as inputs to the BDT.
+</p>
+<figure class="figure">
+<!--  l. 73  --><p class="noindent" id="full-set-of-training-jet-classes-for-glopart"> <img alt="PIC" src="figures/05-HH/part/classes_stage1-.png" style="max-width:80%"/> <a id="x63-262002r2"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 13.2. </span></span><span class="content">Full set of training jet classes for GloParT.                       </span></figcaption><!--  tex4ht:label?: x63-262002r2   -->
+</figure>
+<div class="table">
+<!--  l. 1  --><p class="indent"> </p><figure class="float">
+<div class="center">
+<!--  l. 2  --><p class="noindent" id="the-complete-set-of-input-features-into-glopart-three-types-of-inputs-are-considered-charged-pf-candidates-neutral-pf-candidates-and-secondary-vertices-svs">
+<a id="x63-262003r1"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Table 13.1.  </span></span><span class="content">The  complete  set  of  input  features  into  GloParT.  Three  types
+of  inputs  are  considered:  charged  PF  candidates,  neutral  PF  candidates,  and
+secondary vertices (SVs).                                                       </span></figcaption><!--  tex4ht:label?: x63-262003r1   -->
+<div class="pic-tabular"><img alt="----------------------------------------------------------------------------------------------------------------------------
+ Variable                  Definition
+----------------------------------------------------------------------------------------------------------------------------
+                                                 charged  PF   candidates
+----------------------------------------------------------------------------------------------------------------------------
+ log p                      logarithm  of the particle’ s p
+     T                                                T
+ log E                      logarithm  of the particle’ s energy
+
+ Δ η(jet)                   difference  in pseudorapidity between  the particle and the jet axis
+
+ Δ ϕ(jet)                   difference  in azimuthal  angle between the particle and the jet axis
+
+ |η |                       absolute value of the particle’s pseudorapidity
+
+ q                         electric charge of the particle
+
+ isMuon                    if the particle is identified  as a muon
+
+ isElectron                if the particle is identified  as an electron
+
+ isChargedHadron           if the particle is identified  as a charged hadron
+
+ pvAssociationQuality      flag related to the association of the track to the primary vertices
+
+ lostInnerHits             quality flag of the track related to missing hits on the pixel layers
+
+ χ2∕dof                    χ2 value of the trajectory fit normalized to the number  of degrees of freedom
+
+ qualityMask               quality flag of the track
+
+ d                         longitudinal impact parameter  of the track
+  z
+ d /σ                      significance of the longitudinal impact  parameter
+  z  dz
+ d                         transverse impact  parameter of the track
+  xy
+ d  /σ                     significance of the transverse impact parameter
+  xy  dxy
+ η                         pseudorapidity of the track relative to the jet axis
+  rel
+ p    ratio                track momentum    perpendicular to the jet axis, divided by the magnitude of the track momentum
+  T,rel
+ p     ratio               track momentum    parallel to the jet axis divided by the magnitude of the track momentum
+  par,rel
+ d                         signed 3D  impact parameter  of the track
+  3D
+ d  ∕σ                     signed 3D  impact parameter  significance of the track
+  3D  3D
+ trackDistance             distance between  the track and the jet axis at their point of closest approach
+----------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------Neutral--PF--candidates----------------------------------------------------
+
+ log pT                     logarithm  of the particle’ s pT
+
+ log E                      logarithm  of the particle’ s energy
+
+ Δ η(jet)                   difference  in pseudorapidity between  the particle and the jet axis
+
+ Δ ϕ(jet)                   difference  in azimuthal  angle between the particle and the jet axis
+
+ |η |                       absolute value of the particle’s pseudorapidity
+
+ isPhoton                  if the particle is identified  as a photon
+
+-isNeutralHadron-----------if-the-particle-is-identified--as a-neutral-hadron----------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+                                              For  SVs  within  the jet cone
+----------------------------------------------------------------------------------------------------------------------------
+ log pT                     logarithm  of the SV pT
+
+ mSV                       mass of the SV
+
+ Δ η(jet)                   difference  in pseudorapidity between  the SV  and the jet axis
+
+ Δ ϕ(jet)                   difference  in azimuthal  angle between the SV  and the jet axis
+
+ |η |                       absolute value of the SV ’s pseudorapidity
+
+ Ntracks                    number  of tracks associated with the SV
+
+ χ2∕dof                    χ2 value of the SV fit normalized  to the number   of degrees of freedom
+
+ d2D                       signed 2D  impact parameter  (i.e., in the transverse plane ) of the SV
+
+ d2D∕σ2D                   signed 2D  impact parameter  significance of the SV
+
+ d3D                       signed 3D  impact parameter  of the SV
+
+ d3D∕σ3D                   signed 3D  impact parameter  significance of the SV
+----------------------------------------------------------------------------------------------------------------------------" src="main-fb76b5cd571aa3281f2c239df9f45c41.svg"/></div>
+</div>
+</figure>
+</div>
+<figure class="figure">
+<!--  l. 82  --><p class="noindent" id="receiver-operating-characteristic-roc-curve-for-the-t-hvv-discriminator-on-v-v-candidate-jets-passing-the-ak-online-and-offline-selections-for-a-subset-of-nonresonant-and-resonant-signals-versus-qcd-and-t-t-backgrounds"> <img alt="PIC" src="figures/05-HH/part/roccurve_allsigs_thvv4qt_pt_300_3000-.png" style="max-width:60%"/> <a id="x63-262004r3"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 13.3.   </span></span><span class="content">Receiver   operating   characteristic   (ROC)   curve   for   the
+<!--  l. 83  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>T</mi></mrow><mrow><mstyle mathvariant="normal"><mi>HVV</mi></mstyle></mrow></msub></math>
+discriminator on <!--  l. 83  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>-candidate
+jets     passing     the     AK8     online     and     offline     selections     for     a
+subset     of     nonresonant     and     resonant     signals     versus     QCD     and
+<!--  l. 83  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>t</mi></mstyle><mover accent="false" class="mml-overline"><mrow><mstyle mathvariant="normal"><mi>t</mi></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
+backgrounds.                                                                   </span></figcaption><!--  tex4ht:label?: x63-262004r3   -->
+</figure>
+<nav class="crosslinks-bottom"> <a href="ParticleNetfortexorpdfstringbbbarbbjettaggingandmassregression.html">⭠</a> <a href="CalibratingtexorpdfstringhyvvHY→VVtaggers.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>
