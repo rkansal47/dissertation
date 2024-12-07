@@ -39,17 +39,17 @@
 <h4 class="subsectionHead" id="asymptotic-form-of-the-mle"><span class="titlemark">8.3.1   </span> <a id="x45-1880008.3.1"></a>Asymptotic form of the MLE</h4>
 <!--  l. 592  --><p class="noindent">So far, we have discussed how to extract meaningful statistical results from HEP
 experiments by making extensive use of pseudodata / toy experiments to estimate the
+                                                                                
+
+                                                                                
 sampling distributions of profile-likelihood-ratio-based test statistics. While this worked
 nicely for our simple counting experiment, generating a sufficiently large number of toys
 can quickly become computationally intractable for the more complex searches
 (and statistical combinations of searches) that are increasingly prevalent at the
-                                                                                
-
-                                                                                
 LHC, containing at times up to thousands of bins and nuisance parameters.
 This and the following section discuss a way to approximate these sampling
 distributions without the need for pseudodata. This was introduced in the famous
-“CCGV” paper [<a href="Bibliography.html#XCowan_2010js">293</a>] in 2011 and has since become the de-facto procedure at the
+“CCGV” paper [<a href="Bibliography.html#XCowan_2010js">295</a>] in 2011 and has since become the de-facto procedure at the
 LHC.
 </p><!--  l. 597  --><p class="indent">       As hinted at previously, such as in Figures <a href="FrequentiststatisticsattheLHC.html#asymptotic-form-of-p-tss">8.6<!--  tex4ht:ref: fig:03_p_tilde_t_asym   --></a> and <a href="FrequentiststatisticsattheLHC.html#comparing-p-tss-and-p-qss-p-qss-asymptotically-follows-a-half-distribution-green">8.12<!--  tex4ht:ref: fig:03_p_tilde_q   --></a>, the distributions
 <!--  l. 597  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow></msub><mo class="MathClass-rel" stretchy="false">|</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and
@@ -64,13 +64,13 @@ likelihood estimator (MLE).
 <!--  l. 600  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi></math> is a random
 variable with its own probability distribution. We can estimate it as always by sampling
 toys, shown in Figure <a href="#distribution-of-the-mle-of-for-different-s-and-b-produced-using-toy-experiments-each-note-the-xaxis-range-is-becoming-narrower-from-the-leftmost-to-the-rightmost-plot">8.20<!--  tex4ht:ref: fig:03_p_mle   --></a> for our counting experiment (Eq. <a href="FrequentiststatisticsattheLHC.html#x44-171003r3">8.2.3<!--  tex4ht:ref: eq:03_pois3   --></a>). One can observe
+                                                                                
+
+                                                                                
 that <!--  l. 602  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
 follows a Gaussian distribution as the number of events
 <!--  l. 602  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math>
 increases, and indeed this becomes clear if we try to fit one to the histograms
-                                                                                
-
-                                                                                
 (Figure <a href="#gaussian-fits-to-distributions-of-for-different-s-and-b-from-figureref-figpmle">8.21<!--  tex4ht:ref: fig:03_p_mle_fit   --></a>). We will now show this to be true generally, deriving the analytic
 distribution in Sections <a href="#x45-189000doc">8.3.1.<!--  tex4ht:ref: sec:03_pmle_bg   --></a>—<a href="#x45-191000doc">8.3.1.<!--  tex4ht:ref: sec:03_pmle_derivation   --></a>, and discussing the results and the important
 concept of the <i>Asimov</i> dataset for numerical estimation in Sections <a href="#x45-192000doc">8.3.1.<!--  tex4ht:ref: sec:03_pmle_result   --></a> and <a href="#x45-193000doc">8.3.1.<!--  tex4ht:ref: sec:03_pmle_asimov   --></a>,
@@ -162,7 +162,7 @@ matrix</strong>.
 <!--  l. 651  --><p class="noindent"><span class="head">
 <a id="x45-189008r1"></a>
 <span class="ec-lmbx-12">Theorem 8.3.1.</span>
-</span>Putting this together, by the central limit theorem [<a href="Bibliography.html#Xenwiki_1257009135">298</a>], this means
+</span>Putting this together, by the central limit theorem [<a href="Bibliography.html#Xenwiki_1257009135">300</a>], this means
 <!--  l. 652  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>s</mi><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> follows a normal
 distribution with mean <!--  l. 652  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math>
 and variance <!--  l. 652  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>I</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, up
@@ -294,7 +294,7 @@ know to be <!--  l. 696  --><math display="inline" xmlns="http://www.w3.org/1998
 <!--  l. 703  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>l</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> from Eq. <a href="#x45-189009r2">8.3.2<!--  tex4ht:ref: eq:03_score   --></a>, claimed
 <!--  l. 703  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>l</mi></mrow><mrow><mi>″</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> asymptotically equals
 its expectation value <!--  l. 703  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>𝔼</mi><mo class="MathClass-open" stretchy="false">[</mo><msup><mrow><mi>l</mi></mrow><mrow><mi>″</mi></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="script"><mi>I</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
-by the law of large numbers [<a href="Bibliography.html#Xenwiki_1256071749">299</a>], and are ignoring the
+by the law of large numbers [<a href="Bibliography.html#Xenwiki_1256071749">301</a>], and are ignoring the
 <!--  l. 703  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>μ</mi></mrow><mrow><mi>′</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
 term.<span class="footnote-mark"><a href="#fn43x9" id="fn43x9-bk"><sup class="textsuperscript">7</sup></a></span><a id="x45-191003f7"></a>
 </p><!--  l. 705  --><p class="indent">       For multiple parameters, <!--  l. 705  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="script"><mi>I</mi></mstyle></math>
@@ -753,7 +753,7 @@ very well, even for cases where the covariance-matrix-estimate failed! Indeed, t
 estimating <!--  l. 901  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>σ</mi></mrow><mrow><mover accent="true"><mrow><mi>μ</mi></mrow><mo accent="true">^</mo></mover></mrow></msub> <mo class="MathClass-rel" stretchy="false">≃</mo> <msub><mrow><mi>σ</mi></mrow><mrow><mi>A</mi></mrow></msub></mrow></math>
 is the standard in LHC analyses, and that is the method we’ll employ going
 forward.
-</p><!--  l. 903  --><p class="indent">       Reference [<a href="Bibliography.html#XCowan_2010js">293</a>] conjectures that this is because the Fisher-information-approach
+</p><!--  l. 903  --><p class="indent">       Reference [<a href="Bibliography.html#XCowan_2010js">295</a>] conjectures that this is because the Fisher-information-approach
 is restricted only to estimating the second-order term of Eq. <a href="#x45-195010r17">8.3.17<!--  tex4ht:ref: eq:03_plr_taylor   --></a>, while with
                                                                                 
 
@@ -791,7 +791,7 @@ at low statistics.                                                              
 <h5 class="subsubsectionHead" id="the-pdf-and-cdf"><a id="x45-201000"></a>The PDF and CDF</h5>
 <!--  l. 925  --><p class="noindent">The probability distribution function (PDF) for a
 <!--  l. 925  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>χ</mi></mrow><mrow><mi>k</mi></mrow><mrow><mi>′</mi><mn>2</mn></mrow></msubsup><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="normal">Λ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> distribution can be found
-in e.g. Ref. [<a href="Bibliography.html#Xenwiki_1256854724">301</a>] for <!--  l. 925  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>k</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>:
+in e.g. Ref. [<a href="Bibliography.html#Xenwiki_1256854724">303</a>] for <!--  l. 925  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>k</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>:
 </p><table class="equation"><tr><td>
 <!--  l. 926  --><p class="indent">
 </p><!--  l. 926  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
@@ -923,7 +923,7 @@ simple examples of hypothesis testing to check the agreement with toy-based sign
 These asymptotic formulae can be extended to the alternative test statistics for positive
 signals <!--  l. 989  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>t</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow></msub></math> and
 upper-limit-setting <!--  l. 989  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover accent="true"><mrow><mi>q</mi></mrow><mo accent="true">~</mo></mover></mrow><mrow><mi>μ</mi></mrow></msub></math>,
-as in Ref. [<a href="Bibliography.html#XCowan_2010js">293</a>], to simplify the calculation of both observed and expected significances,
+as in Ref. [<a href="Bibliography.html#XCowan_2010js">295</a>], to simplify the calculation of both observed and expected significances,
 limits, and intervals.
 </p><!--  l. 991  --><p class="indent">       With that, we conclude the overview of the statistical interpretation of LHC
 results. We will see practical applications of these concepts to searches in the high
@@ -933,9 +933,9 @@ energy Higgs sector in Part <a href="SearchesforHighEnergyHiggsBosonPairs.html#
                                                                                 
 </p>
 <nav class="crosslinks-bottom"> <a href="FrequentiststatisticsattheLHC.html">⭠</a> <a href="AcceleratingSimulationswithAI.html">⭢</a> </nav> <div class="footnotes"><a id="x45-189003x5"></a>
-<!--  l. 630  --><p class="indent"> <span class="footnote-mark"><a href="#fn41x9-bk" id="fn41x9"><sup class="textsuperscript">5</sup></a></span><span class="ec-lmr-10">See derivations in e.g. Ref. [</span><a href="Bibliography.html#Xenwiki_1253018821"><span class="ec-lmr-10">297</span></a><span class="ec-lmr-10">].</span></p><a id="x45-190003x"></a>
+<!--  l. 630  --><p class="indent"> <span class="footnote-mark"><a href="#fn41x9-bk" id="fn41x9"><sup class="textsuperscript">5</sup></a></span><span class="ec-lmr-10">See derivations in e.g. Ref. [</span><a href="Bibliography.html#Xenwiki_1253018821"><span class="ec-lmr-10">299</span></a><span class="ec-lmr-10">].</span></p><a id="x45-190003x"></a>
 <!--  l. 671  --><p class="indent"> <span class="footnote-mark"><a href="#fn42x9-bk" id="fn42x9"><sup class="textsuperscript">6</sup></a></span><span class="ec-lmr-10">The reason for this is discussed shortly in Section </span><a href="#x45-191000doc"><span class="ec-lmr-10">8.3.1.</span><!--  tex4ht:ref: sec:03_pmle_derivation   --></a><span class="ec-lmr-10">.</span></p><a id="x45-191004x"></a>
-<!--  l. 703  --><p class="indent"> <span class="footnote-mark"><a href="#fn43x9-bk" id="fn43x9"><sup class="textsuperscript">7</sup></a></span><span class="ec-lmr-10">For a more rigorous derivation, see e.g. Ref. [</span><a href="Bibliography.html#Xgundersen_asymptotic_2019"><span class="ec-lmr-10">300</span></a><span class="ec-lmr-10">].</span></p><a id="x45-193002x"></a>
+<!--  l. 703  --><p class="indent"> <span class="footnote-mark"><a href="#fn43x9-bk" id="fn43x9"><sup class="textsuperscript">7</sup></a></span><span class="ec-lmr-10">For a more rigorous derivation, see e.g. Ref. [</span><a href="Bibliography.html#Xgundersen_asymptotic_2019"><span class="ec-lmr-10">302</span></a><span class="ec-lmr-10">].</span></p><a id="x45-193002x"></a>
 <!--  l. 752  --><p class="indent"> <span class="footnote-mark"><a href="#fn44x9-bk" id="fn44x9"><sup class="textsuperscript">8</sup></a></span><span class="ec-lmr-10">We are able to do this because, as we saw above, the score is linear in</span>
 <!--  l. 752  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math> <span class="ec-lmr-10">for
 Poisson likelihoods.</span></p><a id="x45-193006x9"></a>
@@ -943,8 +943,8 @@ Poisson likelihoods.</span></p><a id="x45-193006x9"></a>
 whose book </span><i>Franchise</i> <span class="ec-lmr-10">is about a supercomputer choosing a single person as the sole voter in the
 U.S. elections, because they can represent the entire population.</span></p><a id="x45-195002x"></a>
 <!--  l. 776  --><p class="indent"> <span class="footnote-mark"><a href="#fn46x9-bk" id="fn46x9"><sup class="textsuperscript">10</sup></a></span><span class="ec-lmr-10">Note: this is not a rigorous derivation; it’s just a way to motivate the final result, which is
-taken from Ref. [</span><a href="Bibliography.html#XCowan_2010js"><span class="ec-lmr-10">293</span></a><span class="ec-lmr-10">]. (If you know of a better way, let me know!)</span></p><a id="x45-196007x"></a>
-<!--  l. 825  --><p class="indent"> <span class="footnote-mark"><a href="#fn47x9-bk" id="fn47x9"><sup class="textsuperscript">11</sup></a></span><span class="ec-lmr-10">More information can be found in e.g. Ref. [</span><a href="Bibliography.html#Xenwiki_1256854724"><span class="ec-lmr-10">301</span></a><span class="ec-lmr-10">].</span> </p><a id="x45-198002x"></a>
+taken from Ref. [</span><a href="Bibliography.html#XCowan_2010js"><span class="ec-lmr-10">295</span></a><span class="ec-lmr-10">]. (If you know of a better way, let me know!)</span></p><a id="x45-196007x"></a>
+<!--  l. 825  --><p class="indent"> <span class="footnote-mark"><a href="#fn47x9-bk" id="fn47x9"><sup class="textsuperscript">11</sup></a></span><span class="ec-lmr-10">More information can be found in e.g. Ref. [</span><a href="Bibliography.html#Xenwiki_1256854724"><span class="ec-lmr-10">303</span></a><span class="ec-lmr-10">].</span> </p><a id="x45-198002x"></a>
 <!--  l. 854  --><p class="indent"> <span class="footnote-mark"><a href="#fn48x9-bk" id="fn48x9"><sup class="textsuperscript">12</sup></a></span><span class="ec-lmr-10">More generally, we’d need </span><!--  l. 854  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mover accent="true"><mrow><mstyle mathvariant="script"><mi>I</mi></mstyle></mrow><mo accent="true">~</mo></mover></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></msup></math>
 <span class="ec-lmr-10">for Eq. </span><a href="#x45-196010r24"><span class="ec-lmr-10">8.3.24</span><!--  tex4ht:ref: eq:03_Lambdamultipois   --></a><span class="ec-lmr-10">.</span></p><a id="x45-202002x"></a>
 <!--  l. 964  --><p class="indent"> <span class="footnote-mark"><a href="#fn49x9-bk" id="fn49x9"><sup class="textsuperscript">13</sup></a></span><span class="ec-lmr-10">Note that we’re using </span><!--  l. 964  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>μ</mi></mrow></msub></math>

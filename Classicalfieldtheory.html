@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Classical field theory</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="appendixToc">A <a href="SupplementaryMaterialforChapterrefsec01symmetries.html#supplementary-material-for-chapterref-secsymmetries">Supplementary Material for Chapter 2</a></span>
+<span class="appendixToc">B <a href="SupplementaryMaterialforChapterrefsec01qft.html#supplementary-material-for-chapterref-secqft">Supplementary Material for Chapter 3</a></span>
+<span class="sectionToc">B.1 <a href="#classical-field-theory1">Classical field theory</a></span>
+<span class="subsectionToc">B.1.1 <a href="#lagrangian-mechanics">Lagrangian mechanics</a></span>
+<span class="subsectionToc">B.1.2 <a href="#solutions-to-the-kleingordon-equation">Solutions to the Klein-Gordon equation</a></span>
+<span class="subsectionToc">B.1.3 <a href="#hamiltonian-mechanics">Hamiltonian mechanics</a></span>
+<span class="sectionToc">B.2 <a href="Quantization.html#quantization1">Quantization</a></span>
+<span class="sectionToc">B.3 <a href="Interactions1.html#interactions1">Interactions</a></span>
+<span class="sectionToc">B.4 <a href="Spinorfieldtheory.html#spinor-field-theory">Spinor field theory</a></span>
+<span class="sectionToc">B.5 <a href="Gaugetheories1.html#gauge-theories1">Gauge theories</a></span>
+<span class="appendixToc">C <a href="SupplementaryMaterialforChapterrefsec04models.html#supplementary-material-for-chapterref-secmodels">Supplementary Material for Chapter 10</a></span>
+<span class="appendixToc">D <a href="SupplementaryMaterialforChapterrefsec04evaluating.html#supplementary-material-for-chapterref-secevaluating">Supplementary Material for Chapter 11</a></span>
+<span class="appendixToc">E <a href="SupplementaryMaterialforChapterrefsec06lgae.html#supplementary-material-for-chapterref-seclgae">Supplementary Material for Chapter 16</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="SupplementaryMaterialforChapterrefsec01qft.html">⭠</a> <a href="Quantization.html">⭢</a> </nav>
+<h3 class="sectionHead" id="classical-field-theory1"><span class="titlemark">B.1   </span> <a id="x85-303000B.1"></a>Classical field theory</h3>
+<!--  l. 40  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="lagrangian-mechanics"><span class="titlemark">B.1.1   </span> <a id="x85-304000B.1.1"></a>Lagrangian mechanics</h4>
+<!--  l. 43  --><p class="noindent">Lagrangian mechanics is a formulation of classical mechanics based on the
+energies of a system, as opposed to the force-based Newtonian approach. We
+define the Lagrangian of a particle as the difference between its kinetic
+(<!--  l. 44  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi></math>) and potential
+energies (<!--  l. 44  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>V</mi> </mrow></math>):
+</p><table class="equation"><tr><td>
+<!--  l. 45  --><p class="indent">
+</p><!--  l. 45  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-304001r1"></mstyle><!--  endlabel  -->
+<mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>ẋ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>T</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>ẋ</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>V</mi> <mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(B.1.1)</td></tr></table>
+<!--  l. 48  --><p class="noindent">where <!--  l. 49  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math> and
+<!--  l. 49  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ẋ</mi></math> are the particle’s
+position and velocity, respectively. To determine the dynamics of the system, we assign a value
+based on <!--  l. 50  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi></math>
+to each possible path the particle can take between two points
+<!--  l. 50  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>i</mi></mrow></msub></math> and
+<!--  l. 50  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>t</mi></mrow><mrow><mi>f</mi></mrow></msub></math>, called the
+<i>action</i> <!--  l. 50  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>S</mi></math>:
+</p><table class="equation"><tr><td>
+<!--  l. 51  --><p class="indent">
+</p><!--  l. 51  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-304002r2"></mstyle><!--  endlabel  -->
+<mi>S</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo> <mo class="MathClass-rel" stretchy="false">=</mo><msubsup><mrow><mo> ∫
+ <!--  nolimits  --></mo><!--  nolimits  --></mrow><mrow><msub><mrow><mi>t</mi></mrow><mrow><mi>i</mi></mrow></msub></mrow><mrow><msub><mrow><mi>t</mi></mrow><mrow><mi>f</mi></mrow></msub>
+</mrow></msubsup><mi>L</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>ẋ</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo><mi>x</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">)</mo><mi mathvariant="italic">dt</mi><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(B.1.2)</td></tr></table>
+<!--  l. 54  --><p class="noindent">The equations of motion (EOMs) are then derived from the <i>principle of
+stationary action</i>, which states that the true path is an extremum of
+<!--  l. 55  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>S</mi></math>. This
+condition yields the Euler-Lagrange (E-L) equations: </p><table class="equation"><tr><td>
+<!--  l. 57  --><p class="indent">
+</p><!--  l. 57  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-304003r3"></mstyle><!--  endlabel  -->
+<mfrac>
+<mrow>
+<mi>d</mi></mrow>
+<mrow>
+<mi mathvariant="italic">dt</mi></mrow></mfrac>
+<mrow><mo fence="true" form="prefix">(</mo><mrow> <mfrac><mrow><mi mathvariant="italic">∂L</mi></mrow>
+<mrow>
+<mi mathvariant="italic">∂ẋ</mi></mrow></mfrac>
+</mrow><mo fence="true" form="postfix">)</mo></mrow> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mi mathvariant="italic">∂L</mi></mrow>
+<mrow>
+<mi mathvariant="italic">∂x</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(B.1.3)</td></tr></table>
+<!--  l. 60  --><p class="noindent">
+</p>
+<div class="newtheorem">
+<!--  l. 62  --><p class="noindent"><span class="head">
+<a id="x85-304004r1"></a>
+<span class="ec-lmbx-12">Example B.1.1.</span>
+</span> We can confirm that this is equivalent to Newtonian mechanics by
+                                                                                
+
+                                                                                
+considering the simple Lagrangian: </p><table class="equation"><tr><td>
+<!--  l. 65  --><p class="indent">
+</p><!--  l. 65  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-304005r4"></mstyle><!--  endlabel  -->
+<mi>L</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac><mi>m</mi><msup><mrow><mi>ẋ</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>V</mi> <mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(B.1.4)</td></tr></table>
+<!--  l. 68  --><p class="noindent">Plugging this into Eq. <a href="#x85-304003r3">B.1.3<!--  tex4ht:ref: eq:01_qft_classical_euler_lagrange   --></a> gives us: </p><table class="equation"><tr><td>
+<!--  l. 70  --><p class="indent">
+</p><!--  l. 70  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-304006r5"></mstyle><!--  endlabel  -->
+<mi mathvariant="italic">mẍ</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mi mathvariant="italic">dV</mi> </mrow>
+<mrow>
+<mi mathvariant="italic">dx</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mspace class="quad" width="1em"></mspace> <mo class="MathClass-rel" stretchy="false">⇒</mo> <mi mathvariant="italic">mẍ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mi mathvariant="italic">dV</mi> </mrow>
+<mrow>
+<mi mathvariant="italic">dx</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>F</mi><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(B.1.5)</td></tr></table>
+<!--  l. 73  --><p class="noindent">which is exactly Newton’s second law. Classically, Lagrangian mechanics has certain
+benefits over Newtonian mechanics, such as being based on scalars (energies)
+                                                                                
+
+                                                                                
+instead of vectors (forces), and ease of coordinate transformations. For us, as we
+will see, its main advantage is its natural generalization to fields rather than
+particles.
+</p>
+</div>
+<!--  l. 77  --><p class="indent">
+</p><!--  l. 79  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="path-integral-formulation-of-qm"><a id="x85-305000"></a>Path integral formulation of QM</h5>
+<a id="x85-305000doc"></a>
+<!--  l. 82  --><p class="noindent">Note that the principle of stationary action is based on the classical behavior of
+particles, in that they follow a single true path. However, in QM, (unobserved)
+particles are thought to traverse a superposition of all possible paths
+between two observed positions. This can be expressed with Feynman’s path
+integral formula, where the probability of observing a particle at position
+<!--  l. 84  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>q</mi></mrow><mrow><mi>f</mi></mrow></msub></math> and time
+<!--  l. 84  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi></math> given
+it was at <!--  l. 84  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>q</mi></mrow><mrow><mi>i</mi></mrow></msub></math>
+                                                                                
+
+                                                                                
+at <!--  l. 84  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>t</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math> is
+based on its wavefunction </p><table class="equation"><tr><td>
+<!--  l. 85  --><p class="indent">
+</p><!--  l. 85  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-305001r6"></mstyle><!--  endlabel  -->
+<mi>ψ</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>q</mi></mrow><mrow><mi>f</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>T</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><msubsup><mrow><mo> ∫
+ <!--  nolimits  --></mo><!--  nolimits  --></mrow><mrow><msub><mrow><mi>q</mi></mrow><mrow><mi>i</mi></mrow></msub></mrow><mrow><msub><mrow><mi>q</mi></mrow><mrow><mi>f</mi></mrow></msub>
+</mrow></msubsup><mstyle mathvariant="script"><mi>D</mi></mstyle><mi>q</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mi>e</mi></mrow><mrow><mi mathvariant="italic">iS</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>q</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-ord">ℏ</mo></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(B.1.6)</td></tr></table>
+<!--  l. 88  --><p class="noindent">where <!--  l. 89  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow> <mo>∫</mo>
+<!--  nolimits  --><!--  nolimits  --></mrow><mrow><msub><mrow><mi>q</mi></mrow><mrow><mi>i</mi></mrow></msub></mrow><mrow><msub><mrow><mi>q</mi></mrow><mrow><mi>f</mi></mrow></msub></mrow></msubsup><mstyle mathvariant="script"><mi>D</mi></mstyle><mi>q</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> is an integral
+over all possible paths <!--  l. 89  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>q</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+between <!--  l. 89  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>q</mi></mrow><mrow><mi>i</mi></mrow></msub></math> and
+<!--  l. 89  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>q</mi></mrow><mrow><mi>f</mi></mrow></msub></math>, interfering through their
+complex phases <!--  l. 89  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>e</mi></mrow><mrow><mi mathvariant="italic">iS</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>q</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo><mo class="MathClass-bin" stretchy="false">∕</mo><mo class="MathClass-ord">ℏ</mo></mrow></msup></math> that
+are based on the action <!--  l. 89  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>S</mi><mo class="MathClass-open" stretchy="false">[</mo><mi>q</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
+of the path divided by the reduced Planck constant
+<!--  l. 89  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mtext class="MathClass-ord">ℏ</mtext></math>. In the classical limit
+<!--  l. 90  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mtext class="MathClass-ord">ℏ</mtext></mrow>
+<mrow>
+<mi>S</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">→</mo> <mn>0</mn></mrow></math>,<span class="footnote-mark"><a href="#fn61x19" id="fn61x19-bk"><sup class="textsuperscript">1</sup></a></span><a id="x85-305002f1"></a>
+by the stationary phase approximation, only the path that extremizes the action
+contributes, as we expect.
+                                                                                
+
+                                                                                
+</p><!--  l. 92  --><p class="indent">       The path integral formulation was a critical development in QFT. The fact that
+the Lagrangian shows up naturally in this formulation is the reason why we “consider it
+the most fundamental specification of a QFT” (Peskin and Schroeder [<a href="Bibliography.html#XPeskin_1995ev">80</a>] Chapter
+9).
+</p><!--  l. 96  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="solutions-to-the-kleingordon-equation"><span class="titlemark">B.1.2   </span> <a id="x85-306000B.1.2"></a>Solutions to the Klein-Gordon equation</h4>
+<!--  l. 98  --><p class="noindent">Using the Fourier transform, we see the solutions to the Klein-Gordon equation are
+plane waves: </p><table class="equation"><tr><td>
+<!--  l. 99  --><p class="indent">
+</p><!--  l. 99  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-306001r7"></mstyle><!--  endlabel  -->
+<mi>ϕ</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><mo> ∫
+ <!--  nolimits  --></mo><!--  nolimits  --> <mfrac><mrow><msup><mrow><mi>d</mi></mrow><mrow><mn>3</mn></mrow></msup><mi>p</mi></mrow>
+<mrow><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mi>π</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>3</mn>
+</mrow></msup></mrow></mfrac><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">~</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>p</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mi>e</mi></mrow><mrow><mi>i</mi><mstyle mathvariant="bold"><mi>p</mi></mstyle><mo class="MathClass-bin" stretchy="false">⋅</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(B.1.7)</td></tr></table>
+<!--  l. 102  --><p class="noindent">with <!--  l. 103  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">~</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>p</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+satisfying the simple-harmonic oscillator (SHO) equation </p><table class="equation"><tr><td>
+<!--  l. 104  --><p class="indent">
+</p><!--  l. 104  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-306002r8"></mstyle><!--  endlabel  -->
+<mo class="MathClass-open" stretchy="false">(</mo><msubsup><mrow><mi>∂</mi></mrow><mrow><mi>t</mi></mrow><mrow><mn>2</mn></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">−</mo><mo class="MathClass-rel" stretchy="false">|</mo><mstyle mathvariant="bold"><mi>p</mi></mstyle><msup><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>m</mi></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">~</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>p</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mspace class="quad" width="1em"></mspace> <mo class="MathClass-rel" stretchy="false">⇒</mo><mspace class="quad" width="1em"></mspace><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">~</mo></mover><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>p</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">∝</mo> <msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi>i</mi><msub><mrow><mi>ω</mi></mrow><mrow><mi>p</mi></mrow></msub><mi>t</mi></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(B.1.8)</td></tr></table>
+<!--  l. 107  --><p class="noindent">with frequency <!--  l. 108  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>ω</mi></mrow><mrow><mi>p</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mrow><mo fence="true" form="prefix">|</mo><mrow><msqrt><mrow>
+<mo class="MathClass-rel" stretchy="false">|</mo><mstyle mathvariant="bold"><mi>p</mi></mstyle><msup><mrow><mo class="MathClass-rel" stretchy="false">|</mo></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mi>m</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></msqrt></mrow><mo fence="true" form="postfix">|</mo></mrow></mrow></math>.
+Thus, </p><table class="equation"><tr><td>
+<!--  l. 110  --><p class="indent">
+</p><!--  l. 110  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-306003r9"></mstyle><!--  endlabel  -->
+<mi>ϕ</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><mo> ∫
+ <!--  nolimits  --></mo><!--  nolimits  --> <mfrac><mrow><msup><mrow><mi>d</mi></mrow><mrow><mn>3</mn></mrow></msup><mi>p</mi></mrow>
+<mrow><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mi>π</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>3</mn>
+</mrow></msup></mrow></mfrac> <mfrac>
+<mrow>
+<mn>1</mn></mrow>
+<mrow>
+<msqrt>
+<mrow>
+<mn>2</mn><msub><mrow><mi>ω</mi></mrow><mrow><mi>p</mi></mrow></msub></mrow></msqrt></mrow></mfrac><mo class="MathClass-open" stretchy="false">(</mo><mi>a</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>p</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mi>e</mi></mrow><mrow><mi mathvariant="italic">ip</mi><mo class="MathClass-bin" stretchy="false">⋅</mo><mi>x</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <msup><mrow><mi>a</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">∗</mo></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>p</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi mathvariant="italic">ip</mi><mo class="MathClass-bin" stretchy="false">⋅</mo><mi>x</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(B.1.9)</td></tr></table>
+<!--  l. 113  --><p class="noindent">where <!--  l. 114  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi> <mo class="MathClass-bin" stretchy="false">⋅</mo> <mi>x</mi></mrow></math> is the 4D spacetime
+inner product with <!--  l. 114  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>ω</mi></mrow><mrow><mi>p</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>p</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, and
+the <!--  l. 114  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<msqrt>
+<mrow>
+<mn>2</mn><msub><mrow><mi>ω</mi></mrow><mrow><mi>p</mi></mrow></msub></mrow></msqrt></mrow></mfrac></mrow></math> factor is conventional.
+The coefficients <!--  l. 115  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi></math>
+and <!--  l. 115  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>a</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">∗</mo></mrow></msup></math>
+are complex conjugates to ensure a real sum. As we will see, in
+<i>quantum</i> field theory, the form of the fields is quite similar but with
+<!--  l. 116  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi></math> and
+<!--  l. 116  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>a</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">∗</mo></mrow></msup></math>
+quantum operators.
+</p><!--  l. 119  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="hamiltonian-mechanics"><span class="titlemark">B.1.3   </span> <a id="x85-307000B.1.3"></a>Hamiltonian mechanics</h4>
+<!--  l. 121  --><p class="noindent">In QM, the Hamiltonian formalism is most natural. In QFT, as well, it will prove useful
+for the <i>canonical quantization</i> of the fields in the next section. The Hamiltonian density
+is the Legendre transform of the Lagrangian: </p><table class="equation"><tr><td>
+<!--  l. 124  --><p class="indent">
+</p><!--  l. 124  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-307001r10"></mstyle><!--  endlabel  -->
+<mstyle mathvariant="script"><mi>H</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>π</mi></mrow><mrow><mi>a</mi></mrow></msub><msub><mrow><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>a</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo><mstyle mathvariant="script"><mi>L</mi></mstyle><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(B.1.10)</td></tr></table>
+<!--  l. 127  --><p class="noindent">where <!--  l. 128  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover></math>
+is the time derivative and </p><table class="equation"><tr><td>
+<!--  l. 129  --><p class="indent">
+</p><!--  l. 129  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-307002r11"></mstyle><!--  endlabel  -->
+<msub><mrow><mi>π</mi></mrow><mrow><mi>a</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi>∂</mi><mstyle mathvariant="script"><mi>L</mi></mstyle></mrow>
+<mrow>
+<mi>∂</mi><msub><mrow><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>a</mi></mrow></msub></mrow></mfrac>
+</mrow></math></td><td class="eq-no">(B.1.11)</td></tr></table>
+<!--  l. 132  --><p class="noindent">are the <i>conjugate momenta</i> to the fields <!--  l. 133  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>ϕ</mi></mrow><mrow><mi>a</mi></mrow></msub></math>.
+The Hamiltonian generally has the interpretation of the energy of a system, or the
+energy operator in QM. The EOMs are Hamilton’s equations: </p><table class="equation"><tr><td>
+<!--  l. 136  --><p class="indent">
+</p><!--  l. 136  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-307003r12"></mstyle><!--  endlabel  -->
+<mtable class="equation"><mtr><mtd>
+<mtable class="split" columnalign="right left">
+<mtr class="split-mtr"><mtd class="split-mtd"> <msub><mrow><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>a</mi></mrow></msub></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi>∂</mi><mstyle mathvariant="script"><mi>H</mi></mstyle></mrow>
+<mrow>
+<mi>∂</mi><msub><mrow><mi>π</mi></mrow><mrow><mi>a</mi></mrow></msub></mrow></mfrac><mo class="MathClass-punc" stretchy="false">,</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> <msub><mrow><mover accent="true"><mrow><mi>π</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>a</mi></mrow></msub></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mi>∂</mi><mstyle mathvariant="script"><mi>H</mi></mstyle></mrow>
+<mrow>
+<mi>∂</mi><msub><mrow><mi>ϕ</mi></mrow><mrow><mi>a</mi></mrow></msub></mrow></mfrac><mo class="MathClass-punc" stretchy="false">.</mo></mtd>
+</mtr></mtable>
+</mtd><mtd>
+</mtd></mtr></mtable>
+</mrow></math></td><td class="eq-no">(B.1.12)</td></tr></table>
+<!--  l. 142  --><p class="noindent">
+</p><!--  l. 144  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="poisson-brackets"><a id="x85-308000"></a>Poisson brackets</h5>
+<!--  l. 146  --><p class="noindent">The time evolution of a general quantity
+<!--  l. 146  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>f</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>ϕ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>π</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> can
+be expressed as: </p><table class="equation"><tr><td>
+<!--  l. 147  --><p class="indent">
+</p><!--  l. 147  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-308001r13"></mstyle><!--  endlabel  -->
+<mfrac>
+<mrow>
+<mi mathvariant="italic">df</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>ϕ</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>π</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow>
+<mrow>
+<mi mathvariant="italic">dt</mi></mrow></mfrac>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi mathvariant="italic">∂f</mi></mrow>
+<mrow>
+<mi mathvariant="italic">∂ϕ</mi></mrow></mfrac><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mi mathvariant="italic">∂f</mi></mrow>
+<mrow>
+<mi mathvariant="italic">∂π</mi></mrow></mfrac><mover accent="true"><mrow><mi>π</mi></mrow><mo accent="true">˙</mo></mover> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi mathvariant="italic">∂f</mi></mrow>
+<mrow>
+<mi mathvariant="italic">∂ϕ</mi></mrow></mfrac> <mfrac><mrow><mi>∂</mi><mstyle mathvariant="script"><mi>H</mi></mstyle></mrow>
+<mrow>
+<mi mathvariant="italic">∂π</mi></mrow></mfrac> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mi mathvariant="italic">∂f</mi></mrow>
+<mrow>
+<mi mathvariant="italic">∂π</mi></mrow></mfrac> <mfrac><mrow><mi>∂</mi><mstyle mathvariant="script"><mi>H</mi></mstyle></mrow>
+<mrow>
+<mi mathvariant="italic">∂ϕ</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">≡</mo><mo class="MathClass-open" stretchy="false">{</mo><mi>f</mi><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="script"><mi>H</mi></mstyle><mo class="MathClass-close" stretchy="false">}</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(B.1.13)</td></tr></table>
+<!--  l. 150  --><p class="noindent">where the last step defines the <i>Poisson bracket</i>
+<!--  l. 151  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mtext class="MathClass-open" stretchy="false">{⋅,⋅}</mtext></mrow></math>. In
+terms of Poisson brackets, Hamilton’s equations can be written as: </p><table class="equation"><tr><td>
+<!--  l. 153  --><p class="indent">
+</p><!--  l. 153  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-308002r14"></mstyle><!--  endlabel  -->
+<mtable class="equation"><mtr><mtd>
+<mtable class="split" columnalign="right left">
+<mtr class="split-mtr"><mtd class="split-mtd"> <msub><mrow><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>a</mi></mrow></msub></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">{</mo><msub><mrow><mi>ϕ</mi></mrow><mrow><mi>a</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="script"><mi>H</mi></mstyle><mo class="MathClass-close" stretchy="false">}</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi>∂</mi><mstyle mathvariant="script"><mi>H</mi></mstyle></mrow>
+<mrow>
+<mi>∂</mi><msub><mrow><mi>π</mi></mrow><mrow><mi>a</mi></mrow></msub></mrow></mfrac><mo class="MathClass-punc" stretchy="false">,</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> <msub><mrow><mover accent="true"><mrow><mi>π</mi></mrow><mo accent="true">˙</mo></mover></mrow><mrow><mi>a</mi></mrow></msub></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">{</mo><msub><mrow><mi>π</mi></mrow><mrow><mi>a</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="script"><mi>H</mi></mstyle><mo class="MathClass-close" stretchy="false">}</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mi>∂</mi><mstyle mathvariant="script"><mi>H</mi></mstyle></mrow>
+<mrow>
+<mi>∂</mi><msub><mrow><mi>ϕ</mi></mrow><mrow><mi>a</mi></mrow></msub></mrow></mfrac><mo class="MathClass-punc" stretchy="false">.</mo></mtd>
+</mtr></mtable>
+</mtd><mtd>
+</mtd></mtr></mtable>
+</mrow></math></td><td class="eq-no">(B.1.14)</td></tr></table>
+<!--  l. 159  --><p class="noindent">Importantly, the <i>canonical</i> fields of the Hamiltonian,
+<!--  l. 160  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math> and
+<!--  l. 160  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>π</mi></math>, obey
+the canonical Poisson bracket relations: </p><table class="equation"><tr><td>
+<!--  l. 161  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-308003r15"></mstyle><!--  endlabel  -->
+<mtable class="equation"><mtr><mtd>
+<mtable class="split" columnalign="right left">
+<mtr class="split-mtr"><mtd class="split-mtd"> <mo class="MathClass-open" stretchy="false">{</mo><mi>ϕ</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo><mi>ϕ</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>y</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">}</mo></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> <mo class="MathClass-open" stretchy="false">{</mo><mi>π</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo><mi>π</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>y</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">}</mo></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> <mo class="MathClass-open" stretchy="false">{</mo><mi>ϕ</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo><mi>π</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>y</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">}</mo></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>δ</mi></mrow><mrow><mn>3</mn></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle> <mo class="MathClass-bin" stretchy="false">−</mo><mstyle mathvariant="bold"><mi>y</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">.</mo></mtd>
+</mtr></mtable>
+</mtd><mtd>
+</mtd></mtr></mtable>
+</mrow></math></td><td class="eq-no">(B.1.15)</td></tr></table>
+<!--  l. 168  --><p class="noindent">
+</p>
+<div class="newtheorem">
+<!--  l. 170  --><p class="noindent"><span class="head">
+<a id="x85-308004r2"></a>
+<span class="ec-lmbx-12">Example B.1.2.</span>
+</span> Revisiting the simple (non-field-theoretic) Lagrangian
+from Example <a href="#x85-304004r1">B.1.1<!--  tex4ht:ref: ex:01_qft_lagrangian_classical_newton   --></a>, we can derive the conjugate momentum to
+<!--  l. 172  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math> to be:
+</p><table class="equation"><tr><td>
+<!--  l. 173  --><p class="indent">
+</p><!--  l. 173  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-308005r16"></mstyle><!--  endlabel  -->
+<mi>p</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi mathvariant="italic">∂L</mi></mrow>
+<mrow>
+<mi mathvariant="italic">∂ẋ</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mi mathvariant="italic">mẋ</mi><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(B.1.16)</td></tr></table>
+<!--  l. 176  --><p class="noindent">and hence, </p><table class="equation"><tr><td>
+<!--  l. 178  --><p class="indent">
+</p><!--  l. 178  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-308006r17"></mstyle><!--  endlabel  -->
+<mi>H</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi mathvariant="italic">pẋ</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>L</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac><mi>m</mi><msup><mrow><mi>ẋ</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>V</mi> <mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><msup><mrow><mi>p</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow>
+<mrow>
+<mn>2</mn><mi>m</mi></mrow></mfrac> <mo class="MathClass-bin" stretchy="false">+</mo> <mi>V</mi> <mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(B.1.17)</td></tr></table>
+<!--  l. 181  --><p class="noindent">which is the classical energy of a free particle. Note, as in the last step,
+we express the Hamiltonian as a function of the conjugate momenta
+<!--  l. 183  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math> rather than the time
+                                                                                
+
+                                                                                
+derivative of the coordinate <!--  l. 183  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ẋ</mi></math>.
+Finally, the EOMs are: </p><table class="equation"><tr><td>
+<!--  l. 185  --><p class="indent">
+</p><!--  l. 185  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-308007r18"></mstyle><!--  endlabel  -->
+<mtable class="equation"><mtr><mtd>
+<mtable class="split" columnalign="right left">
+<mtr class="split-mtr"><mtd class="split-mtd"> <mi>ẋ</mi></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi mathvariant="italic">∂H</mi></mrow>
+<mrow>
+<mi mathvariant="italic">∂p</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi>p</mi></mrow>
+<mrow>
+<mi>m</mi></mrow></mfrac><mo class="MathClass-punc" stretchy="false">,</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> <mi>ṗ</mi></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mi mathvariant="italic">∂H</mi></mrow>
+<mrow>
+<mi mathvariant="italic">∂x</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mi mathvariant="italic">dV</mi> </mrow>
+<mrow>
+<mi mathvariant="italic">dx</mi></mrow></mfrac> <mo class="MathClass-punc" stretchy="false">.</mo></mtd>
+</mtr></mtable>
+</mtd><mtd>
+</mtd></mtr></mtable>
+</mrow></math></td><td class="eq-no">(B.1.18)</td></tr></table>
+<!--  l. 191  --><p class="noindent">The former is simply the definition of velocity, while the latter again
+reproduces Newton’s second law. Finally, we can explitly confirm
+the canonical Poisson bracket relations for the canonical coordinates
+<!--  l. 193  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math> and
+<!--  l. 193  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>:
+</p><table class="equation"><tr><td>
+<!--  l. 194  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-308008r19"></mstyle><!--  endlabel  -->
+<mtable class="equation"><mtr><mtd>
+<mtable class="split" columnalign="right left">
+<mtr class="split-mtr"><mtd class="split-mtd"> <mo class="MathClass-open" stretchy="false">{</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">}</mo></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">{</mo><mi>p</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>p</mi><mo class="MathClass-close" stretchy="false">}</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> <mo class="MathClass-open" stretchy="false">{</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>p</mi><mo class="MathClass-close" stretchy="false">}</mo></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi mathvariant="italic">∂x</mi></mrow>
+<mrow>
+<mi mathvariant="italic">∂x</mi></mrow></mfrac> <mfrac><mrow><mi mathvariant="italic">∂p</mi></mrow>
+<mrow>
+<mi mathvariant="italic">∂p</mi></mrow></mfrac> <mo class="MathClass-bin" stretchy="false">−</mo><mfrac><mrow><mi mathvariant="italic">∂x</mi></mrow>
+<mrow>
+<mi mathvariant="italic">∂p</mi></mrow></mfrac> <mfrac><mrow><mi mathvariant="italic">∂p</mi></mrow>
+<mrow>
+<mi mathvariant="italic">∂x</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><mo class="MathClass-punc" stretchy="false">.</mo></mtd>
+</mtr></mtable>
+</mtd><mtd>
+</mtd></mtr></mtable>
+</mrow></math></td><td class="eq-no">(B.1.19)</td></tr></table>
+<!--  l. 200  --><p class="noindent">
+</p>
+</div>
+<!--  l. 201  --><p class="indent">
+</p><!--  l. 203  --><p class="noindent">
+</p>
+<h5 class="subsubsectionHead" id="free-scalar-field-hamiltonian"><a id="x85-309000"></a>Free scalar field Hamiltonian</h5>
+<!--  l. 205  --><p class="noindent">For the free scalar Lagrangian in Eq. <a href="Freescalarfieldtheory.html#x19-31001r4">3.1.4<!--  tex4ht:ref: eq:01_qft_field_kg_lagrangian   --></a>, we find </p><table class="equation"><tr><td>
+<!--  l. 206  --><p class="indent">
+</p><!--  l. 206  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-309001r20"></mstyle><!--  endlabel  -->
+<mi>π</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi>i</mi><mo>∫
+ <!--  nolimits  --></mo><!--  nolimits  --> <mfrac><mrow><msup><mrow><mi>d</mi></mrow><mrow><mn>3</mn></mrow></msup><mi>p</mi></mrow>
+<mrow><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mi>π</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>3</mn>
+</mrow></msup></mrow></mfrac><msqrt><mrow>
+<mfrac>
+<mrow><msub><mrow>
+<mi>ω</mi></mrow><mrow><mi>p</mi></mrow></msub></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac></mrow></msqrt> <mo class="MathClass-open" stretchy="false">(</mo><mi>a</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>p</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mi>e</mi></mrow><mrow><mi mathvariant="italic">ip</mi><mo class="MathClass-bin" stretchy="false">⋅</mo><mi>x</mi></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>a</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">∗</mo></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>p</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><msup><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mi mathvariant="italic">ip</mi><mo class="MathClass-bin" stretchy="false">⋅</mo><mi>x</mi></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(B.1.20)</td></tr></table>
+<!--  l. 209  --><p class="noindent">where we plugged in the plane-wave solutions for
+<!--  l. 210  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math> from
+Eq. <a href="#x85-306003r9">B.1.9<!--  tex4ht:ref: eq:01_qft_field_kg_solutions_final   --></a>, and </p><table class="equation"><tr><td>
+<!--  l. 211  --><p class="indent">
+</p><!--  l. 211  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x85-309002r21"></mstyle><!--  endlabel  -->
+<mstyle mathvariant="script"><mi>H</mi></mstyle>
+<mo class="MathClass-rel" stretchy="false">=</mo> <mi>π</mi><mover accent="true"><mrow><mi>ϕ</mi></mrow><mo accent="true">˙</mo></mover> <mo class="MathClass-bin" stretchy="false">−</mo><mstyle mathvariant="script"><mi>L</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac><msup><mrow><mi>π</mi></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi class="MathClass-op">∇</mi><mo> ⁡<!--  FUNCTION APPLICATION  --></mo><mi>ϕ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">+</mo> <mfrac><mrow><mn>1</mn></mrow>
+<mrow>
+<mn>2</mn></mrow></mfrac><msup><mrow><mi>m</mi></mrow><mrow><mn>2</mn></mrow></msup><msup><mrow><mi>ϕ</mi></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-punc" stretchy="false">.</mo>
+</mrow></math></td><td class="eq-no">(B.1.21)</td></tr></table>
+<!--  l. 214  --><p class="noindent">This is, in fact, the same as the expression for energy we derived via Noether’s
+theorem in Eq. <a href="Freescalarfieldtheory.html#x19-34003r14">3.1.14<!--  tex4ht:ref: eq:01_qft_symmetries_charge_translation_kg   --></a>. Note that, unlike the Lagrangian, the Hamiltonian is not
+Lorentz-invariant. This makes sense under the interpretation of the Hamiltonian as the
+energy, which is not a Lorentz scalar. Its Lorentz-invariance, as well as its natural
+connection to the path integral formulation (Section <a href="#x85-305000doc">B.1.1.<!--  tex4ht:ref: sec:01_qft_classical_path_integral   --></a>), is the reason the
+Lagrangian viewpoint is preferred in QFT.
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="SupplementaryMaterialforChapterrefsec01qft.html">⭠</a> <a href="Quantization.html">⭢</a> </nav> <div class="footnotes"><a id="x85-305003x"></a>
+<!--  l. 90  --><p class="indent"> <span class="footnote-mark"><a href="#fn61x19-bk" id="fn61x19"><sup class="textsuperscript">1</sup></a></span><span class="ec-lmr-10">If we take </span><!--  l. 90  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>S</mi> <mo class="MathClass-rel" stretchy="false">∼</mo><mstyle mathvariant="normal"><mi>energy</mi></mstyle> <mo class="MathClass-bin" stretchy="false">⋅</mo><mi>T</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mo class="MathClass-ord">ℏ</mo><mi>c</mi></mrow>
+<mrow>
+<mi>λ</mi></mrow></mfrac> <mo class="MathClass-bin" stretchy="false">⋅</mo><mi>T</mi></mrow></math><span class="ec-lmr-10">,
+then the classical limit </span><!--  l. 90  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfrac><mrow><mtext class="MathClass-ord">ℏ</mtext></mrow>
+<mrow>
+<mi>S</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">=</mo> <mfrac><mrow><mi>λ</mi></mrow>
+<mrow>
+<mi mathvariant="italic">cT</mi></mrow></mfrac> <mo class="MathClass-rel" stretchy="false">→</mo> <mn>0</mn></mrow></math>
+<span class="ec-lmr-10">physically is the case where the de Broglie wavelength of the particle</span>
+<!--  l. 90  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi></math> <span class="ec-lmr-10">is
+negligible compared to the relevant length scales.</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

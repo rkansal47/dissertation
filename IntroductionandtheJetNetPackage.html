@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>15 Introduction and the JetNet Package</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="chapterToc">15 <a href="#introduction-and-the-jetnet-package">Introduction and the JetNet Package</a></span>
+<span class="sectionToc">15.1 <a href="JetNet1.html#jetnet1">JetNet</a></span>
+<span class="chapterToc">16 <a href="Lorentzgroupequivariantautoencoders.html#lorentzgroup-equivariant-autoencoders">Lorentz-group equivariant autoencoders</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="AIforJets.html">⭠</a> <a href="JetNet1.html">⭢</a> </nav>
+<h2 class="chapterHead" id="introduction-and-the-jetnet-package"><span class="titlemark">Chapter 15</span><br/><a id="x74-28000015"></a>Introduction and the JetNet Package</h2>
+<!--  l. 15  --><p class="noindent">In the final Part of the dissertation, we discuss some more developments in machine
+learning and high energy physics, focusing primarily on jets. We first present the <span class="small-caps">JetNet</span>
+Python package in Chapter <a href="#introduction-and-the-jetnet-package">15<!--  tex4ht:ref: sec:06_jetnet   --></a>. In the same spirit as the eponymous dataset introduced
+in Chapter <a href="IntroductionandtheJetNetDataset.html#introduction-and-the-jetnet-dataset">9<!--  tex4ht:ref: sec:04_intro   --></a>, it aims to increase the accessibility and reproducibility in our field by
+providing a standardized interface for accessing HEP datasets and benchmarking ML
+algorithms, as well as general utilities for ML and HEP. Since its introduction in
+<!--  l. 18  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2021</mn></mrow></math>, it has
+become widely adopted by the community, with over 50,000 downloads, and has been
+used extensively for many exciting developments in the field, as described below.
+                                                                                
+
+                                                                                
+By providing a common framework for jet datasets and evaluation metrics,
+it has also facilitated easy benchmarking and comparisons between different
+algorithms, particularly in the area of ML-based fast simulations, as discussed in
+Part <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">IV<!--  tex4ht:ref: part:ml4sim   --></a>.
+</p><!--  l. 21  --><p class="indent">       We then conclude this Part, and the dissertation, by presenting the first
+Lorentz-group-equivariant autoencoder (LGAE) in Chapter <a href="Lorentzgroupequivariantautoencoders.html#lorentzgroup-equivariant-autoencoders">16<!--  tex4ht:ref: sec:06_lgae   --></a>. As detailed in
+Chapter <a href="Equivariantneuralnetworks.html#equivariant-neural-networks">7.2<!--  tex4ht:ref: sec:03_ml_equivariantnns   --></a>, equivariant neural networks are extremely useful in the physical sciences,
+where data from sources such as molecules and high energy collisions naturally possess
+intrinsic physical symmetries, such as rotations, translations, and Lorentz-boosts.
+Incorporating such <i>inductive biases</i> of our data can lead to more data-efficient,
+interpretable, and performant AI algorithms. Indeed, we find that the LGAE
+outperforms baseline, non-Lorentz-equivariant, models on tasks of compression and
+anomaly detection for jets, provides a more interpretable latent space, and
+achieves high performance with a small fraction of the data needed to train
+CNNs.
+</p>
+<div class="sectionTOCS">
+<span class="sectionToc">15.1 <a href="JetNet1.html#jetnet1">JetNet</a></span>
+</div>
+<nav class="crosslinks-bottom"> <a href="AIforJets.html">⭠</a> <a href="JetNet1.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

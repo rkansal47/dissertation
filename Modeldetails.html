@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Model details</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="appendixToc">A <a href="SupplementaryMaterialforChapterrefsec01symmetries.html#supplementary-material-for-chapterref-secsymmetries">Supplementary Material for Chapter 2</a></span>
+<span class="appendixToc">B <a href="SupplementaryMaterialforChapterrefsec01qft.html#supplementary-material-for-chapterref-secqft">Supplementary Material for Chapter 3</a></span>
+<span class="appendixToc">C <a href="SupplementaryMaterialforChapterrefsec04models.html#supplementary-material-for-chapterref-secmodels">Supplementary Material for Chapter 10</a></span>
+<span class="appendixToc">D <a href="SupplementaryMaterialforChapterrefsec04evaluating.html#supplementary-material-for-chapterref-secevaluating">Supplementary Material for Chapter 11</a></span>
+<span class="appendixToc">E <a href="SupplementaryMaterialforChapterrefsec06lgae.html#supplementary-material-for-chapterref-seclgae">Supplementary Material for Chapter 16</a></span>
+<span class="sectionToc">E.1 <a href="#model-details">Model details</a></span>
+<span class="subsectionToc">E.1.1 <a href="#lgae">LGAE</a></span>
+<span class="subsectionToc">E.1.2 <a href="#gnnae">GNNAE</a></span>
+<span class="subsectionToc">E.1.3 <a href="#cnnae">CNNAE</a></span>
+<span class="sectionToc">E.2 <a href="Trainingdetails.html#training-details">Training details</a></span>
+<span class="sectionToc">E.3 <a href="Equivariancetests.html#equivariance-tests">Equivariance tests</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="SupplementaryMaterialforChapterrefsec06lgae.html">⭠</a> <a href="Trainingdetails.html">⭢</a> </nav>
+<h3 class="sectionHead" id="model-details"><span class="titlemark">E.1   </span> <a id="x98-368000E.1"></a>Model details</h3>
+<!--  l. 7  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="lgae"><span class="titlemark">E.1.1   </span> <a id="x98-369000E.1.1"></a>LGAE</h4>
+<!--  l. 9  --><p class="noindent">For both the encoder and decoder, we choose
+<!--  l. 9  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>N</mi></mrow><mrow><mstyle mathvariant="normal"><mi>MP</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>E</mi></mstyle></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>N</mi></mrow><mrow><mstyle mathvariant="normal">
+<mi>MP</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>D</mi></mstyle></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>4</mn></mrow></math> LMP
+layers. The multiplicity per node in each LMP layer has been optimized to be
+</p><table class="equation"><tr><td>
+<!--  l. 11  --><p class="indent">
+</p><!--  l. 11  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x98-369001r1"></mstyle><!--  endlabel  --><msubsup><mrow>
+<mrow><mo fence="true" form="prefix">{</mo><mrow><msup><mrow><mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow><mstyle mathvariant="normal"><mi>E</mi></mstyle></mrow></msup>
+</mrow><mo fence="true" form="postfix">}</mo></mrow> </mrow><mrow><mi>t</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><mn>4</mn></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>3</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>4</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>4</mn><mo class="MathClass-close" stretchy="false">)</mo>
+</mrow></math></td><td class="eq-no">(E.1.1)</td></tr></table>
+<!--  l. 13  --><p class="noindent">for the encoder and </p><table class="equation"><tr><td>
+<!--  l. 15  --><p class="indent">
+</p><!--  l. 15  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x98-369002r2"></mstyle><!--  endlabel  --><msubsup><mrow>
+<mrow><mo fence="true" form="prefix">{</mo><mrow><msup><mrow><mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow><mstyle mathvariant="normal"><mi>D</mi></mstyle></mrow></msup>
+</mrow><mo fence="true" form="postfix">}</mo></mrow> </mrow><mrow><mi>t</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><mn>4</mn></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mn>4</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>4</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>3</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo>
+</mrow></math></td><td class="eq-no">(E.1.2)</td></tr></table>
+<!--  l. 17  --><p class="noindent">for the decoder, the components in the vector on the right-hand side are the multiplicity
+in each of the four LMP layers per network, and the multiplicity per layer is the same for all
+representations. After each CG decomposition, we truncate irreps of dimensions higher
+than <!--  l. 19  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+for tractable computations, i.e., after each LMP operation we are left with only
+scalar and vector representations per node. Empirically, we did not find such a
+truncation to affect the performance of the model. This means that the LMP
+layers in the LGAE are similar in practice to those of LorentzNet, which uses
+only scalar and vector representations throughout, but are more general as
+higher dimensional representations are involved in the intermediate steps before
+truncation.
+</p><!--  l. 23  --><p class="indent">       The differentiable mapping <!--  l. 23  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>f</mi><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>d</mi></mrow><mrow><mi mathvariant="italic">ij</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+                                                                                
+
+                                                                                
+in Eq. <a href="LGAEarchitecture.html#x78-286001r1">16.2.1<!--  tex4ht:ref: eq:06_lgae_msg   --></a> is chosen to be the Lorentzian bell function as in Ref. [<a href="Bibliography.html#Xbogatskiy2020lorentz">53</a>]. For all models, the latent
+space contains only <!--  l. 24  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>
+complex Lorentz scalar, as we found increasing the number of scalars beyond one did
+not improve the performance in either reconstruction or anomaly detection. Empirically,
+the reconstruction performance increased with more latent vectors, as one might expect,
+while anomaly detection performance generally worsened from adding more than two
+latent vectors.
+</p><!--  l. 27  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="gnnae"><span class="titlemark">E.1.2   </span> <a id="x98-370000E.1.2"></a>GNNAE</h4>
+<!--  l. 28  --><p class="noindent">The GNNAE is constructed from fully-connected MPNNs. The update rule in the
+<!--  l. 29  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>-th
+MPNN layer is based on MPGAN’s (Section <a href="MessagepassingGANs.html#message-passing-gans">10.1<!--  tex4ht:ref: sec:04_mpgan   --></a>), and given by
+                                                                                
+
+                                                                                
+</p><!--  tex4ht:inline  --><!--  l. 37  --><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align" columnalign="left" displaystyle="true">
+<mtr><mtd class="align-odd" columnalign="right"><msubsup><mrow><mi>m</mi></mrow><mrow><mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo><munderover accent="false" accentunder="false"><mrow><mo> ∑</mo>
+</mrow><mrow><mi>j</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><msubsup><mrow><mi>f</mi></mrow><mrow>
+<mi>e</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup> <mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mi>x</mi></mrow><mrow>
+<mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">⊕</mo> <msubsup><mrow><mi>x</mi></mrow><mrow>
+<mi>j</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">⊕</mo> <mi>d</mi> <mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mi>x</mi></mrow><mrow>
+<mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup><mo class="MathClass-punc" stretchy="false">,</mo><msubsup><mrow><mi>x</mi></mrow><mrow>
+<mi>j</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mo fence="true" form="postfix">)</mo></mrow> <mo class="MathClass-punc" stretchy="false">,</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x98-370001r3"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(E.1.3)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"><msubsup><mrow><mi>x</mi></mrow><mrow><mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>f</mi></mrow><mrow><mi>n</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup> <mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mi>x</mi></mrow><mrow>
+<mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">⊕</mo> <msubsup><mrow><mi>m</mi></mrow><mrow>
+<mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mrow><mo fence="true" form="postfix">)</mo></mrow> <mo class="MathClass-punc" stretchy="false">,</mo><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x98-370002r4"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(E.1.4)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr></mtable></math>
+<!--  l. 38  --><p class="noindent">where <!--  l. 38  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>x</mi></mrow><mrow><mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></math> is the node
+embedding of node <!--  l. 38  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>
+at <!--  l. 38  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math>-th
+iteration, <!--  l. 39  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>d</mi></math>
+is any distance function (Euclidean norm in our case),
+<!--  l. 40  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>m</mi></mrow><mrow><mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></math>
+is the message for updating node embedding in node
+<!--  l. 40  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>,
+<!--  l. 41  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>f</mi></mrow><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></math> and
+<!--  l. 41  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>f</mi></mrow><mrow><mi>n</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></math> are
+any learnable mapping at the current MP layer. A diagram for an MPNN layer is shown
+in Figure <a href="#an-mpnn-layer-in-the-gnnae-here-edgenet-and-nodenet-are-feedforward-neural-networks">E.1<!--  tex4ht:ref: fig:06_lgae_gnn-message-passing   --></a>. The overall architecture is similar to that in Figure <a href="LGAEarchitecture.html#individual-lorentz-group-equivariant-message-passing-lmp-layers-are-shown-on-the-left-and-the-lgae-architecture-is-built-out-of-lmps-on-the-right">16.1<!--  tex4ht:ref: fig:06_lgae_architecture-full   --></a>, with the LMP
+replaced by the MPNN. The code for the GNNAE model can be found in the
+Ref. [<a href="Bibliography.html#XGNNAE_code">443</a>].
+</p>
+<figure class="figure">
+<!--  l. 48  --><p class="noindent" id="an-mpnn-layer-in-the-gnnae-here-edgenet-and-nodenet-are-feedforward-neural-networks"> <img alt="PIC" src="figures/06-ML4Jets/lgae/architectures/GNNAE-MPNN-.png" style="max-width:9.48%"/> <a id="x98-370003r1"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure E.1.      </span></span><span class="content">An      MPNN      layer      in      the      GNNAE.      Here,
+<!--  l. 49  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="normal"><mi>EdgeNet</mi></mstyle></math>
+and
+<!--  l. 49  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="normal"><mi>NodeNet</mi></mstyle></math>
+are feed-forward neural networks.                                               </span></figcaption><!--  tex4ht:label?: x98-370003r1   -->
+</figure>
+<!--  l. 53  --><p class="indent">       For both the encoder and decoder, there are
+<!--  l. 53  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>3</mn></math>
+MPNN layers. The learnable functions in each layer are optimized to be </p><table class="equation"><tr><td>
+<!--  l. 55  --><p class="indent">
+</p><!--  l. 55  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x98-370004r5"></mstyle><!--  endlabel  -->
+<mtable class="equation"><mtr><mtd>
+<mtable class="split" columnalign="right left">
+<mtr class="split-mtr"><mtd class="split-mtd"> <msubsup><mrow><mi>f</mi></mrow><mrow><mi>n</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>30</mn><mo class="MathClass-rel" stretchy="false">→</mo><mn>15</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> </mtd>
+<mtd class="split-mtd"><mspace class="quad" width="1em"></mspace> <mo class="MathClass-bin" stretchy="false">∘</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>60</mn><mo class="MathClass-rel" stretchy="false">→</mo><mn>30</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> <msubsup><mrow><mi>f</mi></mrow><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>40</mn><mo class="MathClass-rel" stretchy="false">→</mo><mn>30</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> </mtd>
+<mtd class="split-mtd"><mspace class="quad" width="1em"></mspace> <mo class="MathClass-bin" stretchy="false">∘</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>50</mn><mo class="MathClass-rel" stretchy="false">→</mo><mn>40</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> </mtd>
+<mtd class="split-mtd"><mspace class="quad" width="1em"></mspace> <mo class="MathClass-bin" stretchy="false">∘</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>61</mn><mo class="MathClass-rel" stretchy="false">→</mo><mn>50</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo></mtd>
+</mtr></mtable>
+</mtd><mtd>
+</mtd></mtr></mtable>
+</mrow></math></td><td class="eq-no">(E.1.5)</td></tr></table>
+<!--  l. 78  --><p class="noindent"></p><table class="equation"><tr><td>
+<!--  l. 79  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x98-370005r6"></mstyle><!--  endlabel  -->
+<mtable class="equation"><mtr><mtd>
+<mtable class="split" columnalign="right left">
+<mtr class="split-mtr"><mtd class="split-mtd"> <msubsup><mrow><mi>f</mi></mrow><mrow><mi>n</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>15</mn><mo class="MathClass-rel" stretchy="false">→</mo><mn>8</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> </mtd>
+<mtd class="split-mtd"><mspace class="quad" width="1em"></mspace> <mo class="MathClass-bin" stretchy="false">∘</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>45</mn><mo class="MathClass-rel" stretchy="false">→</mo><mn>15</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> <msubsup><mrow><mi>f</mi></mrow><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>31</mn><mo class="MathClass-rel" stretchy="false">→</mo><mn>30</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> </mtd>
+<mtd class="split-mtd"><mspace class="quad" width="1em"></mspace> <mo class="MathClass-bin" stretchy="false">∘</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>30</mn><mo class="MathClass-rel" stretchy="false">→</mo><mn>30</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> </mtd>
+<mtd class="split-mtd"><mspace class="quad" width="1em"></mspace> <mo class="MathClass-bin" stretchy="false">∘</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>30</mn><mo class="MathClass-rel" stretchy="false">→</mo><mn>30</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo></mtd>
+</mtr></mtable>
+</mtd><mtd>
+</mtd></mtr></mtable>
+</mrow></math></td><td class="eq-no">(E.1.6)</td></tr></table>
+<!--  l. 102  --><p class="noindent"></p><table class="equation"><tr><td>
+<!--  l. 103  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x98-370006r7"></mstyle><!--  endlabel  -->
+<mtable class="equation"><mtr><mtd>
+<mtable class="split" columnalign="right left">
+<mtr class="split-mtr"><mtd class="split-mtd"> <msubsup><mrow><mi>f</mi></mrow><mrow><mi>n</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>8</mn><mo class="MathClass-rel" stretchy="false">→</mo><mi>δ</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> </mtd>
+<mtd class="split-mtd"><mspace class="quad" width="1em"></mspace> <mo class="MathClass-bin" stretchy="false">∘</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>38</mn><mo class="MathClass-rel" stretchy="false">→</mo><mn>8</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> <msubsup><mrow><mi>f</mi></mrow><mrow><mi>e</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mtd>
+<mtd class="split-mtd"> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>20</mn><mo class="MathClass-rel" stretchy="false">→</mo><mn>30</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> </mtd>
+<mtd class="split-mtd"><mspace class="quad" width="1em"></mspace> <mo class="MathClass-bin" stretchy="false">∘</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>16</mn><mo class="MathClass-rel" stretchy="false">→</mo><mn>20</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mtd>
+</mtr><mtr class="split-mtr"><mtd class="split-mtd"> </mtd>
+<mtd class="split-mtd"><mspace class="quad" width="1em"></mspace> <mo class="MathClass-bin" stretchy="false">∘</mo> <mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub> <mo class="MathClass-bin" stretchy="false">∘</mo><msub><mrow><mstyle mathvariant="normal"><mi>Linear</mi></mstyle></mrow><mrow><mn>17</mn><mo class="MathClass-rel" stretchy="false">→</mo><mn>16</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo></mtd>
+</mtr></mtable>
+</mtd><mtd>
+</mtd></mtr></mtable>
+</mrow></math></td><td class="eq-no">(E.1.7)</td></tr></table>
+<!--  l. 126  --><p class="noindent">where <!--  l. 127  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><mi class="qopname"> max</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><mo class="MathClass-open" stretchy="false">(</mo><mn>0.2</mn><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+is the LeakyReLU function.
+Depending on the aggregation layer, the value of
+<!--  l. 129  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>δ</mi></math> in
+<!--  l. 129  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>f</mi></mrow><mrow><mi>n</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></math>
+and the final aggregation layer is different. For GNNAE-JL encoders,
+<!--  l. 130  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>δ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>N</mi> <mo class="MathClass-bin" stretchy="false">×</mo><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, where
+<!--  l. 130  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi></math> is the latent
+space, and <!--  l. 130  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math> is the
+number of nodes in the graph. Then, mean aggregation is done across the graph. For GNNAE-PL
+                                                                                
+
+                                                                                
+encoders, <!--  l. 132  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>δ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>d</mi></mrow></math>,
+where <!--  l. 132  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>d</mi></math>
+is the node dimension in the latent space. In the GNNAE-JL decoder, the input layer is
+a linear layer that recovers the particle cloud structure similar to that in the
+LGAE.
+</p>
+<h4 class="subsectionHead" id="cnnae"><span class="titlemark">E.1.3   </span> <a id="x98-371000E.1.3"></a>CNNAE</h4>
+<!--  l. 136  --><p class="noindent">The encoder is composed of two convolutional layers with kernel size
+<!--  l. 136  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, stride size
+<!--  l. 136  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, “same"
+padding, and <!--  l. 136  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>128</mn></mrow></math>
+output channels, each followed by a ReLU activation function. The
+aggregation layer into the latent space is a fully-connected linear layer.
+The decoder is composed of transposed convolution layers (also known
+as deconvolutional layers) with the same settings as the encoder. A softmax
+function is applied at the end so that the sum of all pixel values in an image is
+<!--  l. 139  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math>, as a property
+of the jet image representation. A 55-dimensional latent space is chosen so that the compression
+rate is <!--  l. 140  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>55</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>90</mn> <mo class="MathClass-rel" stretchy="false">≈</mo> <mn>60</mn><mi>%</mi></mrow></math>
+for even comparisons with the LGAE and GNNAE models.
+                                                                                
+
+                                                                                
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="SupplementaryMaterialforChapterrefsec06lgae.html">⭠</a> <a href="Trainingdetails.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

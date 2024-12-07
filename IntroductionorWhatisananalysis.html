@@ -42,6 +42,9 @@ information such as individual particles in jets, tracks and clusters, and even 
 hits, as we introduced in Chapter <a href="MachineLearningforHEP.html#machine-learning-for-hep">7<!--  tex4ht:ref: sec:03_ml   --></a>.
 </p><!--  l. 18  --><p class="indent">       Optimizing the event selection for all but a handful of data-driven searches
 requires simulations of the signal and background processes. Additionally, once the
+                                                                                
+
+                                                                                
 selections and phase space in which to perform the measurement have been finalized, the
 expected signal and background yields have to be carefully estimated, which often again
 necessitates simulations, as well as data-driven methods via unbiased control regions.
@@ -51,9 +54,6 @@ DL.
 </p><!--  l. 22  --><p class="indent">       Once we have our observations, and signal and background estimates, the final
 critical step is to interpret the results in a robust statistical framework. At the
 LHC, this is typically done using a frequentist, likelihood-based approach.
-                                                                                
-
-                                                                                
 In this chapter, this approach is introduced by way of simple experimental
 examples.
 </p><!--  l. 26  --><p class="indent">       The chapter is organized as follows. Section <a href="FrequentiststatisticsattheLHC.html#the-likelihood-function-and-test-statistics">8.2.1<!--  tex4ht:ref: sec:03_likelihood   --></a> introduces
@@ -64,9 +64,12 @@ significances, and the statistical definition of a “discovery”. Sections <a
 then describe frequentist confidence intervals and upper limits, and the important
 concepts of expected significances and limits, respectively. Finally, asymptotic
 approximations to simplify these computations are discussed Section <a href="Asymptoticformulae.html#asymptotic-formulae">8.3<!--  tex4ht:ref: sec:03_asymptotic   --></a>.
-</p><!--  l. 31  --><p class="indent">       The chapter is based primarily on the highly useful Refs. [<a href="Bibliography.html#XCranmer_2014lly">57</a>, <a href="Bibliography.html#XCowan_2010js">293</a>]. The code for
+</p><!--  l. 31  --><p class="indent">       The chapter is based primarily on the highly useful Refs. [<a href="Bibliography.html#XCranmer_2014lly">57</a>, <a href="Bibliography.html#XCowan_2010js">295</a>]. The code for
 all the plots and results in this chapter is available at  <a href="https://rkansal47.github.io/stats-for-hep">rkansal47.github.io/stats-for-hep</a>;
-it makes extensive use of the <span class="ec-lmtt-12">NumPy</span> [<a href="Bibliography.html#Xharris2020array">294</a>], <span class="ec-lmtt-12">SciPy</span> [<a href="Bibliography.html#X2020SciPy-NMeth">295</a>], and <span class="ec-lmtt-12">matplotlib</span> [<a href="Bibliography.html#XHunter_2007">296</a>] Python
+it makes extensive use of the <span class="ec-lmtt-12">NumPy</span> [<a href="Bibliography.html#Xharris2020array">296</a>], <span class="ec-lmtt-12">SciPy</span> [<a href="Bibliography.html#X2020SciPy-NMeth">297</a>], and <span class="ec-lmtt-12">matplotlib</span> [<a href="Bibliography.html#XHunter_2007">298</a>] Python
+                                                                                
+
+                                                                                
 libraries.
                                                                                 
 

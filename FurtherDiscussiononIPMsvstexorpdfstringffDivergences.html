@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Further Discussion on IPMs vs. f-Divergences</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="appendixToc">A <a href="SupplementaryMaterialforChapterrefsec01symmetries.html#supplementary-material-for-chapterref-secsymmetries">Supplementary Material for Chapter 2</a></span>
+<span class="appendixToc">B <a href="SupplementaryMaterialforChapterrefsec01qft.html#supplementary-material-for-chapterref-secqft">Supplementary Material for Chapter 3</a></span>
+<span class="appendixToc">C <a href="SupplementaryMaterialforChapterrefsec04models.html#supplementary-material-for-chapterref-secmodels">Supplementary Material for Chapter 10</a></span>
+<span class="appendixToc">D <a href="SupplementaryMaterialforChapterrefsec04evaluating.html#supplementary-material-for-chapterref-secevaluating">Supplementary Material for Chapter 11</a></span>
+<span class="sectionToc">D.1      <a href="#further-discussion-on-ipms-vs-fdivergences">Further      Discussion      on      IPMs      vs.
+<!--  l. 539  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math>-Divergences</a></span>
+<span class="sectionToc">D.2 <a href="FurtherDiscussiononGaussianDatasetExperiments.html#further-discussion-on-gaussian-dataset-experiments">Further Discussion on Gaussian Dataset Experiments</a></span>
+<span class="sectionToc">D.3 <a href="AlternativeJetDistributions.html#alternative-jet-distributions">Alternative Jet Distributions</a></span>
+<span class="appendixToc">E <a href="SupplementaryMaterialforChapterrefsec06lgae.html#supplementary-material-for-chapterref-seclgae">Supplementary Material for Chapter 16</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="SupplementaryMaterialforChapterrefsec04evaluating.html">⭠</a> <a href="FurtherDiscussiononGaussianDatasetExperiments.html">⭢</a> </nav>
+<h3 class="sectionHead" id="further-discussion-on-ipms-vs-fdivergences"><span class="titlemark">D.1   </span> <a id="x94-364000D.1"></a>Further Discussion on IPMs vs.
+<!--  l. 154  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math>-Divergences</h3>
+<!--  l. 157  --><p class="noindent">A crucial advantage of IPMs in evaluating generative models is that they
+consider the metric space of the distributions. We illustrate this with the help
+of Figure <a href="#example-real-and-generated-jet-mass-distributions-used-to-illustrate-the-benefit-of-ipms-in-appendixref-appevaluatingmetricspace-based-on-refs-grettontalk-wstackoverflow">D.1<!--  tex4ht:ref: fig:04_evaluating_metricspace   --></a>, inspired heavily by Refs. [<a href="Bibliography.html#Xgretton_talk">62</a>, <a href="Bibliography.html#Xw1_stackoverflow">63</a>], which shows an example
+real (in red) and two generated (in blue) jet mass distributions. Clearly, in
+the context of simulation, the second generated distribution contains a peak
+closer to the real peak and, hence, is a better model. However, because
+<!--  l. 160  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math>-divergences such
+as the KL or <!--  l. 160  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup></math>
+look only at the pointwise difference between distributions, they find both generated
+distributions to be as discrepant with the real. IPMs like the Wasserstein metric or
+MMD, on the other hand, generally identify the second distribution as being closer to
+the real.
+</p>
+<figure class="figure">
+<!--  l. 164  --><p class="noindent" id="example-real-and-generated-jet-mass-distributions-used-to-illustrate-the-benefit-of-ipms-in-appendixref-appevaluatingmetricspace-based-on-refs-grettontalk-wstackoverflow"> <img alt="PIC" src="figures/04-ML4Sim/evaluating/metricspace-.png" style="max-width:100%"/> <a id="x94-364001r1"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure D.1. </span></span><span class="content">Example real and generated jet mass distributions used to illustrate
+the benefit of IPMs in Appendix <a href="#further-discussion-on-ipms-vs-fdivergences">D.1<!--  tex4ht:ref: app:04_evaluating_metricspace   --></a>, based on Refs. [<a href="Bibliography.html#Xgretton_talk">62</a>, <a href="Bibliography.html#Xw1_stackoverflow">63</a>].
+</span></figcaption><!--  tex4ht:label?: x94-364001r1   -->
+</figure>
+<nav class="crosslinks-bottom"> <a href="SupplementaryMaterialforChapterrefsec04evaluating.html">⭠</a> <a href="FurtherDiscussiononGaussianDatasetExperiments.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

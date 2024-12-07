@@ -41,21 +41,21 @@
 MMD, precision, and recall on high momentum gluon jets from the <span class="small-caps">JetNet</span> dataset. As
 discussed in Section <a href="Evaluationmetricsforgenerativemodels.html#evaluation-metrics-for-generative-models">11.1<!--  tex4ht:ref: sec:04_evaluating_metrics   --></a>, we test all metrics on two sets of features per jet: (i)
 physically meaningful high-level features and (ii) features derived from a pretrained
-classifier. We choose a set of 36 energy flow polynomials (EFPs) [<a href="Bibliography.html#XKomiske_2017aww">311</a>] (all
+classifier. We choose a set of 36 energy flow polynomials (EFPs) [<a href="Bibliography.html#XKomiske_2017aww">313</a>] (all
 EFPs of degree less than five) for the former, as they form a complete basis for
 all infrared- and collinear-safe observables. The classifier features are derived
-from the activations of the penultimate layer of the SOTA ParticleNet [<a href="Bibliography.html#XQu_2019gqs">225</a>]
+from the activations of the penultimate layer of the SOTA ParticleNet [<a href="Bibliography.html#XQu_2019gqs">227</a>]
 classifier, as described in Section <a href="MessagepassingGANs.html#message-passing-gans">10.1<!--  tex4ht:ref: sec:04_mpgan   --></a>. Finally, we test the binary classifier
-metric as in Refs. [<a href="Bibliography.html#Xkrause_caloflow">353</a>, <a href="Bibliography.html#Xcalochallenge">354</a>] using both ParticleNet directly on the low-level jet
+metric as in Refs. [<a href="Bibliography.html#Xkrause_caloflow">355</a>, <a href="Bibliography.html#Xcalochallenge">356</a>] using both ParticleNet directly on the low-level jet
 features and a two-layer fully connected network (FCN) on the high-level EFPs.
-We note that Refs. [<a href="Bibliography.html#Xkrause_caloflow">353</a>, <a href="Bibliography.html#Xcalochallenge">354</a>] do not provide a recipe for measuring the null
+We note that Refs. [<a href="Bibliography.html#Xkrause_caloflow">355</a>, <a href="Bibliography.html#Xcalochallenge">356</a>] do not provide a recipe for measuring the null
 distribution, instead relying on direct comparisons between area under the
 curve (AUC) values, which is a limitation of this classifier-based metric. We
-first describe the dataset and tested distortions, and then the experimental
-results.
                                                                                 
 
                                                                                 
+first describe the dataset and tested distortions, and then the experimental
+results.
 </p><!--  l. 300  --><p class="noindent">
 </p>
 <h5 class="subsubsectionHead" id="dataset"><a id="x56-253000"></a>Dataset</h5>
@@ -72,7 +72,7 @@ distortions, and on the right particle-level.
 <!--  l. 310  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-rel" stretchy="false">≈</mo><mn>1</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>TeV</mtext></mstyle></mrow></math> transverse
 momentum (<!--  l. 310  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math>)
 from the <span class="small-caps">JetNet</span> dataset (Section <a href="JetNet.html#jetnet">9.2<!--  tex4ht:ref: sec:04_jetnet_dataset   --></a>) using the associated <span class="small-caps">JetNet</span> library
-(Section <span class="ec-lmbx-12">??</span>). We again consider the three particle features: relative angular coordinates
+(Section <a href="IntroductionandtheJetNetPackage.html#introduction-and-the-jetnet-package">15<!--  tex4ht:ref: sec:06_jetnet   --></a>). We again consider the three particle features: relative angular coordinates
 <!--  l. 313  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>η</mi></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>η</mi></mrow><mrow><mstyle mathvariant="normal"><mi>particle</mi></mstyle></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>η</mi></mrow><mrow><mstyle mathvariant="normal"><mi>jet</mi></mstyle></mrow></msup></mrow></math> and
 <!--  l. 314  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>ϕ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>ϕ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>particle</mi></mstyle></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>ϕ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>jet</mi></mstyle></mrow></msup><mspace width="0.3em"></mspace><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="italic">mod</mi><mspace width="0.3em"></mspace> <mn>2</mn><mi>π</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, and the relative
 transverse momentum <!--  l. 315  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal">
@@ -94,7 +94,7 @@ higher. The effects of the distortions on the relative jet mass are shown in Fig
                                                                                 
 
                                                                                 
-with further plots of different variables available in Appendix <span class="ec-lmbx-12">??</span>.
+with further plots of different variables available in Appendix <a href="AlternativeJetDistributions.html#alternative-jet-distributions">D.3<!--  tex4ht:ref: app:04_evaluating_jet_plots   --></a>.
 </p>
 <h5 class="subsubsectionHead" id="results3"><a id="x56-254000"></a>Results</h5>
 <a id="x56-254000doc"></a>

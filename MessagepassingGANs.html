@@ -42,9 +42,6 @@
 clouds in HEP. We first introduce the message-passing generative adversarial network
 (MPGAN) trained on high-energy <span class="small-caps">JetNet</span> jets. To our knowledge, it was the first
 generative model in HEP to effectively simulate point cloud data, and represented a
-                                                                                
-
-                                                                                
 breakthrough in the performance of ML-based fast simulations, leveraging sparse and
 efficient representations naturally suited to our data. It builds on top of the success of
 graph neural networks (GNNs) in learning from point clouds in computer vision, but is
@@ -64,9 +61,6 @@ Section <a href="#experiments-on-jets">10.1.4<!--  tex4ht:ref: sec:04_mpgan_exp
 <!--  l. 20  --><p class="noindent">Evaluating generative models is a difficult task; however, there has been extensive work
 in this area in both the physics and computer-vision communities. We provide here a
 brief overview of the metrics used for comparing MPGAN and the baseline models
-                                                                                
-
-                                                                                
 discussed above, leaving a more detailed discussion, as well as an introduction to the
 novel metrics we develop for this task, to Chapter <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">11<!--  tex4ht:ref: sec:04_evaluating   --></a>.
 </p><!--  l. 23  --><p class="noindent">
@@ -75,19 +69,19 @@ novel metrics we develop for this task, to Chapter <a href="Validatingandcompar
 <!--  l. 25  --><p class="noindent">An accurate jet simulation algorithm should reproduce both low-level and high-level
 features (such as those described in Chapter <a href="Autoencodersandgenerativemodels.html#previous-work">7.3.3<!--  tex4ht:ref: sec:04_mpgan_genhep   --></a>); hence, a standard method of
 validating generative models, which we too employ, is to compare the distributions of
-such features between the real and generated samples [<a href="Bibliography.html#XPaganini_2017dwg">274</a>, <a href="Bibliography.html#XATL-SOFT-PUB-2020-006">275</a>, <a href="Bibliography.html#XSekmen_2016iql">310</a><span class="ec-lmbx-12">? ? ?</span>
+such features between the real and generated samples [<a href="Bibliography.html#XPaganini_2017dwg">276</a>, <a href="Bibliography.html#XATL-SOFT-PUB-2020-006">277</a>, <a href="Bibliography.html#XSekmen_2016iql">312</a><span class="ec-lmbx-12">? ? ?</span>
 ].
 </p><!--  l. 27  --><p class="indent">       For application in HEP, a generative model needs to produce jets with
 physical features indistinguishable from real. Therefore, we propose the validation
 criteria that differences between real and generated sample features may not
+                                                                                
+
+                                                                                
 exceed those between sets of randomly chosen real samples. To verify this, we
 use bootstrapping to compare between random samples of only real jets as a
 baseline.
 </p><!--  l. 31  --><p class="indent">       A practically useful set of features to validate against are the so-called
-“energy-flow polynomials” (EFPs) [<a href="Bibliography.html#XKomiske_2017aww">311</a>], which are a type of multi-particle
-                                                                                
-
-                                                                                
+“energy-flow polynomials” (EFPs) [<a href="Bibliography.html#XKomiske_2017aww">313</a>], which are a type of multi-particle
 correlation functions. Importantly, the set of all EFPs forms a linear basis for all
 experimentally useful — i.e., all infrared- and colinear- (IRC-) safe — jet-level features
 / observables. Therefore, we claim that if we observe all EFP distributions
@@ -98,22 +92,22 @@ clouds.
 </p>
 <h5 class="subsubsectionHead" id="computervisioninspired-metrics"><a id="x51-213000"></a>Computer-vision-inspired metrics</h5>
 <!--  l. 36  --><p class="noindent">A popular metric for evaluating images which has been shown to be sensitive to output
-quality and mode-collapse — though it has its limitations [<a href="Bibliography.html#Xborji2021">312</a>] — is the Fréchet
-Inception Distance [<a href="Bibliography.html#XTTUR">313</a>] (FID). FID is defined as the Fréchet distance between
+quality and mode-collapse — though it has its limitations [<a href="Bibliography.html#Xborji2021">314</a>] — is the Fréchet
+Inception Distance [<a href="Bibliography.html#XTTUR">315</a>] (FID). FID is defined as the Fréchet distance between
 Gaussian distributions fitted to the activations of a fully-connected layer of
 the Inception-v3 image classifier in response to real and generated samples.
-We develop a particle-cloud-analogue of this metric, which we call Fréchet
-ParticleNet Distance (FPND), using the state-of-the-art (SOTA) ParticleNet
-graph convolutional jet classifier [<a href="Bibliography.html#XQu_2019gqs">225</a>] in lieu of the Inception network. We note
-that FPND and comparing distributions as above are conceptually equivalent,
-except here instead of physically meaningful and easily interpretable features,
                                                                                 
 
                                                                                 
+We develop a particle-cloud-analogue of this metric, which we call Fréchet
+ParticleNet Distance (FPND), using the state-of-the-art (SOTA) ParticleNet
+graph convolutional jet classifier [<a href="Bibliography.html#XQu_2019gqs">227</a>] in lieu of the Inception network. We note
+that FPND and comparing distributions as above are conceptually equivalent,
+except here instead of physically meaningful and easily interpretable features,
 we are comparing those found to be statistically optimum for distinguishing
 jets.
 </p><!--  l. 41  --><p class="indent">       Two common metrics for evaluating point cloud generators are coverage (COV) and
-minimum matching distance (MMD) [<a href="Bibliography.html#Xrgan">288</a>]. Both involve finding the closest point cloud in a sample
+minimum matching distance (MMD) [<a href="Bibliography.html#Xrgan">290</a>]. Both involve finding the closest point cloud in a sample
 <!--  l. 42  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math> to each cloud in
 another sample <!--  l. 42  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>Y</mi> </mrow></math>,
 based on a metric such as the Chamfer distance or the earth
@@ -124,10 +118,13 @@ diversity of the samples in <!--  l. 43  --><math display="inline" xmlns="http:/
 relative to <!--  l. 43  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math>,
 and MMD is the average distance between matched samples, measuring the quality of
 samples. We use both, and due to drawbacks of the Chamfer distance pointed out in
-Ref. [<a href="Bibliography.html#Xrgan">288</a>], for our distance metric choose only the analogue of the earth mover’s
-distance for particle clouds a.k.a. the energy mover’s distance (EMD) [<a href="Bibliography.html#XKomiske_2019fks">314</a>]. We discuss
+Ref. [<a href="Bibliography.html#Xrgan">290</a>], for our distance metric choose only the analogue of the earth mover’s
+distance for particle clouds a.k.a. the energy mover’s distance (EMD) [<a href="Bibliography.html#XKomiske_2019fks">316</a>]. We discuss
 the effectiveness and complementarity of all four metrics in evaluating clouds in
 Section <a href="#x51-222000doc">10.1.4.<!--  tex4ht:ref: sec:04_mpgan_results   --></a>.
+                                                                                
+
+                                                                                
 </p><!--  l. 48  --><p class="noindent">
 </p>
 <h4 class="subsectionHead" id="architecture"><span class="titlemark">10.1.2   </span> <a id="x51-21400010.1.2"></a>Architecture</h4>
@@ -147,8 +144,8 @@ cloud as real or generated.                                                     
 end up with important high-level jet features and a rich global structure, known as the
 jet substructure [<span class="ec-lmbx-12">? </span>], stemming from the input particle. Indeed, any high-level
 feature useful for analyzing jets, such as jet mass or multi-particle correlations, is
-necessarily global [<a href="Bibliography.html#XKomiske_2017aww">311</a>]. Because of this, while past work in learning on point
-clouds [<a href="Bibliography.html#XQu_2019gqs">225</a>, <a href="Bibliography.html#Xdynamicgraphcnn">315</a>, <a href="Bibliography.html#Xmonti2017geometric">316</a>], including GraphCNN-GAN, has used a locally connected graph
+necessarily global [<a href="Bibliography.html#XKomiske_2017aww">313</a>]. Because of this, while past work in learning on point
+clouds [<a href="Bibliography.html#XQu_2019gqs">227</a>, <a href="Bibliography.html#Xdynamicgraphcnn">317</a>, <a href="Bibliography.html#Xmonti2017geometric">318</a>], including GraphCNN-GAN, has used a locally connected graph
 structure and convolutions for message passing, we choose a fully connected graph,
 equally weighting messages from all particles in the clouds. Rather than subtracting
 particle features for messages between particles, useful in graph convolutions to capture
@@ -242,12 +239,12 @@ to the initial particle cloud, using an additional input of the size of the jet
 <!--  l. 101  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math>,
 sampled from the real distribution per jet type, before the message passing layers, based
 on sorting in particle feature space. Ablation studies with alternative (as well as
-without) masking strategies are discussed in App. <span class="ec-lmbx-12">??</span>.
+without) masking strategies are discussed in Appendix <a href="MessagePassingGANs.html#masking-strategies">C.1.3<!--  tex4ht:ref: app:04_mpgan_masking   --></a>.
 </p><!--  l. 104  --><p class="noindent">
 </p>
 <h4 class="subsectionHead" id="experiments-on-mnist-handwritten-digits"><span class="titlemark">10.1.3   </span> <a id="x51-21900010.1.3"></a>Experiments on MNIST handwritten digits</h4>
 <!--  l. 107  --><p class="noindent">Before applying MPGAN to the <span class="small-caps">JetNet</span> dataset, we test it initially on point-cloud
-versions of the MNIST handwritten digits dataset [<a href="Bibliography.html#Xdeng2012mnist">317</a>]. Practically, these were highly
+versions of the MNIST handwritten digits dataset [<a href="Bibliography.html#Xdeng2012mnist">319</a>]. Practically, these were highly
 useful during the development of the model, while exploring architectures,
 hyperparameters, and training strategies, as they provided a simpler test-bench as well
                                                                                 
@@ -261,14 +258,14 @@ nodes of a fully connected graph, with their feature vectors consisting of the
 <!--  l. 111  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math>
 coordinates and intensities. This is directly analogous to selecting the coordinates and
 momenta of the highest momentum particles in a jet or highest energy hits in a
-detector. The second dataset, known as the MNIST superpixels dataset [<a href="Bibliography.html#Xmonti2017geometric">316</a>], was
+detector. The second dataset, known as the MNIST superpixels dataset [<a href="Bibliography.html#Xmonti2017geometric">318</a>], was
 created by converting each MNIST image into 75 superpixels, corresponding to the
 nodes of a graph. The centers and intensities of the superpixels comprise the hidden
 features of the nodes.
 </p><!--  l. 117  --><p class="indent">       We train MPGAN separately for each digit, analogous to independent
 trainings for different jet classes. The best parameters per-digit are chosen using a
 variation of FID adopted for point clouds, using the hidden features of the MoNet
-classifier [<a href="Bibliography.html#Xmonti2017geometric">316</a>]. The comparison between the real and MPGAN-generated samples for
+classifier [<a href="Bibliography.html#Xmonti2017geometric">318</a>]. The comparison between the real and MPGAN-generated samples for
 both datasets can be seen in Figure <a href="#samples-from-our-sparse-mnist-dataset-far-left-compared-to-samples-from-mpgan-center-left-samples-from-the-mnist-superpixels-dataset-center-right-compared-to-samples-from-mpgan-far-right">10.2<!--  tex4ht:ref: fig:04_mpgan_mnist   --></a>. We observe that the model is able
 to reproduce the real samples with high fidelity and little evidence of mode
 dropping.
@@ -317,7 +314,7 @@ generated samples, based on the activations of the first FC layer in our trained
 model<span class="footnote-mark"><a href="#fn52x11" id="fn52x11-bk"><sup class="textsuperscript">2</sup></a></span><a id="x51-221003f2"></a>.
 Coverage and MMD are calculated between 100 real and 100 generated samples, and
 averaged over 10 such batches. Implementations for all metrics are provided in the
-<span class="small-caps">JetNet</span> package [<a href="Bibliography.html#Xjetnetlib">318</a>].
+<span class="small-caps">JetNet</span> package [<a href="Bibliography.html#Xjetnetlib">320</a>].
 </p>
 <div class="table">
 <!--  l. 151  --><p class="indent"> </p><figure class="float" id="x51-221005r1"><span id="w-distances-between-real-jet-mass-w-m-averaged-particle-features-w-p-and-averaged-jet-efps-w-efp-distributions-calculated-as-a-baseline-for-three-classes-of-jets-"></span>
@@ -342,11 +339,12 @@ distributions calculated as a baseline, for three classes of jets.              
 </div>
 <h5 class="subsubsectionHead" id="results"><a id="x51-222000"></a>Results</h5>
 <a id="x51-222000doc"></a>
-<!--  l. 169  --><p class="noindent">On each of <span class="small-caps">JetNet</span>’s three classes, we test r-GAN’s FC, GraphCNN, and TreeGAN
-generators with rGAN’s FC and the PointNet-Mix discriminators, and compare them to
-MPGAN’s MP generator and discriminator models, including both MP and MP-LFC
-generator variations. Training and implementation details for each can be found in App. <span class="ec-lmbx-12">??</span>,
-and all code in Ref. [<a href="Bibliography.html#Xmpgancode">319</a>]. We use a maximum of 30 particles per jet, choosing the 30
+<!--  l. 169  --><p class="noindent">On each of <span class="small-caps">JetNet</span>’s three classes, we test r-GAN’s FC, GraphCNN, and
+TreeGAN generators with rGAN’s FC and the PointNet-Mix discriminators,
+and compare them to MPGAN’s MP generator and discriminator models,
+including both MP and MP-LFC generator variations. Training and
+implementation details for each can be found in Appendix <a href="MessagePassingGANs.html#training-and-implementation-details">C.1.2<!--  tex4ht:ref: app:04_mpgan_training   --></a>, and all code
+in Ref. [<a href="Bibliography.html#Xmpgancode">321</a>]. We use a maximum of 30 particles per jet, choosing the 30
 highest-<!--  l. 171  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math>
 particles in jets with more than 30.
 </p>
@@ -509,7 +507,7 @@ jet. In comparison, the traditional generation process for <span class="small-ca
 an 8-CPU machine as requiring 46ms per jet, meaning MPGAN provides a
 three-orders-of-magnitude speed-up. Furthermore, as noted in Section <a href="JetNet.html#jetnet">9.2<!--  tex4ht:ref: sec:04_jetnet_dataset   --></a>, the
 generation of <span class="small-caps">JetNet</span> is significantly simpler than full simulation and reconstruction
-used at the LHC, which has been measured to require 12.3s [<a href="Bibliography.html#XPedro_2018jqu">302</a>] and 4s [<a href="Bibliography.html#Xchen2020data">320</a>]
+used at the LHC, which has been measured to require 12.3s [<a href="Bibliography.html#XPedro_2018jqu">304</a>] and 4s [<a href="Bibliography.html#Xchen2020data">322</a>]
 respectively per top quark jet. Hence in practical applications we anticipate MPGAN’s
 improvement to potentially rise to five-orders-of-magnitude.
 </p>
@@ -634,7 +632,7 @@ iGAPT model to overcome this limitation.
 <nav class="crosslinks-bottom"> <a href="Generativemodelsforfastparticlecloudsimulations.html">⭠</a> <a href="Generativeadversarialparticletransformers.html">⭢</a> </nav> <div class="footnotes"><a id="x51-221002x"></a>
 <!--  l. 141  --><p class="indent"> <span class="footnote-mark"><a href="#fn51x11-bk" id="fn51x11"><sup class="textsuperscript">1</sup></a></span><span class="ec-lmr-10">We choose 5 EFPs corresponding to the set of loopless multigraphs with 4 vertices and 4
 edges.</span></p><a id="x51-221004x"></a>
-<!--  l. 147  --><p class="indent"> <span class="footnote-mark"><a href="#fn52x11-bk" id="fn52x11"><sup class="textsuperscript">2</sup></a></span><span class="ec-lmr-10">ParticleNet training details are given in App. </span><span class="ec-lmbx-10">??</span><span class="ec-lmr-10">. The trained model is provided in the
-</span><span class="small-caps">JetNet </span><span class="ec-lmr-10">library [</span><a href="Bibliography.html#Xjetnetlib"><span class="ec-lmr-10">318</span></a><span class="ec-lmr-10">].</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+<!--  l. 147  --><p class="indent"> <span class="footnote-mark"><a href="#fn52x11-bk" id="fn52x11"><sup class="textsuperscript">2</sup></a></span><span class="ec-lmr-10">ParticleNet training details are given in Appendix </span><a href="MessagePassingGANs.html#x91-358000doc"><span class="ec-lmr-10">C.1.2.</span><!--  tex4ht:ref: app:04_mpgan_pnet   --></a><span class="ec-lmr-10">. The trained model is provided
+in the </span><span class="small-caps">JetNet </span><span class="ec-lmr-10">library [</span><a href="Bibliography.html#Xjetnetlib"><span class="ec-lmr-10">320</span></a><span class="ec-lmr-10">].</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
 </body>
 </html>

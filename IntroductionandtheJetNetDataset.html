@@ -62,9 +62,6 @@ ECAL/HCAL clusters, which can then be reconstructed further into physical
 <!--  l. 30  --><p class="indent">       The first two steps are inherently stochastic processes due to the randomness of
 quantum mechanical decays and interactions between particles and materials. This
 means that the complete analytic form for the probability densities of collision and
-                                                                                
-
-                                                                                
 detector outputs is intractable. Instead, traditionally, the event generation relies on
 Monte Carlo (MC) methods to sample from probability distributions of decays and
 interactions, while the detector simulation propagates the resulting particles through the
@@ -73,7 +70,7 @@ each step.
 </p><!--  l. 34  --><p class="indent">       These methods have proven extremely effective at modeling collisions
 and the detector response for decades in HEP, but are computationally
 expensive: the full simulation of a single collision in CMS takes
-<!--  l. 34  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>10</mn><mstyle class="text"><mtext> s</mtext></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> [<a href="Bibliography.html#XPedro_2018jqu">302</a>]. To
+<!--  l. 34  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>10</mn><mstyle class="text"><mtext> s</mtext></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> [<a href="Bibliography.html#XPedro_2018jqu">304</a>]. To
 maximize the physics potential of the upcoming era of high luminosity, the CMS experiment
 will need to reconstruct 300 billion real collision events, and simulate and reconstruct
 2–3<!--  l. 36  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">×</mo></math> more,
@@ -84,12 +81,12 @@ short of the necessary CPU resources to do this in HL-LHC [<span class="ec-lmbx
 address this. First, performing simulation and reconstruction on GPUs:
 even porting a conservative fraction can improve computing capacity by
 20-26%. Second, wide adoption of a fast simulation and reconstruction
-alternative (FastSim): 50% of CMS analyses switching to this would mean a
-10<!--  l. 42  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">×</mo></math>
-speed-up in simulations, which are in total expected to require 40% of CPU resources [<span class="ec-lmbx-12">?</span>
                                                                                 
 
                                                                                 
+alternative (FastSim): 50% of CMS analyses switching to this would mean a
+10<!--  l. 42  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">×</mo></math>
+speed-up in simulations, which are in total expected to require 40% of CPU resources [<span class="ec-lmbx-12">?</span>
 ]. However, they each carry risks: of simulations not translating well to GPUs due to
 their sequential nature, and of inadequate FastSim performance leading to insufficient
 adoption by analyzers.
@@ -109,16 +106,16 @@ networks (GNNs) (Chapter <a href="MessagepassingGANs.html#message-passing-gans"
 (Chapter <a href="Generativeadversarialparticletransformers.html#generative-adversarial-particle-transformers">10.2<!--  tex4ht:ref: sec:04_gapt   --></a>). We will then discuss the critical problem of validating such ML-based
 fast simulation techniques and propose two new, sensitive methods to do so
 (Section <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">11<!--  tex4ht:ref: sec:04_evaluating   --></a>). We will finally conclude with the outlook for these techniques in
-Chapter <a href="Conclusionandimpact.html#conclusion-and-impact">12<!--  tex4ht:ref: sec:04_outlook   --></a>, discussing as well how this work has sparked a new, vibrant subfield of ML
-research in HEP.
                                                                                 
 
                                                                                 
+Chapter <a href="Conclusionandimpact.html#conclusion-and-impact">12<!--  tex4ht:ref: sec:04_outlook   --></a>, discussing as well how this work has sparked a new, vibrant subfield of ML
+research in HEP.
 </p>
 <div class="sectionTOCS">
 <span class="sectionToc">9.1 <a href="Simulatingjets.html#simulating-jets">Simulating jets</a></span>
 <br/> <span class="sectionToc">9.2 <a href="JetNet.html#jetnet">JetNet</a></span>
 </div>
-<nav class="crosslinks-bottom"> <a href="AcceleratingSimulationswithAI.html">⭠</a> <a href="Simulatingjets.html">⭢</a> </nav> <div class="footnotes"></div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+<nav class="crosslinks-bottom"> <a href="AcceleratingSimulationswithAI.html">⭠</a> <a href="Simulatingjets.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
 </body>
 </html>

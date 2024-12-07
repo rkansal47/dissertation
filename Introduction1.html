@@ -41,9 +41,6 @@ computing, and even real-time triggers in high-energy physics (HEP). Significant
 contributions of this dissertation include ML advancements for Higgs boson searches and
 beyond and fast detector simulations for the HL-LHC. In this chapter, to motivate
 them, we introduce some core concepts of ML, especially as they relate to HEP
-                                                                                
-
-                                                                                
 applications.
 </p><!--  l. 11  --><p class="indent">       ML refers to a general class of algorithms that “learn” from data to solve
 problems. This is in contrast to traditional, hand-engineered bespoke algorithms
@@ -60,15 +57,15 @@ searches described in this dissertation), it soon becomes intractable,
 or at least suboptimal, to manually define selections over the
 <!--  l. 15  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="script"><mi>O</mi></mstyle></math>(10–100)
 event features that can help distinguish signal from background. This is where we turn
-to ML algorithms, such as boosted decision trees (BDTs) [<a href="Bibliography.html#Xhastie2009boosting">204</a>], which can
+to ML algorithms, such as boosted decision trees (BDTs) [<a href="Bibliography.html#Xhastie2009boosting">206</a>], which can
+                                                                                
+
+                                                                                
 automatically compute optimal, non-linear selections in this high-dimensional feature
 space.
 </p><!--  l. 18  --><p class="indent">       More recently, the advent of artificial neural networks (ANNs) and deep learning
 (DL), along with increased data availability and computing power, has led to orders of
 magnitude increases in the dimensionality of data that can be exploited and the
-                                                                                
-
-                                                                                
 complexity and expressivity of the models built. A relevant example of their significant
 impact in HEP is in jet identification: jets are extremely high-dimensional
 objects, composed of hundreds of particles, tracks, and vertices each with several
@@ -86,14 +83,14 @@ alleviate the computational challenges we foresee in the HL-LHC era, particularl
 respect to detector simulations, which are the focus of Part <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">IV<!--  tex4ht:ref: part:ml4sim   --></a>.
 </p><!--  l. 27  --><p class="indent">       ANNs have proven to be extremely flexible building blocks out of which to
 construct diverse and sophisticated models for a variety of tasks in HEP, from
-classification and regression to simulation and anomaly detection, and more. Indeed, the
-development of DL algorithms in HEP is a rapidly growing subfield in its own right, and
-its various applications are visualized as a “nomological net” in Figure <a href="#a-nomological-net-of-ml-applications-in-hep-reproduced-from-ref-lincolninstrumentation">7.1<!--  tex4ht:ref: fig:03_ml_nomological_net   --></a>; a
-comprehensive “living” review is available in Ref. [<a href="Bibliography.html#Xhepmllivingreview">205</a>]. As we discuss below,
-however, with more complex data and models also comes the need for more
                                                                                 
 
                                                                                 
+classification and regression to simulation and anomaly detection, and more. Indeed, the
+development of DL algorithms in HEP is a rapidly growing subfield in its own right, and
+its various applications are visualized as a “nomological net” in Figure <a href="#a-nomological-net-of-ml-applications-in-hep-reproduced-from-ref-lincolninstrumentation">7.1<!--  tex4ht:ref: fig:03_ml_nomological_net   --></a>; a
+comprehensive “living” review is available in Ref. [<a href="Bibliography.html#Xhepmllivingreview">207</a>]. As we discuss below,
+however, with more complex data and models also comes the need for more
 sophisticated methods to validate, calibrate, and trust them; this is the subject
 of Chapters <a href="Validatingandcomparingfastsimulations.html#validating-and-comparing-fast-simulations">11<!--  tex4ht:ref: sec:04_evaluating   --></a> and <a href="CalibratingtexorpdfstringhyvvHY→VVtaggers.html#calibrating-h-y-v-v-taggers">13.3<!--  tex4ht:ref: sec:05_hww_calibration   --></a>, on evaluating generative models and calibrating
 <!--  l. 29  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math> jet
@@ -126,7 +123,7 @@ for example, classifying jets as originating from a Higgs boson or QCD
 background. Other examples include regression tasks where the target output is a
 continuous variable, such as predicting the mass of a jet or the energy of a
 particle. Algorithms used for supervised learning include support vector machines
-(SVMs) [<a href="Bibliography.html#Xcortes1995support">206</a>], (boosted) decision trees (BDTs) [<a href="Bibliography.html#Xhastie2009boosting">204</a>, <a href="Bibliography.html#Xbreiman1984classification">207</a>], and neural networks.
+(SVMs) [<a href="Bibliography.html#Xcortes1995support">208</a>], (boosted) decision trees (BDTs) [<a href="Bibliography.html#Xhastie2009boosting">206</a>, <a href="Bibliography.html#Xbreiman1984classification">209</a>], and neural networks.
 Such algorithms necessitate a <i>labeled</i> training dataset of input-output pairs
 <!--  l. 52  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mstyle mathvariant="bold"><mi>y</mi></mstyle></mrow><mrow><mi>i</mi></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.
                                                                                 
@@ -142,7 +139,7 @@ purposes of generating new data or identifying outliers, respectively. The latte
 be discussed in more detail in Section <a href="Autoencodersandgenerativemodels.html#autoencoders-and-generative-models">7.3<!--  tex4ht:ref: sec:03_genaes   --></a>.
 </p><!--  l. 58  --><p class="indent">       Note that these two categories are not mutually exclusive but rather
 two ends of a spectrum, with the middle ground including paradigms such as
-weakly-supervised [<a href="Bibliography.html#Xchapelle2006semisupervised">208</a>] and self-supervised learning [<a href="Bibliography.html#Xbalestriero2023cookbookselfsupervisedlearning">209</a>].
+weakly-supervised [<a href="Bibliography.html#Xchapelle2006semisupervised">210</a>] and self-supervised learning [<a href="Bibliography.html#Xbalestriero2023cookbookselfsupervisedlearning">211</a>].
 </p><!--  l. 60  --><p class="noindent">
 </p>
 <h5 class="subsubsectionHead" id="linear-models"><a id="x39-138000"></a>Linear models</h5>
@@ -224,7 +221,7 @@ function.
 training based on the history of the gradients and/or number of iterations; and
 <i>momentum</i>, which retains some fraction of the previous gradients to smooth out
 oscillations in the optimization process. Popular optimizers which incorporate these
-techniques include RMSprop [<a href="Bibliography.html#Xhinton2012rmsprop">210</a>] and Adam [<a href="Bibliography.html#Xkingma2015adam">211</a>], both of which are prominently used
+techniques include RMSprop [<a href="Bibliography.html#Xhinton2012rmsprop">212</a>] and Adam [<a href="Bibliography.html#Xkingma2015adam">213</a>], both of which are prominently used
 for the work in this dissertation.
 </p>
 <h4 class="subsectionHead" id="the-importance-of-generalization-and-calibration"><span class="titlemark">7.1.2   </span> <a id="x39-1400007.1.2"></a>The importance of generalization and calibration</h4>
@@ -264,8 +261,8 @@ selection involves using the performances on the training and validation dataset
 to find an optimal balance between these two errors. Common techniques to
 improve bias include improving the model design and increasing its complexity,
 while to address variance, there are several established <i>regularization</i> methods
-to reduce overfitting, such as early stopping [<a href="Bibliography.html#Xprechelt2012early">212</a>], dropout [<a href="Bibliography.html#Xsrivastava2014dropout">213</a>], and batch
-normalization [<a href="Bibliography.html#Xioffe2015batch">214</a>].
+to reduce overfitting, such as early stopping [<a href="Bibliography.html#Xprechelt2012early">214</a>], dropout [<a href="Bibliography.html#Xsrivastava2014dropout">215</a>], and batch
+normalization [<a href="Bibliography.html#Xioffe2015batch">216</a>].
 </p><!--  l. 131  --><p class="noindent">
 </p>
 <h5 class="subsubsectionHead" id="model-calibration"><a id="x39-142000"></a>Model calibration</h5>
@@ -292,7 +289,7 @@ identification algorithms (Chapter <a href="BoostedHiggsidentification.html#boo
 <h4 class="subsectionHead" id="artificial-neural-networks-and-deep-learning"><span class="titlemark">7.1.3   </span> <a id="x39-1430007.1.3"></a>Artificial neural networks and deep learning</h4>
 <!--  l. 144  --><p class="noindent">ANNs are ML models loosely inspired by the structure of the human brain. They were
 originally proposed in the 1940s, and improved over the 20th century through
-the perceptron [<a href="Bibliography.html#Xrosenblatt1958perceptron">215</a>] and backpropagation [<a href="Bibliography.html#Xrumelhart1986learning">216</a>] algorithms, but had limited
+the perceptron [<a href="Bibliography.html#Xrosenblatt1958perceptron">217</a>] and backpropagation [<a href="Bibliography.html#Xrumelhart1986learning">218</a>] algorithms, but had limited
 success in practical applications compared to algorithms like SVMs and decision
 trees.
 </p><!--  l. 147  --><p class="indent">       Only in the 2010s was it recognized that their flexibility in both architecture
@@ -311,7 +308,7 @@ below.
 </p><!--  l. 153  --><p class="noindent">
 </p>
 <h5 class="subsubsectionHead" id="artificial-neurons-and-multilayer-perceptrons"><a id="x39-144000"></a>Artificial neurons and multilayer perceptrons</h5>
-<!--  l. 155  --><p class="noindent">The building blocks of ANNs are single “artificial neurons”, or <i>perceptrons</i> [<a href="Bibliography.html#Xrosenblatt1958perceptron">215</a>]. They are
+<!--  l. 155  --><p class="noindent">The building blocks of ANNs are single “artificial neurons”, or <i>perceptrons</i> [<a href="Bibliography.html#Xrosenblatt1958perceptron">217</a>]. They are
 similar to the linear models discussed above, but with an additional non-linear function
 <!--  l. 156  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>σ</mi></math> —
 known as the <i>activation function</i>, applied to the output (Figure <a href="#left-a-single-perceptron-and-right-a-neural-network-built-using-multiple-layers-of-perceptrons-mlps">7.3<!--  tex4ht:ref: fig:03_ml_perceptron   --></a>, left):
@@ -327,7 +324,7 @@ hyperbolic tangent, and piecewise linear functions.
 </p><!--  l. 164  --><p class="indent">       By combining multiple perceptrons in a <i>multilayer perceptron</i> (MLP)
 architecture, i.e., an ANN, we can build a powerful and flexible model capable of
 learning complex, non-linear relationships in the data (Figure <a href="#left-a-single-perceptron-and-right-a-neural-network-built-using-multiple-layers-of-perceptrons-mlps">7.3<!--  tex4ht:ref: fig:03_ml_perceptron   --></a>, right). In fact, the
-famous <i>universal approximation theorem</i> [<a href="Bibliography.html#Xhornik1989multilayer">217</a>] states that, in theory, neural
+famous <i>universal approximation theorem</i> [<a href="Bibliography.html#Xhornik1989multilayer">219</a>] states that, in theory, neural
 networks can approximate any continuous function to arbitrary accuracy given a
 sufficiently large number of neurons and layers (although in practice it is not so
 straightforward).
@@ -352,7 +349,7 @@ optimal feature learning.
 </p>
 <h5 class="subsubsectionHead" id="backpropagation"><a id="x39-145000"></a>Backpropagation</h5>
 <!--  l. 183  --><p class="noindent">Part of the effectiveness and popularity of DNNs is due to the backpropagation
-algorithm [<a href="Bibliography.html#Xrumelhart1986learning">216</a>], which allows for efficient training of arbitrarily deep networks.
+algorithm [<a href="Bibliography.html#Xrumelhart1986learning">218</a>], which allows for efficient training of arbitrarily deep networks.
 Backpropagation is, essentially, the repeated application of the chain rule of calculus to
 iteratively propagate gradients of the loss function backwards through the network. For
 a simple two-layer network, for example: </p><table class="equation"><tr><td>
@@ -411,7 +408,7 @@ ease.
 <!--  l. 201  --><p class="noindent">We now walk through some popular ANN architectures, starting with CNNs. CNNs are
 a type of NN designed to process grid-like data and, particularly, images. They
 contributed the first major breakthrough in DL by achieving impressive performances in
-computer vision tasks, with models such as AlexNet [<a href="Bibliography.html#Xkrizhevsky2012imagenet">218</a>] in 2012 and ResNet [<a href="Bibliography.html#Xhe2016deep">219</a>] in
+computer vision tasks, with models such as AlexNet [<a href="Bibliography.html#Xkrizhevsky2012imagenet">220</a>] in 2012 and ResNet [<a href="Bibliography.html#Xhe2016deep">221</a>] in
 2016.
 </p><!--  l. 205  --><p class="indent">       A single CNN convolutional layer convolves a set of discrete “kernels”
 (essentially, learnable matrices) through the input image or data (Figure <a href="#schematic-of-a-convolutional-neural-network-reproduced-from-ref-iulianaconvolutional">7.4<!--  tex4ht:ref: fig:03_ml_cnn   --></a>), each of
@@ -450,9 +447,9 @@ Chapter <a href="Generativemodelsforfastparticlecloudsimulations.html#generativ
 <figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 7.5. </span></span><span class="content">Schematic of a message passing graph neural network.             </span></figcaption><!--  tex4ht:label?: x39-147001r5   -->
 </figure>
 <h5 class="subsubsectionHead" id="attention-and-transformers"><a id="x39-148000"></a>Attention and transformers</h5>
-<!--  l. 238  --><p class="noindent">The final architecture we discuss is the transformer, introduced in 2017 [<a href="Bibliography.html#Xvaswani2017attention">220</a>], which is
+<!--  l. 238  --><p class="noindent">The final architecture we discuss is the transformer, introduced in 2017 [<a href="Bibliography.html#Xvaswani2017attention">222</a>], which is
 the powerhouse behind the recent revolution in natural language processing (NLP) and
-AI chatbots such as GPT-3 [<a href="Bibliography.html#Xbrown2020language">221</a>] and its successors. Transformers are built around the
+AI chatbots such as GPT-3 [<a href="Bibliography.html#Xbrown2020language">223</a>] and its successors. Transformers are built around the
 idea of <i>attention</i>, which encourages the model to learn to attend to different parts of an
 input set or sequence in each layer.
 </p><!--  l. 241  --><p class="indent">       Explicitly, each element, or node’s, features in the input set are first embedded via MLPs
@@ -522,11 +519,11 @@ images by projecting the particle constituents onto a discretized angular
 <!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>η</mi></math>-<!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>
 plane, and taking the intensity of each “pixel” in this grid to be
 a monotonically increasing function of the corresponding particle
-<!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math> [<a href="Bibliography.html#XdeOliveira_2015xxd">222</a>]
+<!--  l. 276  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math> [<a href="Bibliography.html#XdeOliveira_2015xxd">224</a>]
 (Figure <a href="#examples-of-a-jet-left-and-calorimeter-shower-right-represented-as-d-and-d-images-respectively">7.7<!--  tex4ht:ref: fig:03_ml_jetshowerimage   --></a>, left). Showers can similarly be represented as 3D images of the energy
 deposited in the calorimeter cells (Figure <a href="#examples-of-a-jet-left-and-calorimeter-shower-right-represented-as-d-and-d-images-respectively">7.7<!--  tex4ht:ref: fig:03_ml_jetshowerimage   --></a>, right).
 </p><!--  l. 279  --><p class="indent">       At the time of the work of this dissertation, such image-based models were
-leading the field in tasks such as jet classification [<a href="Bibliography.html#XCMS_2020poo">223</a>] and shower generation [<a href="Bibliography.html#XATL-SOFT-PUB-2018-001">224</a>].
+leading the field in tasks such as jet classification [<a href="Bibliography.html#XCMS_2020poo">225</a>] and shower generation [<a href="Bibliography.html#XATL-SOFT-PUB-2018-001">226</a>].
 However, we argue that, despite these early successes, CNNs and images are not
 ideal for the physics and structure of our data, due to HEP data’s following
 characteristics:
@@ -536,13 +533,13 @@ characteristics:
 </dt><dd class="enumerate-enumitem"><i>Sparsity</i>: particles in a jet and hits in the detector tend to be extremely sparse
 relative to the total angular momentum phase space and total number of cells,
 respectively. Indeed, we see in Figure <a href="#examples-of-a-jet-left-and-calorimeter-shower-right-represented-as-d-and-d-images-respectively">7.7<!--  tex4ht:ref: fig:03_ml_jetshowerimage   --></a> that the resulting “images” tend to
-be extremely sparse, with typically fewer than 10% of pixels nonempty [<a href="Bibliography.html#XQu_2019gqs">225</a>].
+be extremely sparse, with typically fewer than 10% of pixels nonempty [<a href="Bibliography.html#XQu_2019gqs">227</a>].
 </dd>
 <dt class="enumerate-enumitem">
 2. 
 </dt><dd class="enumerate-enumitem"><i>High  granularity</i>:  LHC  detectors  are  highly  granular,  which  means  the
 discretization process often lowers the spatial resolution (as with the ATLAS
-FastCaloGAN [<a href="Bibliography.html#XATL-SOFT-PUB-2018-001">224</a>]),  unless  the  pixels  are  chosen  to  exactly  match  the
+FastCaloGAN [<a href="Bibliography.html#XATL-SOFT-PUB-2018-001">226</a>]),  unless  the  pixels  are  chosen  to  exactly  match  the
 detector cells; however, this is often computationally intractable due to the
 large number of cells, and the property we describe next.
                                                                                 
@@ -599,7 +596,7 @@ jet-tagging, powering a significant boost in the sensitivity of the
 
                                                                                 
 <!--  l. 310  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle></mrow></math>
-search. Finally, in Chapter <span class="ec-lmbx-12">??</span>, we push the inductive biases of ML models
+search. Finally, in Chapter <a href="Lorentzgroupequivariantautoencoders.html#lorentzgroup-equivariant-autoencoders">16<!--  tex4ht:ref: sec:06_lgae   --></a>, we push the inductive biases of ML models
 further by incorporating <i>equivariance</i> to Lorentz-symmetries, as we introduce
 next.
                                                                                 

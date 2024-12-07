@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Experiments</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="chapterToc">15 <a href="IntroductionandtheJetNetPackage.html#introduction-and-the-jetnet-package">Introduction and the JetNet Package</a></span>
+<span class="chapterToc">16 <a href="Lorentzgroupequivariantautoencoders.html#lorentzgroup-equivariant-autoencoders">Lorentz-group equivariant autoencoders</a></span>
+<span class="sectionToc">16.1 <a href="Introduction3.html#introduction3">Introduction</a></span>
+<span class="sectionToc">16.2 <a href="LGAEarchitecture.html#lgae-architecture">LGAE architecture</a></span>
+<span class="sectionToc">16.3 <a href="#experiments1">Experiments</a></span>
+<span class="subsectionToc">16.3.1 <a href="#dataset1">Dataset</a></span>
+<span class="subsectionToc">16.3.2 <a href="#models">Models</a></span>
+<span class="subsectionToc">16.3.3 <a href="#reconstruction">Reconstruction</a></span>
+<span class="subsectionToc">16.3.4 <a href="#anomaly-detection">Anomaly detection</a></span>
+<span class="subsectionToc">16.3.5 <a href="#latent-space-interpretation">Latent space interpretation</a></span>
+<span class="subsectionToc">16.3.6 <a href="#data-efficiency">Data efficiency</a></span>
+<span class="sectionToc">16.4 <a href="Conclusion.html#conclusion">Conclusion</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="LGAEarchitecture.html">⭠</a> <a href="Conclusion.html">⭢</a> </nav>
+<h3 class="sectionHead" id="experiments1"><span class="titlemark">16.3   </span> <a id="x79-28900016.3"></a>Experiments</h3>
+<!--  l. 184  --><p class="noindent">We experiment with and evaluate the performance of the LGAE and baseline models on
+reconstruction and anomaly detection for simulated high-momentum jets from the
+<span class="small-caps">JetNet</span> dataset. In this section, we describe the dataset in more detail in
+Section <a href="#dataset1">16.3.1<!--  tex4ht:ref: sec:06_lgae_dataset   --></a>, the different models we consider in Section <a href="#models">16.3.2<!--  tex4ht:ref: sec:06_lgae_models   --></a>, the reconstruction
+and anomaly detection results in Sections <a href="#reconstruction">16.3.3<!--  tex4ht:ref: sec:06_lgae_reconstruction   --></a> and <a href="#anomaly-detection">16.3.4<!--  tex4ht:ref: sec:06_lgae_anomaly   --></a> respectively, an
+interpretation of the LGAE latent space in Section <a href="#latent-space-interpretation">16.3.5<!--  tex4ht:ref: sec:06_lgae_latent-analysis   --></a>, and finally experiments of
+the data efficiency of the different models in Section <a href="#data-efficiency">16.3.6<!--  tex4ht:ref: sec:06_lgae_data-efficiency   --></a>.
+</p><!--  l. 187  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="dataset1"><span class="titlemark">16.3.1   </span> <a id="x79-29000016.3.1"></a>Dataset</h4>
+<!--  l. 190  --><p class="noindent">We use 30-particle high <!--  l. 190  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math>
+jets from the <span class="small-caps">JetNet</span> dataset as described in Chapter <a href="JetNet.html#jetnet">9.2<!--  tex4ht:ref: sec:04_jetnet_dataset   --></a>, obtained using the <span class="small-caps">JetNet</span>
+library from Chapter <a href="IntroductionandtheJetNetPackage.html#introduction-and-the-jetnet-package">15<!--  tex4ht:ref: sec:06_jetnet   --></a>. The model is trained on jets produced from gluons and light
+quarks, which are collectively referred to as quantum chromodynamics (QCD)
+jets.
+</p><!--  l. 193  --><p class="indent">       As before, we represent the jets as a point cloud of particles, termed a “particle
+cloud”, with the respective 3-momenta, in absolute coordinates, as particle
+                                                                                
+
+                                                                                
+features. In the processing step, each 3-momentum is converted to a 4-momentum:
+<!--  l. 194  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>p</mi></mrow><mrow><mi>μ</mi></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-rel" stretchy="false">|</mo><mstyle mathvariant="bold"><mi>p</mi></mstyle><mo class="MathClass-rel" stretchy="false">|</mo><mo class="MathClass-punc" stretchy="false">,</mo><mstyle mathvariant="bold"><mi>p</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>,
+where we consider the mass of each particle to be negligible. We use a
+<!--  l. 195  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>60</mn><mi>%</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>20</mn><mi>%</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mn>20</mn><mi>%</mi></mrow></math>
+training/testing/validation splitting for the total 177,000 jets. For evaluating performance
+in anomaly detection, we consider jets from <span class="small-caps">JetNet</span> produced by top quarks,
+<!--  l. 196  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>W</mi></math> bosons,
+and <!--  l. 196  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>Z</mi></math>
+bosons as our anomalous signals.
+</p><!--  l. 198  --><p class="indent">       We note that the detector and reconstruction effects in <span class="small-caps">JetNet</span>, and indeed in
+real data collected at the LHC, break the Lorentz symmetry; hence, Lorentz
+equivariance is generally an <i>approximate</i> rather than an exact symmetry of HEP data.
+We assume henceforth that the magnitude of the symmetry breaking is small enough
+that imposing exact Lorentz equivariance in the LGAE is still advantageous — and the
+high performance of the LGAE and classification models such as LorentzNet support
+this assumption. Nevertheless, important studies in future work may include
+quantifying this symmetry breaking and considering approximate symmetries in
+NNs.
+</p><!--  l. 202  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="models"><span class="titlemark">16.3.2   </span> <a id="x79-29100016.3.2"></a>Models</h4>
+<!--  l. 205  --><p class="noindent">LGAE model results are presented using both the min-max (LGAE-Min-Max) and
+“mix” (LGAE-Mix) aggregation schemes for the latent space, which consists of varying
+numbers of complex Lorentz vectors — corresponding to different compression rates. We
+compare the LGAE to baseline GNN and CNN autoencoder models, referred to as
+“GNNAE” and “CNNAE” respectively.
+</p><!--  l. 208  --><p class="indent">       The GNNAE model is composed of fully-connected MPNNs adapted from
+MPGAN (Section <a href="MessagepassingGANs.html#message-passing-gans">10.1<!--  tex4ht:ref: sec:04_mpgan   --></a>). We experiment with two types of encodings: (1) particle-level
+(GNNAE-PL), as in the PGAE [<a href="Bibliography.html#XTsan_2021brw">66</a>] model, which compresses the features per node in
+the graph but retains the graph structure in the latent space, and (2) jet-level
+(GNNAE-JL), which averages the features across each node to form the latent space,
+as in the LGAE. Particle-level encodings produce better performance overall
+for the GNNAE, but the jet-level provides a more fair comparison with the
+LGAE, which uses jet-level encoding to achieve a high level of compression of the
+features.
+</p><!--  l. 212  --><p class="indent">       For the CNNAE, which is adapted from Ref. [<a href="Bibliography.html#XFarina-anomaly">245</a>], the relative
+coordinates of each input jets’ particle constituents are first discretized into a
+<!--  l. 212  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>40</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>40</mn></mrow></math> grid.
+The particles are then represented as pixels in an image, with intensities corresponding
+to <!--  l. 213  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msubsup></math>.
+Multiple particles per jet may correspond to the same pixel, in which case their
+<!--  l. 214  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msubsup></math>’s
+                                                                                
+
+                                                                                
+are summed. The CNNAE has neither Lorentz nor permutation
+symmetry, however, it does have in-built translation equivariance in
+<!--  l. 215  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>η</mi> <mo class="MathClass-bin" stretchy="false">−</mo> <mi>ϕ</mi></mrow></math>
+space.
+</p><!--  l. 217  --><p class="indent">       Hyperparameter and training details for all models can be found in <a href="Modeldetails.html#model-details">E.1<!--  tex4ht:ref: app:06_lgae_hyperparams   --></a> and <a href="Trainingdetails.html#training-details">E.2<!--  tex4ht:ref: app:06_lgae_training   --></a>,
+respectively, and a summary of the relevant symmetries respected by each model
+is provided in Table <a href="#summary-of-the-relevant-symmetries-respected-by-each-model-tested">16.1<!--  tex4ht:ref: tab:06_lgae_model-symmetry   --></a>. The LGAE models are verified to be equivariant
+to Lorentz boosts and rotations up to numerical error, with details provided
+in <a href="Equivariancetests.html#equivariance-tests">E.3<!--  tex4ht:ref: app:06_lgae_equivariancetests   --></a>.
+</p>
+<div class="table">
+<!--  l. 220  --><p class="indent"> </p><figure class="float" id="x79-291001r1"><span id="summary-of-the-relevant-symmetries-respected-by-each-model-tested"></span>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Table 16.1. </span></span><span class="content">Summary of the relevant symmetries respected by each model
+tested.                                                                         </span></figcaption><!--  tex4ht:label?: x79-291001r1   -->
+<div class="pic-tabular"><img alt="-----------------------------------------------------------------------------------------------------------------
+ Model     Aggregation    Name               Lorentz symmetry    Permutation  symmetry    Translation symmetry
+-----------------------------------------------------------------------------------------------------------------
+
+           Min -Max       LGAE   -Min -Max    ✓ (equivariance )    ✓ (invariance)            ✓ (equivariance )
+ LGAE
+           Mix            LGAE   -Mix         ✓ (equivariance )    ✗                        ✓ (equivariance )
+
+           Jet-level      GNNAE    -JL        ✗                   ✓ (invariance)            ✓ (equivariance )
+ GNNAE
+           Particle-level  GNNAE    -PL        ✗                   ✓ (equivariance )         ✓ (equivariance )
+
+
+ CNNAE                    CNNAE              ✗                   ✗                        ✓ (equivariance )
+-----------------------------------------------------------------------------------------------------------------  " src="main-6446ff298e8573a017d159f69c4cb50e.svg"/></div>
+</figure>
+</div>
+<h4 class="subsectionHead" id="reconstruction"><span class="titlemark">16.3.3   </span> <a id="x79-29200016.3.3"></a>Reconstruction</h4>
+<figure class="figure">
+<!--  l. 246  --><p class="noindent" id="jet-image-reconstructions"> <img alt="PIC" src="figures/06-ML4Jets/lgae/reconstructions/jet_images-cnnae-.png" style="max-width:100%"/> <a id="x79-292001r2"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 16.2.      </span></span><span class="content">Jet      image      reconstructions      by      LGAE-Min-Max
+(<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>4</mn></mrow></math>,
+<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>56</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>67</mn><mi>%</mi></mrow></math>
+compression), LGAE-Mix (<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>9</mn></mrow></math>,
+<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>61</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>67</mn><mi>%</mi></mrow></math>
+compression), GNNAE-JL (<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>55</mn></mrow></math>,
+<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>61</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>11</mn><mi>%</mi></mrow></math>
+compression), GNNAE-PL (<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>30</mn></mrow></math>,
+<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>66</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>67</mn><mi>%</mi></mrow></math>
+compression), and CNNAE (<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>55</mn></mrow></math>,
+<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>61</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>11</mn><mi>%</mi></mrow></math>
+compression).                                                                   </span></figcaption><!--  tex4ht:label?: x79-292001r2   -->
+</figure>
+<!--  l. 257  --><p class="indent">       We evaluate the performance of the LGAE, GNNAE, and CNNAE models,
+with the different aggregation schemes discussed, on the reconstruction of the
+particle and jet features of QCD jets. We consider relative transverse momentum
+<!--  l. 259  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal">
+<mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>particle</mi></mstyle></mrow></msubsup><mo class="MathClass-bin" stretchy="false">∕</mo><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal">
+<mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>jet</mi></mstyle></mrow></msubsup></mrow></math> and relative angular
+coordinates <!--  l. 260  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>η</mi></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>η</mi></mrow><mrow><mstyle mathvariant="normal"><mi>particle</mi></mstyle></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>η</mi></mrow><mrow><mstyle mathvariant="normal"><mi>jet</mi></mstyle></mrow></msup></mrow></math> and
+<!--  l. 261  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mi>ϕ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msup> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>ϕ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>particle</mi></mstyle></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>ϕ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>jet</mi></mstyle></mrow></msup><mspace width="0.3em"></mspace><mo class="MathClass-open" stretchy="false">(</mo><mi mathvariant="italic">mod</mi><mspace width="0.3em"></mspace> <mn>2</mn><mi>π</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> as each particle’s features,
+and total jet mass, <!--  l. 262  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub></math>
+and <!--  l. 262  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>η</mi></math>
+as jet features. We define the compression rate as the ratio between the total
+dimension of the latent space and the number of features in the input space:
+<!--  l. 263  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>30</mn><mspace class="nbsp" width="0.33em"></mspace><mstyle mathvariant="normal"><mi>particles</mi></mstyle> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>3</mn><mspace class="nbsp" width="0.33em"></mspace><mstyle mathvariant="normal"><mi>features</mi><mspace class="nbsp" width="0.33em"></mspace><mi>per</mi><mspace class="nbsp" width="0.33em"></mspace><mi>particle</mi></mstyle> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>90</mn></mrow></math>.
+</p><!--  l. 265  --><p class="indent">       Figure <a href="#jet-image-reconstructions">16.2<!--  tex4ht:ref: fig:06_lgae_recons-jet-imgs   --></a> shows random samples of jets, represented as discrete images in the
+angular-coordinate plane, reconstructed by the models with similar levels of compression
+in comparison to the true jets. Figure <a href="#particle-and-jet-feature-reconstruction-by-the-lgae-gnnae-and-cnnae-models">16.3<!--  tex4ht:ref: fig:06_lgae_recons-hist   --></a> shows histograms of the reconstructed
+features compared to the true distributions. The differences between the two
+distributions are quantified in Table <a href="#median-and-iqr-of-relative-errors-in-particle-feature-reconstruction-of-selected-lgae-and-gnnae-models-in-each-column-the-bestperforming-latent-space-per-model-is-italicized-and-the-best-model-overall-is-highlighted-in-bold-">16.2<!--  tex4ht:ref: tab:06_lgae_recons-particle   --></a> by calculating the median and interquartile
+ranges (IQR) of the relative errors between the reconstructed and true features. To
+calculate the relative errors of particle features for the permutation invariant LGAE and
+GNNAE models, particles are matched between the input and output clouds
+using the Jonker–Volgenant algorithm [<a href="Bibliography.html#X2020SciPy-NMeth">297</a>, <a href="Bibliography.html#XJonkerVolgenant">414</a>] based on the L2 distance
+between particle features. Due to the discretization of the inputs to the CNNAE,
+                                                                                
+
+                                                                                
+reconstructing individual particle features is not possible; instead, only jet features are
+shown.<span class="footnote-mark"><a href="#fn59x17" id="fn59x17-bk"><sup class="textsuperscript">1</sup></a></span><a id="x79-292002f1"></a>
+</p><!--  l. 271  --><p class="indent">       We can observe visually in Figure <a href="#jet-image-reconstructions">16.2<!--  tex4ht:ref: fig:06_lgae_recons-jet-imgs   --></a> that out of the two permutation
+invariant models, while neither is able to reconstruct the jet substructure perfectly,
+the LGAE-Min-Max outperforms the GNNAE-JL. Perhaps surprisingly, the
+permutation-symmetry-breaking mix aggregation scheme improves the LGAE in this
+regard. Both visually in Figure <a href="#particle-and-jet-feature-reconstruction-by-the-lgae-gnnae-and-cnnae-models">16.3<!--  tex4ht:ref: fig:06_lgae_recons-hist   --></a> and quantitatively from Tables <a href="#median-and-iqr-of-relative-errors-in-particle-feature-reconstruction-of-selected-lgae-and-gnnae-models-in-each-column-the-bestperforming-latent-space-per-model-is-italicized-and-the-best-model-overall-is-highlighted-in-bold-">16.2<!--  tex4ht:ref: tab:06_lgae_recons-particle   --></a> and <a href="#median-and-iqr-of-relative-errors-in-jet-feature-reconstruction-by-selected-lgae-and-gnnae-models-along-with-the-cnnae-model">16.3<!--  tex4ht:ref: tab:06_lgae_recons-jet   --></a>, we
+conclude that the LGAE-Mix has the best performance overall, significantly
+outperforming the GNNAE and CNNAE models at similar compression rates.
+The LGAE-Min-Max model outperforms the GNNAE-JL in reconstructing
+all features and the GNNAE-PL in all but the IQR of the particle angular
+coordinates.
+</p>
+<figure class="figure">
+<!--  l. 279  --><p class="noindent" id="particle-and-jet-feature-reconstruction-by-the-lgae-gnnae-and-cnnae-models"> <img alt="PIC" src="figures/06-ML4Jets/lgae/reconstructions/hist-cnnae-.png" style="max-width:100%"/> <a id="x79-292004r3"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 16.3. </span></span><span class="content"><strong>Top</strong>: particle momenta <!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msubsup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>η</mi></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo><msup><mrow><mi>ϕ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+reconstruction by LGAE-Min-Max (<!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>4</mn></mrow></math>,
+resulting in <!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>56</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>67</mn><mi>%</mi></mrow></math>
+compression) and and LGAE-Mix (<!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>9</mn></mrow></math>,
+resulting in <!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>61</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>67</mn><mi>%</mi></mrow></math>
+compression), and GNNAE-JL (<!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>55</mn></mrow></math>,
+resulting in <!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>61</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>11</mn><mi>%</mi></mrow></math>
+compression) and GNNAE-PL (<!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>30</mn></mrow></math>,
+resulting in <!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>66</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>67</mn><mi>%</mi></mrow></math>
+compression).         The         reconstructions         by         the         CNNAE
+are       not       included       due       to       the       discrete       values       of
+<!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>η</mi></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msup></math>
+and <!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>ϕ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msup></math>,
+as        discussed        in        the        text.        <strong>Bottom</strong>:        jet        feature
+<!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>M</mi><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><mi>η</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+reconstruction   by   the   four   models.   For   the   jet   feature   reconstruction
+by   the   GNNAEs,   the   particle   features   in   relative   coordinates   were
+transformed    back    to    absolute    coordinates    before    plotting.    The    jet
+<!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>
+is     not     shown     because     it     follows     a     uniform     distribution     in
+<!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mo class="MathClass-bin" stretchy="false">−</mo><mi>π</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>π</mi><mo class="MathClass-close" stretchy="false">]</mo></mrow></math>
+and is reconstructed well.                                                       </span></figcaption><!--  tex4ht:label?: x79-292004r3   -->
+</figure>
+<div class="table">
+<!--  l. 295  --><p class="indent"> </p><figure class="float" id="x79-292005r2"><span id="median-and-iqr-of-relative-errors-in-particle-feature-reconstruction-of-selected-lgae-and-gnnae-models-in-each-column-the-bestperforming-latent-space-per-model-is-italicized-and-the-best-model-overall-is-highlighted-in-bold-"></span>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Table 16.2. </span></span><span class="content">Median and IQR of relative errors in particle feature reconstruction
+of selected LGAE and GNNAE models. In each column, the best-performing latent
+space per model is italicized, and the best model overall is highlighted in bold.   </span></figcaption><!--  tex4ht:label?: x79-292005r2   -->
+<div class="pic-tabular"><img alt="------------------------------------------------------------------------------------------------------------
+                                                         Particle prel      Particle ηrel      Particle ϕrel
+ Model     Aggregation    Latent space                -------------T----------------------------------------
+                                                       Median     IQR    Median     IQR     Median    IQR
+------------------------------------------------------------------------------------------------------------
+                          τ        = 4 (56.67% )        0 .006    0 .562    0.002     1.8     0.003     1.8
+           Min -max        (1∕2,1∕2)
+                          τ        = 7 (96.67% )         0.002     0.640   − 0.627    1.7    &lt; 10 −3    1.7
+ LGAE                      (1∕2,1∕2)
+                                                            − 3               − 3               −3
+                          τ(1∕2,1∕2) = 9 (61.67% )       &lt;  10      0.011   &lt;  10     0.452   &lt; 10      0.451
+           Mix                                              − 3               − 3               −3
+                          τ(1∕2,1∕2) = 13 (88.33% )      &lt;  10     0.001   &lt;  10     0.022   &lt; 10      0.022
+
+                          dim (L) = 45 (50.00% )        − 0.983    3.8     0.363     3.1     0.146     2.1
+           Jet-level
+                          dim (L) = 90 (100.00% )      − 0 .627    3 .5      4.4      14.7    0.146     2.6
+ GNNAE
+                          dim (L) = 2 × 30 (66.67% )    − 0.053   0.906    0.009    0.191    0.013    0.139
+           Particle-level
+                          dim (L) = 3 × 30 (100.00% )  − 0 .040   0 .892   − 0.037   0.177    0.005    0.243
+------------------------------------------------------------------------------------------------------------  " src="main-acbe3a03886005a7f842c38a70826f1d.svg"/></div>
+</figure>
+</div>
+<div class="table">
+<!--  l. 357  --><p class="indent"> </p><figure class="float" id="x79-292006r3"><span id="median-and-iqr-of-relative-errors-in-jet-feature-reconstruction-by-selected-lgae-and-gnnae-models-along-with-the-cnnae-model"></span>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Table 16.3. </span></span><span class="content">Median and IQR of relative errors in jet feature reconstruction by
+selected  LGAE  and  GNNAE  models,  along  with  the  CNNAE  model.  In  each
+column, the best performing latent space per model is italicised, and the best model
+overall is highlighted in bold.                                                   </span></figcaption><!--  tex4ht:label?: x79-292006r3   -->
+<div class="pic-tabular"><img alt="----------------------------------------------------------------------------------------------------------------------------------
+
+                                                      -----Jet mass-----------Jet-pT--------------Jet-η--------------Jet-ϕ--------
+ Model     Aggregation    Latent space
+-------------------------------------------------------Median-----IQR-----Median-----IQR-----Median-----IQR-----Median------IQR-----
+                                                                                                 −3                 − 3
+                          τ(1∕2,1∕2) = 4 (56.67% )        0.096    0.134    0.097    0 .109    &lt;  10      0.004   &lt;  10      0.002
+           Min -max                                                                              −3                 − 3
+                          τ(1∕2,1∕2) = 7 (96.67% )        − 0.139  0.287   − 0.221    0.609    &lt;  10      0.021   &lt;  10      0.007
+ LGAE                                                       − 3               −3       − 3       −3        −3       − 3       −3
+                          τ(1∕2,1∕2) = 9 (61.67% )       &lt;  10     0.003   &lt; 10      &lt; 10     &lt;  10     &lt; 10     &lt;  10     &lt; 10
+           Mix                                              − 3               −3       − 3       −3        −3       − 3       −3
+                          τ(1∕2,1∕2) = 13 (88.33% )      &lt;  10     0.003   &lt; 10      &lt; 10     &lt;  10     &lt; 10     &lt;  10     &lt; 10
+
+                          dim (L) = 45 (50.00% )        0.326    0.667    0.030    0 .088     0.005     0.040    0 .001     0.021
+           Jet-level
+                          dim (L) = 90 (100.00% )         3.7      2.6     0.030     0.089     0.292     0.433     0.006     0.021
+ GNNAE
+
+                          dim (L) = 2 × 30 (66.67% )    0.277    0.299    0.037     0.110     0.002     0.010    − 0.001   0.005
+           Particle-level                                                                                            − 3
+                          dim (L) = 3 × 30 (100.00% )   0.339    0.244    0.050    0 .094    − 0.001    0.011   &lt;  10      0.005
+
+ CNNAE     Linear layer   dim (L) = 55 (61.67% )        − 0.030  0.042   − 0.021    0.017    &lt;  10−3    0.017   &lt;  10− 3   0.003
+----------------------------------------------------------------------------------------------------------------------------------  " src="main-b3a7e0471758296527fc1caf4df69067.svg"/></div>
+</figure>
+</div>
+<h4 class="subsectionHead" id="anomaly-detection"><span class="titlemark">16.3.4   </span> <a id="x79-29300016.3.4"></a>Anomaly detection</h4>
+<figure class="figure">
+<!--  l. 461  --><p class="noindent" id="anomaly-detection-roc-curves-for-the-lgae-gnnae-and-cnnae-models"> <img alt="PIC" src="figures/06-ML4Jets/lgae/anomaly/roc_curves-cnnae-.png" style="max-width:100%"/> <a id="x79-293001r4"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 16.4. </span></span><span class="content">Anomaly detection ROC curves for the top quark signal (upper left),
+<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>W</mi></math>
+boson signal (upper right), <!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>Z</mi></math>
+boson       signal       (lower       left),       and       the       combined       signal
+(lower          right)          by          the          selected          LGAE-Min-Max
+(<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>7</mn></mrow></math>),
+LGAE-Mix (<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></mrow></math>),
+GNNAE-JL (<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>30</mn></mrow></math>),
+GNNAE-PL (<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>30</mn></mrow></math>),
+and CNNAE (<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>55</mn></mrow></math>)
+models.                                                                        </span></figcaption><!--  tex4ht:label?: x79-293001r4   -->
+</figure>
+<!--  l. 479  --><p class="indent">       We test the performance of all models as unsupervised anomaly detection
+algorithms by pre-training them solely on QCD and then using the reconstruction error
+for the QCD and new signal jets as the discriminating variable. We consider top quark,
+<!--  l. 480  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle></math> boson,
+and <!--  l. 480  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext class="textrm" mathvariant="normal">Z</mtext></mstyle></math>
+boson jets as potential signals and QCD as the “background”. We test the Chamfer
+distance, energy mover’s distance [<a href="Bibliography.html#XKomiske_2019fks">316</a>] — the earth mover’s distance applied to particle
+clouds, and MSE between input and output jets as reconstruction errors, and find the
+Chamfer distance most performant for all graph-based models. For the CNNAE,
+we use the MSE between the input and reconstructed image as the anomaly
+score.
+</p><!--  l. 484  --><p class="indent">       Receiver operating characteristic (ROC) curves showing the signal efficiencies
+(<!--  l. 484  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>𝜀</mi></mrow><mrow><mi>s</mi></mrow></msub></math>) versus background
+efficiencies (<!--  l. 484  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>𝜀</mi></mrow><mrow><mi>b</mi></mrow></msub></math>)
+for individual and combined signals are shown in
+Figure <a href="#anomaly-detection-roc-curves-for-the-lgae-gnnae-and-cnnae-models">16.4<!--  tex4ht:ref: fig:06_lgae_roc-each   --></a>,<span class="footnote-mark"><a href="#fn60x17" id="fn60x17-bk"><sup class="textsuperscript">2</sup></a></span><a id="x79-293002f2"></a>
+and <!--  l. 484  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>𝜀</mi></mrow><mrow><mi>s</mi></mrow></msub></math>
+values at particular background efficiencies are given in Table <a href="#anomaly-detection-metrics-by-a-selected-lgae-and-gnnae-models-along-with-the-cnnae-model-in-each-column-the-best-performing-latent-space-per-model-is-italicized-and-the-best-model-overall-is-highlighted-in-bold-">16.4<!--  tex4ht:ref: tab:06_lgae_ad   --></a>. We see
+that in general the permutation equivariant LGAE and GNNAE models
+outperform the CNNAE, strengthening the case for considering equivariance
+in neural networks. Furthermore, LGAE models have significantly higher
+                                                                                
+
+                                                                                
+signal efficiencies than GNNAEs and CNNAEs for all signals when rejecting
+<!--  l. 486  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">&gt;</mo> <mn>90</mn><mi>%</mi></mrow></math> of the
+background (which is the minimum level we typically require in HEP), and LGAE-Mix
+consistently performs better than LGAE-Min-Max.
+</p>
+<div class="table">
+<!--  l. 488  --><p class="indent"> </p><figure class="float" id="x79-293004r4"><span id="anomaly-detection-metrics-by-a-selected-lgae-and-gnnae-models-along-with-the-cnnae-model-in-each-column-the-best-performing-latent-space-per-model-is-italicized-and-the-best-model-overall-is-highlighted-in-bold-"></span>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Table 16.4. </span></span><span class="content">Anomaly detection metrics by a selected LGAE and GNNAE models,
+along with the CNNAE model. In each column, the best performing latent space
+per model is italicized, and the best model overall is highlighted in bold.         </span></figcaption><!--  tex4ht:label?: x79-293004r4   -->
+<div class="pic-tabular"><img alt="-----------------------------------------------------------------------------------------------
+
+                                                                        𝜀s at given 𝜀b
+ Model     Aggregation    Latent space                 AUC     -------------------------------
+                                                                𝜀s(10−1)  𝜀s(10−2)   𝜀s(10 −3)
+-----------------------------------------------------------------------------------------------
+                          τ(1∕2,1∕2) = 2 (30.00% )        0.7253     0.5706    0.1130    0.0011
+
+           Min -Max       τ(1∕2,1∕2) = 4 (56.67% )        0.7627     0.5832    0.1305    0.0007
+
+                          τ(1∕2,1∕2) = 7 (96.67% )        0.7673   0 .5932     0.0820    0.0009
+ LGAE
+                          τ       = 2 (15.00% )        0.8023    0.6178    0.1662    0.0250
+                          (1∕2,1∕2)
+           Mix            τ       = 4 (28.33% )        0.8023    0.6257    0.1592    0.0229
+                          (1∕2,1∕2)
+                          τ       = 7 (48.33% )        0.7967    0.6290     0.1562    0.0225
+                          (1∕2,1∕2)
+
+                          dim (L ) = 10 (11.11% )        0.5891     0.1576    0.0161    0.0014
+
+           JL             dim (L ) = 40 (44.44% )        0.6636    0 .2293     0.0262    0.0013
+
+ GNNAE                    dim (L ) = 80 (88.89% )        0.7006    0.2240    0.0239    0.0010
+
+                          dim (L ) = 2 × 30 (66.67% )   0.8195    0 .4435     0.0564    0.0042
+           PL
+                          dim (L ) = 3 × 30 (100.00% )  0.8095     0.4306    0.0762    0.0044
+
+
+-CNNAE-----linear-layer----dim-(L-) =-55-(61.67%-)--------0.7700-----0.2473----0.0469----0.0053----  " src="main-47d8b2cffb0bc5bae3bf18b82334079b.svg"/></div>
+</figure>
+</div>
+<h4 class="subsectionHead" id="latent-space-interpretation"><span class="titlemark">16.3.5   </span> <a id="x79-29400016.3.5"></a>Latent space interpretation</h4>
+<figure class="figure">
+<!--  l. 536  --><p class="noindent" id="the-correlations-between-the-total-momentum-of-the-imaginary-components-in-the-lgaemix-model-and-the-target-jet-momenta-the-pearson-correlation-coefficient-r-is-listed-above-"> <img alt="PIC" src="figures/06-ML4Jets/lgae/latent-space-analysis/corr-.png" style="max-width:100%"/> <a id="x79-294001r5"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 16.5.</span>
+</span><span class="content">The correlations between the total momentum of the imaginary components in the
+<!--  l. 539  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></mrow></math>
+LGAE-Mix model and the target jet momenta. The Pearson correlation coefficient
+<!--  l. 539  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math>
+is listed above.                                                                 </span></figcaption><!--  tex4ht:label?: x79-294001r5   -->
+</figure>
+<figure class="figure">
+<!--  l. 545  --><p class="noindent" id="distributions-of-the-invariant-mass-squared-of-the-latent-vectors-and-jet-momenta-of-the-lgae-models"> <img alt="PIC" src="figures/06-ML4Jets/lgae/latent-space-analysis/invariant_masses-mix-log-.png" style="max-width:100%"/> <img alt="PIC" src="figures/06-ML4Jets/lgae/latent-space-analysis/invariant_masses-min_max-selected-log-.png" style="max-width:100%"/> <a id="x79-294002r6"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 16.6.         </span></span><span class="content"><strong>Top</strong>:         distributions         of         the         invariant
+mass squared of the latent 4-vectors and jet momenta of the LGAE-Mix with
+<!--  l. 550  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></mrow></math>
+latent   4-vectors.   <strong>Bottom</strong>:   distributions   of   the   invariant   mass   squared
+of   two   latent   4-vectors   and   jet   momenta   of   the   LGAE-Min-Max   with
+<!--  l. 550  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></mrow></math>
+latent 4-vectors.                                                                </span></figcaption><!--  tex4ht:label?: x79-294002r6   -->
+</figure>
+<!--  l. 555  --><p class="indent">       The outputs of the LGAE encoder are irreducible representations of the Lorentz
+groups; they consist of a pre-specified number of Lorentz scalars, vectors, and
+potentially higher-order representations. This implies a significantly more interpretable
+latent representation of the jets than traditional autoencoders, as the information
+distributed across the latent space is now disentangled between the different irreps of
+the Lorentz group. For example, scalar quantities like the jet mass will necessarily be
+encoded in the scalars of the latent space, and jet and particle 4-momenta in the
+vectors.
+</p><!--  l. 559  --><p class="indent">       We demonstrate the latter empirically on the LGAE-Mix model
+(<!--  l. 559  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></mrow></math>) by
+looking at correlations between jet 4-momenta and the components of different
+combinations of latent vector components. Figure <a href="#the-correlations-between-the-total-momentum-of-the-imaginary-components-in-the-lgaemix-model-and-the-target-jet-momenta-the-pearson-correlation-coefficient-r-is-listed-above-">16.5<!--  tex4ht:ref: fig:06_lgae_correlations   --></a> shows that, in fact, the jet
+momenta is encoded in the imaginary component of the sum of the latent
+vectors.
+</p><!--  l. 562  --><p class="indent">       We can also attempt to understand the anomaly detection performance by
+looking at the encodings of the training data compared to the anomalous signal.
+Figure <a href="#distributions-of-the-invariant-mass-squared-of-the-latent-vectors-and-jet-momenta-of-the-lgae-models">16.6<!--  tex4ht:ref: fig:06_lgae_distribution   --></a> shows the individual and total invariant mass of the latent vectors of
+sample LGAE models for QCD and top quark, W boson, and Z boson inputs. We
+observe that despite the overall similar kinematic properties of the different jet
+classes, the distributions for the QCD background are significantly different from
+the signals, indicating that the LGAE learns and encodes the difference in jet
+                                                                                
+
+                                                                                
+substructure — despite substructure observables such as jet mass not being
+direct inputs to the network — explaining the high performance in anomaly
+detection.
+</p><!--  l. 566  --><p class="indent">       Finally, while in this section we showcased simple “brute-force” techniques for
+interpretability by looking directly at the distributions and correlations of latent
+features, we hypothesize that such an equivariant latent space would also lend itself
+effectively to the vast array of existing explainable AI algorithms [<a href="Bibliography.html#Xvilone_xaireview">415</a>, <a href="Bibliography.html#Xminh_xaireview">416</a>],
+which generically evaluate the contribution of different input and intermediate
+neuron features to network outputs. We leave a detailed study of this to future
+work.
+</p>
+<h4 class="subsectionHead" id="data-efficiency"><span class="titlemark">16.3.6   </span> <a id="x79-29500016.3.6"></a>Data efficiency</h4>
+<figure class="figure">
+<!--  l. 575  --><p class="noindent" id="median-magnitude-of-relative-errors-of-jet-mass-reconstruction-by-lgae-and-cnnae-models-at-trained-on-different-fractions-of-the-training-data"> <img alt="PIC" src="figures/06-ML4Jets/lgae/data_efficiency/jet_mass-rel_err-median-.png" style="max-width:60%"/> <a id="x79-295001r7"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 16.7. </span></span><span class="content">Median magnitude of relative errors of jet mass reconstruction by
+LGAE and CNNAE models at trained on different fractions of the training data. </span></figcaption><!--  tex4ht:label?: x79-295001r7   -->
+</figure>
+<!--  l. 580  --><p class="indent">       In principle, equivariant neural networks should require less training data for
+high performance, since critical biases of the data, which would otherwise have to be
+learned by non-equivariant networks, are already built in. We test this claim
+by measuring the performances of the best-performing LGAE and CNNAE
+architectures from Section <a href="#reconstruction">16.3.3<!--  tex4ht:ref: sec:06_lgae_reconstruction   --></a> trained on varying fractions of the training
+data.
+</p><!--  l. 583  --><p class="indent">       The median magnitude of the relative errors between the reconstructed and true
+jet masses of the different models and fractions is shown in Figure <a href="#median-magnitude-of-relative-errors-of-jet-mass-reconstruction-by-lgae-and-cnnae-models-at-trained-on-different-fractions-of-the-training-data">16.7<!--  tex4ht:ref: fig:06_lgae_median-jet-mass   --></a>. Each model is
+trained five times per training fraction, with different random seeds, and evaluated on
+the same-sized validation dataset; the median of the five models is plotted. We observe
+that, in agreement with our hypothesis, the LGAE models both maintain their high
+performance all the way down to training on 1% of the data, while the CNNAE’s
+performance steadily degrades down to 2% and then experiences a further sharp
+drop.
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="LGAEarchitecture.html">⭠</a> <a href="Conclusion.html">⭢</a> </nav> <div class="footnotes"><a id="x79-292003x16.3.3"></a>
+<!--  l. 269  --><p class="indent"> <span class="footnote-mark"><a href="#fn59x17-bk" id="fn59x17"><sup class="textsuperscript">1</sup></a></span><span class="ec-lmr-10">These are calculated by summing each pixel’s momentum “4-vector”
+— using the center of the pixel as angular coordinates and intensity as the</span>
+<!--  l. 269  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>rel</mi></mstyle></mrow></msubsup></math><span class="ec-lmr-10">.</span></p><a id="x79-293003x16.3.4"></a>
+<!--  l. 484  --><p class="indent"> <span class="footnote-mark"><a href="#fn60x17-bk" id="fn60x17"><sup class="textsuperscript">2</sup></a></span><span class="ec-lmr-10">Discontinuities in the top quark and combined signal LGAE-Min-Max ROCs indicate that at background
+efficiencies of </span><!--  l. 484  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">≾</mo> <mn>5</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn></mrow></msup></mrow></math><span class="ec-lmr-10">,
+there are no signal events remaining in the validation dataset.</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

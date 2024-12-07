@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>Gauge theories</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="appendixToc">A <a href="SupplementaryMaterialforChapterrefsec01symmetries.html#supplementary-material-for-chapterref-secsymmetries">Supplementary Material for Chapter 2</a></span>
+<span class="appendixToc">B <a href="SupplementaryMaterialforChapterrefsec01qft.html#supplementary-material-for-chapterref-secqft">Supplementary Material for Chapter 3</a></span>
+<span class="sectionToc">B.1 <a href="Classicalfieldtheory.html#classical-field-theory1">Classical field theory</a></span>
+<span class="sectionToc">B.2 <a href="Quantization.html#quantization1">Quantization</a></span>
+<span class="sectionToc">B.3 <a href="Interactions1.html#interactions1">Interactions</a></span>
+<span class="sectionToc">B.4 <a href="Spinorfieldtheory.html#spinor-field-theory">Spinor field theory</a></span>
+<span class="sectionToc">B.5 <a href="#gauge-theories1">Gauge theories</a></span>
+<span class="subsectionToc">B.5.1 <a href="#why-gauge-invariance">Why gauge invariance?</a></span>
+<span class="appendixToc">C <a href="SupplementaryMaterialforChapterrefsec04models.html#supplementary-material-for-chapterref-secmodels">Supplementary Material for Chapter 10</a></span>
+<span class="appendixToc">D <a href="SupplementaryMaterialforChapterrefsec04evaluating.html#supplementary-material-for-chapterref-secevaluating">Supplementary Material for Chapter 11</a></span>
+<span class="appendixToc">E <a href="SupplementaryMaterialforChapterrefsec06lgae.html#supplementary-material-for-chapterref-seclgae">Supplementary Material for Chapter 16</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="Spinorfieldtheory.html">⭠</a> <a href="SupplementaryMaterialforChapterrefsec04models.html">⭢</a> </nav>
+<h3 class="sectionHead" id="gauge-theories1"><span class="titlemark">B.5   </span> <a id="x89-348000B.5"></a>Gauge theories</h3>
+<!--  l. 1215  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="why-gauge-invariance"><span class="titlemark">B.5.1   </span> <a id="x89-349000B.5.1"></a>Why gauge invariance?</h4>
+<!--  l. 1218  --><p class="noindent">Gauge invariance is needed in order to embed massless
+spin-<!--  l. 1218  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math>
+particles with only two physical DoFs (i.e., two polarizations), like the photon or gluons, into a
+spin-<!--  l. 1218  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math> Lorentz tensor with 3
+DoFs.<span class="footnote-mark"><a href="#fn77x19" id="fn77x19-bk"><sup class="textsuperscript">17</sup></a></span><a id="x89-349001f17"></a> It also ensures the
+renormalizability of spin-<!--  l. 1219  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math>
+fields (a Nobel-prize-winning result of ‘t Hooft in 1971 [<a href="Bibliography.html#XtHooft_1971akt">431</a>, <a href="Bibliography.html#XtHooft_1971qjg">432</a>]). The
+spin-<!--  l. 1220  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math>
+tensor itself is simply an abstract mathematical convenience, which is redundant up to
+gauge transformations; only terms that are gauge invariant can be physical.
+</p><!--  l. 1222  --><p class="indent">       Why the charade of inventing fields with extra DoFs and then imposing an
+abstract symmetry to remove them? The purely pragmatic answer is that it has proven
+the most expedient and precise way to calculate physical observables. In this sense, it is
+not so dissimilar to using complex numbers to describe oscillating physical phenomena
+or renormalizing by imposing a cut-off and taking the limit as it goes to infinity. They
+                                                                                
+
+                                                                                
+are all simply mathematical conveniences without necessarily any deeper physical
+meaning.
+</p><!--  l. 1227  --><p class="indent">       A less abstact alternative proposed in the 1960s, for example, was S-matrix
+theory which aimed to do away with all this QFT mumbo-jumbo and focus directly on
+the physical observables; however, to quote Weinberg, “it got nowhere with real
+calculations” [<a href="Bibliography.html#XWeinbergCERNLecture">433</a>]. On the other hand, despite its abstruseness, in the end with QFT
+we simply draw some pretty pictures and can quickly read off extremely sophisticated
+results (with some heavy caveats).
+</p><!--  l. 1231  --><p class="indent">       A more poetic view is that, on top of their practicality, gauge
+symmetries offer a beautiful and elegant description of the fundamental forces
+of nature. It is rather amazing that we need only to require a quantum
+<!--  l. 1232  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>U</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+gauge theory, with the usual physical properties of Lorentz invariance, causality,
+renormalizability etc., and QED naturally falls out! To quote O’Raifeartaigh, “gauge
+symmetry introduces all the physical radiation fields in a natural way and
+determines the form of their interactions, up to a few coupling constants. It is
+remarkable that this variety of physical fields, which play such different roles at the
+phenomenological level, are all manifestations of the same simple principle and even
+more remarkable that the way in which they interact with matter is prescribed in
+advance.” [<a href="Bibliography.html#XORaifeartaigh_1997dvq">434</a>].
+</p><!--  l. 1236  --><p class="indent">       This universality can be extended further with the geometric view of gauge
+theories, which has a strong connection to general relativity (GR). Namely,
+                                                                                
+
+                                                                                
+invariance under gauge transformations in the SM is analogous to invariance
+under local diffeomorphisms (an <i>external</i> local symmetry) in GR, and gauge
+fields are themselves connections on their respective gauge groups’ fiber
+bundles, similar to the Levi-Civita connection between tangent bundles on a
+manifold.<span class="footnote-mark"><a href="#fn78x19" id="fn78x19-bk"><sup class="textsuperscript">18</sup></a></span><a id="x89-349003f18"></a>
+Indeed, this is why the “covariant derivative” below is named so.
+</p><!--  l. 1240  --><p class="indent">       Finally, there is the possibility that gauge invariance is simply one of
+those mysteries of the SM, like flavor and charge quantization, which point
+to some deeper underlying physics we are yet to uncover. For example,
+in string theory, gauge invariance can arise naturally in an EFT of massless
+spin-<!--  l. 1241  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math>
+particles [<a href="Bibliography.html#XGreen_1987sp">435</a>]. Ultimately, these considerations are not particularly relevant to
+the experimental physics, but after all this is a dissertation for a doctorate of
+philosophy...
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="Spinorfieldtheory.html">⭠</a> <a href="SupplementaryMaterialforChapterrefsec04models.html">⭢</a> </nav> <div class="footnotes"><a id="x89-349002xB.5.1"></a>
+<!--  l. 1218  --><p class="indent"> <span class="footnote-mark"><a href="#fn77x19-bk" id="fn77x19"><sup class="textsuperscript">17</sup></a></span><span class="ec-lmr-10">And similarly, for a massless spin-2 particle, i.e., the graviton.</span></p><a id="x89-349004xB.5.1"></a>
+<!--  l. 1237  --><p class="indent"> <span class="footnote-mark"><a href="#fn78x19-bk" id="fn78x19"><sup class="textsuperscript">18</sup></a></span><span class="ec-lmr-10">See e.g. Frederic Schuller’s lectures [</span><a href="Bibliography.html#XSchullerGATP"><span class="ec-lmr-10">77</span></a><span class="ec-lmr-10">] for a great introduction to the geometric view of
+physics.</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>

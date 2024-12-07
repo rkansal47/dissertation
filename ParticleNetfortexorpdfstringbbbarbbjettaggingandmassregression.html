@@ -39,17 +39,17 @@ searches in the all-hadronic bbVV channel</a></span>
 <nav class="crosslinks-top"> <a href="BoostedHiggsidentification.html">⭠</a> <a href="GloParTfortexorpdfstringhyvvHY→VVclassification.html">⭢</a> </nav>
 <h3 class="sectionHead" id="particlenet-for-b-b-jet-tagging-and-mass-regression"><span class="titlemark">13.1   </span> <a id="x62-26100013.1"></a>ParticleNet for <!--  l. 16  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>-jet
 tagging and mass regression</h3>
-<!--  l. 19  --><p class="noindent">A ParticleNet model [<a href="Bibliography.html#XCMS-DP-2020-002">381</a>] has been trained to classify between background quark and gluon
+<!--  l. 19  --><p class="noindent">A ParticleNet model [<a href="Bibliography.html#XCMS-DP-2020-002">383</a>] has been trained to classify between background quark and gluon
 (QCD) jets and signal jets from a boosted spin-0 resonance (X) of mass varying between 15
 and 250 <!--  l. 19  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math>
 and decaying into a pair of quarks, which are categorized into heavy and light flavors:
 <!--  l. 19  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">X</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>,
-<!--  l. 19  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">X</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">c</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">c</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>, and
-<!--  l. 19  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">X</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>. The
-mass of the resonance is varied to ensure the tagger cannot use it as a discriminating
                                                                                 
 
                                                                                 
+<!--  l. 19  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">X</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">c</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">c</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>, and
+<!--  l. 19  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">X</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>. The
+mass of the resonance is varied to ensure the tagger cannot use it as a discriminating
 variable, thereby achieving mass decorrelation. The model inputs are single AK8 jets
 with up to 100 PF candidates and 7 secondary vertices, each with 42 and 15 features,
 respectively, while the outputs are the probabilities of the jet to have originated from
@@ -67,18 +67,18 @@ discriminant, defined as: </p><table class="equation"><tr><td>
 </mrow></math></td><td class="eq-no">(13.1.1)</td></tr></table>
 <!--  l. 27  --><p class="noindent">where <!--  l. 28  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>P</mi></mrow><mrow><mstyle mathvariant="normal"><mi>XYZ</mi></mstyle></mrow></msub></math> is the
 probability of class <!--  l. 28  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="normal"><mi>XYZ</mi></mstyle></math>
-as outputted by ParticleNet. This discriminator has shown to be highly performant for
-<!--  l. 29  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
-vs QCD tagging, for example, in the CMS boosted
                                                                                 
 
                                                                                 
+as outputted by ParticleNet. This discriminator has shown to be highly performant for
+<!--  l. 29  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
+vs QCD tagging, for example, in the CMS boosted
 <!--  l. 29  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
-analysis [<a href="Bibliography.html#XCMS_2022gjd">158</a>].
+analysis [<a href="Bibliography.html#XCMS_2022gjd">160</a>].
 </p><!--  l. 31  --><p class="indent">       A similar model is also used to regress the mass of wide-radius jets. It is trained
 on the same set of samples but trained to learn the “true” jet mass, defined as
 the X mass in the case of signal jets and the generator-level jet mass in the
-case of QCD jets. A comparison of the traditional soft-drop algorithm [<a href="Bibliography.html#XLarkoski_2014wba">382</a>]
+case of QCD jets. A comparison of the traditional soft-drop algorithm [<a href="Bibliography.html#XLarkoski_2014wba">384</a>]
 (<!--  l. 33  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>SD</mi></mstyle></mrow></msub></math>)
 for mass reconstruction and the ParticleNet regressed mass
 (<!--  l. 33  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow></msub></math>) is shown in
@@ -93,6 +93,9 @@ groomed by the soft-drop algorithm, as indicated by the peak at
 <!--  l. 36  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0</mn><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math> in
 <!--  l. 36  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>SD</mi></mstyle></mrow></msub></math> and lack
 thereof in <!--  l. 36  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow></msub></math>.
+                                                                                
+
+                                                                                
 </p>
 <figure class="figure">
 <!--  l. 40  --><p class="noindent" id="soft-drop-left-and-regressed-right-mass-distributions-for-the-b-b-and-v-v-candidate-ak-jets-for-data-and-simulated-samples-following-a-loose-preselection-for-boosted-jets"> <img alt="PIC" src="figures/05-HH/jetmass/2018/bbFatJetMsd-.png" style="max-width:49%"/> <img alt="PIC" src="figures/05-HH/jetmass/2018/bbFatJetParticleNetMass-.png" style="max-width:49%"/> <img alt="PIC" src="figures/05-HH/jetmass/2018/VVFatJetMsd-.png" style="max-width:49%"/> <img alt="PIC" src="figures/05-HH/jetmass/2018/VVFatJetParticleNetMass-.png" style="max-width:49%"/> <a id="x62-261002r1"></a>

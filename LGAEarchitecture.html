@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US">
+<head><title>LGAE architecture</title>
+<meta charset="utf-8"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="main.tex" name="src"/>
+<script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" type="text/javascript"></script>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/icon.png" rel="icon" type="image/x-icon"/>
+</head><body>
+<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
+<span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
+<span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
+<span class="partToc">I  <a href="TheoreticalBackground.html#theoretical-background">Theoretical Background</a></span>
+<span class="partToc">II  <a href="ExperimentalBackground.html#experimental-background">Experimental Background</a></span>
+<span class="partToc">III  <a href="AIMLandStatisticsBackground.html#aiml-and-statistics-background">AI/ML and Statistics Background</a></span>
+<span class="partToc">IV  <a href="AcceleratingSimulationswithAI.html#accelerating-simulations-with-ai">Accelerating Simulations with AI</a></span>
+<span class="partToc">V  <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">Searches for High Energy Higgs Boson Pairs</a></span>
+<span class="partToc">VI  <a href="AIforJets.html#ai-for-jets">AI for Jets</a></span>
+<span class="chapterToc">15 <a href="IntroductionandtheJetNetPackage.html#introduction-and-the-jetnet-package">Introduction and the JetNet Package</a></span>
+<span class="chapterToc">16 <a href="Lorentzgroupequivariantautoencoders.html#lorentzgroup-equivariant-autoencoders">Lorentz-group equivariant autoencoders</a></span>
+<span class="sectionToc">16.1 <a href="Introduction3.html#introduction3">Introduction</a></span>
+<span class="sectionToc">16.2 <a href="#lgae-architecture">LGAE architecture</a></span>
+<span class="subsectionToc">16.2.1 <a href="#lmp-layers-">LMP layers </a></span>
+<span class="subsectionToc">16.2.2 <a href="#encoder-">Encoder </a></span>
+<span class="subsectionToc">16.2.3 <a href="#decoder-">Decoder </a></span>
+<span class="sectionToc">16.3 <a href="Experiments.html#experiments1">Experiments</a></span>
+<span class="sectionToc">16.4 <a href="Conclusion.html#conclusion">Conclusion</a></span>
+<span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
+<span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
+</nav>
+<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<nav class="crosslinks-top"> <a href="Introduction3.html">⭠</a> <a href="Experiments.html">⭢</a> </nav>
+<h3 class="sectionHead" id="lgae-architecture"><span class="titlemark">16.2   </span> <a id="x78-28500016.2"></a>LGAE architecture</h3>
+<figure class="figure">
+<!--  l. 119  --><p class="noindent" id="individual-lorentz-group-equivariant-message-passing-lmp-layers-are-shown-on-the-left-and-the-lgae-architecture-is-built-out-of-lmps-on-the-right"> <img alt="PIC" src="figures/06-ML4Jets/lgae/architectures/LGAE-.png" style="max-width:100%"/> <a id="x78-285001r1"></a>
+</p>
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 16.1. </span></span><span class="content">Individual Lorentz group equivariant message passing (LMP) layers
+are                                                                                               shown
+on the left, and the LGAE architecture is built out of LMPs on the right. Here,
+<!--  l. 121  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="normal"><mi>MixRep</mi></mstyle></math>
+denotes    the    node-level    operator    that    upsamples    features    in    each
+<!--  l. 121  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+representation                                       space                                       to
+<!--  l. 121  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math>
+channels;                           it                           appears                           as
+<!--  l. 121  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>W</mi></math>
+in Eq. (<a href="#x78-286004r4">16.2.4<!--  tex4ht:ref: eq:06_lgae_update   --></a>).                                                                 </span></figcaption><!--  tex4ht:label?: x78-285001r1   -->
+</figure>
+<!--  l. 126  --><p class="indent">       The LGAE is built out of Lorentz group-equivariant message passing (LMP)
+layers, which are identical to individual layers in the LGN [<a href="Bibliography.html#Xbogatskiy2020lorentz">53</a>]. We reinterpret them in
+the framework of message-passing neural networks [<span class="ec-lmbx-12">? </span>], to highlight the connection
+to GNNs, and define them in Section <a href="#lmp-layers-">16.2.1<!--  tex4ht:ref: sec:06_lgae_lmp   --></a>. We then describe the encoder
+and decoder networks in Sections <a href="#encoder-">16.2.2<!--  tex4ht:ref: sec:06_lgae_lgaee   --></a> and <a href="#decoder-">16.2.3<!--  tex4ht:ref: sec:06_lgae_lgaed   --></a>, respectively. The LMP
+layers and LGAE architecture are depicted in Figure <a href="#individual-lorentz-group-equivariant-message-passing-lmp-layers-are-shown-on-the-left-and-the-lgae-architecture-is-built-out-of-lmps-on-the-right">16.1<!--  tex4ht:ref: fig:06_lgae_architecture-full   --></a>. We provide the
+LGAE code, written in Python using the <span class="small-caps">PyTorch</span> ML framework [<a href="Bibliography.html#Xpytorch">412</a>] in
+Ref. [<a href="Bibliography.html#XLGAE_code">413</a>].
+</p>
+<h4 class="subsectionHead" id="lmp-layers-"><span class="titlemark">16.2.1   </span> <a id="x78-28600016.2.1"></a>LMP layers </h4>
+<!--  l. 134  --><p class="noindent">LMP layers take as inputs fully-connected graphs with nodes representing particles and
+the Minkowski distance between respective node 4-vectors as edge features. Each node
+<!--  l. 135  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="script"><mi>F</mi></mstyle></mrow><mrow><mi>i</mi></mrow></msub></math> is
+defined by its features, all transforming under a corresponding irrep of the Lorentz
+group in the canonical basis [<a href="Bibliography.html#Xgelfand2018representations">239</a>], including at least one 4-vector (transforming under
+the <!--  l. 135  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+representation) representing its 4-momentum. As in Ref [<a href="Bibliography.html#Xbogatskiy2020lorentz">53</a>], we
+denote the number of features in each node transforming under the
+                                                                                
+
+                                                                                
+<!--  l. 136  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> irrep as
+<!--  l. 136  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub></math>, referred to as the
+multiplicity of the <!--  l. 136  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+representation.
+</p><!--  l. 138  --><p class="indent">       The <!--  l. 138  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>-th
+MP layer operation consists of message-passing between each pair of nodes, with a message
+<!--  l. 138  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>m</mi></mrow><mrow><mi mathvariant="italic">ij</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></math> to node
+<!--  l. 138  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math> from node
+<!--  l. 138  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math> (where
+<!--  l. 138  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>j</mi><mo class="MathClass-rel" stretchy="false">≠</mo><mi>i</mi></mrow></math>) and a
+self-interaction term <!--  l. 138  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mi mathvariant="italic">ii</mi></mrow></msub></math>
+defined as
+</p><!--  tex4ht:inline  --><!--  l. 142  --><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="align" columnalign="left" displaystyle="true">
+<mtr><mtd class="align-odd" columnalign="right"><msubsup><mrow><mi>m</mi></mrow><mrow><mi mathvariant="italic">ij</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>f</mi> <mrow><mo fence="true" form="prefix">(</mo><mrow><msup><mrow><mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mi>p</mi></mrow><mrow><mi mathvariant="italic">ij</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow><mn>2</mn></mrow></msup></mrow><mo fence="true" form="postfix">)</mo></mrow> <msubsup><mrow><mi>p</mi></mrow><mrow>
+<mi mathvariant="italic">ij</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">⊗</mo><msubsup><mrow><mstyle mathvariant="script"><mi>F</mi></mstyle></mrow><mrow>
+<mi>j</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x78-286001r1"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(16.2.1)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr><mtr><mtd class="align-odd" columnalign="right"><msubsup><mrow><mi>m</mi></mrow><mrow><mi mathvariant="italic">ii</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mtd>
+<mtd class="align-even"> <mo class="MathClass-rel" stretchy="false">=</mo><msubsup><mrow> <mstyle mathvariant="script"><mi>F</mi></mstyle></mrow><mrow><mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">⊗</mo><msubsup><mrow><mstyle mathvariant="script"><mi>F</mi></mstyle></mrow><mrow>
+<mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup><mspace width="2em"></mspace></mtd>
+<mtd class="align-label" columnalign="right"><mstyle class="label" id="x78-286002r2"></mstyle><!--  endlabel  --><mstyle class="maketag"><mtext>(16.2.2)</mtext></mstyle><mspace class="nbsp" width="0.33em"></mspace>
+</mtd></mtr></mtable></math>
+<!--  l. 143  --><p class="noindent">where <!--  l. 143  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mstyle mathvariant="script"><mi>F</mi></mstyle></mrow><mrow><mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></math> are the node
+features of node <!--  l. 143  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>
+before the <!--  l. 143  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi> <mo class="MathClass-bin" stretchy="false">+</mo> <mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>-th layer,
+<!--  l. 143  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>p</mi></mrow><mrow><mi mathvariant="italic">ij</mi></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>p</mi></mrow><mrow><mi>i</mi></mrow></msub> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>p</mi></mrow><mrow><mi>j</mi></mrow></msub></mrow></math> is the difference between
+node four-vectors, <!--  l. 143  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>p</mi></mrow><mrow><mi mathvariant="italic">ij</mi></mrow><mrow><mn>2</mn></mrow></msubsup></math> is the
+squared Minkowski norm of <!--  l. 143  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mi mathvariant="italic">ij</mi></mrow></msub></math>,
+and <!--  l. 143  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math> is
+a learnable, differentiable function acting on Lorentz scalars. A Clebsch–Gordan
+(CG) decomposition, which reduces the features to direct sums of irreps of
+<!--  l. 144  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow><mstyle mathvariant="normal"><mi>SO</mi></mstyle></mrow><mrow><mo class="MathClass-bin" stretchy="false">+</mo></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, is
+performed on both terms before concatenating them to produce the message
+<!--  l. 144  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mi>i</mi></mrow></msub></math> for
+node <!--  l. 144  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math>:
+</p><table class="equation"><tr><td>
+<!--  l. 145  --><p class="indent">
+</p><!--  l. 145  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x78-286003r3"></mstyle><!--  endlabel  -->
+<msubsup><mrow><mi>m</mi></mrow><mrow><mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="normal"><mi>CG</mi></mstyle> <mrow><mo fence="true" form="prefix">[</mo><mrow><msubsup><mrow><mi>m</mi></mrow><mrow>
+<mi mathvariant="italic">ii</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-bin" stretchy="false">⊕</mo><mstyle mathvariant="normal"><mi>CG</mi></mstyle> <mrow><mo fence="true" form="prefix">[</mo><mrow><munder class="msub"><mrow><mo>∑</mo>
+</mrow><mrow><mi>j</mi><mo class="MathClass-rel" stretchy="false">≠</mo><mi>i</mi></mrow></munder><msubsup><mrow><mi>m</mi></mrow><mrow><mi mathvariant="italic">ij</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mrow><mo fence="true" form="postfix">]</mo></mrow> <mo class="MathClass-punc" stretchy="false">,</mo>
+</mrow></math></td><td class="eq-no">(16.2.3)</td></tr></table>
+<!--  l. 154  --><p class="noindent">where the summation over the destination node
+<!--  l. 155  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math>
+ensures permutation symmetry because it treats all other nodes equally.
+</p><!--  l. 157  --><p class="indent">       Finally, this aggregated message is used to update each node’s features, such that
+</p><table class="equation"><tr><td>
+<!--  l. 158  --><p class="indent">
+</p><!--  l. 158  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
+<mstyle class="label" id="x78-286004r4"></mstyle><!--  endlabel  --><msubsup><mrow>
+<mstyle mathvariant="script"><mi>F</mi></mstyle>
+</mrow><mrow><mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>W</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup> <mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mstyle mathvariant="script"><mi>F</mi></mstyle></mrow><mrow>
+<mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup> <mo class="MathClass-bin" stretchy="false">⊕</mo> <msubsup><mrow><mi>m</mi></mrow><mrow>
+<mi>i</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mrow><mo fence="true" form="postfix">)</mo></mrow>
+</mrow></math></td><td class="eq-no">(16.2.4)</td></tr></table>
+<!--  l. 160  --><p class="noindent">for all <!--  l. 161  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>i</mi> <mo class="MathClass-rel" stretchy="false">∈</mo><mo class="MathClass-open" stretchy="false">{</mo><mn>1</mn><mo class="MathClass-punc" stretchy="false">,</mo><mo>…</mo><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>N</mi></mrow><mrow><mstyle mathvariant="normal"><mi>particle</mi></mstyle></mrow></msub><mo class="MathClass-close" stretchy="false">}</mo></mrow></math>,
+where <!--  l. 161  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>W</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></math>
+is a learnable node-wise operator which acts as separate fully-connected linear layers
+<!--  l. 161  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>W</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></math>
+on the set of components living within each separate
+<!--  l. 161  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> representation space,
+outputting a chosen <!--  l. 161  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></math>
+number of components per representation. In practice, we then truncate the irreps to a
+                                                                                
+
+                                                                                
+maximum dimension to make computations more tractable.
+</p><!--  l. 164  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="encoder-"><span class="titlemark">16.2.2   </span> <a id="x78-28700016.2.2"></a>Encoder </h4>
+<!--  l. 165  --><p class="noindent">The encoder takes as input an <!--  l. 165  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math>-particle
+cloud, where each particle is each associated with a 4-momentum vector and an
+arbitrary number of scalars representing physical features such as mass, charge, and
+spin. Each isotypic component is initially transformed to a chosen multiplicity of
+<!--  l. 166  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow>
+<mstyle mathvariant="normal"><mi>E</mi></mstyle></mrow></msub></math> via a node-wise
+operator <!--  l. 166  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>W</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></math> identical
+conceptually to <!--  l. 166  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>W</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-bin" stretchy="false">+</mo><mn>1</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></math>
+in Eq. (<a href="#x78-286004r4">16.2.4<!--  tex4ht:ref: eq:06_lgae_update   --></a>). The resultant graph is then processed through
+<!--  l. 167  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>N</mi></mrow><mrow><mstyle mathvariant="normal"><mi>MP</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>E</mi></mstyle></mrow></msubsup></math>
+LMP layers, specified by a sequence of multiplicities
+<!--  l. 167  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow> <mrow><mo fence="true" form="prefix">{</mo><mrow><msub><mrow><mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow>
+<mstyle mathvariant="normal"><mi>E</mi></mstyle></mrow></msub></mrow><mo fence="true" form="postfix">}</mo></mrow> </mrow><mrow><mi>t</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><msubsup><mrow><mi>N</mi></mrow><mrow><mstyle mathvariant="normal"><mi>MP</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>E</mi></mstyle></mrow></msubsup></mrow></msubsup></math>, where
+<!--  l. 167  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow>
+<mstyle mathvariant="normal"><mi>E</mi></mstyle></mrow></msub></math> is the multiplicity of
+the <!--  l. 167  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> representation
+at the <!--  l. 167  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math>-th
+layer. Weights are shared across the nodes in a layer to ensure permutation equivariance.
+                                                                                
+
+                                                                                
+After the final MP layer, node features are aggregated to the latent space by a
+component-wise minimum (min), maximum (max), or mean. The min and max
+operations are performed on the respective Lorentz invariants. We also find, empirically,
+interesting performance by simply concatenating isotypic components across each
+particle and linearly “mixing" them via a learned matrix as in Eq. (<a href="#x78-286004r4">16.2.4<!--  tex4ht:ref: eq:06_lgae_update   --></a>). Crucially,
+unlike in Eq. (<a href="#x78-286004r4">16.2.4<!--  tex4ht:ref: eq:06_lgae_update   --></a>), where this operation only happens per particle, the concatenation
+across the particles imposes an ordering and, hence, breaks the permutation
+symmetry.
+</p><!--  l. 175  --><p class="noindent">
+</p>
+<h4 class="subsectionHead" id="decoder-"><span class="titlemark">16.2.3   </span> <a id="x78-28800016.2.3"></a>Decoder </h4>
+<!--  l. 177  --><p class="noindent">The decoder recovers the <!--  l. 177  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math>-particle
+cloud by acting on the latent space with
+<!--  l. 177  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math> independent,
+learned linear operators, which again mix components living in the same representations. This cloud
+passes through <!--  l. 178  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>N</mi></mrow><mrow><mstyle mathvariant="normal"><mi>MP</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>D</mi></mstyle></mrow></msubsup></math>
+LMP layers, specified by a sequence of multiplicities
+<!--  l. 178  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow> <mrow><mo fence="true" form="prefix">{</mo><mrow><msub><mrow><mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow>
+<mstyle mathvariant="normal"><mi>D</mi></mstyle></mrow></msub></mrow><mo fence="true" form="postfix">}</mo></mrow> </mrow><mrow><mi>t</mi><mo class="MathClass-rel" stretchy="false">=</mo><mn>1</mn></mrow><mrow><msubsup><mrow><mi>N</mi></mrow><mrow><mstyle mathvariant="normal"><mi>MP</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>D</mi></mstyle></mrow></msubsup></mrow></msubsup></math>, where
+<!--  l. 178  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><msubsup><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>t</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow>
+<mstyle mathvariant="normal"><mi>D</mi></mstyle></mrow></msub></math> is the multiplicity of
+                                                                                
+
+                                                                                
+the <!--  l. 178  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>m</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>n</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> representation
+at the <!--  l. 178  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math>-th
+LMP layer. After the LMP layers, node features are mixed back to the input representation
+space <!--  l. 179  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mrow> <mrow><mo fence="true" form="prefix">(</mo><mrow><msup><mrow><mi>D</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow><mo class="MathClass-bin" stretchy="false">⊕</mo><msubsup><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></mrow></msup> <mo class="MathClass-bin" stretchy="false">⊕</mo> <msup><mrow><mi>D</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msup></mrow></math>
+by applying a linear mixing layer and then truncating other isotypic components.
+                                                                                
+
+                                                                                
+</p>
+<nav class="crosslinks-bottom"> <a href="Introduction3.html">⭠</a> <a href="Experiments.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+</body>
+</html>
