@@ -3,6 +3,47 @@ from pathlib import Path
 import re
 
 
+maketitle = """
+UNIVERSITY OF CALIFORNIA SAN DIEGO
+<strong><h2 class="titleHead">Understanding the High Energy Higgs Sector with the CMS
+Experiment and Artificial Intelligence</h2></strong>
+<br>
+A dissertation submitted in partial satisfaction of the
+requirements for the degree 
+Doctor of Philosophy
+<br>
+<br>
+in
+<br>
+<br>
+Physics
+<br>
+<br>
+by
+<br>
+<br>
+<div class="author">Raghav Kansal</div>
+<br>
+<br>
+<br>
+Committee in charge:
+<br>
+Javier Duarte, Chair
+<br>
+Maurizio Pierini
+<br>
+Hao Su
+<br>
+Zhuowen Tu
+<br>
+Frank Wuerthwein
+<br>
+<br>
+<br>
+2024  
+"""
+
+
 def edit_file(file_path: Path, edit_function: callable):
     with file_path.open("r") as file:
         soup = BeautifulSoup(file, "html.parser")
@@ -15,8 +56,15 @@ def edit_file(file_path: Path, edit_function: callable):
 def edit_main(soup: BeautifulSoup):
     # move the title and abstract inside the main content
     main_content_main = soup.find("main", {"class": "main-content"})
-    
+
+    # remove indent paragraph
+    first_paragraph = soup.body.find("p")
+    if first_paragraph:
+        first_paragraph.decompose()
+
     maketitle_div = soup.find("div", {"class": "maketitle"})
+    maketitle_div.clear()
+    maketitle_div.append(BeautifulSoup(maketitle, "html.parser"))
     main_content_main.insert(0, maketitle_div)
 
     # abstract_section = soup.find("section", {"class": "abstract"})
@@ -100,16 +148,27 @@ def edit_toc(soup: BeautifulSoup):
     toc_nav = soup.find("nav", {"class": "TOC"})
     if toc_nav:
         main_toc_span = soup.new_tag("span", **{"class": "mainToc"})
-        main_toc_link = soup.new_tag("a", href="index.html",
+        main_toc_link = soup.new_tag("a", href="index.html")
         main_toc_img = soup.new_tag(
-            "img", src="assets/logo.png", alt="Symmetries, QFT, & The Standard Model", width="100%", **{"class": "mainTocLogo"}
+            "img",
+            src="assets/logo.png",
+            alt="Symmetries, QFT, & The Standard Model",
+            width="100%",
+            **{"class": "mainTocLogo"},
         )
         main_toc_link.append(main_toc_img)
         main_toc_span.append(main_toc_link)
         toc_nav.insert(0, main_toc_span)
 
 
-def slashedsubscript_fix(file: Path):
+def edit_frontmatter(soup: BeautifulSoup):
+    # move the title and abstract inside the main content
+    main_content_main = soup.find("main", {"class": "main-content"})
+    main_content_main.h2["style"] = "text-align: center;"
+    main_content_main.div["style"] = "margin-top: 20rem; margin-bottom: 20rem;"
+
+
+def regex_fixes(file: Path):
     """Workaround for bug with MathML code for subscripts / superscripts with \cancel{}"""
     with file.open("r") as f:
         content = f.read()
@@ -121,6 +180,9 @@ def slashedsubscript_fix(file: Path):
         content,
     )
 
+    # Apply regex to move <msub|...> tag outside of <menclose> tag
+    content = re.sub(r"main.html", r"index.html", content)
+
     with file.open("w") as f:
         f.write(content)
 
@@ -131,10 +193,12 @@ if __name__ == "__main__":
 
     # This has to be done first, otherwise the html parsing will be messed up
     for html_file in html_files:
-        slashedsubscript_fix(html_file)
+        regex_fixes(html_file)
 
     # Edit the main content
     edit_file(main_file, edit_main)
+    edit_file(Path("Dedication.html"), edit_frontmatter)
+    edit_file(Path("Epigraph.html"), edit_frontmatter)
 
     # Edit footnotes for all HTML files in the directory
     for html_file in html_files:
@@ -149,5 +213,3 @@ if __name__ == "__main__":
     main_pdf = Path("main.pdf")
     notes_pdf = Path("dissertation.pdf")
     notes_pdf.write_bytes(main_pdf.read_bytes())
-
-    # edit_file(Path("Electroweakinteractions.html"), edit_footnotes)

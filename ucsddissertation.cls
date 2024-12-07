@@ -12,7 +12,7 @@
 	footskip=.5truein,
 	nomarginpar]{geometry}
 \RequirePackage{setspace}
-\RequirePackage{indentfirst}
+% \RequirePackage{indentfirst}
 \RequirePackage{tocloft}
 \RequirePackage[pagestyles]{titlesec}
 \RequirePackage{caption}

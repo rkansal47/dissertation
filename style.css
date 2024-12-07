@@ -15,16 +15,16 @@
 
 a{
   text-decoration: none;
-  color: #0395DE;
+  color: #ad2831;
 }
 
-main.main-content a:hover{
+a:hover {
   transition: 0.3s;
-  color:#045d89;
+  color:#780000;
 }
 
 div.footer{
-  margin-top: 2rem;
+  margin-top: 4rem;
   text-align: center;
   color: #6c757d;
   font-size:16px;
@@ -51,7 +51,7 @@ main{
   body{
     display: grid;
     grid-template-columns: 20rem 1fr;
-    max-width: 65rem;
+    max-width: 68rem;
   }
   main.main-content, div.footnote-text, div.maketitle{
     grid-column: 2;
@@ -78,8 +78,8 @@ nav.crosslinks-top{
 
 /* add vertical space above the bottom crosslinks */
 nav.crosslinks-bottom{
-  margin-top: 2rem;
-  border-top: solid 3px #e9ecef;
+  margin-top: 5rem;
+  border-top: solid 2px #e9ecef;
   padding-top: 1rem;
   text-align: center;
 }
@@ -99,6 +99,10 @@ div.sectionTOCS {
 
 main.main-content, div.maketitle{
   padding:1.5rem;
+}
+
+div.maketitle {
+  margin-top: 5rem;
 }
 
 p.indent, p.noindent{text-indent:0}
@@ -136,7 +140,7 @@ nav.TOC a, nav.TOC a:visited{
 /* ************** */
 
 
-body{background-color:#780000;}
+body{background-color:#250902;}
 
 main.main-content, div.maketitle{
   background-color:white;
@@ -154,7 +158,6 @@ nav.TOC span{
 
 /* nav.TOC span:hover:not(.mainToc), nav.TOC span:hover:not(.mainToc) *{ */
 nav.TOC span:hover, nav.TOC span:hover *{
-  /* color:aqua; */
   background-color:#e9ecef;
   transition: 0.3s;
 }
@@ -163,6 +166,30 @@ nav.TOC.mainToc img:hover{
   background-color:#f8f9fa;
   transition: 0.3s;
 }
+
+div.likechapterTOCS a, div.likechapterTOCS a:visited, div.chapterTOCS a, div.chapterTOCS a:visited {
+  color:#03071e;
+}
+
+div.likechapterTOCS a:hover, div.chapterTOCS a:hover {
+  color: #780000;
+  transition: 0.3s;
+}
+
+div.likechapterTOCS, div.chapterTOCS {
+  background-color:#f8f9fa;
+  color:#03071e;
+  padding:1rem;
+}
+
+span.likechapterToc a, span.chapterToc a{
+  font-weight: normal;
+}
+
+span.likechapterToc, span.chapterToc {
+  width: 100%;
+}
+
 
 /* ***************** */
 /* *** Dark mode *** */
