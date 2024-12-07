@@ -78,7 +78,7 @@ def edit_main(soup: BeautifulSoup):
     next_nav = soup.new_tag("nav")
     next_nav["class"] = "crosslinks-bottom"
     next_nav.append(soup.new_tag("a", href="Frontmatter.html"))
-    next_nav.a.string = "Next"
+    next_nav.a.string = "⭢"
     main_content_main.insert(2, next_nav)
 
 

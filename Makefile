@@ -1,5 +1,5 @@
 main.pdf:
-	process_bib.py
+	python3 process_bib.py
 	latexmk -interaction=nonstopmode -file-line-error -lualatex main.tex
 
 website: main.pdf

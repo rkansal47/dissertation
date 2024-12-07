@@ -73,7 +73,7 @@ Maximum mean discrepancy (MMD)~\cite{gretton_mmd} is another popular example, wh
 
 $f$-divergences, on the other hand, are defined as
 \begin{equation}\label{eqn:fdiv}
-    D_f(\gen p, \real p) = \int \real p (\cvec x) f \bigg( \cfrac{\real p (\cvec x)}{\gen p (\cvec x)} \bigg ) d\cvec x.
+    D_f(\gen p, \real p) = \int \real p (\cvec x) f \bigg( \frac{\real p (\cvec x)}{\gen p (\cvec x)} \bigg ) d\cvec x.
 \end{equation}
 They calculate the average of the pointwise differences between the two distributions, \real{p} and \gen{p} in Eq.~(\ref{eqn:ipm}), transformed by a ``generating function'' $f$, weighted by \real{p}.
 Like IPMs, different $f$-divergences are defined by the choice of generating function.

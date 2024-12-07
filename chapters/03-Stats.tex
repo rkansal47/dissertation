@@ -452,7 +452,7 @@ This is an extremely aggressive limit on $\mu$, where we're excluding the nomina
 Given the complete lack of sensitivity to the signal, this is not a sensible result.
 The CL$_s$ method solves this problem by considering both the $p$-value of the signal + background hypothesis $H_s$ (referred to as $p_{s+b}$ or just $p_\mu$ for short), \textit{and} the $p$-value of the background-only hypothesis $H_0$ ($p_b$), to define a new criterion:
 \begin{equation}
-p_\mu' = \cfrac{p_\mu}{1 - p_b}
+p_\mu' = \frac{p_\mu}{1 - p_b}
 \label{eq:03_pmu_prime}
 \end{equation}
 
@@ -663,7 +663,7 @@ where $N$ represents the data sample size.
 For our simple counting experiment, the Fisher information matrix $\mathcal I(\mu, b)$ can be found by taking second derivatives of the NLL (Eq.~\ref{eq:03_nll}). 
 The $\mathcal I_{\mu\mu}$ term, for example, is:
 \begin{equation}
-    \mathcal I_{\mu\mu}(\mu, b) = - \mathbb E[\partial^\mu\partial^\mu l(\mu, b)] = \mathbb E \bigg[n \cdot \cfrac{s^2}{(\mu s + b)^2}\bigg] = \mathbb E[n] \cdot \cfrac{s^2}{(\mu s + b)^2} = \cfrac{(\mu' s + b') s^2}{(\mu s + b)^2}.
+    \mathcal I_{\mu\mu}(\mu, b) = - \mathbb E[\partial^\mu\partial^\mu l(\mu, b)] = \mathbb E \bigg[n \cdot \frac{s^2}{(\mu s + b)^2}\bigg] = \mathbb E[n] \cdot \frac{s^2}{(\mu s + b)^2} = \frac{(\mu' s + b') s^2}{(\mu s + b)^2}.
 \label{eq:03_fisher}
 \end{equation}
 
@@ -696,7 +696,7 @@ We now have enough background to derive the asymptotic form of the MLE.
 We do this for the 1D case by Taylor-expanding the score of $\hat \mu$, $l'(\hat\mu)$ - which we know to be $ = 0$ - around $\mu'$:
 \begin{align}
 l'(\hat\mu) &= l'(\mu') + l''(\mu')(\hat\mu - \mu') + \mathcal O((\hat\mu - \mu')^2) = 0 \\
-\Rightarrow \hat\mu - \mu' &\simeq - \cfrac{l'(\mu')}{l''(\mu')} \xrightarrow{\sqrt{N} >> 1} \cfrac{1}{\mathcal I(\mu')}N(0, \sqrt{\mathcal I(\mu')}) = N\bigg(0, \frac{1}{\sqrt{\mathcal I(\mu')}}\bigg),
+\Rightarrow \hat\mu - \mu' &\simeq - \frac{l'(\mu')}{l''(\mu')} \xrightarrow{\sqrt{N} >> 1} \frac{1}{\mathcal I(\mu')}N(0, \sqrt{\mathcal I(\mu')}) = N\bigg(0, \frac{1}{\sqrt{\mathcal I(\mu')}}\bigg),
 \label{eq:03_taylorl}
 \end{align}
 
@@ -716,7 +716,7 @@ Intuitively, from the definition of the Fisher information $\mathcal I$, we can 
 
 Continuing with our counting experiment from Section~\ref{sec:03_data_model}, inverting $\mathcal I$ from Eq.~\ref{eq:03_fishermatrix} gives us
 \begin{equation}
-    \sigma_{\hat\mu} = \sqrt{\mathcal I^{-1}_{\mu\mu}(\mu', b')} = \cfrac{\sqrt{\mu' s + 2b'}}{s}.
+    \sigma_{\hat\mu} = \sqrt{\mathcal I^{-1}_{\mu\mu}(\mu', b')} = \frac{\sqrt{\mu' s + 2b'}}{s}.
 \label{eq:03_asymstd}
 \end{equation}
 
@@ -811,29 +811,29 @@ For the special case of $\mu = \mu'$, we can see that $t_\mu$ is simply the squa
 \end{equation}
 
 In the general case where $\mu$ may not $ = \mu'$, $t_\mu$ is the square of random variable with unit variance but \textit{non-zero mean}.
-This is distributed as the similar, but perhaps less well-known, \textbf{non-central chi-squared $\chi'^2_k(\Lambda)$}, again with 1 DoF, and with a ``non-centrality parameter'' 
+This is distributed as the similar, but perhaps less well-known, \textbf{non-central chi-squared $\chipt_k(\Lambda)$}, again with 1 DoF, and with a ``non-centrality parameter'' 
 \begin{align}
     \Lambda = \bar\gamma^2 &= \bigg(\frac{\mu - \mu'}{\sigma_{\hat\mu}}\bigg)^2,  
   \label{eq:03_Lambda} \\
-    p(t_\mu|\mu') &\sim \chi'^2_1(\Lambda).
+    p(t_\mu|\mu') &\sim \chipt_1(\Lambda).
   \label{eq:03_noncentralchi2}
 \end{align}
 
 The ``central'' vs. non-central chi-squared distributions are visualized in Figure~\ref{fig:03_noncentralchi2} for $k = 1$.
-We can see that $\chi'^2_k(\Lambda)$ simply shifts towards the right as $\Lambda$ increases (at $\Lambda = 0$ it is a regular central $\chi^2$).
-As $\Lambda \rightarrow \infty$, $\chi'^2_k(\Lambda)$ becomes more and more like a normal distribution with mean $\Lambda$.\footnote{More information can be found in e.g. Ref.~\cite{enwiki:1256854724}.
+We can see that $\chipt_k(\Lambda)$ simply shifts towards the right as $\Lambda$ increases (at $\Lambda = 0$ it is a regular central $\chi^2$).
+As $\Lambda \rightarrow \infty$, $\chipt_k(\Lambda)$ becomes more and more like a normal distribution with mean $\Lambda$.\footnote{More information can be found in e.g. Ref.~\cite{enwiki:1256854724}.
 }
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=\textwidth]{figures/03-Stats/06-asymptotic-plr/1.png}
-  \caption{Central $\chi^2_k$ and non-central $\chi'^2_k(\Lambda)$ distributions for $\Lambda$ between $1-30$ (left) and $30-300$ (right).}
+  \caption{Central $\chi^2_k$ and non-central $\chipt_k(\Lambda)$ distributions for $\Lambda$ between $1-30$ (left) and $30-300$ (right).}
   \label{fig:03_noncentralchi2}
 \end{figure}
 
 By extending the derivation in Eq.~\ref{eq:03_plr_taylor} to multiple POIs, one can find the simple generalization to multiple POIs $\cvec\mu$:
 \begin{equation}
-p(t_\mu|\mu') \sim \chi'^2_k(\Lambda),
+p(t_\mu|\mu') \sim \chipt_k(\Lambda),
 \label{eq:03_chi2multipois}
 \end{equation}
 where the DoF $k$ are equal the number of POIs $\dim\cvec\mu$, and 
@@ -858,7 +858,7 @@ We can see that this asymptotic approximation agrees well with the true distribu
 \begin{figure}[htb]
   \centering
   \includegraphics[width=\textwidth]{figures/03-Stats/06-asymptotic-plr/2.png}
-  \caption{Comparing the distribution $p(t_\mu|\mu')$ (solid) with non-central $\chi'^2_1(\Lambda)$ distributions (dotted) for a range of $s, b, \mu, \mu'$ values, with $\sigma^2_{\hat\mu}$ estimated using the inverse of the Fisher information matrix.}
+  \caption{Comparing the distribution $p(t_\mu|\mu')$ (solid) with non-central $\chipt_1(\Lambda)$ distributions (dotted) for a range of $s, b, \mu, \mu'$ values, with $\sigma^2_{\hat\mu}$ estimated using the inverse of the Fisher information matrix.}
   \label{fig:03_ptmu_asym1}
 \end{figure}
 
@@ -905,7 +905,7 @@ Reference~\cite{Cowan:2010js} conjectures that this is because the Fisher-inform
 \begin{figure}[htb]
   \centering
   \includegraphics[width=\textwidth]{figures/03-Stats/06-asymptotic-plr/3.png}
-  \caption{Comparing the sampling distribution $p(t_\mu|\mu')$ with non-central $\chi'^2_1(\Lambda)$ distributions for a range of $s, b, \mu, \mu'$ values, with the Asimov sigma estimation for $\sigma^2_{\hat\mu}$.}
+  \caption{Comparing the sampling distribution $p(t_\mu|\mu')$ with non-central $\chipt_1(\Lambda)$ distributions for a range of $s, b, \mu, \mu'$ values, with the Asimov sigma estimation for $\sigma^2_{\hat\mu}$.}
   \label{fig:03_ptmu_asym2}
 \end{figure}
 
@@ -916,15 +916,15 @@ Figure~\ref{fig:03_ptmu_asym3} shows it breaking down for $s, b \lesssim 10$ bel
 \begin{figure}[htb]
   \centering
   \includegraphics[width=\textwidth]{figures/03-Stats/06-asymptotic-plr/4.png}
-  \caption{Comparing the sampling distribution $p(t_\mu|\mu')$ with non-central $\chi'^2_1(\Lambda)$ distributions for different $s, b \leq 10$, showing the break-down of the $\sigma_A$ approximation for $\sigma^2_{\hat\mu}$ at low statistics.}
+  \caption{Comparing the sampling distribution $p(t_\mu|\mu')$ with non-central $\chipt_1(\Lambda)$ distributions for different $s, b \leq 10$, showing the break-down of the $\sigma_A$ approximation for $\sigma^2_{\hat\mu}$ at low statistics.}
   \label{fig:03_ptmu_asym3}
 \end{figure}
 
 \subsubsection{The PDF and CDF}
 
-The probability distribution function (PDF) for a $\chi'^2_k(\Lambda)$ distribution can be found in e.g. Ref.~\cite{enwiki:1256854724} for $k=1$:
+The probability distribution function (PDF) for a $\chipt_k(\Lambda)$ distribution can be found in e.g. Ref.~\cite{enwiki:1256854724} for $k=1$:
 \begin{equation}
-    p(t_\mu|\mu') \simeq \chi'^2_1(\Lambda) = \frac{1}{2\sqrt{t_\mu}}\big(\varphi(\sqrt{t_\mu} - \sqrt\Lambda) + \varphi(\sqrt{t_\mu} + \sqrt\Lambda)\big),
+    p(t_\mu|\mu') \simeq \chipt_1(\Lambda) = \frac{1}{2\sqrt{t_\mu}}\big(\varphi(\sqrt{t_\mu} - \sqrt\Lambda) + \varphi(\sqrt{t_\mu} + \sqrt\Lambda)\big),
 \label{eq:03_ptmu_pdf}
 \end{equation}
 where $\varphi$ is the PDF of a standard normal distribution.
@@ -983,7 +983,7 @@ We observe generally strong agreement, except for low $n, m$ where, as expected,
 
 \subsubsection{Summary}
 
-We have been able to find the asymptotic form for the profile-likelihood-ratio test statistic $t_\mu \simeq \frac{(\mu-\hat\mu)^2}{\sigma_{\hat\mu}^2}$, which is distributed as a \textit{non-central chi-squared} ($\chi'^2_k(\Lambda)$) distribution.
+We have been able to find the asymptotic form for the profile-likelihood-ratio test statistic $t_\mu \simeq \frac{(\mu-\hat\mu)^2}{\sigma_{\hat\mu}^2}$, which is distributed as a \textit{non-central chi-squared} ($\chipt_k(\Lambda)$) distribution.
 We discussed two methods for finding the non-centrality parameter $\Lambda$, out of which the Asimov sigma $\sigma_A$ estimation generally performed better.
 Finally, the asymptotic formulae were applied to simple examples of hypothesis testing to check the agreement with toy-based significances.
 These asymptotic formulae can be extended to the alternative test statistics for positive signals $\tilde{t}_\mu$ and upper-limit-setting $\tilde{q}_\mu$, as in Ref.~\cite{Cowan:2010js}, to simplify the calculation of both observed and expected significances, limits, and intervals.

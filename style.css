@@ -71,9 +71,9 @@ div.footnotes{
   font-size: 20px
 }
 
-/* hide the top crosslinks */
-nav.crosslinks-top{
-  display: none;
+nav.crosslinks-top {
+  top: -2px;
+  position: absolute;
 }
 
 /* add vertical space above the bottom crosslinks */
@@ -84,14 +84,15 @@ nav.crosslinks-bottom{
   text-align: center;
 }
 
-nav.crosslinks-bottom a{
-  margin-right: 10rem;
+nav.crosslinks-top a, nav.crosslinks-bottom a {
+  margin-right: 1rem;
   font-weight: bold;
+  font-size: 35px;
 }
 
-div.sectionTOCS {
+/* div.sectionTOCS {
   display: none;
-}
+} */
 
 /* ****************** */
 /* *** Formatting *** */
@@ -167,16 +168,16 @@ nav.TOC.mainToc img:hover{
   transition: 0.3s;
 }
 
-div.likechapterTOCS a, div.likechapterTOCS a:visited, div.chapterTOCS a, div.chapterTOCS a:visited {
+div.likechapterTOCS a, div.likechapterTOCS a:visited, div.chapterTOCS a, div.chapterTOCS a:visited, div.sectionTOCS a, div.sectionTOCS a:visited{
   color:#03071e;
 }
 
-div.likechapterTOCS a:hover, div.chapterTOCS a:hover {
+div.likechapterTOCS a:hover, div.chapterTOCS a:hover, div.sectionTOCS a:hover{
   color: #780000;
   transition: 0.3s;
 }
 
-div.likechapterTOCS, div.chapterTOCS {
+div.likechapterTOCS, div.chapterTOCS, div.sectionTOCS{
   background-color:#f8f9fa;
   color:#03071e;
   padding:1rem;
