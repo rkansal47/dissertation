@@ -4,9 +4,9 @@
 \begin{figure}[h!]
 \centering
 % \captionsetup{justification=centering}
-\includegraphics[height=0.106\textheight]{figures/05-HH/HHbbVV-cartoon.png}
-\hspace{5pt}
-\includegraphics[height=0.106\textheight]{figures/05-HH/XHYbbVV-cartoon.png}
+\includegraphics[width=0.48\textwidth]{figures/05-HH/HHbbVV-cartoon.png}
+% \hspace{0.19\textwidth}
+\includegraphics[width=0.48\textwidth]{figures/05-HH/XHYbbVV-cartoon.png}
 \caption{The boosted \HHbbVVq (left) and \XHYbbVVq (right) processes.}
 \label{fig:05_hhbbvv}
 \end{figure}
@@ -125,34 +125,35 @@ The search is performed by constructing a likelihood in the pass region as a fun
 The QCD multijet background contribution in the pass region is estimated through data in a ``fail'' region, defined using the same baseline selections on the two AK8 jets, but with the \TXbb selection inverted, as described in Section~\ref{sec:05_bgestimation} below.
 A summary of all offline selections is provided in Table~\ref{table:05_selections_nonresonant}, and the signal and fail region selections in terms of the \TXbbbb and BDT scores are illustrated in Figure~\ref{fig:05_selection_nonresonant}.
 
-\renewcommand{\arraystretch}{1.2}
+
 \begin{table}[htbp!]
-\caption{Offline selection criteria for the signal and fail nonresonant analysis regions.}
-\label{table:05_selections_nonresonant}
-\centering
-\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|}
-\hline
-VBF Region & ggF Region & Fail Region \\ \hline
-\multicolumn{3}{|c|}{\begin{tabular}[c]{c}
-No electrons or muons \\[3mm]
+    \unless\ifdefined\HCode
+        \renewcommand{\arraystretch}{1.4}
+    \fi
+    \centering
+    \caption{Offline selection criteria for the signal and fail nonresonant analysis regions.}
+    \begin{tabular}{c|c|c}
+    \toprule
+    VBF Region &  ggF Region &  Fail Region \\ \midrule
+    \multicolumn{3}{c}{\begin{tabular}[c]{@{}c@{}}
+        No electrons or muons \\[3mm]
 
-$\geq 2$ AK8 jets \\
-$\pt > 300$\GeV (all jets) \\
-$|\eta| < 2.4$ (all jets) \\
-$50 < \mreg < 250\GeV$ (all jets) \\
-$\TXbb > 0.8$ (at least one jet) \\[3mm]
+        $\geq 2$ AK8 jets \\
+        $\pt > 300$\GeV (all jets) \\
+        $|\eta| < 2.4$ (all jets) \\
+        $50 < \mreg < 250\GeV$ (all jets) \\
+        $\TXbb > 0.8$ (at least one jet) \\[3mm]
 
-Jet assignment: \\
-\hbb: highest $\TXbb$ score \\
-\hvv: out of remaining jets, highest GloParT score\\
-\end{tabular}} \\
-\hline
-%  & $\TXbbbb <$ VBF \TXbb WP or $\vbfbdt <$ VBF BDT WP & \\
- & Not passing VBF selections & \\
-$\TXbbbb \geq$ VBF \TXbb WP & $\TXbbbb \geq$ ggF \TXbb WP  & $\TXbbbb <$ ggF \TXbb WP \\
-$\vbfbdt \geq$ VBF BDT WP   & $\ggfbdt \geq$ ggF BDT WP    & \\
-\hline
-\end{tabularx}
+        Jet assignment: \\
+        \hbb: highest $\TXbb$ score \\
+        \hvv: out of remaining jets, highest GloParT score
+    \end{tabular}} \\\midrule
+    % Selection criteria rows
+    & Not passing VBF selections & \\
+    $\TXbbbb \geq$ VBF \TXbb WP & $\TXbbbb \geq$ ggF \TXbb WP & $\TXbbbb <$ ggF \TXbb WP \\
+    $\vbfbdt \geq$ VBF BDT WP & $\ggfbdt \geq$ ggF BDT WP & \\ \bottomrule
+    \end{tabular}
+    \label{tab:selection_criteria}
 \end{table}
 
 \begin{figure}[htb!]
@@ -183,34 +184,36 @@ Finally, separate ``validation'' pass and fail regions using the \hbb candidate 
 A summary of the offline selections is provided in Table~\ref{table:EvtSel-mergedY}.
 
 
-\renewcommand{\arraystretch}{1.2}
 \begin{table}[htbp!]
-\caption{Offline selection criteria for analysis regions for the fully-merged \PY topology.}
-\label{table:EvtSel-mergedY}
-\centering\resizebox{\textwidth}{!}{
-\begin{tabular}{|c|c|c|c|}
-\hline
-\multicolumn{2}{|c|}{Signal Region} & \multicolumn{2}{|c|}{Validation Region} \\ \hline
+    \unless\ifdefined\HCode
+        \renewcommand{\arraystretch}{1.4}
+    \fi
+    \caption{Offline selection criteria for analysis regions for the fully-merged \PY topology.}
+    \label{table:EvtSel-mergedY}
+    \centering\resizebox{\textwidth}{!}{
+    \begin{tabular}{c|c|c|c}
+    \toprule
+    \multicolumn{2}{c|}{Signal Region} & \multicolumn{2}{c}{Validation Region} \\ \midrule
 
-\multicolumn{4}{|c|}{\begin{tabular}[c]{@{}c@{}}
-$\geq 2$ AK8 jets \\
-$\pt > 350$\GeV (all jets) \\
-$|\eta| < 2.4$ (all jets) \\
-$\pt > 400$\GeV (jet leading in \pt) \\[3mm]
+    \multicolumn{4}{c}{\begin{tabular}[c]{@{}c@{}}
+    $\geq 2$ AK8 jets \\
+    $\pt > 350$\GeV (all jets) \\
+    $|\eta| < 2.4$ (all jets) \\
+    $\pt > 400$\GeV (jet leading in \pt) \\[3mm]
 
-Jet assignment: \\
-\hbb: highest $\TXbb$ score \\
-\yvv: out of remaining jets, highest $\THWW$ score\\
-\end{tabular}} \\
-\hline
-\multicolumn{2}{|c|}{$110 \leq \mregbb < 145\GeV$} & \multicolumn{2}{|c|}{$92.5 \leq \mregbb < 110\GeV$ or $145 \leq \mregbb < 162.5\GeV$} \\
-\hline
-Pass & Fail & Pass & Fail \\
-$\TXbb \geq \mathrm{HP\ WP}$ & $\TXbb < \mathrm{HP\ WP}$ & $\TXbb \geq \mathrm{HP\ WP}$ & $\TXbb < \mathrm{HP\ WP}$ \\
-$\THWW \geq 0.6$ & $\THWW < 0.6$ & $\THWW \geq 0.6$ & $\THWW < 0.6$ \\
-\hline
-\end{tabular}
-}
+    Jet assignment: \\
+    \hbb: highest $\TXbb$ score \\
+    \yvv: out of remaining jets, highest $\THWW$ score
+    \end{tabular}} \\
+    \midrule
+    \multicolumn{2}{c|}{$110 \leq \mregbb < 145\GeV$} & \multicolumn{2}{c}{$92.5 \leq \mregbb < 110\GeV$ or $145 \leq \mregbb < 162.5\GeV$} \\
+    \midrule
+    Pass & Fail & Pass & Fail \\ \midrule
+    $\TXbb \geq \mathrm{HP\ WP}$ & $\TXbb < \mathrm{HP\ WP}$ & $\TXbb \geq \mathrm{HP\ WP}$ & $\TXbb < \mathrm{HP\ WP}$ \\
+    $\THWW \geq 0.6$ & $\THWW < 0.6$ & $\THWW \geq 0.6$ & $\THWW < 0.6$ \\
+    \bottomrule
+    \end{tabular}
+    }
 \end{table}
 
 \section{Background estimation}
