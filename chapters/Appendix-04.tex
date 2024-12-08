@@ -1,7 +1,12 @@
 \chapter{Supplementary Material for Chapter~\ref{sec:04_models}}
 \label{app:04_models}
 
-\section{Message Passing GANs}
+\ifdefined\HCode
+    \section{MPGANs}
+\else
+    \section{Message Passing GANs}
+\fi
+
 \label{app:04_mpgan}
 
 \subsection{Point Cloud Generative Models}
@@ -132,7 +137,12 @@ We conclude that learning the number of particles to produce is a significant ch
 To equalize this we use the strategy in Section~\ref{sec:04_mpgan_arch} where the number of particles to produce is sampled directly from the real distribution, removing the burden of learning this distribution from the generator network.
 
 \clearpage
-\section{Generative Adversarial Particle Transformers}
+\ifdefined\HCode
+    \section{GAPTs}
+\else
+    \section{Generative Adversarial Particle Transformers}
+\fi
+
 
 \subsection{Results on 150-particle jets}
 \label{app:04_gapt_150}
