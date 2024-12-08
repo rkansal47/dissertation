@@ -1,12 +1,16 @@
 main.pdf:
-	python3 process_bib.py
 	latexmk -interaction=nonstopmode -file-line-error -lualatex main.tex
 
-website: main.pdf
-	make4ht main.tex -l -f html5+dvisvgm_hashes+common_domfilters  "mathml,mathjax,3,Gin-percent,next,sec-filename,fn-in,pic-tabular" -c config.cfg -e build.mk4 --loglevel INFO
-	python3 postprocess.py
+make4ht:
+	make4ht main.tex -l -f html5+dvisvgm_hashes+common_domfilters  "mathml,mathjax,3,Gin-percent,next,sec-filename,fn-in,pic-tabular" -c config.cfg -e build.mk4
+
+postprocess:
 	mkdir -p out
-	cp -r *.html *.svg assets figures dissertation.pdf *.css out/
+	cp -r *.html *.svg assets figures *.css out/
+	cp main.pdf out/dissertation.pdf
+	python3 postprocess.py
+
+website: main.pdf make4ht postprocess
 
 clean:
 	rm *.html *.svg *.pdf

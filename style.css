@@ -61,6 +61,26 @@ main{
     grid-row:1;
     min-height:100vh;
   }
+
+  .smallscreenhide {
+    visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 50rem) {
+  body{
+    display: grid;
+  }
+  main.main-content {
+    grid-row: 1;
+  }
+  nav.TOC{
+    grid-row: 2;
+  }
+
+  .smallscreenhide {
+    visibility: visible;
+  }
 }
 
 div.footnotes{
@@ -71,32 +91,9 @@ div.footnotes{
   font-size: 20px
 }
 
-nav.crosslinks-top {
-  top: -2px;
-  position: absolute;
-}
-
-/* add vertical space above the bottom crosslinks */
-nav.crosslinks-bottom{
-  margin-top: 5rem;
-  border-top: solid 2px #e9ecef;
-  padding-top: 1rem;
-  text-align: center;
-}
-
-nav.crosslinks-top a, nav.crosslinks-bottom a {
-  margin-right: 1rem;
-  font-weight: bold;
-  font-size: 35px;
-}
-
 img {
   max-width: 100%;
 }
-
-/* div.sectionTOCS {
-  display: none;
-} */
 
 /* ****************** */
 /* *** Formatting *** */
@@ -228,6 +225,30 @@ span.likechapterToc, span.chapterToc {
   }
 }
 
+/* ***************************** */
+/* ***** Header and footer ***** */
+/* ***************************** */
+
+
+nav.crosslinks-top {
+  top: -2px;
+  position: absolute;
+}
+
+/* add vertical space above the bottom crosslinks */
+nav.crosslinks-bottom{
+  margin-top: 5rem;
+  border-top: solid 2px #e9ecef;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+nav.crosslinks-top a, nav.crosslinks-bottom a {
+  margin-right: 1rem;
+  font-weight: bold;
+  font-size: 35px;
+}
+
 .header-link {
   position: absolute;
   display: inline-block;
@@ -242,16 +263,34 @@ span.likechapterToc, span.chapterToc {
   display: block;
 }
 
-
 /* ***************** */
-/* *** Tables *** */
+/* *** Lists *** */
 /* ***************** */
-
-
-table {
-  border-left: none;
-}
 
 dt.enumerate-enumitem {
   width: 60px;
+}
+
+
+/* ***************** */
+/* ***** Equations ***** */
+/* ***************** */
+
+table.equation {
+  width: 100%;
+  table-layout: fixed;
+}
+
+table.equation tr {
+  width: auto;
+  clear: both;
+}
+
+table.equation td:not(.eq-no) {
+  float: left;
+  display: table-column;
+  width: 95%;
+  overflow-x: auto;
+  overflow-y: clip;
+  white-space: nowrap;
 }
