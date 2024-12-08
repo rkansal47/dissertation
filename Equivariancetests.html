@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -32,11 +32,11 @@
 <span class="sectionToc">E.3 <a href="#equivariance-tests">Equivariance tests</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="Trainingdetails.html">⭠</a> <a href="Bibliography.html">⭢</a> </nav>
 <h3 class="sectionHead" id="equivariance-tests"><span class="titlemark">E.3   </span> <a id="x100-373000E.3"></a>Equivariance tests</h3>
 <!--  l. 162  --><p class="noindent">We test the covariance of the LGAE models to Lorentz transformations and find they
-are indeed equivariant up to numerical errors. Reference [<a href="Bibliography.html#Xbogatskiy2020lorentz">53</a>] points out that
+are indeed equivariant up to numerical errors. Reference [<a href="Bibliography.html#Xbogatskiy2020lorentz">54</a>] points out that
 equivariance to boosts in particular is sensitive to numerical precision, so we use double
 precision (64-bit) throughout the model. In addition, we scale down the data by a factor
 of 1,000 (i.e. working in the units of PeV) for better numerical precision at high
@@ -62,7 +62,7 @@ jets from our test dataset from boosts along and rotations around the
 <!--  l. 174  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi></math>-axis.
 We find the relative deviation from boosts to be within
 <!--  l. 175  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="script"><mi>O</mi></mstyle> <mrow><mo fence="true" form="prefix">(</mo><mrow><mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn></mrow></msup></mrow><mo fence="true" form="postfix">)</mo></mrow></math> in the interval
-<!--  l. 175  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>γ</mi> <mo class="MathClass-rel" stretchy="false">∈</mo> <mo class="MathClass-open" stretchy="false">[</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mi class="qopname"> cosh</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mn>10</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> (equivalent to
+<!--  l. 175  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>γ</mi> <mo class="MathClass-rel" stretchy="false">∈</mo> <mo class="MathClass-open" stretchy="false">[</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mi class="qopname"> cosh</mi><mo> <!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mn>10</mn><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-close" stretchy="false">]</mo></mrow></math> (equivalent to
 <!--  l. 175  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>β</mi> <mo class="MathClass-rel" stretchy="false">∈</mo> <mo class="MathClass-open" stretchy="false">[</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>1</mn> <mo class="MathClass-bin" stretchy="false">−</mo> <mn>4</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>9</mn></mrow></msup></mrow></math>]) and from
 rotations to be <!--  l. 175  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow> <mo class="MathClass-rel" stretchy="false">&lt;</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mn>12</mn></mrow></msup></mrow></math>.
 </p>

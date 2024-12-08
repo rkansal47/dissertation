@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -36,7 +36,7 @@
 <span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="LGAEarchitecture.html">⭠</a> <a href="Conclusion.html">⭢</a> </nav>
 <h3 class="sectionHead" id="experiments1"><span class="titlemark">16.3   </span> <a id="x79-28900016.3"></a>Experiments</h3>
 <!--  l. 184  --><p class="noindent">We experiment with and evaluate the performance of the LGAE and baseline models on
@@ -87,14 +87,14 @@ compare the LGAE to baseline GNN and CNN autoencoder models, referred to as
 “GNNAE” and “CNNAE” respectively.
 </p><!--  l. 208  --><p class="indent">       The GNNAE model is composed of fully-connected MPNNs adapted from
 MPGAN (Section <a href="MessagepassingGANs.html#message-passing-gans">10.1<!--  tex4ht:ref: sec:04_mpgan   --></a>). We experiment with two types of encodings: (1) particle-level
-(GNNAE-PL), as in the PGAE [<a href="Bibliography.html#XTsan_2021brw">66</a>] model, which compresses the features per node in
+(GNNAE-PL), as in the PGAE [<a href="Bibliography.html#XTsan_2021brw">67</a>] model, which compresses the features per node in
 the graph but retains the graph structure in the latent space, and (2) jet-level
 (GNNAE-JL), which averages the features across each node to form the latent space,
 as in the LGAE. Particle-level encodings produce better performance overall
 for the GNNAE, but the jet-level provides a more fair comparison with the
 LGAE, which uses jet-level encoding to achieve a high level of compression of the
 features.
-</p><!--  l. 212  --><p class="indent">       For the CNNAE, which is adapted from Ref. [<a href="Bibliography.html#XFarina-anomaly">245</a>], the relative
+</p><!--  l. 212  --><p class="indent">       For the CNNAE, which is adapted from Ref. [<a href="Bibliography.html#XFarina-anomaly">248</a>], the relative
 coordinates of each input jets’ particle constituents are first discretized into a
 <!--  l. 212  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>40</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>40</mn></mrow></math> grid.
 The particles are then represented as pixels in an image, with intensities corresponding
@@ -144,11 +144,11 @@ tested.                                                                         
 <!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>56</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>67</mn><mi>%</mi></mrow></math>
 compression), LGAE-Mix (<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>9</mn></mrow></math>,
 <!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>61</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>67</mn><mi>%</mi></mrow></math>
-compression), GNNAE-JL (<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>55</mn></mrow></math>,
+compression), GNNAE-JL (<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> <!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>55</mn></mrow></math>,
 <!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>61</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>11</mn><mi>%</mi></mrow></math>
-compression), GNNAE-PL (<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>30</mn></mrow></math>,
+compression), GNNAE-PL (<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> <!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>30</mn></mrow></math>,
 <!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>66</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>67</mn><mi>%</mi></mrow></math>
-compression), and CNNAE (<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>55</mn></mrow></math>,
+compression), and CNNAE (<!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> <!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>55</mn></mrow></math>,
 <!--  l. 252  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>61</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>11</mn><mi>%</mi></mrow></math>
 compression).                                                                   </span></figcaption><!--  tex4ht:label?: x79-292001r2   -->
 </figure>
@@ -173,7 +173,7 @@ distributions are quantified in Table <a href="#median-and-iqr-of-relative-erro
 ranges (IQR) of the relative errors between the reconstructed and true features. To
 calculate the relative errors of particle features for the permutation invariant LGAE and
 GNNAE models, particles are matched between the input and output clouds
-using the Jonker–Volgenant algorithm [<a href="Bibliography.html#X2020SciPy-NMeth">297</a>, <a href="Bibliography.html#XJonkerVolgenant">414</a>] based on the L2 distance
+using the Jonker–Volgenant algorithm [<a href="Bibliography.html#X2020SciPy-NMeth">303</a>, <a href="Bibliography.html#XJonkerVolgenant">426</a>] based on the L2 distance
 between particle features. Due to the discretization of the inputs to the CNNAE,
                                                                                 
 
@@ -199,9 +199,9 @@ reconstruction by LGAE-Min-Max (<!--  l. 291  --><math display="inline" xmlns="h
 resulting in <!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>56</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>67</mn><mi>%</mi></mrow></math>
 compression) and and LGAE-Mix (<!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>9</mn></mrow></math>,
 resulting in <!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>61</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>67</mn><mi>%</mi></mrow></math>
-compression), and GNNAE-JL (<!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>55</mn></mrow></math>,
+compression), and GNNAE-JL (<!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> <!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>55</mn></mrow></math>,
 resulting in <!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>61</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>11</mn><mi>%</mi></mrow></math>
-compression) and GNNAE-PL (<!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>30</mn></mrow></math>,
+compression) and GNNAE-PL (<!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> <!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>30</mn></mrow></math>,
 resulting in <!--  l. 291  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>66</mn><mo class="MathClass-punc" stretchy="false">.</mo><mn>67</mn><mi>%</mi></mrow></math>
 compression).         The         reconstructions         by         the         CNNAE
 are       not       included       due       to       the       discrete       values       of
@@ -290,9 +290,9 @@ boson       signal       (lower       left),       and       the       combined 
 (lower          right)          by          the          selected          LGAE-Min-Max
 (<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>7</mn></mrow></math>),
 LGAE-Mix (<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn></mrow></math>),
-GNNAE-JL (<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>30</mn></mrow></math>),
-GNNAE-PL (<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>30</mn></mrow></math>),
-and CNNAE (<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>55</mn></mrow></math>)
+GNNAE-JL (<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> <!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>30</mn></mrow></math>),
+GNNAE-PL (<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> <!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>2</mn> <mo class="MathClass-bin" stretchy="false">×</mo> <mn>30</mn></mrow></math>),
+and CNNAE (<!--  l. 475  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="qopname"> dim</mi><mo> <!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>55</mn></mrow></math>)
 models.                                                                        </span></figcaption><!--  tex4ht:label?: x79-293001r4   -->
 </figure>
 <!--  l. 479  --><p class="indent">       We test the performance of all models as unsupervised anomaly detection
@@ -301,7 +301,7 @@ for the QCD and new signal jets as the discriminating variable. We consider top 
 <!--  l. 480  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext class="textrm" mathvariant="normal">W</mtext></mstyle></math> boson,
 and <!--  l. 480  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext class="textrm" mathvariant="normal">Z</mtext></mstyle></math>
 boson jets as potential signals and QCD as the “background”. We test the Chamfer
-distance, energy mover’s distance [<a href="Bibliography.html#XKomiske_2019fks">316</a>] — the earth mover’s distance applied to particle
+distance, energy mover’s distance [<a href="Bibliography.html#XKomiske_2019fks">325</a>] — the earth mover’s distance applied to particle
 clouds, and MSE between input and output jets as reconstruction errors, and find the
 Chamfer distance most performant for all graph-based models. For the CNNAE,
 we use the MSE between the input and reconstructed image as the anomaly
@@ -414,7 +414,7 @@ detection.
 </p><!--  l. 566  --><p class="indent">       Finally, while in this section we showcased simple “brute-force” techniques for
 interpretability by looking directly at the distributions and correlations of latent
 features, we hypothesize that such an equivariant latent space would also lend itself
-effectively to the vast array of existing explainable AI algorithms [<a href="Bibliography.html#Xvilone_xaireview">415</a>, <a href="Bibliography.html#Xminh_xaireview">416</a>],
+effectively to the vast array of existing explainable AI algorithms [<a href="Bibliography.html#Xvilone_xaireview">427</a>, <a href="Bibliography.html#Xminh_xaireview">428</a>],
 which generically evaluate the contribution of different input and intermediate
 neuron features to network outputs. We leave a detailed study of this to future
 work.

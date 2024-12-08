@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -32,20 +32,20 @@
 <span class="sectionToc">E.3 <a href="Equivariancetests.html#equivariance-tests">Equivariance tests</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="Modeldetails.html">⭠</a> <a href="Equivariancetests.html">⭢</a> </nav>
 <h3 class="sectionHead" id="training-details"><span class="titlemark">E.2   </span> <a id="x99-372000E.2"></a>Training details</h3>
-<!--  l. 146  --><p class="noindent">We use the Chamfer loss function [<a href="Bibliography.html#X10.5555_1622943.1622971">444</a>–<a href="Bibliography.html#XZhang2020FSPool">446</a>] for the LGAE-Min-Max and GNNAE-JL
+<!--  l. 146  --><p class="noindent">We use the Chamfer loss function [<a href="Bibliography.html#X10.5555_1622943.1622971">457</a>–<a href="Bibliography.html#XZhang2020FSPool">459</a>] for the LGAE-Min-Max and GNNAE-JL
 models, and MSE for LGAE-Mix and GNNAE-PL. We tested the Hungarian
-loss [<a href="Bibliography.html#X2020SciPy-NMeth">297</a>, <a href="Bibliography.html#Xhungarian">447</a>] and differentiable energy mover’s distance (EMD) [<a href="Bibliography.html#XKomiske_2019fks">316</a>], calculated using
-the <span class="small-caps">JetNet</span> library [<a href="Bibliography.html#Xjetnetlibrary">448</a>], as well but found the Chamfer and MSE losses more
+loss [<a href="Bibliography.html#X2020SciPy-NMeth">303</a>, <a href="Bibliography.html#Xhungarian">460</a>] and differentiable energy mover’s distance (EMD) [<a href="Bibliography.html#XKomiske_2019fks">325</a>], calculated using
+the <span class="small-caps">JetNet</span> library [<a href="Bibliography.html#Xjetnetlibrary">461</a>], as well but found the Chamfer and MSE losses more
 performant.
 </p><!--  l. 149  --><p class="indent">       The graph-based models are optimized using the Adam
-optimizer [<a href="Bibliography.html#Xkigma2015adam">449</a>] implemented in <span class="small-caps">PyTorch</span> [<a href="Bibliography.html#Xpytorch">412</a>] with a learning rate
+optimizer [<a href="Bibliography.html#Xkigma2015adam">462</a>] implemented in <span class="small-caps">PyTorch</span> [<a href="Bibliography.html#Xpytorch">424</a>] with a learning rate
 <!--  l. 151  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>γ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mo class="MathClass-bin" stretchy="false">−</mo><mn>3</mn></mrow></msup></mrow></math>, coefficients
 <!--  l. 151  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>β</mi></mrow><mrow><mn>1</mn></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>β</mi></mrow><mrow><mn>2</mn></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-open" stretchy="false">(</mo><mn>0.9</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>0.999</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, and weight
 decay <!--  l. 151  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>λ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>.
-The CNNAE is optimized using the same optimizer implemented in TensorFlow [<a href="Bibliography.html#Xtensorflow2015-whitepaper">450</a>].
+The CNNAE is optimized using the same optimizer implemented in TensorFlow [<a href="Bibliography.html#Xtensorflow2015-whitepaper">463</a>].
 They are all trained on single NVIDIA RTX 2080 Ti GPUs each for a maximum of
 20000 epochs using early stopping with the patience of 200 epochs. The total training
 time for LGAE models is typically 35 hours, and at most 100 hours, while

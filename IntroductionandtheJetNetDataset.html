@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -30,7 +30,7 @@
 <span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="AcceleratingSimulationswithAI.html">⭠</a> <a href="Simulatingjets.html">⭢</a> </nav>
 <h2 class="chapterHead" id="introduction-and-the-jetnet-dataset"><span class="titlemark">Chapter 9</span><br/><a id="x47-2050009"></a>Introduction and the JetNet Dataset</h2>
 <div class="center">
@@ -52,7 +52,7 @@ outputting generator-level or “gen-level” particles.
 2. 
 </dt><dd class="enumerate-enumitem">Detector simulation: simulating the response of the detector to the particles
 produced in the collision and outputting the raw detector signals, or “hits”
-in the detector, most commonly with the <span class="small-caps">Geant4</span> software [<span class="ec-lmbx-12">? </span>].
+in the detector, most commonly with the <span class="small-caps">Geant4</span> software [<a href="Bibliography.html#XAgostinelli_2002hh">310</a>].
 </dd>
 <dt class="enumerate-enumitem">
 3. 
@@ -70,13 +70,13 @@ each step.
 </p><!--  l. 34  --><p class="indent">       These methods have proven extremely effective at modeling collisions
 and the detector response for decades in HEP, but are computationally
 expensive: the full simulation of a single collision in CMS takes
-<!--  l. 34  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>10</mn><mstyle class="text"><mtext> s</mtext></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> [<a href="Bibliography.html#XPedro_2018jqu">304</a>]. To
+<!--  l. 34  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="script"><mi>O</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>10</mn><mstyle class="text"><mtext> s</mtext></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> [<a href="Bibliography.html#XPedro_2018jqu">311</a>]. To
 maximize the physics potential of the upcoming era of high luminosity, the CMS experiment
 will need to reconstruct 300 billion real collision events, and simulate and reconstruct
 2–3<!--  l. 36  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">×</mo></math> more,
 a monumental task to which current methods cannot scale. Indeed, we are expected to fall
 3–10<!--  l. 37  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">×</mo></math>
-short of the necessary CPU resources to do this in HL-LHC [<span class="ec-lmbx-12">? </span>].
+short of the necessary CPU resources to do this in HL-LHC [<a href="Bibliography.html#XCMS_2815292">312</a>].
 </p><!--  l. 39  --><p class="indent">       There are two important avenues of R&amp;D which must be explored to
 address this. First, performing simulation and reconstruction on GPUs:
 even porting a conservative fraction can improve computing capacity by
@@ -86,10 +86,10 @@ even porting a conservative fraction can improve computing capacity by
                                                                                 
 alternative (FastSim): 50% of CMS analyses switching to this would mean a
 10<!--  l. 42  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">×</mo></math>
-speed-up in simulations, which are in total expected to require 40% of CPU resources [<span class="ec-lmbx-12">?</span>
-]. However, they each carry risks: of simulations not translating well to GPUs due to
-their sequential nature, and of inadequate FastSim performance leading to insufficient
-adoption by analyzers.
+speed-up in simulations, which are in total expected to require 40% of CPU
+resources [<a href="Bibliography.html#XCMS_2815292">312</a>]. However, they each carry risks: of simulations not translating well to
+GPUs due to their sequential nature, and of inadequate FastSim performance leading to
+insufficient adoption by analyzers.
 </p><!--  l. 46  --><p class="indent">       ML advancements in generative modeling can simultaneously improve the quality
 of fast simulations and naturally enable GPU-acceleration, addressing both risks. In
 this Part, we introduce such advancements using novel physics-informed deep

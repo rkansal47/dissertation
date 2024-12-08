@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -35,7 +35,7 @@
 <span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="Introduction1.html">⭠</a> <a href="Autoencodersandgenerativemodels.html">⭢</a> </nav>
 <h3 class="sectionHead" id="equivariant-neural-networks"><span class="titlemark">7.2   </span> <a id="x40-1500007.2"></a>Equivariant neural networks</h3>
 <!--  l. 316  --><p class="noindent">ANNs and DL have shown remarkable success in a wide range of computer vision and
@@ -47,7 +47,7 @@ with respect to <!--  l. 319  --><math display="inline" xmlns="http://www.w3.org
 and Lorentz-transformations for molecules and high-energy collisions, respectively. It is
 hence desirable to develop NN architectures that themselves are intrinsically <i>equivariant</i>
 to the associated transformations, which can thereby be more data efficient, more easily
-interpretable, and perhaps ultimately more successful [<a href="Bibliography.html#Xthomas2018tensor">228</a>].
+interpretable, and perhaps ultimately more successful [<a href="Bibliography.html#Xthomas2018tensor">231</a>].
 </p><!--  l. 322  --><p class="indent">       We have already encountered some forms of equivariance: to translations in
 CNNs and to permutations in GNNs. More recently, there has been work on building
 equivariance to a broader set of transformations, such as the symmetries mentioned
@@ -56,7 +56,7 @@ above, which will be the focus of this section.
 </p>
 <h4 class="subsectionHead" id="equivariance"><span class="titlemark">7.2.1   </span> <a id="x40-1510007.2.1"></a>Equivariance</h4>
 <!--  l. 330  --><p class="noindent">Let us first introduce precisely what we mean by “equivariance”, adapting a definition
-from Refs. [<a href="Bibliography.html#Xcohen2016group">229</a>–<a href="Bibliography.html#Xweiler2019general">232</a>].
+from Refs. [<a href="Bibliography.html#Xcohen2016group">232</a>–<a href="Bibliography.html#Xweiler2019general">235</a>].
 </p>
 <div class="newtheorem">
 <!--  l. 332  --><p class="noindent"><span class="head">
@@ -65,7 +65,7 @@ from Refs. [<a href="Bibliography.html#Xcohen2016group">229</a>–<a href="Bibl
 </span> A feature map <!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>f</mi> <mo class="MathClass-punc" stretchy="false">:</mo> <mstyle mathvariant="script"><mi>X</mi></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle mathvariant="script"><mi>Y</mi> </mstyle></mrow></math>
 is considered <strong>equivariant</strong> to a group of transformations
 <!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>G</mi></math> if
-<!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="MathClass-op">∀</mi><mo> ⁡<!--  FUNCTION APPLICATION  --></mo><mi>g</mi> <mo class="MathClass-rel" stretchy="false">∈</mo> <mi>G</mi></mrow></math> and some
+<!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi class="MathClass-op">∀</mi><mo> <!--  FUNCTION APPLICATION  --></mo><mi>g</mi> <mo class="MathClass-rel" stretchy="false">∈</mo> <mi>G</mi></mrow></math> and some
 representation <!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>π</mi></math> there
 exists a representation <!--  l. 334  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>π</mi></mrow><mrow><mi>′</mi></mrow></msup></math>
 satisfying </p><table class="equation"><tr><td>
@@ -101,7 +101,7 @@ do not affect features at all.
 </div>
 <!--  l. 345  --><p class="indent">
 </p><!--  l. 347  --><p class="indent">       While for many tasks, such as classification, <i>invariance</i> of the outputs is sufficient,
-Refs. [<a href="Bibliography.html#Xcohen2016steerable">230</a>, <a href="Bibliography.html#Xworrall2017harmonic">231</a>] argue that equivariance is more desirable at least in the intermediate
+Refs. [<a href="Bibliography.html#Xcohen2016steerable">233</a>, <a href="Bibliography.html#Xworrall2017harmonic">234</a>] argue that equivariance is more desirable at least in the intermediate
 layers, as it allows the network to learn useful information about the transformation
 <!--  l. 347  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math>
 itself.
@@ -122,7 +122,7 @@ groups.
 <!--  l. 356  --><p class="noindent">We first describe the generalization of the translational invariance of CNNs to
 equivariance to not only translations, but <i>rotations and reflections</i> in 2D as well; i.e, the
 <!--  l. 356  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>E</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> group. We make
-use of a general procedure, based on Refs. [<a href="Bibliography.html#Xcohen2016group">229</a>, <a href="Bibliography.html#Xcohen2016steerable">230</a>], for extending 2D translational invariance
+use of a general procedure, based on Refs. [<a href="Bibliography.html#Xcohen2016group">232</a>, <a href="Bibliography.html#Xcohen2016steerable">233</a>], for extending 2D translational invariance
 (<!--  l. 357  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>T</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>) to equivariance
 to a group <!--  l. 357  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>G</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mstyle mathvariant="normal"><mi>T</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">⋊</mo> <mi>H</mi></mrow></math>, where
 <!--  l. 357  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mo class="MathClass-bin" stretchy="false">⋊</mo></math> is the semi-direct product
@@ -164,7 +164,7 @@ After this, Eq. <a href="#x40-151002r1">7.2.1<!--  tex4ht:ref: eq:06_equivarian
 </p><!--  l. 371  --><p class="indent">       Since Eq. <a href="#x40-152003r2">7.2.2<!--  tex4ht:ref: eq:06_equivariantnns_equiv2   --></a> is linear in <!--  l. 371  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math>,
 we want a complete linear basis of functions that satisfy it. We can obtain
 this by restricting the convolutional filters of a standard CNN to circular
-harmonics [<a href="Bibliography.html#Xworrall2017harmonic">231</a>]:<span class="footnote-mark"><a href="#fn34x8" id="fn34x8-bk"><sup class="textsuperscript">2</sup></a></span><a id="x40-152005f2"></a>
+harmonics [<a href="Bibliography.html#Xworrall2017harmonic">234</a>]:<span class="footnote-mark"><a href="#fn34x8" id="fn34x8-bk"><sup class="textsuperscript">2</sup></a></span><a id="x40-152005f2"></a>
 </p><table class="equation"><tr><td>
 <!--  l. 373  --><p class="indent">
 </p><!--  l. 373  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
@@ -189,7 +189,7 @@ rotated by <!--  l. 377  --><math display="inline" xmlns="http://www.w3.org/1998
 the fundamental <!--  l. 381  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>SO</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> rep
 acting on the image and <!--  l. 381  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>ρ</mi></mrow><mrow><mstyle mathvariant="normal"><mi>out</mi></mstyle></mrow></msub></math>
 to be any one of the infinite complex reps. After discretizing these filters
-Ref. [<a href="Bibliography.html#Xworrall2017harmonic">231</a>] demonstrates significant improvement in classification of rotated
+Ref. [<a href="Bibliography.html#Xworrall2017harmonic">234</a>] demonstrates significant improvement in classification of rotated
 images compared to SOTA CNNs. Such networks are generally referred to
 as “Steerable CNNs”, and, in practice, are implemented using a finite set of
 <!--  l. 383  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math> such circular
@@ -204,22 +204,22 @@ manner, as illustrated in Figure <a href="#schematic-of-a-steerable-cnn-reprodu
 <figure class="figure">
 <!--  l. 388  --><p class="noindent" id="schematic-of-a-steerable-cnn-reproduced-from-ref-weilerlearning"><img alt="PIC" src="figures/06-ML4Jets/equivariantnns/scnns.png" style="max-width:100%"/> <a id="x40-152009r8"></a>
 </p>
-<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 7.8. </span></span><span class="content">Schematic of a steerable CNN, reproduced from Ref. [<a href="Bibliography.html#Xweiler2018learning">51</a>].         </span></figcaption><!--  tex4ht:label?: x40-152009r8   -->
+<figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 7.8. </span></span><span class="content">Schematic of a steerable CNN, reproduced from Ref. [<a href="Bibliography.html#Xweiler2018learning">52</a>].         </span></figcaption><!--  tex4ht:label?: x40-152009r8   -->
 </figure>
 <h4 class="subsectionHead" id="tensorfield-networks-for-equivariance"><span class="titlemark">7.2.3   </span> <a id="x40-1530007.2.3"></a>Tensor-field  networks  for
 <!--  l. 394  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>E</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>-equivariance</h4>
 <!--  l. 397  --><p class="noindent">Steerable CNNs have been extended to
 <!--  l. 397  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>E</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>-equivariance
-— translations, rotations, and reflections in 3D — as well [<a href="Bibliography.html#Xweiler20183d">233</a>]. However, we will
+— translations, rotations, and reflections in 3D — as well [<a href="Bibliography.html#Xweiler20183d">236</a>]. However, we will
 discuss a slightly different approach, applied to point-cloud data. This approach
 uses “Fourier decompositions” of the input, feature, and output spaces into
 irreducible representations (irreps) of the symmetry group, and is referred
-to as a “tensor-field network” [<a href="Bibliography.html#Xthomas2018tensor">228</a>]. In addition to their aforementioned
+to as a “tensor-field network” [<a href="Bibliography.html#Xthomas2018tensor">231</a>]. In addition to their aforementioned
 applications to HEP, point clouds are also extremely useful representations of
 physical objects such as molecules and crystals, both of which are inherently
 <!--  l. 400  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>E</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
 invariant.
-</p><!--  l. 402  --><p class="indent">       In the approach of Ref. [<a href="Bibliography.html#Xthomas2018tensor">228</a>], the input and intermediate network layers
+</p><!--  l. 402  --><p class="indent">       In the approach of Ref. [<a href="Bibliography.html#Xthomas2018tensor">231</a>], the input and intermediate network layers
 <!--  l. 402  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math> take the set of
 coordinates <!--  l. 402  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="bold"><mi>r</mi></mstyle></mrow><mrow><mi>a</mi></mrow></msub></math>
 and features <!--  l. 402  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>a</mi></mrow></msub></math>
@@ -296,12 +296,12 @@ input features are the masses of each point, which are scalars under
 transforms as the <!--  l. 420  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0</mn> <mo class="MathClass-bin" stretchy="false">⊕</mo> <mn>2</mn></mrow></math>
 representation, so we define this network to be of the type
 <!--  l. 420  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>0</mn> <mo class="MathClass-rel" stretchy="false">→</mo> <mn>0</mn> <mo class="MathClass-bin" stretchy="false">⊕</mo> <mn>2</mn></mrow></math>.
-</p><!--  l. 422  --><p class="indent">       Some interesting and successful applications include classifying molecules [<a href="Bibliography.html#Xmiller2020relevance">234</a>],
+</p><!--  l. 422  --><p class="indent">       Some interesting and successful applications include classifying molecules [<a href="Bibliography.html#Xmiller2020relevance">237</a>],
                                                                                 
 
                                                                                 
-predicting protein complex structures [<a href="Bibliography.html#XEismann2020HierarchicalRN">235</a>], and predicting the phonon density of states
-(DoS) in crystals [<a href="Bibliography.html#Xchen2020direct">52</a>]. A schematic of the architecture used for the latter is shown in
+predicting protein complex structures [<a href="Bibliography.html#XEismann2020HierarchicalRN">238</a>], and predicting the phonon density of states
+(DoS) in crystals [<a href="Bibliography.html#Xchen2020direct">53</a>]. A schematic of the architecture used for the latter is shown in
 Figure <a href="#schematic-of-the-equivariant-neural-network-architecture-used-for-predicting-phonon-density-of-states-reproduced-from-ref-chendirect">7.9<!--  tex4ht:ref: fig:06_equivariantnns_dos   --></a>. Different crystals are represented geometrically as point clouds in
 <!--  l. 424  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>ℝ</mi></mrow><mrow><mn>3</mn></mrow></msup></math>, with individual atoms
 labeled via feature vectors <!--  l. 424  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mi>a</mi></mrow></msub></math>
@@ -314,7 +314,7 @@ DoS.
 </p>
 <figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 7.9. </span></span><span class="content">Schematic of the <!--  l. 431  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>E</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>-equivariant
 neural  network  architecture  used  for  predicting  phonon  density  of  states,
-reproduced from Ref. [<a href="Bibliography.html#Xchen2020direct">52</a>].                                                      </span></figcaption><!--  tex4ht:label?: x40-153003r9   -->
+reproduced from Ref. [<a href="Bibliography.html#Xchen2020direct">53</a>].                                                      </span></figcaption><!--  tex4ht:label?: x40-153003r9   -->
 </figure>
 <h4 class="subsectionHead" id="lorentzgroupequivariant-networks"><span class="titlemark">7.2.4   </span> <a id="x40-1540007.2.4"></a>Lorentz-group-equivariant networks</h4>
 <!--  l. 439  --><p class="noindent">Recently there has been some success in creating Lorentz-group-equivariant networks,
@@ -327,7 +327,7 @@ which consists of all Lorentz transformations that preserve the orientation and 
 of time. Equivariance to such transformations is a fundamental symmetry of the data
 collected out of high-energy particle collisions.
 </p><!--  l. 444  --><p class="indent">       To our knowledge, there has been no generalization of steerable CNNs to the Lorentz
-group; however, Refs. [<a href="Bibliography.html#Xbogatskiy2020lorentz">53</a>, <a href="Bibliography.html#Xequivariance-Fourier-Kondor">236</a>–<a href="Bibliography.html#XE_2_-Equivariant">238</a>] propose an alternative, completely Fourier-based
+group; however, Refs. [<a href="Bibliography.html#Xbogatskiy2020lorentz">54</a>, <a href="Bibliography.html#Xequivariance-Fourier-Kondor">239</a>–<a href="Bibliography.html#XE_2_-Equivariant">241</a>] propose an alternative, completely Fourier-based
 approach, again acting on point clouds, that shares some similarities with the
 <!--  l. 444  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>E</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>-equivariant
 network discussed above.
@@ -372,18 +372,18 @@ in Figure <a href="#schematic-of-a-lorentz-groupequivariant-network-layer-repro
 <!--  l. 461  --><p class="noindent" id="schematic-of-a-lorentz-groupequivariant-network-layer-reproduced-from-ref-bogatskiylorentz"><img alt="PIC" src="figures/06-ML4Jets/equivariantnns/equivneuron.png" style="max-width:70%"/> <a id="x40-154005r10"></a>
 </p>
 <figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 7.10. </span></span><span class="content">Schematic of a Lorentz group-equivariant network layer, reproduced
-from Ref. [<a href="Bibliography.html#Xbogatskiy2020lorentz">53</a>].                                                                 </span></figcaption><!--  tex4ht:label?: x40-154005r10   -->
+from Ref. [<a href="Bibliography.html#Xbogatskiy2020lorentz">54</a>].                                                                 </span></figcaption><!--  tex4ht:label?: x40-154005r10   -->
 </figure>
-<!--  l. 467  --><p class="indent">       To inject non-linearities into the network, Ref. [<a href="Bibliography.html#Xbogatskiy2020lorentz">53</a>] proposes to take tensor
+<!--  l. 467  --><p class="indent">       To inject non-linearities into the network, Ref. [<a href="Bibliography.html#Xbogatskiy2020lorentz">54</a>] proposes to take tensor
 products between each pair of irreps after the mapping, and then perform a CG
 decomposition.<span class="footnote-mark"><a href="#fn35x8" id="fn35x8-bk"><sup class="textsuperscript">3</sup></a></span><a id="x40-154006f3"></a>
 Another freedom available to us is acting with arbitrary learned functions on any
 scalar irreps that result from the decomposition, since they are, by definition,
 Lorentz-invariants.
-</p><!--  l. 470  --><p class="indent">       One successful application of this network has been to jet tagging: Ref. [<a href="Bibliography.html#Xbogatskiy2020lorentz">53</a>]
+</p><!--  l. 470  --><p class="indent">       One successful application of this network has been to jet tagging: Ref. [<a href="Bibliography.html#Xbogatskiy2020lorentz">54</a>]
 successfully applied this “Lorentz-group network” (LGN) to top-quark identification,
 demonstrating a high (92.9%) accuracy, though they were unable to match the
-then-SOTA (93.8% using the ParticleNet GNN [<a href="Bibliography.html#XQu_2019gqs">227</a>]).
+then-SOTA (93.8% using the ParticleNet GNN [<a href="Bibliography.html#XQu_2019gqs">230</a>]).
 </p><!--  l. 473  --><p class="indent">       Finally, we note that overall this is, in fact, a very general approach:
 applicable to any symmetry group. This includes the aforementioned
 <!--  l. 474  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>E</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> and
@@ -404,8 +404,8 @@ filters).
 <!--  l. 480  --><p class="noindent">We reviewed three approaches to creating neural networks that are equivariant to
 physical symmetry groups: by extending the translation-equivariant convolutions in
 CNNs to more general symmetries with appropriately defined learnable filters as in
-Refs. [<a href="Bibliography.html#Xcohen2016group">229</a>, <a href="Bibliography.html#Xequivariance-kernel-Cohen">240</a>, <a href="Bibliography.html#Xequivariance-kernel-Finzi">241</a>], by operating in the Fourier space of the group [<a href="Bibliography.html#Xbogatskiy2020lorentz">53</a>], and a
-combination thereof [<a href="Bibliography.html#Xthomas2018tensor">228</a>]. Such networks are highly relevant to the physical sciences,
+Refs. [<a href="Bibliography.html#Xcohen2016group">232</a>, <a href="Bibliography.html#Xequivariance-kernel-Cohen">243</a>, <a href="Bibliography.html#Xequivariance-kernel-Finzi">244</a>], by operating in the Fourier space of the group [<a href="Bibliography.html#Xbogatskiy2020lorentz">54</a>], and a
+combination thereof [<a href="Bibliography.html#Xthomas2018tensor">231</a>]. Such networks are highly relevant to the physical sciences,
 where datasets often possess intrinsic symmetries, and, as demonstrated in some
 example tasks, they are promising alternatives and improvements to standard
 non-equivariant DL approaches. In particular, Lorentz-equivariant networks have shown
@@ -418,10 +418,10 @@ well.
                                                                                 
 </p>
 <nav class="crosslinks-bottom"> <a href="Introduction1.html">⭠</a> <a href="Autoencodersandgenerativemodels.html">⭢</a> </nav> <div class="footnotes"><a id="x40-152002x7.2.2"></a>
-<!--  l. 357  --><p class="indent"> <span class="footnote-mark"><a href="#fn33x8-bk" id="fn33x8"><sup class="textsuperscript">1</sup></a></span><span class="ec-lmr-10">See e.g. Chapter IV, p297 of Ref. [</span><a href="Bibliography.html#XZee_2016fuk"><span class="ec-lmr-10">78</span></a><span class="ec-lmr-10">] for induced representations of</span>
+<!--  l. 357  --><p class="indent"> <span class="footnote-mark"><a href="#fn33x8-bk" id="fn33x8"><sup class="textsuperscript">1</sup></a></span><span class="ec-lmr-10">See e.g. Chapter IV, p297 of Ref. [</span><a href="Bibliography.html#XZee_2016fuk"><span class="ec-lmr-10">79</span></a><span class="ec-lmr-10">] for induced representations of</span>
 <!--  l. 357  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle mathvariant="normal"><mi>E</mi></mstyle><mo class="MathClass-open" stretchy="false">(</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math><span class="ec-lmr-10">.</span></p><a id="x40-152006x7.2.2"></a>
-<!--  l. 372  --><p class="indent"> <span class="footnote-mark"><a href="#fn34x8-bk" id="fn34x8"><sup class="textsuperscript">2</sup></a></span><span class="ec-lmr-10">See Refs. [</span><a href="Bibliography.html#Xweiler2019general"><span class="ec-lmr-10">232</span></a><span class="ec-lmr-10">, </span><a href="Bibliography.html#Xweiler20183d"><span class="ec-lmr-10">233</span></a><span class="ec-lmr-10">] for a more rigorous derivation.</span></p><a id="x40-154007x7.2.4"></a>
-<!--  l. 467  --><p class="indent"> <span class="footnote-mark"><a href="#fn35x8-bk" id="fn35x8"><sup class="textsuperscript">3</sup></a></span><span class="ec-lmr-10">See Ref. [</span><a href="Bibliography.html#Xgelfand2018representations"><span class="ec-lmr-10">239</span></a><span class="ec-lmr-10">] for a detailed analysis of CG decomposition for the Lorentz
+<!--  l. 372  --><p class="indent"> <span class="footnote-mark"><a href="#fn34x8-bk" id="fn34x8"><sup class="textsuperscript">2</sup></a></span><span class="ec-lmr-10">See Refs. [</span><a href="Bibliography.html#Xweiler2019general"><span class="ec-lmr-10">235</span></a><span class="ec-lmr-10">, </span><a href="Bibliography.html#Xweiler20183d"><span class="ec-lmr-10">236</span></a><span class="ec-lmr-10">] for a more rigorous derivation.</span></p><a id="x40-154007x7.2.4"></a>
+<!--  l. 467  --><p class="indent"> <span class="footnote-mark"><a href="#fn35x8-bk" id="fn35x8"><sup class="textsuperscript">3</sup></a></span><span class="ec-lmr-10">See Ref. [</span><a href="Bibliography.html#Xgelfand2018representations"><span class="ec-lmr-10">242</span></a><span class="ec-lmr-10">] for a detailed analysis of CG decomposition for the Lorentz
 group.</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
 </body>
 </html>

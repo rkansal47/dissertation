@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -35,7 +35,7 @@ searches in the all-hadronic bbVV channel</a></span>
 <span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="SearchesforHighEnergyHiggsBosonPairs.html">⭠</a> <a href="ParticleNetfortexorpdfstringbbbarbbjettaggingandmassregression.html">⭢</a> </nav>
 <h2 class="chapterHead" id="boosted-higgs-identification"><span class="titlemark">Chapter 13</span><br/><a id="x61-26000013"></a>Boosted Higgs identification</h2>
 <!--  l. 4  --><p class="noindent">In Part <a href="SearchesforHighEnergyHiggsBosonPairs.html#searches-for-high-energy-higgs-boson-pairs">V<!--  tex4ht:ref: part:hh   --></a>, we describe searches for the nonresonant SM and resonant BSM Higgs boson pair
@@ -48,14 +48,14 @@ high-level features, such as the jet mass, substructure variables, and secondary
 to manually define selections for such jets. The advent of deep learning techniques,
 which are able to make effective use of low-level particle and vertex data, however, has
 revolutionized this process.
-</p><!--  l. 9  --><p class="indent">       This is epitomized by the ParticleNet tagger [<a href="Bibliography.html#XQu_2019gqs">227</a>], described in Section <a href="ParticleNetfortexorpdfstringbbbarbbjettaggingandmassregression.html#particlenet-for-b-b-jet-tagging-and-mass-regression">13.1<!--  tex4ht:ref: sec:05_hbb_tagger   --></a>,
+</p><!--  l. 9  --><p class="indent">       This is epitomized by the ParticleNet tagger [<a href="Bibliography.html#XQu_2019gqs">230</a>], described in Section <a href="ParticleNetfortexorpdfstringbbbarbbjettaggingandmassregression.html#particlenet-for-b-b-jet-tagging-and-mass-regression">13.1<!--  tex4ht:ref: sec:05_hbb_tagger   --></a>,
 which uses a graph neural network (GNN) architecture to model individual jet
 constituents and their interactions, and has demonstrated strong performance on
 <!--  l. 9  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math> tagging (among
 other final states). However, a similarly high performing classifier has not yet been developed for
 four-pronged <!--  l. 10  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo> <mn>4</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow></math>
 jets. In this chapter, we showcase the development of a new
-attention-based ParticleTransformer model [<a href="Bibliography.html#XQu_2022mxj">381</a>] to identify such boosted
+attention-based ParticleTransformer model [<a href="Bibliography.html#XQu_2022mxj">391</a>] to identify such boosted
 <!--  l. 11  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo> <mn>4</mn><mstyle class="text"><mtext class="textrm" mathvariant="normal">q</mtext></mstyle></mrow></math> jets,
 which has proven to be a critical component of not only this analysis, but many ongoing
                                                                                 
@@ -64,7 +64,7 @@ which has proven to be a critical component of not only this analysis, but many 
 boosted Higgs searches in CMS. We additionally present a novel calibration method for
 the <!--  l. 12  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mo class="MathClass-bin" stretchy="false">∕</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">Y</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">V</mtext></mstyle></mrow></math>
 tagger, which improves the systematic uncertainties on signal efficiency scale factors
-from 50% using a previous proxy-based method [<a href="Bibliography.html#XCMS_2022lqh">382</a>] down to 16%, representing a
+from 50% using a previous proxy-based method [<a href="Bibliography.html#XCMS_2022lqh">392</a>] down to 16%, representing a
 significant improvement in analysis sensitivity.
 </p>
 <div class="sectionTOCS">

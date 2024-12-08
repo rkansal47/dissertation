@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -31,7 +31,7 @@
 <span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="TheCMSdetector.html">⭠</a> <a href="Detectingparticles.html">⭢</a> </nav>
 <h3 class="sectionHead" id="overview"><span class="titlemark">6.1   </span> <a id="x32-1040006.1"></a>Overview</h3>
 <!--  l. 6  --><p class="noindent">The experimental apparatus used in this dissertation is the Compact Muon
@@ -51,12 +51,12 @@ muons.
 <!--  l. 14  --><p class="noindent" id="a-cutaway-view-of-the-cms-detector-showing-the-various-subdetectors-and-the-solenoid-magnet-reproduced-from-ref-cmsgfb"><img alt="PIC" src="figures/02-CMS/cms/cms_schematic.png" style="max-width:100%"/> <a id="x32-104001r1"></a>
 </p>
 <figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure 6.1.  </span></span><span class="content">A  cutaway  view  of  the  CMS  detector  showing  the  various
-subdetectors and the solenoid magnet, reproduced from Ref. [<span class="ec-lmbx-12">? </span>].                </span></figcaption><!--  tex4ht:label?: x32-104001r1   -->
+subdetectors and the solenoid magnet, reproduced from Ref. [<a href="Bibliography.html#XCMS_2023gfb">39</a>].               </span></figcaption><!--  tex4ht:label?: x32-104001r1   -->
 </figure>
 <!--  l. 27  --><p class="indent">       The CMS detector design was strongly motivated by the
 potential for discovery of the Higgs boson as well as new physics at the
 <!--  l. 27  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>TeV</mtext></mstyle></mrow></math>
-energy scale. Specifically, the original design requirements were [<a href="Bibliography.html#XCMS_2008xjf">45</a>]: </p>
+energy scale. Specifically, the original design requirements were [<a href="Bibliography.html#XCMS_2008xjf">46</a>]: </p>
 <ul class="itemize1">
 <li class="itemize">Strong       muon       identification       and       momentum       resolution,
 as        well        as        good        charge        determination        below
@@ -81,33 +81,33 @@ data rate to something manageable for offline storage and analysis.
 trigger system. The first level (L1) uses custom hardware processors and information
 from the calorimeters and muon detectors to select events at a rate of around
 100<!--  l. 39  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> kHz</mtext></mstyle></math> within a fixed
-latency of 4<!--  l. 39  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> </mtext><mstyle class="math"><mi>μ</mi><mstyle class="text"><mtext>s</mtext></mstyle></mstyle><mtext> </mtext></mstyle></math> [<a href="Bibliography.html#XCMS_2020cmk">170</a>].
+latency of 4<!--  l. 39  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> </mtext><mstyle class="math"><mi>μ</mi><mstyle class="text"><mtext>s</mtext></mstyle></mstyle><mtext> </mtext></mstyle></math> [<a href="Bibliography.html#XCMS_2020cmk">173</a>].
 The second level, known as the high-level trigger (HLT), consists of a
 farm of processors running a version of the full event reconstruction
 software optimized for fast processing and reduces the event rate to around
 1<!--  l. 40  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> kHz</mtext></mstyle></math>
-before data storage [<a href="Bibliography.html#XCMS_2016ngn">171</a>]. Both online and offline, the raw detector signals are processed
+before data storage [<a href="Bibliography.html#XCMS_2016ngn">174</a>]. Both online and offline, the raw detector signals are processed
 and reconstructed first locally as hits in the individual subdetectors, then as tracks and
 calorimeter clusters, and finally as physics objects such as electrons, muons, jets, and
                                                                                 
 
                                                                                 
-missing energy using the particle-flow (PF) algorithm [<a href="Bibliography.html#XCMS_2017yfk">47</a>].
+missing energy using the particle-flow (PF) algorithm [<a href="Bibliography.html#XCMS_2017yfk">48</a>].
 </p><!--  l. 43  --><p class="indent">       As we describe below, the CMS detector was able and continues to meet these
 ambitious requirements. The CMS collaboration not only discovered the Higgs boson in
-2012 [<a href="Bibliography.html#XCMS_2012qbp">147</a>], but also has since performed a wide range of measurements of the Higgs
+2012 [<a href="Bibliography.html#XCMS_2012qbp">149</a>], but also has since performed a wide range of measurements of the Higgs
 sector and the SM as well as searches for diverse new physics, such as those described in
 this dissertation.
 </p><!--  l. 46  --><p class="indent">       Looking ahead, however, the upcoming high-luminosity era of the LHC
 (Chapter <a href="Luminosityandtimeline.html#luminosity-and-timeline">5.2<!--  tex4ht:ref: sec:02_lhc_luminosity   --></a>) will bring forth considerable new challenges to the detector, with
 significantly higher radiation levels, occupancies, and pileup. To overcome them, nearly
 all CMS subdetectors will undergo a major upgrade after Run 3, known as
-the Phase-2 upgrade [<a href="Bibliography.html#XCMS_2017lum">42</a>]. The L1 trigger latency will be increased from 4 to
+the Phase-2 upgrade [<a href="Bibliography.html#XCMS_2017lum">43</a>]. The L1 trigger latency will be increased from 4 to
 12.5<!--  l. 48  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>μ</mi><mstyle class="text"><mtext>s</mtext></mstyle></mrow></math> and the rate from
 100 to 750<!--  l. 48  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> kHz</mtext></mstyle></math>, with an
 HLT rate of up to 10<!--  l. 48  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle class="text"><mtext> kHz</mtext></mstyle></math>,
 to cope with the increased data rates (as well as incorporate tracking information at L1
-for the first time) [<a href="Bibliography.html#XYates_2021dxs">172</a>].
+for the first time) [<a href="Bibliography.html#XYates_2021dxs">175</a>].
 </p><!--  l. 50  --><p class="indent">       Along with this, the Phase-2 upgrade includes the addition of new timing layers
 and the high granularity endcap calorimeter (HGCAL), which is notable not only for its
 ambitious design, but also the computational challenges it poses in detector simulation
@@ -142,7 +142,7 @@ and the polar angle <!--  l. 62  --><math display="inline" xmlns="http://www.w3.
                                                                                 
 plane, relative to the <!--  l. 62  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi></math>-axis.
 Typically, <!--  l. 63  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>𝜃</mi></math> is converted
-to the pseudorapidity <!--  l. 63  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>η</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi class="qopname"> ln</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mrow><mo fence="true" form="prefix">[</mo><mrow><mi class="qopname">tan</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mrow><mo fence="true" form="prefix">(</mo><mrow><mfrac><mrow><mi>𝜃</mi></mrow>
+to the pseudorapidity <!--  l. 63  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>η</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mo class="MathClass-bin" stretchy="false">−</mo><mi class="qopname"> ln</mi><mo> <!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mrow><mo fence="true" form="prefix">[</mo><mrow><mi class="qopname">tan</mi><mo> <!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --> <mrow><mo fence="true" form="prefix">(</mo><mrow><mfrac><mrow><mi>𝜃</mi></mrow>
 <mrow>
 <mn>2</mn></mrow></mfrac> </mrow><mo fence="true" form="postfix">)</mo></mrow></mrow><mo fence="true" form="postfix">]</mo></mrow></mrow></math>,
 which has a more useful scale for describing high energy collisions, and the

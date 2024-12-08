@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -33,7 +33,7 @@
 <span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="Validatingandcomparingfastsimulations.html">⭠</a> <a href="Experimentsongaussiandistributeddata.html">⭢</a> </nav>
 <h3 class="sectionHead" id="evaluation-metrics-for-generative-models"><span class="titlemark">11.1   </span> <a id="x54-23800011.1"></a>Evaluation metrics for generative models</h3>
 <!--  l. 29  --><p class="noindent">In evaluating generative models, we aim to quantify the difference between the real and generated
@@ -48,7 +48,7 @@ can be viewed as a form of two-sample goodness-of-fit (GOF) testing of the hypot
 <!--  l. 30  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>real</mi></mstyle></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>gen</mi></mstyle></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo></mrow></math> using real and
 generated samples, <!--  l. 30  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">{</mo><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>real</mi></mstyle></mrow></msub><mo class="MathClass-close" stretchy="false">}</mo></mrow></math>
 and <!--  l. 30  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">{</mo><msub><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle></mrow><mrow><mstyle mathvariant="normal"><mi>gen</mi></mstyle></mrow></msub><mo class="MathClass-close" stretchy="false">}</mo></mrow></math>,
-drawn from their respective distributions. As illustrated in Ref. [<a href="Bibliography.html#Xcousins_gof">327</a>], in general,
+drawn from their respective distributions. As illustrated in Ref. [<a href="Bibliography.html#Xcousins_gof">337</a>], in general,
 there is no “best” GOF test with power against all alternative hypotheses.
 Instead, we aim for a set of tests that collectively have power against the relevant
 alternatives we expect, and are practically most appropriate. Below, we first outline
@@ -73,7 +73,7 @@ quality and the diversity of the generated samples. It is critical that these
 tests are multivariate as well, particularly when measuring the performance of
 conditional models, which learn conditional distributions given input features such as
 those of the incoming particle into a calorimeter or originating parton of a
-jet, and which will be necessary for applications to LHC simulations [<a href="Bibliography.html#XButter_2022rso">328</a>].
+jet, and which will be necessary for applications to LHC simulations [<a href="Bibliography.html#XButter_2022rso">338</a>].
 Multivariate tests are required in order to capture the correlations between
 different features, including those on which such a model is conditioned. Finally,
 it is desirable for the test’s results to be interpretable to ensure trust in the
@@ -111,14 +111,14 @@ To extend to multivariate distributions, we first review measures of
                                                                                 
 differences between probability distributions. The two prevalent, almost mutually
 exclusive,<span class="footnote-mark"><a href="#fn53x12" id="fn53x12-bk"><sup class="textsuperscript">1</sup></a></span><a id="x54-241001f1"></a>
-classes of discrepancy measures are integral probability metrics (IPMs) [<a href="Bibliography.html#Xmuller_ipms">330</a>] and
+classes of discrepancy measures are integral probability metrics (IPMs) [<a href="Bibliography.html#Xmuller_ipms">340</a>] and
 <!--  l. 63  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math>-divergences.
 An IPM <!--  l. 64  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>D</mi></mrow><mrow><mstyle mathvariant="script"><mi>F</mi></mstyle></mrow></msub></math>,
 defined as  </p><table class="equation"><tr><td>
 <!--  l. 66  --><p class="indent">
 </p><!--  l. 66  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
 <mstyle class="label" id="x54-241003r1"></mstyle><!--  endlabel  -->
-<msub><mrow><mi>D</mi></mrow><mrow><mstyle mathvariant="script"><mi>F</mi></mstyle></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>real</mi></mstyle></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>gen</mi></mstyle></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><munder class="msub"><mrow><mi class="qopname"> sup</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo> </mrow><mrow><mi>f</mi><mo class="MathClass-rel" stretchy="false">∈</mo><mstyle mathvariant="script"><mi>F</mi></mstyle></mrow></munder><mo class="MathClass-rel" stretchy="false">|</mo><msub><mrow><mi>𝔼</mi></mrow><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-rel" stretchy="false">∼</mo><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>real</mi></mstyle></mrow></msub></mrow></msub><mi>f</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>𝔼</mi></mrow><mrow><mstyle mathvariant="bold"><mi>y</mi></mstyle><mo class="MathClass-rel" stretchy="false">∼</mo><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>gen</mi></mstyle></mrow></msub></mrow></msub><mi>f</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>y</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-rel" stretchy="false">|</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+<msub><mrow><mi>D</mi></mrow><mrow><mstyle mathvariant="script"><mi>F</mi></mstyle></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>real</mi></mstyle></mrow></msub><mo class="MathClass-punc" stretchy="false">,</mo><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>gen</mi></mstyle></mrow></msub><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><munder class="msub"><mrow><mi class="qopname"> sup</mi><mo> <!--  FUNCTION APPLICATION  --> </mo> </mrow><mrow><mi>f</mi><mo class="MathClass-rel" stretchy="false">∈</mo><mstyle mathvariant="script"><mi>F</mi></mstyle></mrow></munder><mo class="MathClass-rel" stretchy="false">|</mo><msub><mrow><mi>𝔼</mi></mrow><mrow><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-rel" stretchy="false">∼</mo><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>real</mi></mstyle></mrow></msub></mrow></msub><mi>f</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>x</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-bin" stretchy="false">−</mo> <msub><mrow><mi>𝔼</mi></mrow><mrow><mstyle mathvariant="bold"><mi>y</mi></mstyle><mo class="MathClass-rel" stretchy="false">∼</mo><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>gen</mi></mstyle></mrow></msub></mrow></msub><mi>f</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>y</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-rel" stretchy="false">|</mo><mo class="MathClass-punc" stretchy="false">,</mo>
 </mrow></math></td><td class="eq-no">(11.1.1)</td></tr></table>
 <!--  l. 68  --><p class="noindent">measures the difference in two distributions,
 <!--  l. 69  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>real</mi></mstyle></mrow></msub></math> and
@@ -132,11 +132,11 @@ maximizes the absolute difference in its expected value over the two distributio
                                                                                 
 choice of <!--  l. 70  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="script"><mi>F</mi></mstyle></math>
 defines different types of IPMs. The famous Wasserstein 1-distance
-(<!--  l. 71  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>W</mi></mrow><mrow><mn>1</mn></mrow></msub></math>) [<a href="Bibliography.html#Xwasserstein_original">331</a>, <a href="Bibliography.html#Xvillani_ot">332</a>], for example, is an
+(<!--  l. 71  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>W</mi></mrow><mrow><mn>1</mn></mrow></msub></math>) [<a href="Bibliography.html#Xwasserstein_original">341</a>, <a href="Bibliography.html#Xvillani_ot">342</a>], for example, is an
 IPM for which <!--  l. 71  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="script"><mi>F</mi></mstyle></math> in Eq. (<a href="#x54-241003r1">11.1.1<!--  tex4ht:ref: eqn:ipm   --></a>)
 is the set of all <!--  l. 71  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math>-Lipschitz
 functions (where <!--  l. 71  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math>
-is any positive constant). Maximum mean discrepancy (MMD) [<a href="Bibliography.html#Xgretton_mmd">333</a>] is another popular example,
+is any positive constant). Maximum mean discrepancy (MMD) [<a href="Bibliography.html#Xgretton_mmd">343</a>] is another popular example,
 where <!--  l. 72  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="script"><mi>F</mi></mstyle></math>
 is the unit ball in a reproducing kernel Hilbert space (RKHS).
 </p><!--  l. 74  --><p class="indent"> <!--  l. 74  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math>-divergences,
@@ -160,12 +160,12 @@ in Eq. (<a href="#x54-241003r1">11.1.1<!--  tex4ht:ref: eqn:ipm   --></a>), tra
 <!--  l. 78  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>real</mi></mstyle></mrow></msub></math>. Like IPMs,
 different <!--  l. 79  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math>-divergences
 are defined by the choice of generating function. Famous examples include the
-Kullback-Leibler (KL) [<a href="Bibliography.html#Xkl">334</a>] and Jenson-Shannon (JS) [<a href="Bibliography.html#Xjs_1">335</a>, <a href="Bibliography.html#Xjs_2">336</a>] divergences, which are
+Kullback-Leibler (KL) [<a href="Bibliography.html#Xkl">344</a>] and Jenson-Shannon (JS) [<a href="Bibliography.html#Xjs_1">345</a>, <a href="Bibliography.html#Xjs_2">346</a>] divergences, which are
 widely used in information theory to capture the expected information loss when modeling
 <!--  l. 80  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>real</mi></mstyle></mrow></msub></math> by
 <!--  l. 80  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>p</mi></mrow><mrow><mstyle mathvariant="normal"><mi>gen</mi></mstyle></mrow></msub></math> (or vice versa), as well
-as the Pearson <!--  l. 80  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup></math> [<a href="Bibliography.html#Xpearson">337</a>]
-divergence and related metrics [<a href="Bibliography.html#XBaker_1983tu">338</a>–<a href="Bibliography.html#Xparametric">340</a>], which are ubiquitous in HEP as GOF
+as the Pearson <!--  l. 80  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup></math> [<a href="Bibliography.html#Xpearson">347</a>]
+divergence and related metrics [<a href="Bibliography.html#XBaker_1983tu">348</a>–<a href="Bibliography.html#Xparametric">350</a>], which are ubiquitous in HEP as GOF
 tests.
 </p><!--  l. 87  --><p class="indent">       Overall, <!--  l. 87  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math>-divergences
 can be powerful measures of discrepancies, with convenient information-theoretic
@@ -175,7 +175,7 @@ argue that IPMs are more useful for evaluating generative models and their respe
 learned distributions. An illustrative example of this is provided in Appendix <a href="FurtherDiscussiononIPMsvstexorpdfstringffDivergences.html#further-discussion-on-ipms-vs-fdivergences">D.1<!--  tex4ht:ref: app:04_evaluating_metricspace   --></a>. IPMs
 can thereby be powerful metrics with which to compare different models, with measures
 such as <!--  l. 90  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>W</mi></mrow><mrow><mn>1</mn></mrow></msub></math>
-and MMD able to metrize the weak convergence of probability measures [<a href="Bibliography.html#Xvillani_ot">332</a>, <a href="Bibliography.html#Xsimongabriel_mmdmetrizing">341</a>].
+and MMD able to metrize the weak convergence of probability measures [<a href="Bibliography.html#Xvillani_ot">342</a>, <a href="Bibliography.html#Xsimongabriel_mmdmetrizing">351</a>].
                                                                                 
 
                                                                                 
@@ -184,7 +184,7 @@ and MMD able to metrize the weak convergence of probability measures [<a href="
 the KL and the Pearson <!--  l. 97  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup></math>
 divergences is intractable in high dimensions, generally requiring partitioning
 in feature space, which suffers from the curse of dimensionality as described
-above. References [<a href="Bibliography.html#Xsriperumbudur_empirical">329</a>, <a href="Bibliography.html#Xsriperumbudur_ipms">342</a>] demonstrate more rigorously the efficacy of
+above. References [<a href="Bibliography.html#Xsriperumbudur_empirical">339</a>, <a href="Bibliography.html#Xsriperumbudur_ipms">352</a>] demonstrate more rigorously the efficacy of
 finite-sample estimation of IPMs, in comparison to the difficulty of estimating
 <!--  l. 98  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math>-divergences.
 </p>
@@ -192,50 +192,50 @@ finite-sample estimation of IPMs, in comparison to the difficulty of estimating
 <a id="x54-242000doc"></a>       
 Having argued in their favor, we discuss specific IPMs and related measures,
 and their viability as evaluation metrics. The most famous is the Wasserstein
-distance [<a href="Bibliography.html#Xwasserstein_original">331</a>, <a href="Bibliography.html#Xvillani_ot">332</a>], as defined above. It is closely related to the problem of optimal
-transport [<a href="Bibliography.html#Xvillani_ot">332</a>]: finding the minimum “cost” to transport the mass of one distribution to
+distance [<a href="Bibliography.html#Xwasserstein_original">341</a>, <a href="Bibliography.html#Xvillani_ot">342</a>], as defined above. It is closely related to the problem of optimal
+transport [<a href="Bibliography.html#Xvillani_ot">342</a>]: finding the minimum “cost” to transport the mass of one distribution to
 another, when the cost associated with the transport between two points is the
 Euclidean distance between them. This metric is sensitive to both the quality and
 diversity of generated distributions; however, its finite-sample estimator is the
 optimum of a linear program—an optimization problem with linear constraints and
-objective [<a href="Bibliography.html#Xvanderbei2013linear">343</a>], which, while tractable in 1D, is biased with very poor convergence in
+objective [<a href="Bibliography.html#Xvanderbei2013linear">353</a>], which, while tractable in 1D, is biased with very poor convergence in
                                                                                 
 
                                                                                 
-high dimensions [<a href="Bibliography.html#Xramdas_wasserstein">344</a>]. We demonstrate these characteristics empirically in
+high dimensions [<a href="Bibliography.html#Xramdas_wasserstein">354</a>]. We demonstrate these characteristics empirically in
 Sections <a href="Experimentsongaussiandistributeddata.html#experiments-on-gaussiandistributed-data">11.2<!--  tex4ht:ref: sec:04_evaluating_toydata   --></a> and <a href="Experimentsonjetdata.html#experiments-on-jet-data">11.3<!--  tex4ht:ref: sec:04_evaluating_jetdata   --></a>.
 </p><!--  l. 109  --><p class="indent">       A related <i>pseudometric</i><span class="footnote-mark"><a href="#fn54x12" id="fn54x12-bk"><sup class="textsuperscript">2</sup></a></span><a id="x54-242001f2"></a>
 is the Fréchet, or <!--  l. 109  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>W</mi></mrow><mrow><mn>2</mn></mrow></msub></math>,
 distance between Gaussian distributions fitted to the features of interest, which we
 generically call the Fréchet Gaussian distance (FGD). A form of this known as the
-Fréchet <span class="small-caps">Inception</span> distance (FID) [<a href="Bibliography.html#XTTUR">315</a>], using the activations of the <span class="small-caps">Inception</span> v3
-convolutional neural network model [<a href="Bibliography.html#Xinception_v3">345</a>] on samples of real and generated images as its
+Fréchet <span class="small-caps">Inception</span> distance (FID) [<a href="Bibliography.html#XTTUR">324</a>], using the activations of the <span class="small-caps">Inception</span> v3
+convolutional neural network model [<a href="Bibliography.html#Xinception_v3">355</a>] on samples of real and generated images as its
 features, is currently the standard metric for evaluation in computer vision. The FID
 has been shown to be sensitive to both quality and mode collapse in generative models
 and is extremely efficient to compute; however, it has the drawback of assuming
 Gaussian distributions for its features. While finite-sample estimates of the
-FGD are biased [<a href="Bibliography.html#Xbinkowski_demystifying">346</a>], Ref. [<a href="Bibliography.html#Xchong_unbiasedfid">347</a>] introduces an effectively unbiased estimator
+FGD are biased [<a href="Bibliography.html#Xbinkowski_demystifying">356</a>], Ref. [<a href="Bibliography.html#Xchong_unbiasedfid">357</a>] introduces an effectively unbiased estimator
 <!--  l. 112  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="normal"><mi>FGD</mi></mstyle></mrow><mrow><mi>∞</mi></mrow></msub></math>,
 obtained by extrapolating from multiple finite-sample estimates to the infinite-sample
 value.
-</p><!--  l. 114  --><p class="indent">       The final IPM we discuss is the MMD [<a href="Bibliography.html#Xmmd">348</a>], for which
+</p><!--  l. 114  --><p class="indent">       The final IPM we discuss is the MMD [<a href="Bibliography.html#Xmmd">358</a>], for which
 <!--  l. 114  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle mathvariant="script"><mi>F</mi></mstyle></math> is the unit ball in an
 RKHS for a chosen kernel <!--  l. 114  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>k</mi><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>y</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>.
 Intuitively, it is the distance between the mean embeddings of the two distributions in
-the RKHS, and it has been demonstrated to be a powerful two-sample test [<a href="Bibliography.html#Xgretton_mmd">333</a>, <a href="Bibliography.html#Xliu_deepkernels">349</a>].
+the RKHS, and it has been demonstrated to be a powerful two-sample test [<a href="Bibliography.html#Xgretton_mmd">343</a>, <a href="Bibliography.html#Xliu_deepkernels">359</a>].
 However, generally, high sensitivity requires tuning the kernel based on the two sets of
                                                                                 
 
                                                                                 
 samples. For example, the traditional choice is a radial basis function kernel, where
-kernel bandwidth is typically chosen based on the statistics of the two samples [<a href="Bibliography.html#Xgretton_mmd">333</a>].
+kernel bandwidth is typically chosen based on the statistics of the two samples [<a href="Bibliography.html#Xgretton_mmd">343</a>].
 While such a kernel has the advantage of being characteristic—i.e., it produces an
-injective embedding [<a href="Bibliography.html#Xsriperumbudur_rkhs">350</a>]—to maintain a standard and reproducible metric, we
+injective embedding [<a href="Bibliography.html#Xsriperumbudur_rkhs">360</a>]—to maintain a standard and reproducible metric, we
 experiment instead with fixed polynomial kernels of different orders. These kernels allow
 access to high order moments of the distributions and have been proposed in computer
-vision as an alternative to FID, termed kernel <span class="small-caps">Inception</span> distance (KID) [<a href="Bibliography.html#Xbinkowski_demystifying">346</a>]. MMD
-has unbiased estimators [<a href="Bibliography.html#Xgretton_mmd">333</a>], which have shown to converge quickly even in high
-dimensions [<a href="Bibliography.html#Xbinkowski_demystifying">346</a>].
+vision as an alternative to FID, termed kernel <span class="small-caps">Inception</span> distance (KID) [<a href="Bibliography.html#Xbinkowski_demystifying">356</a>]. MMD
+has unbiased estimators [<a href="Bibliography.html#Xgretton_mmd">343</a>], which have shown to converge quickly even in high
+dimensions [<a href="Bibliography.html#Xbinkowski_demystifying">356</a>].
 </p>
 <!--  l. 123  --><p class="noindent"><span class="paragraphHead" id="manifold-estimation"><a id="x54-243000"></a><span class="ec-lmbx-12">Manifold estimation</span></span>
 Another form of evaluation metrics recently popularized in computer vision
@@ -243,7 +243,7 @@ involves estimating the underlying manifold of the real and generated samples. W
 computationally challenging, such metrics can be intuitive and allow us to disentangle
 the aspects of quality and diversity of the generated samples, which can be valuable in
 diagnosing individual failure modes of generative models. The most popular metrics are
-“precision” and “recall” as defined in Ref. [<a href="Bibliography.html#Xkynkaanniemi_pr">351</a>]. For these, manifolds are first estimated
+“precision” and “recall” as defined in Ref. [<a href="Bibliography.html#Xkynkaanniemi_pr">361</a>]. For these, manifolds are first estimated
 as the union of spheres centered on each sample with radii equal to the distance to the
 <!--  l. 128  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math>th-nearest
 neighbor. Precision is defined as the number of generated points which lie within the
@@ -251,21 +251,21 @@ neighbor. Precision is defined as the number of generated points which lie withi
 
                                                                                 
 real manifold, and recall as the number of real points within the generated manifold.
-Alternatives, named diversity and coverage, are proposed in Ref. [<a href="Bibliography.html#Xnaeem_dc">352</a>] with a similar
+Alternatives, named diversity and coverage, are proposed in Ref. [<a href="Bibliography.html#Xnaeem_dc">362</a>] with a similar
 approach, but which use only the real manifold, and take into account the density of the
 spheres rather than just their union. We study the efficacy of both pairs of metrics for
 our problem in Sections <a href="Experimentsongaussiandistributeddata.html#experiments-on-gaussiandistributed-data">11.2<!--  tex4ht:ref: sec:04_evaluating_toydata   --></a> and <a href="Experimentsonjetdata.html#experiments-on-jet-data">11.3<!--  tex4ht:ref: sec:04_evaluating_jetdata   --></a>.
 </p>
 <!--  l. 134  --><p class="noindent"><span class="paragraphHead" id="classifierbased-metrics"><a id="x54-244000"></a><span class="ec-lmbx-12">Classifier-based metrics</span></span>
-Finally, an alternative class of GOF tests proposed in Refs. [<a href="Bibliography.html#Xliu_deepkernels">349</a>, <a href="Bibliography.html#Xfriedman_gof">353</a>, <a href="Bibliography.html#Xlopez_paz_c2st">354</a>], and
-most relevantly in Ref. [<a href="Bibliography.html#Xkrause_caloflow">355</a>] and the fast calorimeter simulation challenge [<a href="Bibliography.html#Xcalochallenge">356</a>] to
+Finally, an alternative class of GOF tests proposed in Refs. [<a href="Bibliography.html#Xliu_deepkernels">359</a>, <a href="Bibliography.html#Xfriedman_gof">363</a>, <a href="Bibliography.html#Xlopez_paz_c2st">364</a>], and
+most relevantly in Ref. [<a href="Bibliography.html#Xkrause_caloflow">365</a>] and the fast calorimeter simulation challenge [<a href="Bibliography.html#Xcalochallenge">366</a>] to
 evaluate simulated calorimeter showers, are based on binary classifiers trained between
 real and generated data. These tests have been posited to have sensitivity
 to both quality and diversity; however, they have significant practical and
 conceptual drawbacks in terms of understanding and comparing generative
 models.
 </p><!--  l. 139  --><p class="indent">       First, deep neural networks (DNNs) are widely considered uninterpretable black
-boxes [<a href="Bibliography.html#Xblack_box">357</a>], hence it is difficult to discern which features of the generated data the
+boxes [<a href="Bibliography.html#Xblack_box">367</a>], hence it is difficult to discern which features of the generated data the
 network is identifying as discrepant or compatible. Second, the performance of DNNs is
 highly dependent on both the architecture and dataset, and it is unclear how to specify
 a standard architecture sensitive to all possible discrepancies for all datasets.
@@ -278,15 +278,15 @@ states and hyperparameters irrelevant to the problem, difficult to reproduce, an
 efficient.
 </p><!--  l. 143  --><p class="indent">       In terms of GOF testing, evaluating the performance of an individual
 generative model requires a more careful understanding of the null distribution
-of the test statistic than is proposed in Refs. [<a href="Bibliography.html#Xkrause_caloflow">355</a>, <a href="Bibliography.html#Xcalochallenge">356</a>], such as by using a
-permutation test as suggested in Refs. [<a href="Bibliography.html#Xliu_deepkernels">349</a>, <a href="Bibliography.html#Xfriedman_gof">353</a>] or retraining the model numerous
+of the test statistic than is proposed in Refs. [<a href="Bibliography.html#Xkrause_caloflow">365</a>, <a href="Bibliography.html#Xcalochallenge">366</a>], such as by using a
+permutation test as suggested in Refs. [<a href="Bibliography.html#Xliu_deepkernels">359</a>, <a href="Bibliography.html#Xfriedman_gof">363</a>] or retraining the model numerous
 times between samples from the true distribution as proposed recently in
-Refs. [<a href="Bibliography.html#Xdagnolo_nplm">358</a>, <a href="Bibliography.html#Xdagnolo_lmnp">359</a>] with applications to HEP searches. However, even if such a test was
+Refs. [<a href="Bibliography.html#Xdagnolo_nplm">368</a>, <a href="Bibliography.html#Xdagnolo_lmnp">369</a>] with applications to HEP searches. However, even if such a test was
 performed for each model, which would itself be practically burdensome, it
 would remain difficult to fairly compare models, as, since different classifiers are
 trained for each model, this means comparing values of entirely different test
 statistics.<span class="footnote-mark"><a href="#fn55x12" id="fn55x12-bk"><sup class="textsuperscript">3</sup></a></span><a id="x54-244001f3"></a>
-Despite these drawbacks, we perform the classifier-based test from Refs. [<a href="Bibliography.html#Xkrause_caloflow">355</a>, <a href="Bibliography.html#Xcalochallenge">356</a>] in
+Despite these drawbacks, we perform the classifier-based test from Refs. [<a href="Bibliography.html#Xkrause_caloflow">365</a>, <a href="Bibliography.html#Xcalochallenge">366</a>] in
 Section <a href="Experimentsonjetdata.html#experiments-on-jet-data">11.3<!--  tex4ht:ref: sec:04_evaluating_jetdata   --></a> and find that, perhaps surprisingly, it is insensitive to a large class of
 failures typical of ML generative models.
 </p><!--  l. 150  --><p class="noindent">
@@ -316,8 +316,8 @@ unnecessary for HEP applications, as we have already developed a variety of mean
                                                                                 
 
                                                                                 
-hand-engineered features such as jet observables [<a href="Bibliography.html#XKomiske_2017aww">313</a>, <a href="Bibliography.html#Xmarzani_jets">360</a><span class="ec-lmbx-12">? </span>] and shower-shape
-variables [<a href="Bibliography.html#Xbaffioni_electronrecocms">361</a>, <a href="Bibliography.html#Xatlas_photonrecoatlas">362</a>]. Such variables may lead to a more efficient, more easily
+hand-engineered features such as jet observables [<a href="Bibliography.html#XKomiske_2017aww">322</a>, <a href="Bibliography.html#Xlarkoski2020jet">326</a>, <a href="Bibliography.html#Xmarzani_jets">370</a>] and shower-shape
+variables [<a href="Bibliography.html#Xbaffioni_electronrecocms">371</a>, <a href="Bibliography.html#Xatlas_photonrecoatlas">372</a>]. Such variables may lead to a more efficient, more easily
 standardized, and interpretable test. We experiment with both types of features in
 Section <a href="Experimentsonjetdata.html#experiments-on-jet-data">11.3<!--  tex4ht:ref: sec:04_evaluating_jetdata   --></a>.
                                                                                 
@@ -326,12 +326,12 @@ Section <a href="Experimentsonjetdata.html#experiments-on-jet-data">11.3<!--  t
 </p>
 <nav class="crosslinks-bottom"> <a href="Validatingandcomparingfastsimulations.html">⭠</a> <a href="Experimentsongaussiandistributeddata.html">⭢</a> </nav> <div class="footnotes"><a id="x54-241002x"></a>
 <!--  l. 63  --><p class="indent"> <span class="footnote-mark"><a href="#fn53x12-bk" id="fn53x12"><sup class="textsuperscript">1</sup></a></span><span class="ec-lmr-10">The total variation distance is the only nontrivial discrepancy measure that is both an IPM and an</span>
-<!--  l. 63  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math><span class="ec-lmr-10">-divergence [</span><a href="Bibliography.html#Xsriperumbudur_empirical"><span class="ec-lmr-10">329</span></a><span class="ec-lmr-10">,
+<!--  l. 63  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math><span class="ec-lmr-10">-divergence [</span><a href="Bibliography.html#Xsriperumbudur_empirical"><span class="ec-lmr-10">339</span></a><span class="ec-lmr-10">,
 Appendix A]; however, to our knowledge, a consistent finite-sample estimator for it does not exist (see,
-for example, Ref. [</span><a href="Bibliography.html#Xsriperumbudur_empirical"><span class="ec-lmr-10">329</span></a><span class="ec-lmr-10">, Section 5]).</span></p><a id="x54-242002x"></a>
+for example, Ref. [</span><a href="Bibliography.html#Xsriperumbudur_empirical"><span class="ec-lmr-10">339</span></a><span class="ec-lmr-10">, Section 5]).</span></p><a id="x54-242002x"></a>
 <!--  l. 109  --><p class="indent"> <span class="footnote-mark"><a href="#fn54x12-bk" id="fn54x12"><sup class="textsuperscript">2</sup></a></span><span class="ec-lmr-10">This is a pseudometric because distinct distributions can have a distance of 0 if they have
 the same means and covariances.</span></p><a id="x54-244002x"></a>
-<!--  l. 144  --><p class="indent"> <span class="footnote-mark"><a href="#fn55x12-bk" id="fn55x12"><sup class="textsuperscript">3</sup></a></span><span class="ec-lmr-10">In the case of Refs. [</span><a href="Bibliography.html#Xdagnolo_nplm"><span class="ec-lmr-10">358</span></a><span class="ec-lmr-10">, </span><a href="Bibliography.html#Xdagnolo_lmnp"><span class="ec-lmr-10">359</span></a><span class="ec-lmr-10">] the test statistic remains the same, but estimating the null
+<!--  l. 144  --><p class="indent"> <span class="footnote-mark"><a href="#fn55x12-bk" id="fn55x12"><sup class="textsuperscript">3</sup></a></span><span class="ec-lmr-10">In the case of Refs. [</span><a href="Bibliography.html#Xdagnolo_nplm"><span class="ec-lmr-10">368</span></a><span class="ec-lmr-10">, </span><a href="Bibliography.html#Xdagnolo_lmnp"><span class="ec-lmr-10">369</span></a><span class="ec-lmr-10">] the test statistic remains the same, but estimating the null
 distribution is even more practically challenging, as it involves multiple trainings of the
 classifier.</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
 </body>

@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -33,28 +33,28 @@
 <span class="appendixToc">E <a href="SupplementaryMaterialforChapterrefsec06lgae.html#supplementary-material-for-chapterref-seclgae">Supplementary Material for Chapter 16</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="SupplementaryMaterialforChapterrefsec04evaluating.html">⭠</a> <a href="FurtherDiscussiononGaussianDatasetExperiments.html">⭢</a> </nav>
 <h3 class="sectionHead" id="further-discussion-on-ipms-vs-fdivergences"><span class="titlemark">D.1   </span> <a id="x94-364000D.1"></a>Further Discussion on IPMs vs.
-<!--  l. 154  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math>-Divergences</h3>
-<!--  l. 157  --><p class="noindent">A crucial advantage of IPMs in evaluating generative models is that they
+<!--  l. 164  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math>-Divergences</h3>
+<!--  l. 167  --><p class="noindent">A crucial advantage of IPMs in evaluating generative models is that they
 consider the metric space of the distributions. We illustrate this with the help
-of Figure <a href="#example-real-and-generated-jet-mass-distributions-used-to-illustrate-the-benefit-of-ipms-in-appendixref-appevaluatingmetricspace-based-on-refs-grettontalk-wstackoverflow">D.1<!--  tex4ht:ref: fig:04_evaluating_metricspace   --></a>, inspired heavily by Refs. [<a href="Bibliography.html#Xgretton_talk">62</a>, <a href="Bibliography.html#Xw1_stackoverflow">63</a>], which shows an example
+of Figure <a href="#example-real-and-generated-jet-mass-distributions-used-to-illustrate-the-benefit-of-ipms-in-appendixref-appevaluatingmetricspace-based-on-refs-grettontalk-wstackoverflow">D.1<!--  tex4ht:ref: fig:04_evaluating_metricspace   --></a>, inspired heavily by Refs. [<a href="Bibliography.html#Xgretton_talk">63</a>, <a href="Bibliography.html#Xw1_stackoverflow">64</a>], which shows an example
 real (in red) and two generated (in blue) jet mass distributions. Clearly, in
 the context of simulation, the second generated distribution contains a peak
 closer to the real peak and, hence, is a better model. However, because
-<!--  l. 160  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math>-divergences such
-as the KL or <!--  l. 160  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup></math>
+<!--  l. 170  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math>-divergences such
+as the KL or <!--  l. 170  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mi>χ</mi></mrow><mrow><mn>2</mn></mrow></msup></math>
 look only at the pointwise difference between distributions, they find both generated
 distributions to be as discrepant with the real. IPMs like the Wasserstein metric or
 MMD, on the other hand, generally identify the second distribution as being closer to
 the real.
 </p>
 <figure class="figure">
-<!--  l. 164  --><p class="noindent" id="example-real-and-generated-jet-mass-distributions-used-to-illustrate-the-benefit-of-ipms-in-appendixref-appevaluatingmetricspace-based-on-refs-grettontalk-wstackoverflow"> <img alt="PIC" src="figures/04-ML4Sim/evaluating/metricspace-.png" style="max-width:100%"/> <a id="x94-364001r1"></a>
+<!--  l. 174  --><p class="noindent" id="example-real-and-generated-jet-mass-distributions-used-to-illustrate-the-benefit-of-ipms-in-appendixref-appevaluatingmetricspace-based-on-refs-grettontalk-wstackoverflow"> <img alt="PIC" src="figures/04-ML4Sim/evaluating/metricspace-.png" style="max-width:100%"/> <a id="x94-364001r1"></a>
 </p>
 <figcaption class="caption"><span class="id"><span class="ec-lmbx-12">Figure D.1. </span></span><span class="content">Example real and generated jet mass distributions used to illustrate
-the benefit of IPMs in Appendix <a href="#further-discussion-on-ipms-vs-fdivergences">D.1<!--  tex4ht:ref: app:04_evaluating_metricspace   --></a>, based on Refs. [<a href="Bibliography.html#Xgretton_talk">62</a>, <a href="Bibliography.html#Xw1_stackoverflow">63</a>].
+the benefit of IPMs in Appendix <a href="#further-discussion-on-ipms-vs-fdivergences">D.1<!--  tex4ht:ref: app:04_evaluating_metricspace   --></a>, based on Refs. [<a href="Bibliography.html#Xgretton_talk">63</a>, <a href="Bibliography.html#Xw1_stackoverflow">64</a>].
 </span></figcaption><!--  tex4ht:label?: x94-364001r1   -->
 </figure>
 <nav class="crosslinks-bottom"> <a href="SupplementaryMaterialforChapterrefsec04evaluating.html">⭠</a> <a href="FurtherDiscussiononGaussianDatasetExperiments.html">⭢</a> </nav> <div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>

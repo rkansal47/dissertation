@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -36,7 +36,7 @@
 <span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="Freescalarfieldtheory.html">⭠</a> <a href="Gaugetheories.html">⭢</a> </nav>
 <h3 class="sectionHead" id="interactions"><span class="titlemark">3.2   </span> <a id="x20-410003.2"></a>Interactions</h3>
 <div class="center">
@@ -129,7 +129,7 @@ parametrize them as generic operators in the Lagrangian which are suppressed by 
 <!--  l. 414  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mo class="MathClass-open" stretchy="false">(</mo><mi>E</mi><mo class="MathClass-bin" stretchy="false">∕</mo><mi mathvariant="normal">Λ</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow><mrow><mi>n</mi><mo class="MathClass-bin" stretchy="false">−</mo><mn>4</mn></mrow></msup></math>,
 where <!--  l. 414  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">Λ</mi></math>
 is the energy scale at which we expect these interactions to become relevant. This is
-(one of) the ideas behind <i>effective field theory</i> (EFT) [<a href="Bibliography.html#XManohar_2018aog">95</a>, <a href="Bibliography.html#XIsidori_2023pyp">96</a>].
+(one of) the ideas behind <i>effective field theory</i> (EFT) [<a href="Bibliography.html#XManohar_2018aog">96</a>, <a href="Bibliography.html#XIsidori_2023pyp">97</a>].
 </p><!--  l. 417  --><p class="noindent">
 </p>
 <h5 class="subsubsectionHead" id="renormalizability"><a id="x20-47000"></a>Renormalizability</h5>
@@ -181,7 +181,7 @@ particles</i>.<span class="footnote-mark"><a href="#fn14x4" id="fn14x4-bk"><sup 
 The S-matrix elements between particles are the physical quantities we measure: they
 are the basic <i>observables</i> of QFT.
 </p><!--  l. 444  --><p class="indent">       Formally, fields and particles are related through the LSZ reduction
-formula [<a href="Bibliography.html#XLehmann_1954rq">97</a>], which expresses S-matrix elements in terms of the Green functions of the
+formula [<a href="Bibliography.html#XLehmann_1954rq">98</a>], which expresses S-matrix elements in terms of the Green functions of the
 field (Section <a href="Freescalarfieldtheory.html#propagators-and-green-functions">3.1.4<!--  tex4ht:ref: sec:01_qft_quantization_propagators   --></a>). The formula states that the S-matrix element between
 <!--  l. 445  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math> incoming
 and <!--  l. 445  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math>
@@ -221,9 +221,9 @@ is called a <i>Yukawa interaction</i>, and the weak coupling condition is
 </p><!--  l. 464  --><p class="indent">       A similar theory was originally developed by Hideki
 Yukawa to model the strong nuclear force between nucleons
 (<!--  l. 464  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ψ</mi></math>) via a hypothesized
-meson (<!--  l. 464  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>) [<a href="Bibliography.html#XYukawa_1935xg">98</a>].
+meson (<!--  l. 464  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math>) [<a href="Bibliography.html#XYukawa_1935xg">99</a>].
 Indeed, such a meson was discovered a decade later via cosmic rays, and is called the
-pion [<a href="Bibliography.html#XLattes_1947mw">99</a>]. Nobel Prizes were awarded for both the prediction and discovery. The
+pion [<a href="Bibliography.html#XLattes_1947mw">100</a>]. Nobel Prizes were awarded for both the prediction and discovery. The
 difference in our theory is the scalar rather than fermionic nucleon, for simplicity; we
 will still, however, be able to reproduce the iconic physical feature of the theory: the
 Yukawa potential.
@@ -530,7 +530,7 @@ Klein-Gordon equation for a delta-function source: </p><table class="equation"><
 <!--  l. 607  --><p class="indent">
 </p><!--  l. 607  --><math class="equation" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><mrow>
 <mstyle class="label" id="x20-56002r10"></mstyle><!--  endlabel  -->
-<mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi class="MathClass-op">∇</mi><mo> ⁡<!--  FUNCTION APPLICATION  --></mo></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>m</mi></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mi>ϕ</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>r</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>δ</mi></mrow><mrow><mn>3</mn></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>r</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
+<mo class="MathClass-open" stretchy="false">(</mo><msup><mrow><mi class="MathClass-op">∇</mi><mo> <!--  FUNCTION APPLICATION  --></mo></mrow><mrow><mn>2</mn></mrow></msup> <mo class="MathClass-bin" stretchy="false">−</mo> <msup><mrow><mi>m</mi></mrow><mrow><mn>2</mn></mrow></msup><mo class="MathClass-close" stretchy="false">)</mo><mi>ϕ</mi><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>r</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo> <msup><mrow><mi>δ</mi></mrow><mrow><mn>3</mn></mrow></msup><mo class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold"><mi>r</mi></mstyle><mo class="MathClass-close" stretchy="false">)</mo><mo class="MathClass-punc" stretchy="false">,</mo>
 </mrow></math></td><td class="eq-no">(3.2.10)</td></tr></table>
 <!--  l. 610  --><p class="noindent">can be found via the Fourier transform to be: </p><table class="equation"><tr><td>
 <!--  l. 612  --><p class="indent">
@@ -602,7 +602,7 @@ obtain the same potential for nucleon-nucleon scattering and, more generally, th
 forces mediated by scalars are attractive. In fact, this is true for spin-2 particles as well,
 which is why gravity is universally attractive! On the other hand, forces mediated by
 spin-1 particles, such as EM, can be either attractive or repulsive, with the charges of
-the particles involved determining the sign of each diagram. See e.g. Zee QFT [<a href="Bibliography.html#XZee_2003mt">79</a>]
+the particles involved determining the sign of each diagram. See e.g. Zee QFT [<a href="Bibliography.html#XZee_2003mt">80</a>]
 Chapter I.5 for a useful discussion.
 </p><!--  l. 643  --><p class="noindent">
 </p>
@@ -828,7 +828,7 @@ we have at tree level: </p><table class="equation"><tr><td>
 <mi>m</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></mfrac> </mrow><mo fence="true" form="postfix">)</mo></mrow> </mrow><mrow><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn></mrow></msup><mo class="MathClass-punc" stretchy="false">,</mo>
 </mrow></math></td><td class="eq-no">(3.2.25)</td></tr></table>
 <!--  l. 773  --><p class="noindent">where we performed the integral over <!--  l. 774  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>d</mi><msub><mrow><mi mathvariant="normal">Π</mi></mrow><mrow><mstyle mathvariant="normal"><mi>LIPS</mi></mstyle></mrow></msub></mrow></math>
-(see Ref. [<a href="Bibliography.html#XXianyuPSSolutions">100</a>] 4.2). This is in fact not too far off the expression for the decay width of
+(see Ref. [<a href="Bibliography.html#XXianyuPSSolutions">101</a>] 4.2). This is in fact not too far off the expression for the decay width of
 the Higgs boson to fermions. What we are missing of course is that fermions are
 spin-<!--  l. 776  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mn>1</mn></mrow>
 <mrow>
@@ -840,14 +840,14 @@ field theory, detailed in Appendix <a href="Spinorfieldtheory.html#spinor-field
                                                                                 
 </p>
 <nav class="crosslinks-bottom"> <a href="Freescalarfieldtheory.html">⭠</a> <a href="Gaugetheories.html">⭢</a> </nav> <div class="footnotes"><a id="x20-48002x3.2.2"></a>
-<!--  l. 441  --><p class="indent"> <span class="footnote-mark"><a href="#fn14x4-bk" id="fn14x4"><sup class="textsuperscript">5</sup></a></span><span class="ec-lmr-10">This point is well emphasized in Aneesh Manohar’s notes on EFT [</span><a href="Bibliography.html#XManohar_2018aog"><span class="ec-lmr-10">95</span></a><span class="ec-lmr-10">].</span></p><a id="x20-48004x3.2.2"></a>
-<!--  l. 445  --><p class="indent"> <span class="footnote-mark"><a href="#fn15x4-bk" id="fn15x4"><sup class="textsuperscript">6</sup></a></span><span class="ec-lmr-10">Useful discussions of this can be found in Peskin and Schroeder [</span><a href="Bibliography.html#XPeskin_1995ev"><span class="ec-lmr-10">80</span></a><span class="ec-lmr-10">] Chapter 7 and
-Schwartz [</span><a href="Bibliography.html#XSchwartz_2014sze"><span class="ec-lmr-10">85</span></a><span class="ec-lmr-10">] Chapter 6.</span></p><a id="x20-51003x7"></a>
-<!--  l. 507  --><p class="indent"> <span class="footnote-mark"><a href="#fn16x4-bk" id="fn16x4"><sup class="textsuperscript">7</sup></a></span><span class="ec-lmr-10">These are derived nicely in Peskin and Schroeder [</span><a href="Bibliography.html#XPeskin_1995ev"><span class="ec-lmr-10">80</span></a><span class="ec-lmr-10">] Chapter 4.7, albeit with
+<!--  l. 441  --><p class="indent"> <span class="footnote-mark"><a href="#fn14x4-bk" id="fn14x4"><sup class="textsuperscript">5</sup></a></span><span class="ec-lmr-10">This point is well emphasized in Aneesh Manohar’s notes on EFT [</span><a href="Bibliography.html#XManohar_2018aog"><span class="ec-lmr-10">96</span></a><span class="ec-lmr-10">].</span></p><a id="x20-48004x3.2.2"></a>
+<!--  l. 445  --><p class="indent"> <span class="footnote-mark"><a href="#fn15x4-bk" id="fn15x4"><sup class="textsuperscript">6</sup></a></span><span class="ec-lmr-10">Useful discussions of this can be found in Peskin and Schroeder [</span><a href="Bibliography.html#XPeskin_1995ev"><span class="ec-lmr-10">81</span></a><span class="ec-lmr-10">] Chapter 7 and
+Schwartz [</span><a href="Bibliography.html#XSchwartz_2014sze"><span class="ec-lmr-10">86</span></a><span class="ec-lmr-10">] Chapter 6.</span></p><a id="x20-51003x7"></a>
+<!--  l. 507  --><p class="indent"> <span class="footnote-mark"><a href="#fn16x4-bk" id="fn16x4"><sup class="textsuperscript">7</sup></a></span><span class="ec-lmr-10">These are derived nicely in Peskin and Schroeder [</span><a href="Bibliography.html#XPeskin_1995ev"><span class="ec-lmr-10">81</span></a><span class="ec-lmr-10">] Chapter 4.7, albeit with
 fermionic electrons instead of our scalar “nucleons”.</span></p><a id="x20-53002x"></a>
 <!--  l. 545  --><p class="indent"> <span class="footnote-mark"><a href="#fn17x4-bk" id="fn17x4"><sup class="textsuperscript">8</sup></a></span><span class="ec-lmr-10">To quote Hong Liu, “In physics, when we don’t understand something, we give it a name
-and then claim we understand it.” [</span><a href="Bibliography.html#XLiuRQFT"><span class="ec-lmr-10">81</span></a><span class="ec-lmr-10">].</span></p><a id="x20-55002x"></a>
+and then claim we understand it.” [</span><a href="Bibliography.html#XLiuRQFT"><span class="ec-lmr-10">82</span></a><span class="ec-lmr-10">].</span></p><a id="x20-55002x"></a>
 <!--  l. 580  --><p class="indent"> <span class="footnote-mark"><a href="#fn18x4-bk" id="fn18x4"><sup class="textsuperscript">9</sup></a></span><span class="ec-lmr-10">We are saved from this potential infinity by a factor to be added to the denominator due
-to meson decay (Tong SM [</span><a href="Bibliography.html#XTongSM"><span class="ec-lmr-10">75</span></a><span class="ec-lmr-10">] Chapter 3.5).</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
+to meson decay (Tong SM [</span><a href="Bibliography.html#XTongSM"><span class="ec-lmr-10">76</span></a><span class="ec-lmr-10">] Chapter 3.5).</span></p> </div><div class="footer"><p>Copyright © 2024 Raghav Kansal. All rights reserved.</p></div></main>
 </body>
 </html>

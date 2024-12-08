@@ -288,10 +288,21 @@ span.dotuline, .dotuline-math {text-decoration:underline dotted;}
 .uuline-math{ border-bottom:3px double black; }
 .dashuline-math {border-bottom: 1px dashed black;}
 .dotuline-math {border-bottom: 1px dotted black;}
+#textcolor1{color:#DC3522}
+#textcolor2{color:#DC3522}
+#textcolor3{color:#DC3522}
+#textcolor4{color:#DC3522}
+#textcolor5{color:#DC3522}
+#textcolor6{color:#DC3522}
+#textcolor7{color:#DC3522}
+#textcolor8{color:#DC3522}
+#textcolor9{color:#DC3522}
+#textcolor10{color:#DC3522}
+#textcolor11{color:#DC3522}
+#textcolor12{color:#DC3522}
 #adjustbox-1{border: 0.03334em solid black;padding: 0.25em;}
 #adjustbox-2{border: 0.03334em solid black;padding: 0.25em;}
 #adjustbox-3{border: 0.03334em solid black;padding: 0.25em;}
 #adjustbox-4{border: 0.03334em solid black;padding: 0.25em;}
 /* end css.sty */
 
-.textcolor-DC3522{color:#DC3522;}

@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -35,11 +35,11 @@ searches in the all-hadronic bbVV channel</a></span>
 <span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="BoostedHiggsidentification.html">⭠</a> <a href="GloParTfortexorpdfstringhyvvHY→VVclassification.html">⭢</a> </nav>
 <h3 class="sectionHead" id="particlenet-for-b-b-jet-tagging-and-mass-regression"><span class="titlemark">13.1   </span> <a id="x62-26100013.1"></a>ParticleNet for <!--  l. 16  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>-jet
 tagging and mass regression</h3>
-<!--  l. 19  --><p class="noindent">A ParticleNet model [<a href="Bibliography.html#XCMS-DP-2020-002">383</a>] has been trained to classify between background quark and gluon
+<!--  l. 19  --><p class="noindent">A ParticleNet model [<a href="Bibliography.html#XCMS-DP-2020-002">393</a>] has been trained to classify between background quark and gluon
 (QCD) jets and signal jets from a boosted spin-0 resonance (X) of mass varying between 15
 and 250 <!--  l. 19  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mspace class="thinspace" width="0.17em"></mspace><mstyle class="text"><mtext>GeV</mtext></mstyle></mrow></math>
 and decaying into a pair of quarks, which are categorized into heavy and light flavors:
@@ -74,11 +74,11 @@ as outputted by ParticleNet. This discriminator has shown to be highly performan
 <!--  l. 29  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
 vs QCD tagging, for example, in the CMS boosted
 <!--  l. 29  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle><mstyle class="text"><mtext class="textrm" mathvariant="normal">H</mtext></mstyle> <mo class="MathClass-rel" stretchy="false">→</mo><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle><mover accent="true"><mrow><mstyle class="text"><mtext class="textrm" mathvariant="normal">b</mtext></mstyle></mrow><mo accent="true">¯</mo></mover></mrow></math>
-analysis [<a href="Bibliography.html#XCMS_2022gjd">160</a>].
+analysis [<a href="Bibliography.html#XCMS_2022gjd">162</a>].
 </p><!--  l. 31  --><p class="indent">       A similar model is also used to regress the mass of wide-radius jets. It is trained
 on the same set of samples but trained to learn the “true” jet mass, defined as
 the X mass in the case of signal jets and the generator-level jet mass in the
-case of QCD jets. A comparison of the traditional soft-drop algorithm [<a href="Bibliography.html#XLarkoski_2014wba">384</a>]
+case of QCD jets. A comparison of the traditional soft-drop algorithm [<a href="Bibliography.html#XLarkoski_2014wba">394</a>]
 (<!--  l. 33  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>SD</mi></mstyle></mrow></msub></math>)
 for mass reconstruction and the ParticleNet regressed mass
 (<!--  l. 33  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mi>m</mi></mrow><mrow><mstyle mathvariant="normal"><mi>reg</mi></mstyle></mrow></msub></math>) is shown in

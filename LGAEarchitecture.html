@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -33,7 +33,7 @@
 <span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="Introduction3.html">⭠</a> <a href="Experiments.html">⭢</a> </nav>
 <h3 class="sectionHead" id="lgae-architecture"><span class="titlemark">16.2   </span> <a id="x78-28500016.2"></a>LGAE architecture</h3>
 <figure class="figure">
@@ -52,22 +52,22 @@ channels;                           it                           appears        
 in Eq. (<a href="#x78-286004r4">16.2.4<!--  tex4ht:ref: eq:06_lgae_update   --></a>).                                                                 </span></figcaption><!--  tex4ht:label?: x78-285001r1   -->
 </figure>
 <!--  l. 126  --><p class="indent">       The LGAE is built out of Lorentz group-equivariant message passing (LMP)
-layers, which are identical to individual layers in the LGN [<a href="Bibliography.html#Xbogatskiy2020lorentz">53</a>]. We reinterpret them in
-the framework of message-passing neural networks [<span class="ec-lmbx-12">? </span>], to highlight the connection
+layers, which are identical to individual layers in the LGN [<a href="Bibliography.html#Xbogatskiy2020lorentz">54</a>]. We reinterpret them in
+the framework of message-passing neural networks [<a href="Bibliography.html#Xgilmer2017neural">423</a>], to highlight the connection
 to GNNs, and define them in Section <a href="#lmp-layers-">16.2.1<!--  tex4ht:ref: sec:06_lgae_lmp   --></a>. We then describe the encoder
 and decoder networks in Sections <a href="#encoder-">16.2.2<!--  tex4ht:ref: sec:06_lgae_lgaee   --></a> and <a href="#decoder-">16.2.3<!--  tex4ht:ref: sec:06_lgae_lgaed   --></a>, respectively. The LMP
 layers and LGAE architecture are depicted in Figure <a href="#individual-lorentz-group-equivariant-message-passing-lmp-layers-are-shown-on-the-left-and-the-lgae-architecture-is-built-out-of-lmps-on-the-right">16.1<!--  tex4ht:ref: fig:06_lgae_architecture-full   --></a>. We provide the
-LGAE code, written in Python using the <span class="small-caps">PyTorch</span> ML framework [<a href="Bibliography.html#Xpytorch">412</a>] in
-Ref. [<a href="Bibliography.html#XLGAE_code">413</a>].
+LGAE code, written in Python using the <span class="small-caps">PyTorch</span> ML framework [<a href="Bibliography.html#Xpytorch">424</a>] in
+Ref. [<a href="Bibliography.html#XLGAE_code">425</a>].
 </p>
 <h4 class="subsectionHead" id="lmp-layers-"><span class="titlemark">16.2.1   </span> <a id="x78-28600016.2.1"></a>LMP layers </h4>
 <!--  l. 134  --><p class="noindent">LMP layers take as inputs fully-connected graphs with nodes representing particles and
 the Minkowski distance between respective node 4-vectors as edge features. Each node
 <!--  l. 135  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mstyle mathvariant="script"><mi>F</mi></mstyle></mrow><mrow><mi>i</mi></mrow></msub></math> is
 defined by its features, all transforming under a corresponding irrep of the Lorentz
-group in the canonical basis [<a href="Bibliography.html#Xgelfand2018representations">239</a>], including at least one 4-vector (transforming under
+group in the canonical basis [<a href="Bibliography.html#Xgelfand2018representations">242</a>], including at least one 4-vector (transforming under
 the <!--  l. 135  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-punc" stretchy="false">,</mo> <mn>1</mn><mo class="MathClass-bin" stretchy="false">∕</mo><mn>2</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
-representation) representing its 4-momentum. As in Ref [<a href="Bibliography.html#Xbogatskiy2020lorentz">53</a>], we
+representation) representing its 4-momentum. As in Ref [<a href="Bibliography.html#Xbogatskiy2020lorentz">54</a>], we
 denote the number of features in each node transforming under the
                                                                                 
 

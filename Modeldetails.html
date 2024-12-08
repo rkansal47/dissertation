@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -35,7 +35,7 @@
 <span class="sectionToc">E.3 <a href="Equivariancetests.html#equivariance-tests">Equivariance tests</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="SupplementaryMaterialforChapterrefsec06lgae.html">⭠</a> <a href="Trainingdetails.html">⭢</a> </nav>
 <h3 class="sectionHead" id="model-details"><span class="titlemark">E.1   </span> <a id="x98-368000E.1"></a>Model details</h3>
 <!--  l. 7  --><p class="noindent">
@@ -74,7 +74,7 @@ truncation.
                                                                                 
 
                                                                                 
-in Eq. <a href="LGAEarchitecture.html#x78-286001r1">16.2.1<!--  tex4ht:ref: eq:06_lgae_msg   --></a> is chosen to be the Lorentzian bell function as in Ref. [<a href="Bibliography.html#Xbogatskiy2020lorentz">53</a>]. For all models, the latent
+in Eq. <a href="LGAEarchitecture.html#x78-286001r1">16.2.1<!--  tex4ht:ref: eq:06_lgae_msg   --></a> is chosen to be the Lorentzian bell function as in Ref. [<a href="Bibliography.html#Xbogatskiy2020lorentz">54</a>]. For all models, the latent
 space contains only <!--  l. 24  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mi>τ</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>0</mn><mo class="MathClass-punc" stretchy="false">,</mo><mn>0</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msub> <mo class="MathClass-rel" stretchy="false">=</mo> <mn>1</mn></mrow></math>
 complex Lorentz scalar, as we found increasing the number of scalars beyond one did
 not improve the performance in either reconstruction or anomaly detection. Empirically,
@@ -119,7 +119,7 @@ is the message for updating node embedding in node
 any learnable mapping at the current MP layer. A diagram for an MPNN layer is shown
 in Figure <a href="#an-mpnn-layer-in-the-gnnae-here-edgenet-and-nodenet-are-feedforward-neural-networks">E.1<!--  tex4ht:ref: fig:06_lgae_gnn-message-passing   --></a>. The overall architecture is similar to that in Figure <a href="LGAEarchitecture.html#individual-lorentz-group-equivariant-message-passing-lmp-layers-are-shown-on-the-left-and-the-lgae-architecture-is-built-out-of-lmps-on-the-right">16.1<!--  tex4ht:ref: fig:06_lgae_architecture-full   --></a>, with the LMP
 replaced by the MPNN. The code for the GNNAE model can be found in the
-Ref. [<a href="Bibliography.html#XGNNAE_code">443</a>].
+Ref. [<a href="Bibliography.html#XGNNAE_code">456</a>].
 </p>
 <figure class="figure">
 <!--  l. 48  --><p class="noindent" id="an-mpnn-layer-in-the-gnnae-here-edgenet-and-nodenet-are-feedforward-neural-networks"> <img alt="PIC" src="figures/06-ML4Jets/lgae/architectures/GNNAE-MPNN-.png" style="max-width:9.48%"/> <a id="x98-370003r1"></a>
@@ -190,13 +190,13 @@ MPNN layers. The learnable functions in each layer are optimized to be </p><tabl
 </mtd><mtd>
 </mtd></mtr></mtable>
 </mrow></math></td><td class="eq-no">(E.1.7)</td></tr></table>
-<!--  l. 126  --><p class="noindent">where <!--  l. 127  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><mi class="qopname"> max</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><mo class="MathClass-open" stretchy="false">(</mo><mn>0.2</mn><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
+<!--  l. 126  --><p class="noindent">where <!--  l. 127  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mrow><mstyle mathvariant="normal"><mi>LeakyReLU</mi></mstyle></mrow><mrow><mn>0.2</mn></mrow></msub><mo class="MathClass-open" stretchy="false">(</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo> <mo class="MathClass-rel" stretchy="false">=</mo><mi class="qopname"> max</mi><mo> <!--  FUNCTION APPLICATION  --> </mo><mo class="MathClass-open" stretchy="false">(</mo><mn>0.2</mn><mi>x</mi><mo class="MathClass-punc" stretchy="false">,</mo><mi>x</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>
 is the LeakyReLU function.
 Depending on the aggregation layer, the value of
 <!--  l. 129  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>δ</mi></math> in
 <!--  l. 129  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mi>f</mi></mrow><mrow><mi>n</mi></mrow><mrow><mo class="MathClass-open" stretchy="false">(</mo><mn>3</mn><mo class="MathClass-close" stretchy="false">)</mo></mrow></msubsup></math>
 and the final aggregation layer is different. For GNNAE-JL encoders,
-<!--  l. 130  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>δ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>N</mi> <mo class="MathClass-bin" stretchy="false">×</mo><mi class="qopname"> dim</mi><mo> ⁡<!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, where
+<!--  l. 130  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>δ</mi> <mo class="MathClass-rel" stretchy="false">=</mo> <mi>N</mi> <mo class="MathClass-bin" stretchy="false">×</mo><mi class="qopname"> dim</mi><mo> <!--  FUNCTION APPLICATION  --> </mo><!--  nolimits  --><mo class="MathClass-open" stretchy="false">(</mo><mi>L</mi><mo class="MathClass-close" stretchy="false">)</mo></mrow></math>, where
 <!--  l. 130  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi></math> is the latent
 space, and <!--  l. 130  --><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math> is the
 number of nodes in the graph. Then, mean aggregation is done across the graph. For GNNAE-PL

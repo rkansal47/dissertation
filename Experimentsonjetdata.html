@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -33,7 +33,7 @@
 <span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="Experimentsongaussiandistributeddata.html">⭠</a> <a href="DemonstrationonparticlecloudGANs.html">⭢</a> </nav>
 <h3 class="sectionHead" id="experiments-on-jet-data"><span class="titlemark">11.3   </span> <a id="x56-25200011.3"></a>Experiments on jet data</h3>
 <!--  l. 292  --><p class="noindent">We next test the performance of the Wasserstein distance,
@@ -41,14 +41,14 @@
 MMD, precision, and recall on high momentum gluon jets from the <span class="small-caps">JetNet</span> dataset. As
 discussed in Section <a href="Evaluationmetricsforgenerativemodels.html#evaluation-metrics-for-generative-models">11.1<!--  tex4ht:ref: sec:04_evaluating_metrics   --></a>, we test all metrics on two sets of features per jet: (i)
 physically meaningful high-level features and (ii) features derived from a pretrained
-classifier. We choose a set of 36 energy flow polynomials (EFPs) [<a href="Bibliography.html#XKomiske_2017aww">313</a>] (all
+classifier. We choose a set of 36 energy flow polynomials (EFPs) [<a href="Bibliography.html#XKomiske_2017aww">322</a>] (all
 EFPs of degree less than five) for the former, as they form a complete basis for
 all infrared- and collinear-safe observables. The classifier features are derived
-from the activations of the penultimate layer of the SOTA ParticleNet [<a href="Bibliography.html#XQu_2019gqs">227</a>]
+from the activations of the penultimate layer of the SOTA ParticleNet [<a href="Bibliography.html#XQu_2019gqs">230</a>]
 classifier, as described in Section <a href="MessagepassingGANs.html#message-passing-gans">10.1<!--  tex4ht:ref: sec:04_mpgan   --></a>. Finally, we test the binary classifier
-metric as in Refs. [<a href="Bibliography.html#Xkrause_caloflow">355</a>, <a href="Bibliography.html#Xcalochallenge">356</a>] using both ParticleNet directly on the low-level jet
+metric as in Refs. [<a href="Bibliography.html#Xkrause_caloflow">365</a>, <a href="Bibliography.html#Xcalochallenge">366</a>] using both ParticleNet directly on the low-level jet
 features and a two-layer fully connected network (FCN) on the high-level EFPs.
-We note that Refs. [<a href="Bibliography.html#Xkrause_caloflow">355</a>, <a href="Bibliography.html#Xcalochallenge">356</a>] do not provide a recipe for measuring the null
+We note that Refs. [<a href="Bibliography.html#Xkrause_caloflow">365</a>, <a href="Bibliography.html#Xcalochallenge">366</a>] do not provide a recipe for measuring the null
 distribution, instead relying on direct comparisons between area under the
 curve (AUC) values, which is a limitation of this classifier-based metric. We
                                                                                 
@@ -223,8 +223,8 @@ similar performance, with the former having a slight edge. In addition,
 physical features—<i>Fréchet physics distance (FPD)</i> for short—has a number of practical
 benefits. For instance, it can be consistently applied to any data structure (e.g. point
 clouds or images) and easily adapted to different datasets as long as the same physical
-features can be derived from the data samples (Ref. [<span class="ec-lmbx-12">? </span>] and Section <a href="MessagepassingGANs.html#message-passing-gans">10.1<!--  tex4ht:ref: sec:04_mpgan   --></a> derive similar
-jet observables from images and point clouds, respectively). These are both
+features can be derived from the data samples (Ref. [<a href="Bibliography.html#XdeOliveira_2017pjk">279</a>] and Section <a href="MessagepassingGANs.html#message-passing-gans">10.1<!--  tex4ht:ref: sec:04_mpgan   --></a> derive
+similar jet observables from images and point clouds, respectively). These are both
 difficult to do with features derived from a pretrained classifier, where different
 classifier architectures may need to be considered for different data structures and
 potentially even different datasets. FPD is also more easily interpreted, as evaluators

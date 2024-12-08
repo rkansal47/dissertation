@@ -11,7 +11,7 @@
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <link href="assets/icon.png" rel="icon" type="image/x-icon"/>
 </head><body>
-<nav class="TOC"><span class="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
+<nav class="TOC"><span class="mainToc" id="mainToc"><a href="index.html"><img alt="Symmetries, QFT, &amp; The Standard Model" class="mainTocLogo" src="assets/logo.png" width="100%"/></a></span>
 <span class="likepartToc"><a href="Frontmatter.html#front-matter">Front matter</a></span>
 <span class="likepartToc"><a href="AbstractoftheDissertation.html#abstract-of-the-dissertation">Abstract of the Dissertation</a></span>
 <span class="likepartToc"><a href="Introduction.html#introduction">Introduction</a></span>
@@ -30,14 +30,14 @@
 <span class="partToc">VII  <a href="Appendix.html#appendix">Appendix</a></span>
 <span class="likepartToc"><a href="Bibliography.html#bibliography">Bibliography</a></span>
 </nav>
-<main class="main-content"><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 12px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 12px; right: 54px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a>
+<main class="main-content"><a class="header-link smallscreenhide" href="#mainToc" rel="noopener noreferrer" style="top: 11px; left: 150px;" target="_self"><img alt="Table of Contents" class="header-icon" src="assets/sidebar.png" style="width: 32px; height: 32px;"/></a><a class="header-link" href="https://www.raghavkansal.com" rel="noopener noreferrer" style="top: 13px; right: 12px;" target="_blank"><img alt="My website" class="header-icon" src="assets/icon.png" style="width: 26px; height: 26px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation/blob/gh-pages/dissertation.pdf?raw=true" rel="noopener noreferrer" style="top: 13px; right: 85px;" target="_blank"><img alt="Download PDF" class="header-icon" src="assets/download.png" style="width: 25px; height: 25px;"/></a><a class="header-link" href="https://github.com/rkansal47/dissertation" rel="noopener noreferrer" style="top: 10px; right: 44px;" target="_blank"><img alt="GitHub Repository" class="header-icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 32px; height: 32px;"/></a>
 <nav class="crosslinks-top"> <a href="Lorentzgroupequivariantautoencoders.html">⭠</a> <a href="LGAEarchitecture.html">⭢</a> </nav>
 <h3 class="sectionHead" id="introduction3"><span class="titlemark">16.1   </span> <a id="x77-28400016.1"></a>Introduction</h3>
 <!--  l. 78  --><p class="noindent">In this chapter, we present the first Lorentz-group-equivariant autoencoder (LGAE) for
 jets. As described in Chapter <a href="Autoencodersandgenerativemodels.html#autoencoders-and-generative-models">7.3<!--  tex4ht:ref: sec:03_genaes   --></a>, autoencoders are networks that learn to encode
 input data into, and decode data from, a low dimensional latent space, and
-thus have interesting applications in data compression [<a href="Bibliography.html#XAE-data-compression-1">403</a>, <a href="Bibliography.html#XAE-data-compression-2">404</a>] and anomaly
-detection [<a href="Bibliography.html#XTsan_2021brw">66</a>, <a href="Bibliography.html#XFarina-anomaly">245</a>, <a href="Bibliography.html#XFinke-anomaly">247</a>, <a href="Bibliography.html#XAtkinson_2021nlt">259</a>, <a href="Bibliography.html#XAE-anomaly">405</a>–<a href="Bibliography.html#XQUAK">408</a>]. Both tasks are particularly relevant for
+thus have interesting applications in data compression [<a href="Bibliography.html#XAE-data-compression-1">414</a>, <a href="Bibliography.html#XAE-data-compression-2">415</a>] and anomaly
+detection [<a href="Bibliography.html#XTsan_2021brw">67</a>, <a href="Bibliography.html#XFarina-anomaly">248</a>, <a href="Bibliography.html#XFinke-anomaly">250</a>, <a href="Bibliography.html#XAtkinson_2021nlt">262</a>, <a href="Bibliography.html#XAE-anomaly">416</a>–<a href="Bibliography.html#XQUAK">419</a>]. Both tasks are particularly relevant for
 HEP: the former to cope with the storage and processing of the ever-increasing
 data collected at the LHC; and the latter for model-agnostic searches for new
 physics.
@@ -45,7 +45,7 @@ physics.
 to not only increase performance in both respects, but also provide a more
 interpretable latent space and reduce training data requirements. As discussed in
 Chapter <a href="Equivariantneuralnetworks.html#equivariant-neural-networks">7.2<!--  tex4ht:ref: sec:03_ml_equivariantnns   --></a>, Lorentz symmetry has been successfully exploited recently in HEP for jet
-classification [<a href="Bibliography.html#Xbogatskiy2020lorentz">53</a>, <a href="Bibliography.html#XLorentzNet">409</a>–<a href="Bibliography.html#XButter_2018">411</a>], with competitive and even SOTA results. In the same
+classification [<a href="Bibliography.html#Xbogatskiy2020lorentz">54</a>, <a href="Bibliography.html#XLorentzNet">420</a>–<a href="Bibliography.html#XButter_2018">422</a>], with competitive and even SOTA results. In the same
 spirit, we aim to extend these developments to an autoencoder and explore its
 performance and interpretability. To do so, we employ the Fourier space approach
 discussed above, which uses the set of irreducible representations (irreps) of the
