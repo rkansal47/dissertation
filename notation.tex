@@ -243,3 +243,17 @@
 \newcommand{\squarebracket}[1]{\left[ #1 \right]}
 \newcommand{\xmark}{\text{\ding{55}}}
 \newcommand{\order}[1]{\mathcal{O} \left( #1 \right)}
+
+
+\makeatletter
+\def\lasthline{\noalign{\hrule}\noalign{\vskip-2em\vskip-\arraycolsep}}
+\def\fbottomrule{\noalign{\bottomrule}\noalign{\vskip-2em\vskip-\arraycolsep}}
+\makeatother
+
+\newcommand{\cbottomrule}{%
+  \ifdefined\HCode  % slashed not supported by tex4ht
+    \lasthline
+  \else
+    \bottomrule
+  \fi
+}
