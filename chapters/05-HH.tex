@@ -151,7 +151,7 @@ A summary of all offline selections is provided in Table~\ref{table:05_selection
     % Selection criteria rows
     & Not passing VBF selections & \\
     $\TXbbbb \geq$ VBF \TXbb WP & $\TXbbbb \geq$ ggF \TXbb WP & $\TXbbbb <$ ggF \TXbb WP \\
-    $\vbfbdt \geq$ VBF BDT WP & $\ggfbdt \geq$ ggF BDT WP & \\ \bottomrule
+    $\vbfbdt \geq$ VBF BDT WP & $\ggfbdt \geq$ ggF BDT WP & \\ \cbottomrule
     \end{tabular}
     \label{table:05_selections_nonresonant}
 \end{table}
@@ -211,7 +211,7 @@ A summary of the offline selections is provided in Table~\ref{table:EvtSel-merge
     Pass & Fail & Pass & Fail \\ \midrule
     $\TXbb \geq \mathrm{HP\ WP}$ & $\TXbb < \mathrm{HP\ WP}$ & $\TXbb \geq \mathrm{HP\ WP}$ & $\TXbb < \mathrm{HP\ WP}$ \\
     $\THWW \geq 0.6$ & $\THWW < 0.6$ & $\THWW \geq 0.6$ & $\THWW < 0.6$ \\
-    \bottomrule
+    \cbottomrule
     \end{tabular}
     }
 \end{table}
@@ -275,8 +275,8 @@ Subdominant sources considered include uncertainties related to parton distribut
     \centering
     \resizebox*{\textwidth}{!}{
         \begin{tabular}{ccc}
-            \hline
-            Source                                      & Processes affected & Uncertainty (combined \%) \\ \hline
+            \toprule
+            Source                                      & Processes affected & Uncertainty (combined \%) \\ \midrule
             ggF \HH production cross section            & ggF \HH            & $+5\%$/$-19\%$            \\
             VBF \HH production cross section            & VBF \HH            & $2.1\%$                   \\
             \hbb branching fraction                     & \HH and \XHY       & $1.25\%$                  \\
@@ -292,7 +292,7 @@ Subdominant sources considered include uncertainties related to parton distribut
             PDF                                         & All MC             & $1$--$4\%$                \\
             Luminosity                                  & All MC             & $1\%$                     \\
             Pileup                                      & All MC             & $1\%$                     \\
-            Trigger efficiency                          & All MC             & ${<}1\%$                  \\\hline
+            Trigger efficiency                          & All MC             & ${<}1\%$                  \\\cbottomrule
         \end{tabular}
     }
 \end{table}
@@ -306,12 +306,12 @@ Subdominant sources considered include uncertainties related to parton distribut
         \label{tab:05_hh_nonres_part_ljp_sfs}
         \resizebox*{1\textwidth}{!}{
             \begin{tabular}{c|c|c|c|c|c|c}
-                \hline
+                \toprule
                 \multirow{2}{*}{Signal Region} & \multirow{2}{*}{Process} & \multirow{2}{*}{SF $\pm$ unc.} & \multicolumn{4}{c}{Uncertainty components (fractional)}                                                                 \\ \cline{4-7}
                                                &                          &                                & Ratio MC modeling                          & Ratio statistical & Ratio \pt extrapolation & Subjet matching \\
-                \hline
+                \midrule
                 \input{tables/05-HH/nonres_lpsfs.tex}
-                \\ \hline
+                \\ \cbottomrule
             \end{tabular}
         }
     \end{center}
@@ -325,12 +325,12 @@ Subdominant sources considered include uncertainties related to parton distribut
     \label{tab:05_hh_res_part_ljp_sfs}
     \resizebox*{1\textwidth}{!}{
         \begin{tabular}{c|c|c|c|c|c}
-        \hline
+        \toprule
         \multirow{2}{*}{Process} & \multirow{2}{*}{SF $\pm$ Unc.} & \multicolumn{4}{c}{Uncertainty components (fractional)} \\ \cline{3-6}
          & & Ratio MC modeling                          & Ratio statistical & Ratio \pt extrapolation & Subjet matching \\
-        \hline
+        \midrule
         \input{tables/05-HH/res_sfs.tex}
-        \\ \hline
+        \\ \cbottomrule
         \end{tabular}
     }
     \end{center}

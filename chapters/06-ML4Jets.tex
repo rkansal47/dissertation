@@ -233,7 +233,7 @@ The LGAE models are verified to be equivariant to Lorentz boosts and rotations u
         Jet-level              & GNNAE-JL       & \xmark                  & \checkmark (invariance) & \checkmark (equivariance)                          \\
                                & Particle-level & GNNAE-PL                & \xmark                  & \checkmark (equivariance) & \checkmark (equivariance) \\[2mm]
         CNNAE & & CNNAE & \xmark  & \xmark & \checkmark (equivariance) \\
-        \bottomrule
+        \cbottomrule
     \end{tabular}
     }
 \end{table}
@@ -308,7 +308,7 @@ The LGAE-Min-Max model outperforms the GNNAE-JL in reconstructing all features a
         & \multicolumn{2}{c}{Particle \phirel}
         \\ \cline{4-9}
         &&& Median & IQR & Median & IQR & Median & IQR
-        \\ \hline
+        \\ \midrule
         \multirow{4}{*}{LGAE} & \multirow{2}{*}{Min-max}
         & $\tau_{(1/2, 1/2)} = 4$ ($56.67\%$)
         & $\mathit{0.006}$ & $\mathit{0.562}$
@@ -347,7 +347,7 @@ The LGAE-Min-Max model outperforms the GNNAE-JL in reconstructing all features a
     & $\mathit{-0.040}$ & $\mathit{0.892}$
     & ${-0.037}$ & $\mathit{0.177}$
     & $\mathit{0.005}$ & $0.243$                              \\
-        \bottomrule
+        \cbottomrule
     \end{tabular}
     }
 \end{table}
@@ -377,7 +377,7 @@ The LGAE-Min-Max model outperforms the GNNAE-JL in reconstructing all features a
          & Median & IQR
          & Median & IQR
          & Median & IQR
-        \\ \hline
+        \\ \midrule
         \multirow{4}{*}{LGAE}
          & \multirow{2}{*}{Min-max}
          & $\tau_{(1/2,1/2)} = 4$ ($56.67\%$)
@@ -447,7 +447,7 @@ The LGAE-Min-Max model outperforms the GNNAE-JL in reconstructing all features a
         & $0.017$
         & $\mathbf{<10^{-3}}$
         & $0.003$ \\
-        \bottomrule
+        \cbottomrule
     \end{tabular}
     }
 \end{table}
@@ -498,7 +498,7 @@ Furthermore, LGAE models have significantly higher signal efficiencies than GNNA
         \multirow{2}{*}{Aggregation} & \multirow{2}{*}{Latent space}       & \multirow{2}{*}{AUC}                 &
         \multicolumn{3}{c}{$\varepsilon_s$ at given $\varepsilon_b$}
         \\ \cline{5-7}
-        & & & & $\varepsilon_s (10^{-1})$ & $\varepsilon_s (10^{-2})$ & $\varepsilon_s (10^{-3})$ \\ \hline
+        & & & & $\varepsilon_s (10^{-1})$ & $\varepsilon_s (10^{-2})$ & $\varepsilon_s (10^{-3})$ \\ \midrule
         \multirow{6}{*}{LGAE}
         & \multirow{3}{*}{Min-Max}
         & $\tau_{(1/2,1/2)} = 2$ ($30.00\%$)  & $0.7253$ & $0.5706$ & $0.1130$ & $\mathit{0.0011}$                                     \\
@@ -522,7 +522,7 @@ Furthermore, LGAE models have significantly higher signal efficiencies than GNNA
        & $0.2473$
        & $0.0469$
        & $0.0053$ \\
-        \bottomrule
+        \cbottomrule
     \end{tabular}
     }
 \end{table}
