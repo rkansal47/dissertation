@@ -30,6 +30,6 @@ Some additional changes:
 
  - Bunch of changes to the `postprocess.py` script, `config.cfg` and `style.css` stylesheet to get the table of contents, main page, organization and some minor visuals right.
  - `pic-tabular` make4ht option for SVG tables; needed because of very complex tables which did not convert well to native HTML.
-   - Needed a [fix](#2) to resolve this minor cosmetic [issue](https://github.com/michal-h21/make4ht/issues/160).
+   - Needed a [fix](https://github.com/rkansal47/dissertation/pull/2) to resolve this minor cosmetic [issue](https://github.com/michal-h21/make4ht/issues/160).
    - Ideally would also like to be able to change the font used in the table SVGs some day.
  - Unfortunately the tex4ht conversion is not able to handle image clippings well :(
